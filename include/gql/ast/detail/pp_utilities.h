@@ -1,0 +1,72 @@
+// Copyright 2021 Peter Dimov
+// Distributed under the Boost Software License, Version 1.0.
+// https://www.boost.org/LICENSE_1_0.txt
+
+#pragma once
+
+#define GQL_DETAIL_PP_EXPAND(x) x
+
+#define GQL_DETAIL_GET_TUPLE_FIRST(a, b) a
+#define GQL_DETAIL_GET_TUPLE_SECOND(a, b) b
+
+#define GQL_DETAIL_PP_CAT(x, y) GQL_DETAIL_PP_CAT_I(x, y)
+#define GQL_DETAIL_PP_CAT_I(x, ...) x ## __VA_ARGS__
+
+#if defined(_MSC_VER) && !defined(__clang__)
+
+#define GQL_DETAIL_PP_FIRST(x) GQL_DETAIL_PP_FIRST_I((x))
+#define GQL_DETAIL_PP_FIRST_I(x) GQL_DETAIL_PP_FIRST_II x
+#define GQL_DETAIL_PP_FIRST_II(x, ...) x
+
+#else
+
+#define GQL_DETAIL_PP_FIRST(x) GQL_DETAIL_PP_FIRST_I(x)
+#define GQL_DETAIL_PP_FIRST_I(x, ...) x
+
+#endif
+
+#define GQL_DETAIL_PP_IS_PAREN_I(x) GQL_DETAIL_PP_CAT(GQL_DETAIL_PP_IS_PAREN_I_, GQL_DETAIL_PP_IS_PAREN_II x)
+#define GQL_DETAIL_PP_IS_PAREN_II(...) 0
+#define GQL_DETAIL_PP_IS_PAREN_I_0 1,
+#define GQL_DETAIL_PP_IS_PAREN_I_GQL_DETAIL_PP_IS_PAREN_II 0,
+
+#define GQL_DETAIL_PP_IS_PAREN(x) GQL_DETAIL_PP_FIRST(GQL_DETAIL_PP_IS_PAREN_I(x))
+
+#define GQL_DETAIL_PP_EMPTY
+
+#define GQL_DETAIL_PP_IS_EMPTY(x) GQL_DETAIL_PP_IS_EMPTY_I(GQL_DETAIL_PP_IS_PAREN(x), GQL_DETAIL_PP_IS_PAREN(x GQL_DETAIL_PP_EMPTY ()))
+#define GQL_DETAIL_PP_IS_EMPTY_I(x, y) GQL_DETAIL_PP_IS_EMPTY_II(x, y)
+#define GQL_DETAIL_PP_IS_EMPTY_II(x, y) GQL_DETAIL_PP_IS_EMPTY_III(x, y)
+#define GQL_DETAIL_PP_IS_EMPTY_III(x, y) GQL_DETAIL_PP_IS_EMPTY_III_ ## x ## y
+#define GQL_DETAIL_PP_IS_EMPTY_III_00 0
+#define GQL_DETAIL_PP_IS_EMPTY_III_01 1
+#define GQL_DETAIL_PP_IS_EMPTY_III_10 0
+#define GQL_DETAIL_PP_IS_EMPTY_III_11 0
+
+#define GQL_DETAIL_PP_CALL(F, a, x) GQL_DETAIL_PP_CAT(GQL_DETAIL_PP_CALL_I_, GQL_DETAIL_PP_IS_EMPTY(x))(F, a, x)
+#define GQL_DETAIL_PP_CALL_I_0(F, a, x) F(a, x)
+#define GQL_DETAIL_PP_CALL_I_1(F, a, x)
+
+#define GQL_DETAIL_PP_PARSE(x) GQL_DETAIL_PP_CAT(GQL_DETAIL_PP_PARSE_I_, GQL_DETAIL_PP_PARSE_II x)
+#define GQL_DETAIL_PP_PARSE_II(...) 0, (__VA_ARGS__),
+#define GQL_DETAIL_PP_PARSE_I_GQL_DETAIL_PP_PARSE_II 0, ~,
+#define GQL_DETAIL_PP_PARSE_I_0 1
+
+#if defined(_MSC_VER) && !defined(__clang__)
+
+#define GQL_DETAIL_PP_NAME(x) GQL_DETAIL_PP_NAME_I(GQL_DETAIL_PP_PARSE(x))
+#define GQL_DETAIL_PP_NAME_I(x) GQL_DETAIL_PP_NAME_II((x))
+#define GQL_DETAIL_PP_NAME_II(x) GQL_DETAIL_PP_NAME_III x
+#define GQL_DETAIL_PP_NAME_III(x, y, z) #z
+
+#else
+
+#define GQL_DETAIL_PP_NAME(x) GQL_DETAIL_PP_NAME_I(GQL_DETAIL_PP_PARSE(x))
+#define GQL_DETAIL_PP_NAME_I(x) GQL_DETAIL_PP_NAME_II(x)
+#define GQL_DETAIL_PP_NAME_II(x, y, z) #z
+
+#endif
+
+#define GQL_DETAIL_PP_EXPAND_V(...) __VA_ARGS__
+
+
