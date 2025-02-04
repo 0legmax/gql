@@ -125,19 +125,19 @@ GQL_AST_STRUCT(SessionSetParameterName, ifNotExists, param)
 // optTypedGraphInitializer
 //    : (typed? graphReferenceValueType)? graphInitializer
 struct OptTypedGraphInitializer : NodeBase<OptTypedGraphInitializer> {
-  std::optional<GraphReferenceValueType> refType;
+  std::optional<GraphReferenceValueType> type;
   GraphExpression initializer;
 };
-GQL_AST_STRUCT(OptTypedGraphInitializer, refType, initializer)
+GQL_AST_STRUCT(OptTypedGraphInitializer, type, initializer)
 
 // optTypedBindingTableInitializer
 //    : (typed? bindingTableReferenceValueType)? bindingTableInitializer
 struct OptTypedBindingTableInitializer
     : NodeBase<OptTypedBindingTableInitializer> {
-  std::optional<BindingTableReferenceValueType> refType;
+  std::optional<BindingTableReferenceValueType> type;
   BindingTableExpression initializer;
 };
-GQL_AST_STRUCT(OptTypedBindingTableInitializer, refType, initializer)
+GQL_AST_STRUCT(OptTypedBindingTableInitializer, type, initializer)
 
 // sessionSetGraphParameterClause
 //    : PROPERTY? GRAPH sessionSetParameterName optTypedGraphInitializer
@@ -369,7 +369,7 @@ using OfGraphType = std::
 //    catalogGraphParentAndName (openGraphType | ofGraphType) graphSource?
 struct CreateGraphStatement : NodeBase<CreateGraphStatement> {
   enum class CreateType {
-    Default,
+    Default,  // Shall not identify an existing graph.
     IfNotExists,
     OrReplace,
   } createType;
@@ -404,7 +404,7 @@ using GraphTypeSource =
 //    GRAPH TYPE) catalogGraphTypeParentAndName graphTypeSource
 struct CreateGraphTypeStatement : NodeBase<CreateGraphTypeStatement> {
   enum class CreateType {
-    Default,
+    Default,  // Shall not identify an existing graph type.
     IfNotExists,
     OrReplace,
   } createType;
@@ -536,7 +536,7 @@ GQL_AST_STRUCT(SetPropertyItem, var, property, value)
 //    propertyKeyValuePairList? RIGHT_BRACE
 struct SetAllPropertiesItem : NodeBase<SetAllPropertiesItem> {
   BindingVariableReference var;
-  std::optional<PropertyKeyValuePairList> properties;
+  PropertyKeyValuePairList properties;
 };
 GQL_AST_STRUCT(SetAllPropertiesItem, var, properties)
 
@@ -663,7 +663,6 @@ enum class MatchMode {
 
 // numberOfPaths
 //    : nonNegativeIntegerSpecification
-using NumberOfPaths = NonNegativeIntegerSpecification;
 
 // allPathSearch
 //    : ALL pathMode? pathOrPaths?
@@ -931,15 +930,15 @@ GQL_AST_VALUE(AsteriskValue)
 //    | NO BINDINGS
 struct ReturnStatementBody : NodeBase<ReturnStatementBody> {
   std::optional<SetQuantifier> quantifier;
-  std::optional<ReturnItemList> items;  // Not set means ASTERISK
+  std::optional<ReturnItemList>
+      items;  // Not set means ASTERISK; empty list means NO BINDINGS
   GroupingElementList groupBy;
 };
 GQL_AST_STRUCT(ReturnStatementBody, quantifier, items, groupBy)
 
 // returnStatement
 //    : RETURN returnStatementBody
-using ReturnStatement =
-    std::optional<ReturnStatementBody>;  // Not set means "NO BINDINGS"
+using ReturnStatement = ReturnStatementBody;
 
 // primitiveResultStatement
 //    : returnStatement orderByAndPageStatement?

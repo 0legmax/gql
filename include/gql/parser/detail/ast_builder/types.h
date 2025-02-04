@@ -63,16 +63,16 @@ struct NumericType {
       case GQLParser::INTEGER:
         if (small_) {
           value->typeOption = ast::SimpleNumericType{
-              unsigned_ ? ast::SimpleNumericType::UnsignedSmallInteger
-                        : ast::SimpleNumericType::SmallInteger};
+              unsigned_ ? ast::SimpleNumericType::USmallInt
+                        : ast::SimpleNumericType::SmallInt};
         } else if (big_) {
           value->typeOption = ast::SimpleNumericType{
-              unsigned_ ? ast::SimpleNumericType::UnsignedBigInteger
-                        : ast::SimpleNumericType::BigInteger};
+              unsigned_ ? ast::SimpleNumericType::UBigInt
+                        : ast::SimpleNumericType::BigInt};
         } else {
           value->typeOption = ast::PrecisionNumericType{
-              unsigned_ ? ast::PrecisionNumericType::Type::UnsignedInteger
-                        : ast::PrecisionNumericType::Type::Integer};
+              unsigned_ ? ast::PrecisionNumericType::Type::UInt
+                        : ast::PrecisionNumericType::Type::Int};
         }
         break;
 
@@ -147,38 +147,36 @@ struct NumericType {
         value->typeOption =
             ast::SimpleNumericType{ast::SimpleNumericType::UBigInt};
         break;
-
       case GQLParser::INTEGER8:
-        value->typeOption = ast::SimpleNumericType{
-            unsigned_ ? ast::SimpleNumericType::UnsignedInteger8
-                      : ast::SimpleNumericType::Integer8};
+        value->typeOption =
+            ast::SimpleNumericType{unsigned_ ? ast::SimpleNumericType::UInt8
+                                             : ast::SimpleNumericType::Int8};
         break;
       case GQLParser::INTEGER16:
-        value->typeOption = ast::SimpleNumericType{
-            unsigned_ ? ast::SimpleNumericType::UnsignedInteger16
-                      : ast::SimpleNumericType::Integer16};
+        value->typeOption =
+            ast::SimpleNumericType{unsigned_ ? ast::SimpleNumericType::UInt16
+                                             : ast::SimpleNumericType::Int16};
         break;
       case GQLParser::INTEGER32:
-        value->typeOption = ast::SimpleNumericType{
-            unsigned_ ? ast::SimpleNumericType::UnsignedInteger32
-                      : ast::SimpleNumericType::Integer32};
+        value->typeOption =
+            ast::SimpleNumericType{unsigned_ ? ast::SimpleNumericType::UInt32
+                                             : ast::SimpleNumericType::Int32};
         break;
       case GQLParser::INTEGER64:
-        value->typeOption = ast::SimpleNumericType{
-            unsigned_ ? ast::SimpleNumericType::UnsignedInteger64
-                      : ast::SimpleNumericType::Integer64};
+        value->typeOption =
+            ast::SimpleNumericType{unsigned_ ? ast::SimpleNumericType::UInt64
+                                             : ast::SimpleNumericType::Int64};
         break;
       case GQLParser::INTEGER128:
-        value->typeOption = ast::SimpleNumericType{
-            unsigned_ ? ast::SimpleNumericType::UnsignedInteger128
-                      : ast::SimpleNumericType::Integer128};
+        value->typeOption =
+            ast::SimpleNumericType{unsigned_ ? ast::SimpleNumericType::UInt128
+                                             : ast::SimpleNumericType::Int128};
         break;
       case GQLParser::INTEGER256:
-        value->typeOption = ast::SimpleNumericType{
-            unsigned_ ? ast::SimpleNumericType::UnsignedInteger256
-                      : ast::SimpleNumericType::Integer256};
+        value->typeOption =
+            ast::SimpleNumericType{unsigned_ ? ast::SimpleNumericType::UInt256
+                                             : ast::SimpleNumericType::Int256};
         break;
-
       case GQLParser::FLOAT16:
         value->typeOption =
             ast::SimpleNumericType{ast::SimpleNumericType::Float16};
@@ -226,8 +224,8 @@ struct NumericType {
     if (auto* t = std::get_if<ast::PrecisionNumericType>(&value->typeOption)) {
       return {&t->precision.emplace()};
     }
-    return {
-        &std::get<ast::ScaleNumericType>(value->typeOption).scale.emplace()};
+    return {&std::get<ast::ScaleNumericType>(value->typeOption)
+                 .precision.emplace()};
   }
 
   UnsignedInteger EnterScale() {
@@ -674,12 +672,21 @@ struct ValueType : NodeBaseBuilder {
     return this;
   }
 
-  ClosedDynamicUnionType EnterClosedDynamicUnionTypeAtl1() {
-    return {&value->typeOption.emplace<ast::ValueType::Union>(),
-            &value->notNull};
+  auto EnterClosedDynamicUnionTypeAtl1() {
+    // There are two options of nested content:
+    // 1. Type list "Type1 | Type2". Will be handled by
+    // ClosedDynamicUnionTypeAtl2. No need to create union node now.
+    // 2. Single type "ANY <SomeType>". Union of single type is same as the
+    // type. No need to create union type node at all.
+    return this;
   }
 
   ClosedDynamicUnionType PushClosedDynamicUnionTypeAtl2_ValueType() {
+    if (auto* unionType =
+            std::get_if<ast::ValueType::Union>(&value->typeOption)) {
+      // Don't create nested union type nodes and flatten them.
+      return {unionType, &value->notNull};
+    }
     auto copy = std::make_unique<ast::ValueType>(std::move(*value));
     *value = ast::ValueType{};
     auto& unionType = value->typeOption.emplace<ast::ValueType::Union>();

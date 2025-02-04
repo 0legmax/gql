@@ -75,7 +75,7 @@ struct LabelExpression : NodeBaseBuilder {
   }
 
   SkipTokens EnterLabelExpressionWildcard() {
-    value->option = ast::LabelExpression::Percent{};
+    value->option = ast::LabelExpression::Wildcard{};
     return {};
   }
 
@@ -198,7 +198,7 @@ struct NormalizedPredicate : NodeBaseBuilder {
 
   ValueExpression EnterValueExpression();
 
-  NormalForm EnterNormalForm() { return {&value->form.emplace()}; }
+  NormalForm EnterNormalForm() { return {&value->form}; }
 
  private:
   ast::NormalizedPredicate* value;
@@ -525,7 +525,7 @@ struct WhenOperand : NodeBaseBuilder {
       }
     }
 
-    NormalForm EnterNormalForm() { return {&value->form.emplace()}; }
+    NormalForm EnterNormalForm() { return {&value->form}; }
 
     ast::WhenOperand::IsNormalized* value;
   };
@@ -632,10 +632,10 @@ struct SimpleCase : NodeBaseBuilder {
   CaseOperand EnterCaseOperand() { return {&value->operand}; }
 
   SimpleWhenClause EnterSimpleWhenClause() {
-    return {&value->whenClauses.emplace_back()};
+    return {&value->when.emplace_back()};
   }
 
-  Result EnterElseClause() { return {&value->elseClause.emplace()}; }
+  Result EnterElseClause() { return {&value->else_.emplace()}; }
 
  private:
   ast::SimpleCase* value;
@@ -658,9 +658,9 @@ struct SearchedCase : NodeBaseBuilder {
 
   auto EnterCaseOperand() { return this; }
   SearchedWhenClause EnterSearchedWhenClause() {
-    return {&value->whenClauses.emplace_back()};
+    return {&value->when.emplace_back()};
   }
-  Result EnterElseClause() { return {&value->elseClause.emplace()}; }
+  Result EnterElseClause() { return {&value->else_.emplace()}; }
 
  private:
   ast::SearchedCase* value;
@@ -1035,7 +1035,7 @@ struct NormalizeCharacterString : NodeBaseBuilder {
 
   ValueExpression EnterValueExpression();
 
-  NormalForm EnterNormalForm() { return {&value->form.emplace()}; }
+  NormalForm EnterNormalForm() { return {&value->form}; }
 
  private:
   ast::NormalizeCharacterString* value;

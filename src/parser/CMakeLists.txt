@@ -33,8 +33,6 @@ target_include_directories(gql_parser
 
 target_link_libraries(gql_parser antlr4_static)
 
-enable_testing()
-
 add_executable(gql_parser_test
   parse_file_test.cpp
   parser_test.cpp

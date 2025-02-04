@@ -14,6 +14,12 @@
 
 #pragma once
 
+#include <cassert>
+
+#ifndef GQL_ASSERT
+#define GQL_ASSERT(condition) assert(condition)
+#endif
+
 #define GQL_AST_ENUM_PRINTER_CASE_(EnumType, Tuple)                     \
   GQL_AST_ENUM_PRINTER_CASE(EnumType, GQL_DETAIL_GET_TUPLE_FIRST Tuple, \
                             GQL_DETAIL_GET_TUPLE_SECOND Tuple)

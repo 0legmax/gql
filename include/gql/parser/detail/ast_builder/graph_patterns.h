@@ -26,7 +26,7 @@ struct ElementVariableDeclaration : NodeBaseBuilder {
   ElementVariableDeclaration(ast::ElementVariableDeclaration* node)
       : NodeBaseBuilder(node), value(node) {}
 
-  BindingVariable EnterElementVariable() { return {&value->var}; }
+  BindingVariable EnterElementVariable() { return {&value->name}; }
 
   void OnToken(antlr4::Token* token) {
     if (token->getType() == GQLParser::TEMP) {

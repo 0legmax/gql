@@ -1,11 +1,11 @@
 // Copyright 2025 Oleg Maximenko
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
-// 
+//
 //     http://www.apache.org/licenses/LICENSE-2.0
-// 
+//
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -543,7 +543,7 @@ struct OptTypedGraphInitializer : NodeBaseBuilder {
       : NodeBaseBuilder(node), value(node) {}
 
   GraphReferenceValueType EnterGraphReferenceValueType() {
-    return {&value->refType.emplace()};
+    return {&value->type.emplace()};
   }
 
   GraphExpression EnterGraphInitializer() { return {&value->initializer}; }
@@ -573,8 +573,8 @@ struct OptTypedBindingTableInitializer : NodeBaseBuilder {
       : NodeBaseBuilder(node), value(node) {}
 
   BindingTableType EnterBindingTableReferenceValueType() {
-    value->refType.emplace();
-    return {&value->refType->type, &value->refType->notNull};
+    value->type.emplace();
+    return {&value->type->type, &value->type->notNull};
   }
 
   BindingTableExpression EnterBindingTableInitializer() {
@@ -824,41 +824,29 @@ struct GroupByClause {
 
 struct ReturnStatement : NodeBaseBuilder {
   ReturnStatement(ast::ReturnStatement* node)
-      : NodeBaseBuilder(DeferredNode{}), value(node) {}
+      : NodeBaseBuilder(node), value(node) {}
 
   auto EnterReturnStatementBody() { return this; }
 
-  SetQuantifier EnterSetQuantifier() {
-    return {&EnsureValue().quantifier.emplace()};
-  }
+  SetQuantifier EnterSetQuantifier() { return {&value->quantifier.emplace()}; }
 
-  ReturnItemList EnterReturnItemList() {
-    return {&EnsureValue().items.emplace()};
-  }
+  ReturnItemList EnterReturnItemList() { return {&value->items.emplace()}; }
 
-  GroupByClause EnterGroupByClause() { return {&EnsureValue().groupBy}; }
+  GroupByClause EnterGroupByClause() { return {&value->groupBy}; }
 
   void OnToken(antlr4::Token* token) {
     switch (token->getType()) {
-      case GQLParser::ASTERISK:
-        EnsureValue();
-        break;
-      case GQLParser::NO:
       case GQLParser::BINDINGS:
+        value->items.emplace();
+        break;
+      case GQLParser::ASTERISK:
+      case GQLParser::NO:
       case GQLParser::RETURN:
         break;
     }
   }
 
  private:
-  ast::ReturnStatementBody& EnsureValue() {
-    if (!*value) {
-      value->emplace();
-      SetNode(&value->value());
-    }
-    return **value;
-  }
-
   ast::ReturnStatement* value;
 };
 
@@ -1332,7 +1320,7 @@ struct SetAllPropertiesItem : NodeBaseBuilder {
   BindingVariable EnterBindingVariableReference() { return {&value->var}; }
 
   PropertyKeyValuePairList EnterPropertyKeyValuePairList() {
-    return {&value->properties.emplace()};
+    return {&value->properties};
   }
 
  private:

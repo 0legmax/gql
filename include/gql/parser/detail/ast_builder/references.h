@@ -46,10 +46,8 @@ struct PredefinedSchemaReference {
         *value = ast::PredefinedSchemaReference::HOME_SCHEMA;
         break;
       case GQLParser::CURRENT_SCHEMA:
-        *value = ast::PredefinedSchemaReference::CURRENT_SCHEMA;
-        break;
       case GQLParser::PERIOD:
-        *value = ast::PredefinedSchemaReference::PERIOD;
+        *value = ast::PredefinedSchemaReference::CURRENT_SCHEMA;
         break;
     }
   }

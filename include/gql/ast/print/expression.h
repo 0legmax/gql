@@ -58,11 +58,8 @@ template <>
 struct Printer<TrimSingleCharacterOrByteString> {
   static void Print(OutputStream& os,
                     const TrimSingleCharacterOrByteString& v) {
-    os << "TRIM(";
-    if (v.specification || v.trimString) {
-      os << v.specification << v.trimString << "FROM";
-    }
-    os << v.source << ")";
+    os << "TRIM(" << v.specification << v.trimString << "FROM" << v.source
+       << ")";
   }
 };
 
@@ -104,11 +101,7 @@ struct Printer<TrimMultiCharacterCharacterString> {
 template <>
 struct Printer<NormalizeCharacterString> {
   static void Print(OutputStream& os, const NormalizeCharacterString& v) {
-    os << "NORMALIZE(" << v.expr;
-    if (v.form) {
-      os << "," << *v.form;
-    }
-    os << ")";
+    os << "NORMALIZE(" << v.expr << "," << v.form << ")";
   }
 };
 
@@ -176,7 +169,7 @@ struct Printer<LabelExpression::Binary> {
   }
 };
 
-GQL_AST_VALUE_PRINTER(LabelExpression::Percent, "%")
+GQL_AST_VALUE_PRINTER(LabelExpression::Wildcard, "%")
 
 template <>
 struct Printer<WhenOperand::IsNull> {
@@ -278,9 +271,9 @@ struct Printer<SimpleWhenClause> {
 template <>
 struct Printer<SimpleCase> {
   static void Print(OutputStream& os, const SimpleCase& v) {
-    os << "CASE" << v.operand << v.whenClauses;
-    if (v.elseClause) {
-      os << "ELSE" << *v.elseClause;
+    os << "CASE" << v.operand << v.when;
+    if (v.else_) {
+      os << "ELSE" << *v.else_;
     }
     os << "END";
   }
@@ -296,9 +289,9 @@ struct Printer<SearchedWhenClause> {
 template <>
 struct Printer<SearchedCase> {
   static void Print(OutputStream& os, const SearchedCase& v) {
-    os << "CASE" << v.whenClauses;
-    if (v.elseClause) {
-      os << "ELSE" << *v.elseClause;
+    os << "CASE" << v.when;
+    if (v.else_) {
+      os << "ELSE" << *v.else_;
     }
     os << "END";
   }
@@ -389,13 +382,6 @@ struct Printer<DatetimeSubtraction> {
   static void Print(OutputStream& os, const DatetimeSubtraction& v) {
     os << "DURATION_BETWEEN(" << v.param1 << "," << v.param2 << ")"
        << v.qualifier;
-  }
-};
-
-template <>
-struct Printer<AbsoluteValueExpression> {
-  static void Print(OutputStream& os, const AbsoluteValueExpression& v) {
-    os << "ABS(" << *v.expr << ")";
   }
 };
 

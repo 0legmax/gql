@@ -88,7 +88,7 @@ enum class TrimSpecification { LEADING, TRAILING, BOTH };
 //     ;
 struct TrimSingleCharacterOrByteString
     : NodeBase<TrimSingleCharacterOrByteString> {
-  std::optional<TrimSpecification> specification;
+  TrimSpecification specification = TrimSpecification::BOTH;
   std::optional<ValueExpressionPtr> trimString;
   ValueExpressionPtr source;
 };
@@ -127,7 +127,7 @@ GQL_AST_STRUCT(TrimMultiCharacterCharacterString, type, expr, trimExpr)
 //     ;
 struct NormalizeCharacterString : NodeBase<NormalizeCharacterString> {
   ValueExpressionPtr expr;
-  std::optional<NormalForm> form;
+  NormalForm form = NormalForm::NFC;
 };
 GQL_AST_STRUCT(NormalizeCharacterString, expr, form)
 
@@ -256,13 +256,13 @@ struct LabelExpression : NodeBase<LabelExpression> {
     LabelExpressionPtr left;
     LabelExpressionPtr right;
   };
-  struct Percent {};
-  std::variant<Negation, Binary, LabelName, Percent> option;
+  struct Wildcard {};
+  std::variant<Negation, Binary, LabelName, Wildcard> option;
 };
 GQL_AST_STRUCT(LabelExpression, option)
 GQL_AST_STRUCT(LabelExpression::Negation, expr)
 GQL_AST_STRUCT(LabelExpression::Binary, op, left, right)
-GQL_AST_VALUE(LabelExpression::Percent)
+GQL_AST_VALUE(LabelExpression::Wildcard)
 
 // nullPredicatePart2
 //     : IS NOT? NULL_KW
@@ -317,7 +317,7 @@ struct WhenOperand : NodeBase<WhenOperand> {
   };
   struct IsNormalized {
     bool isNot;
-    std::optional<NormalForm> form;
+    NormalForm form = NormalForm::NFC;
   };
   struct IsDirected {
     bool isNot;
@@ -402,10 +402,10 @@ using ElseClause = Result;
 //     ;
 struct SimpleCase : NodeBase<SimpleCase> {
   CaseOperand operand;
-  std::vector<SimpleWhenClause> whenClauses;
-  std::optional<ElseClause> elseClause;
+  std::vector<SimpleWhenClause> when;
+  std::optional<ElseClause> else_;
 };
-GQL_AST_STRUCT(SimpleCase, operand, whenClauses, elseClause)
+GQL_AST_STRUCT(SimpleCase, operand, when, else_)
 
 // searchedWhenClause : WHEN searchCondition THEN result ;
 struct SearchedWhenClause : NodeBase<SearchedWhenClause> {
@@ -418,10 +418,10 @@ GQL_AST_STRUCT(SearchedWhenClause, condition, result)
 //     : CASE searchedWhenClause+ elseClause? END
 //     ;
 struct SearchedCase : NodeBase<SearchedCase> {
-  std::vector<SearchedWhenClause> whenClauses;
-  std::optional<ElseClause> elseClause;
+  std::vector<SearchedWhenClause> when;
+  std::optional<ElseClause> else_;
 };
-GQL_AST_STRUCT(SearchedCase, whenClauses, elseClause)
+GQL_AST_STRUCT(SearchedCase, when, else_)
 
 // caseSpecification
 //     : simpleCase
@@ -722,10 +722,6 @@ GQL_AST_STRUCT(DatetimeSubtraction, param1, param2, qualifier)
 //     : durationFunction
 //     | absoluteValueExpression
 //     ;
-struct AbsoluteValueExpression : NodeBase<AbsoluteValueExpression> {
-  ValueExpressionPtr expr;
-};
-GQL_AST_STRUCT(AbsoluteValueExpression, expr)
 
 // trimListFunction
 //     : TRIM LEFT_PAREN listValueExpression COMMA numericValueExpression
@@ -752,7 +748,6 @@ GQL_AST_STRUCT(AbsoluteValueExpression, expr)
 using ValueFunction = std::variant<DatetimeSubtraction,
                                    DateTimeFunction,
                                    CurrentDateTimeFunction,
-                                   AbsoluteValueExpression,
                                    SubCharacterOrByteString,
                                    TrimSingleCharacterOrByteString,
                                    FoldCharacterString,
@@ -786,7 +781,7 @@ using ValueFunction = std::variant<DatetimeSubtraction,
 struct NormalizedPredicate : NodeBase<NormalizedPredicate> {
   ValueExpressionPtr expr;
   bool isNot;
-  std::optional<NormalForm> form;
+  NormalForm form = NormalForm::NFC;
 };
 GQL_AST_STRUCT(NormalizedPredicate, expr, isNot, form)
 

@@ -25,7 +25,7 @@ struct Printer<ElementVariableDeclaration> {
   static void Print(OutputStream& os, const ElementVariableDeclaration& v) {
     if (v.isTemp)
       os << "TEMP";
-    os << v.var;
+    os << v.name;
   }
 };
 
@@ -180,8 +180,8 @@ struct Printer<SimplifiedContents> {
 template <>
 struct Printer<SimplifiedPrimary> {
   static void Print(OutputStream& os, const SimplifiedPrimary& v) {
-    if (std::holds_alternative<SimplifiedContents>(v))
-      os << "(" << std::get<SimplifiedContents>(v) << ")";
+    if (auto* contents = std::get_if<SimplifiedContents>(&v))
+      os << "(" << *contents << ")";
     else
       os << std::get<LabelName>(v);
   }

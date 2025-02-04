@@ -59,7 +59,7 @@ struct ChildrenEnumeratedInOrder<gql::ast::EdgeTypePattern> {
 };
 
 template <>
-struct ChildrenEnumeratedInOrder<gql::ast::EndpointPair> {
+struct ChildrenEnumeratedInOrder<gql::ast::NodeTypePattern> {
   static constexpr bool value = false;
 };
 

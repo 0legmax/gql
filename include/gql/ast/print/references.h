@@ -22,8 +22,7 @@ namespace gql::ast::print {
 
 GQL_AST_ENUM_PRINTER(PredefinedSchemaReference,
                      (HOME_SCHEMA, "HOME_SCHEMA"),
-                     (CURRENT_SCHEMA, "CURRENT_SCHEMA"),
-                     (PERIOD, "."))
+                     (CURRENT_SCHEMA, "CURRENT_SCHEMA"))
 
 GQL_AST_VALUE_PRINTER(HomeGraph, "HOME_GRAPH")
 

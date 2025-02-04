@@ -20,21 +20,12 @@
 
 namespace gql::ast::print {
 
-GQL_AST_ENUM_PRINTER_LITERAL(EdgeKind, DIRECTED, UNDIRECTED)
-
-template <>
-struct Printer<PropertyValueType> {
-  static void Print(OutputStream& os, const PropertyValueType& v) {
-    os << v.type;
-    if (v.isOptional)
-      os << "?";
-  }
-};
-
 template <>
 struct Printer<PropertyType> {
   static void Print(OutputStream& os, const PropertyType& v) {
-    os << v.name << "TYPED" << v.valueType;
+    os << v.name << "TYPED" << v.type;
+    if (v.isOptional)
+      os << "?";
   }
 };
 
@@ -73,13 +64,13 @@ struct Printer<NodeTypeFiller> {
   }
 };
 
-GQL_AST_VALUE_PRINTER(EmptyNodeTypeReferenceValue, "")
-
 template <>
-struct Printer<NodeTypeReference> {
-  static void Print(OutputStream& os, const NodeTypeReference& v) {
+struct Printer<std::optional<NodeTypeReference>> {
+  static void Print(OutputStream& os,
+                    const std::optional<NodeTypeReference>& v) {
     os << "(";
-    std::visit([&os](auto& arg) { os << arg; }, v);
+    if (v)
+      os << *v;
     os << ")";
   }
 };
@@ -87,18 +78,9 @@ struct Printer<NodeTypeReference> {
 template <>
 struct Printer<NodeTypePattern> {
   static void Print(OutputStream& os, const NodeTypePattern& v) {
-    if (v.nodeTypeName)
-      os << "NODE TYPE" << *v.nodeTypeName;
+    if (v.typeName)
+      os << "NODE TYPE" << *v.typeName;
     os << "(" << v.localAlias << v.filler << ")";
-  }
-};
-
-template <>
-struct Printer<NodeTypePhrase> {
-  static void Print(OutputStream& os, const NodeTypePhrase& v) {
-    os << "NODE TYPE" << v.filler;
-    if (v.localAlias)
-      os << "AS" << *v.localAlias;
   }
 };
 
@@ -126,28 +108,31 @@ struct Printer<EdgeTypeFiller> {
 template <>
 struct Printer<EdgeTypePattern> {
   static void Print(OutputStream& os, const EdgeTypePattern& v) {
-    if (v.typeName)
-      os << v.kind << "EDGE TYPE" << v.typeName;
-    if (v.isDirected) {
-      os << v.source << "-[" << v.filler << "]->" << v.destination;
+    if (v.filler) {
+      // edgeTypePattern
+      if (v.typeName)
+        os << "EDGE TYPE" << v.typeName;
+      if (v.isDirected) {
+        os << v.source << "-[" << v.filler << "]->" << v.destination;
+      } else {
+        os << v.source << "~[" << v.filler << "]~" << v.destination;
+      }
     } else {
-      os << v.source << "~[" << v.filler << "]~" << v.destination;
+      // edgeTypePhrase
+      const ast::NodeTypeAlias *sourceAlias = nullptr, *destAlias = nullptr;
+      if (v.source)
+        sourceAlias = std::get_if<ast::NodeTypeAlias>(&v.source.value());
+      if (v.destination)
+        destAlias = std::get_if<ast::NodeTypeAlias>(&v.destination.value());
+      if (!sourceAlias || !destAlias) {
+        GQL_ASSERT(false);
+        return;
+      }
+
+      os << (v.isDirected ? "DIRECTED" : "UNDIRECTED") << "EDGE TYPE"
+         << v.typeName << "CONNECTING" << "(" << *sourceAlias
+         << (v.isDirected ? "->" : "~") << *destAlias << ")";
     }
-  }
-};
-
-template <>
-struct Printer<EndpointPair> {
-  static void Print(OutputStream& os, const EndpointPair& v) {
-    os << "(" << v.source << (v.isDirected ? "->" : "~") << v.destination
-       << ")";
-  }
-};
-
-template <>
-struct Printer<EdgeTypePhrase> {
-  static void Print(OutputStream& os, const EdgeTypePhrase& v) {
-    os << v.kind << "EDGE TYPE" << v.filler << "CONNECTING" << v.endpoints;
   }
 };
 

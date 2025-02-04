@@ -23,7 +23,7 @@ namespace gql::ast {
 //     | CURRENT_SCHEMA
 //     | PERIOD
 //     ;
-enum class PredefinedSchemaReference { HOME_SCHEMA, CURRENT_SCHEMA, PERIOD };
+enum class PredefinedSchemaReference { HOME_SCHEMA, CURRENT_SCHEMA };
 
 // homeGraph
 //     : HOME_PROPERTY_GRAPH

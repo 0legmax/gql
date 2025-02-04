@@ -76,8 +76,6 @@ enum class SimpleNumericType {
   Int256,
   SmallInt,
   BigInt,
-  Signed,
-  Unsigned,
   UInt8,
   UInt16,
   UInt32,
@@ -86,22 +84,6 @@ enum class SimpleNumericType {
   UInt256,
   USmallInt,
   UBigInt,
-  Integer8,
-  Integer16,
-  Integer32,
-  Integer64,
-  Integer128,
-  Integer256,
-  SmallInteger,
-  BigInteger,
-  UnsignedInteger8,
-  UnsignedInteger16,
-  UnsignedInteger32,
-  UnsignedInteger64,
-  UnsignedInteger128,
-  UnsignedInteger256,
-  UnsignedSmallInteger,
-  UnsignedBigInteger,
   Float16,
   Float32,
   Float64,
@@ -112,7 +94,7 @@ enum class SimpleNumericType {
 };
 
 struct PrecisionNumericType {
-  enum class Type { Int, UInt, Integer, UnsignedInteger };
+  enum class Type { Int, UInt };
 
   Type type;
   std::optional<uint64_t> precision;

@@ -22,7 +22,6 @@ namespace gql::ast {
 //     : DIRECTED
 //     | UNDIRECTED
 //     ;
-enum class EdgeKind { DIRECTED, UNDIRECTED };
 
 // sourceNodeTypeAlias
 //    : regularIdentifier
@@ -42,20 +41,16 @@ using LocalNodeTypeAlias = RegularIdentifier;
 //     : valueType
 //     | valueType QUESTION_MARK
 //     ;
-struct PropertyValueType : NodeBase<PropertyValueType> {
-  ValueTypePtr type;
-  bool isOptional;
-};
-GQL_AST_STRUCT(PropertyValueType, type, isOptional)
 
 // propertyType
 //     : propertyName typed? propertyValueType
 //     ;
 struct PropertyType : NodeBase<PropertyType> {
   PropertyName name;
-  PropertyValueType valueType;
+  ValueTypePtr type;
+  bool isOptional;
 };
-GQL_AST_STRUCT(PropertyType, name, valueType)
+GQL_AST_STRUCT(PropertyType, name, type, isOptional)
 
 // propertyTypeList
 //     : propertyType (COMMA propertyType)*
@@ -128,9 +123,6 @@ struct NodeTypeFiller : NodeBase<NodeTypeFiller> {
 };
 GQL_AST_STRUCT(NodeTypeFiller, keyLabels, implied)
 
-struct EmptyNodeTypeReferenceValue {};
-GQL_AST_VALUE(EmptyNodeTypeReferenceValue)
-
 // sourceNodeTypeReference
 //     : LEFT_PAREN sourceNodeTypeAlias RIGHT_PAREN
 //     | LEFT_PAREN nodeTypeFiller? RIGHT_PAREN
@@ -141,44 +133,35 @@ GQL_AST_VALUE(EmptyNodeTypeReferenceValue)
 //     | LEFT_PAREN nodeTypeFiller? RIGHT_PAREN
 //     ;
 
-using NodeTypeReference =
-    std::variant<EmptyNodeTypeReferenceValue, NodeTypeAlias, NodeTypeFiller>;
+using NodeTypeReference = std::variant<NodeTypeAlias, NodeTypeFiller>;
 
 // nodeTypePattern
 //     : (nodeSynonym TYPE? nodeTypeName)? LEFT_PAREN localNodeTypeAlias?
 //     nodeTypeFiller? RIGHT_PAREN
 //     ;
+
+// NodeTypePattern is used both for nodeTypePattern and nodeTypePhrase.
 struct NodeTypePattern : NodeBase<NodeTypePattern> {
-  std::optional<NodeTypeName> nodeTypeName;
+  std::optional<NodeTypeName> typeName;
   std::optional<LocalNodeTypeAlias> localAlias;
   std::optional<NodeTypeFiller> filler;
 };
-GQL_AST_STRUCT(NodeTypePattern, nodeTypeName, localAlias, filler)
+GQL_AST_STRUCT(NodeTypePattern, typeName, localAlias, filler)
 
 // nodeTypePhraseFiller
 //     : nodeTypeName nodeTypeFiller?
 //     | nodeTypeFiller
 //     ;
-struct NodeTypePhraseFiller : NodeBase<NodeTypePhraseFiller> {
-  std::optional<NodeTypeName> typeName;
-  std::optional<NodeTypeFiller> filler;
-};
-GQL_AST_STRUCT(NodeTypePhraseFiller, typeName, filler)
 
 // nodeTypePhrase
 //     : nodeSynonym TYPE? nodeTypePhraseFiller (AS localNodeTypeAlias)?
 //     ;
-struct NodeTypePhrase : NodeBase<NodeTypePhrase> {
-  NodeTypePhraseFiller filler;
-  std::optional<LocalNodeTypeAlias> localAlias;
-};
-GQL_AST_STRUCT(NodeTypePhrase, filler, localAlias)
 
 // nodeTypeSpecification
 //     : nodeTypePattern
 //     | nodeTypePhrase
 //     ;
-using NodeTypeSpecification = std::variant<NodeTypePattern, NodeTypePhrase>;
+using NodeTypeSpecification = NodeTypePattern;
 
 // edgeTypeLabelSet
 //     : labelSetPhrase
@@ -215,57 +198,45 @@ GQL_AST_STRUCT(EdgeTypeFiller, keyLabels, implied)
 //     : edgeTypeName edgeTypeFiller?
 //     | edgeTypeFiller
 //     ;
-struct EdgeTypePhraseFiller : NodeBase<EdgeTypePhraseFiller> {
-  std::optional<EdgeTypeName> typeName;
-  std::optional<EdgeTypeFiller> filler;
-};
-GQL_AST_STRUCT(EdgeTypePhraseFiller, typeName, filler)
 
 // edgeTypePattern
 //     : (edgeKind? edgeSynonym TYPE? edgeTypeName)? (edgeTypePatternDirected |
 //     edgeTypePatternUndirected)
 //     ;
+
+// EdgeTypePattern is used both for edgeTypePhrase and edgeTypePattern.
 struct EdgeTypePattern : NodeBase<EdgeTypePattern> {
-  std::optional<EdgeKind> kind;
   std::optional<EdgeTypeName> typeName;
   bool isDirected;
-  NodeTypeReference source;
-  EdgeTypeFiller filler;
-  NodeTypeReference destination;
+  std::optional<NodeTypeReference> source;
+  std::optional<EdgeTypeFiller> filler;
+  std::optional<NodeTypeReference> destination;
 };
-GQL_AST_STRUCT(EdgeTypePattern, kind, typeName, source, filler, destination)
+GQL_AST_STRUCT(EdgeTypePattern,
+               typeName,
+               isDirected,
+               source,
+               filler,
+               destination)
 
 // endpointPair
 //     : endpointPairDirected
 //     | endpointPairUndirected
 //     ;
-struct EndpointPair : NodeBase<EndpointPair> {
-  bool isDirected;
-  NodeTypeAlias source;
-  NodeTypeAlias destination;
-};
-GQL_AST_STRUCT(EndpointPair, isDirected, source, destination)
 
 // endpointPairPhrase
 //     : CONNECTING endpointPair
 //     ;
-using EndpointPairPhrase = EndpointPair;
 
 // edgeTypePhrase
 //     : edgeKind edgeSynonym TYPE? edgeTypePhraseFiller endpointPairPhrase
 //     ;
-struct EdgeTypePhrase : NodeBase<EdgeTypePhrase> {
-  EdgeKind kind;
-  EdgeTypePhraseFiller filler;
-  EndpointPairPhrase endpoints;
-};
-GQL_AST_STRUCT(EdgeTypePhrase, kind, filler, endpoints)
 
 // edgeTypeSpecification
 //     : edgeTypePattern
 //     | edgeTypePhrase
 //     ;
-using EdgeTypeSpecification = std::variant<EdgeTypePattern, EdgeTypePhrase>;
+using EdgeTypeSpecification = EdgeTypePattern;
 
 // elementTypeSpecification
 //     : nodeTypeSpecification

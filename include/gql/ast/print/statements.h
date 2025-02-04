@@ -98,8 +98,8 @@ struct Printer<SessionSetParameterName> {
 template <>
 struct Printer<OptTypedGraphInitializer> {
   static void Print(OutputStream& os, const OptTypedGraphInitializer& v) {
-    if (v.refType) {
-      os << "TYPED" << *v.refType;
+    if (v.type) {
+      os << "TYPED" << *v.type;
     }
     os << "=" << v.initializer;
   }
@@ -109,8 +109,8 @@ template <>
 struct Printer<OptTypedBindingTableInitializer> {
   static void Print(OutputStream& os,
                     const OptTypedBindingTableInitializer& v) {
-    if (v.refType) {
-      os << "TYPED" << *v.refType;
+    if (v.type) {
+      os << "TYPED" << *v.type;
     }
     os << "=" << v.initializer;
   }
@@ -601,7 +601,10 @@ struct Printer<ReturnStatementBody> {
   static void Print(OutputStream& os, const ReturnStatementBody& v) {
     os << v.quantifier;
     if (v.items)
-      os << Sequence(*v.items, ",");
+      if (v.items->empty())
+        os << "NO BINDINGS";
+      else
+        os << Sequence(*v.items, ",");
     else
       os << "*";
     if (!v.groupBy.empty()) {
@@ -614,12 +617,7 @@ template <>
 struct Printer<PrimitiveResultStatement::Return> {
   static void Print(OutputStream& os,
                     const PrimitiveResultStatement::Return& v) {
-    os << "RETURN";
-    if (v.stmt)
-      os << v.stmt;
-    else
-      os << "NO BINDINGS";
-    os << v.orderByAndPage;
+    os << "RETURN" << v.stmt << v.orderByAndPage;
   }
 };
 

@@ -29,9 +29,9 @@ using ParenthesizedPathPatternExpressionPtr =
 //    : TEMP? elementVariable
 struct ElementVariableDeclaration : NodeBase<ElementVariableDeclaration> {
   bool isTemp;
-  ElementVariable var;
+  ElementVariable name;
 };
-GQL_AST_STRUCT(ElementVariableDeclaration, isTemp, var)
+GQL_AST_STRUCT(ElementVariableDeclaration, isTemp, name)
 
 // isLabelExpression
 //    : isOrColon labelExpression

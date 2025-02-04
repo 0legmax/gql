@@ -24,41 +24,42 @@ using namespace antlr4;
 
 namespace {
 
+struct ParserWrapper {
+  ParserWrapper(const char* query)
+      : input(query), lexer(&input), tokens(&lexer), parser(&tokens) {}
+
+  ANTLRInputStream input;
+  GQLLexer lexer;
+  CommonTokenStream tokens;
+
+  GQLParser parser;
+};
+
 auto ParseUnsignedNumericLiteral(const char* query,
                                  size_t* numberOfSyntaxErrors) {
-  ANTLRInputStream input(query);
-  GQLLexer lexer(&input);
-  CommonTokenStream tokens(&lexer);
-
-  GQLParser parser(&tokens);
-  parser.setBuildParseTree(false);
+  ParserWrapper p(query);
 
   ast::UnsignedNumericLiteral value;
   parser::ast_builder::UnsignedNumericLiteral builder{&value};
-  parser.unsignedNumericLiteral(&builder);
-  *numberOfSyntaxErrors = parser.getNumberOfSyntaxErrors();
+  p.parser.unsignedNumericLiteral(&builder);
+  *numberOfSyntaxErrors = p.parser.getNumberOfSyntaxErrors();
   return value;
 }
 
 auto ParseCharacterStringLiteral(const char* query,
                                  size_t* numberOfSyntaxErrors) {
-  ANTLRInputStream input(query);
-  GQLLexer lexer(&input);
-  CommonTokenStream tokens(&lexer);
-
-  GQLParser parser(&tokens);
-  parser.setBuildParseTree(false);
+  ParserWrapper p(query);
 
   std::string value;
   parser::ast_builder::CharacterStringLiteral builder{&value};
-  parser.characterStringLiteral(&builder);
-  *numberOfSyntaxErrors = parser.getNumberOfSyntaxErrors();
+  p.parser.characterStringLiteral(&builder);
+  *numberOfSyntaxErrors = p.parser.getNumberOfSyntaxErrors();
   return value;
 }
 
 }  // namespace
 
-TEST(ParserTest, ParseNumber) {
+TEST(ParseNode, UnsignedNumericLiteral) {
   size_t numberOfSyntaxErrors;
   auto value = ParseUnsignedNumericLiteral("123", &numberOfSyntaxErrors);
   EXPECT_EQ(numberOfSyntaxErrors, 0);
@@ -93,10 +94,6 @@ TEST(ParserTest, ParseNumber) {
   EXPECT_EQ(numberOfSyntaxErrors, 0);
   EXPECT_DOUBLE_EQ(value, 1123.456e+78);
 
-  value = ParseUnsignedNumericLiteral("123.456J+78", &numberOfSyntaxErrors);
-  // TODO: Check that entire input is parsed.
-  // EXPECT_GT(numberOfSyntaxErrors, 0);
-
   EXPECT_THROW(
       {
         value =
@@ -112,7 +109,7 @@ TEST(ParserTest, ParseNumber) {
       gql::parser::OutOfRangeError);
 }
 
-TEST(ParserTest, ParseStringLiteral) {
+TEST(ParseNode, CharacterStringLiteral) {
   size_t numberOfSyntaxErrors;
   auto value = ParseCharacterStringLiteral(R"("Hello, \"world\"! \\o/")",
                                            &numberOfSyntaxErrors);
@@ -138,6 +135,67 @@ TEST(ParserTest, ParseStringLiteral) {
                                       &numberOfSyntaxErrors);
   EXPECT_EQ(numberOfSyntaxErrors, 0);
   EXPECT_EQ(value, u8"123\U0001f34d321\U0001f34d");
+}
+
+TEST(ParseNode, ClosedDynamicUnionType1) {
+  ParserWrapper p(R"(ANY< FLOAT128 >)");
+
+  ast::ValueType value;
+  parser::ast_builder::ValueType builder{&value};
+  p.parser.valueType(&builder);
+  EXPECT_EQ(p.parser.getNumberOfSyntaxErrors(), 0);
+
+  const auto* type = std::get_if<ast::SimpleNumericType>(&value.typeOption);
+  ASSERT_TRUE(type);
+  EXPECT_EQ(*type, ast::SimpleNumericType::Float128);
+}
+
+TEST(ParseNode, ClosedDynamicUnionType2) {
+  ParserWrapper p(R"(ANY< INT16 | INT32 >)");
+
+  ast::ValueType value;
+  parser::ast_builder::ValueType builder{&value};
+  p.parser.valueType(&builder);
+  EXPECT_EQ(p.parser.getNumberOfSyntaxErrors(), 0);
+
+  const auto* unionType = std::get_if<ast::ValueType::Union>(&value.typeOption);
+  ASSERT_TRUE(unionType);
+  ASSERT_EQ(unionType->types.size(), 2);
+
+  const auto* type1 =
+      std::get_if<ast::SimpleNumericType>(&unionType->types[0]->typeOption);
+  const auto* type2 =
+      std::get_if<ast::SimpleNumericType>(&unionType->types[1]->typeOption);
+  ASSERT_TRUE(type1);
+  ASSERT_TRUE(type2);
+  EXPECT_EQ(*type1, ast::SimpleNumericType::Int16);
+  EXPECT_EQ(*type2, ast::SimpleNumericType::Int32);
+}
+
+TEST(ParseNode, ClosedDynamicUnionType3) {
+  ParserWrapper p(R"(ANY< INT16 | INT32 | INT64 >)");
+
+  ast::ValueType value;
+  parser::ast_builder::ValueType builder{&value};
+  p.parser.valueType(&builder);
+  EXPECT_EQ(p.parser.getNumberOfSyntaxErrors(), 0);
+
+  const auto* unionType = std::get_if<ast::ValueType::Union>(&value.typeOption);
+  ASSERT_TRUE(unionType);
+  ASSERT_EQ(unionType->types.size(), 3);
+
+  const auto* type1 =
+      std::get_if<ast::SimpleNumericType>(&unionType->types[0]->typeOption);
+  const auto* type2 =
+      std::get_if<ast::SimpleNumericType>(&unionType->types[1]->typeOption);
+  const auto* type3 =
+      std::get_if<ast::SimpleNumericType>(&unionType->types[2]->typeOption);
+  ASSERT_TRUE(type1);
+  ASSERT_TRUE(type2);
+  ASSERT_TRUE(type3);
+  EXPECT_EQ(*type1, ast::SimpleNumericType::Int16);
+  EXPECT_EQ(*type2, ast::SimpleNumericType::Int32);
+  EXPECT_EQ(*type3, ast::SimpleNumericType::Int64);
 }
 
 }  // namespace gql
