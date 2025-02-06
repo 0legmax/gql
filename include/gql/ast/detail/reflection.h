@@ -32,14 +32,19 @@ struct EnumerateFields {
   struct EnumerateFields<Type> {                                      \
     template <typename ObjectType, typename Func>                     \
     static bool ForEachField(ObjectType& obj, Func&& func) {          \
-      (void)obj;                                                      \
-      (void)func;                                                     \
       GQL_DETAIL_PP_FOR_EACH(GQL_AST_STRUCT_FIELD, Type, __VA_ARGS__) \
       return true;                                                    \
     }                                                                 \
   };
 
-#define GQL_AST_VALUE(Type) GQL_AST_STRUCT(Type)
+#define GQL_AST_VALUE(Type)                         \
+  template <>                                       \
+  struct EnumerateFields<Type> {                    \
+    template <typename ObjectType, typename Func>   \
+    static bool ForEachField(ObjectType&, Func&&) { \
+      return true;                                  \
+    }                                               \
+  };
 
 template <class, class = void>
 struct SupportsEnumerateFields {

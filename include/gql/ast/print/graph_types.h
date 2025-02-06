@@ -22,6 +22,7 @@ namespace gql::ast::print {
 
 template <>
 struct Printer<PropertyType> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const PropertyType& v) {
     os << v.name << "TYPED" << v.type;
     if (v.isOptional)
@@ -31,6 +32,7 @@ struct Printer<PropertyType> {
 
 template <>
 struct Printer<PropertyTypesSpecification> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const PropertyTypesSpecification& v) {
     os << "{" << Sequence(v.properties, ",") << "}";
   }
@@ -38,6 +40,7 @@ struct Printer<PropertyTypesSpecification> {
 
 template <>
 struct Printer<LabelSetSpecification> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const LabelSetSpecification& v) {
     os << Sequence(v.labels, "&");
   }
@@ -45,6 +48,7 @@ struct Printer<LabelSetSpecification> {
 
 template <>
 struct Printer<NodeTypeImpliedContent> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const NodeTypeImpliedContent& v) {
     if (!v.labels.labels.empty())
       os << ":" << NoBreak() << v.labels;
@@ -55,6 +59,7 @@ struct Printer<NodeTypeImpliedContent> {
 
 template <>
 struct Printer<NodeTypeFiller> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const NodeTypeFiller& v) {
     if (!v.keyLabels.labels.empty())
       os << ":" << NoBreak() << v.keyLabels;
@@ -66,6 +71,7 @@ struct Printer<NodeTypeFiller> {
 
 template <>
 struct Printer<std::optional<NodeTypeReference>> {
+  template <typename OutputStream>
   static void Print(OutputStream& os,
                     const std::optional<NodeTypeReference>& v) {
     os << "(";
@@ -77,6 +83,7 @@ struct Printer<std::optional<NodeTypeReference>> {
 
 template <>
 struct Printer<NodeTypePattern> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const NodeTypePattern& v) {
     if (v.typeName)
       os << "NODE TYPE" << *v.typeName;
@@ -86,6 +93,7 @@ struct Printer<NodeTypePattern> {
 
 template <>
 struct Printer<EdgeTypeImpliedContent> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const EdgeTypeImpliedContent& v) {
     if (!v.labels.labels.empty())
       os << ":" << NoBreak() << v.labels;
@@ -96,6 +104,7 @@ struct Printer<EdgeTypeImpliedContent> {
 
 template <>
 struct Printer<EdgeTypeFiller> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const EdgeTypeFiller& v) {
     if (!v.keyLabels.labels.empty())
       os << ":" << NoBreak() << v.keyLabels;
@@ -107,6 +116,7 @@ struct Printer<EdgeTypeFiller> {
 
 template <>
 struct Printer<EdgeTypePattern> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const EdgeTypePattern& v) {
     if (v.filler) {
       // edgeTypePattern
@@ -138,6 +148,7 @@ struct Printer<EdgeTypePattern> {
 
 template <>
 struct Printer<GraphTypeSpecificationBody> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const GraphTypeSpecificationBody& v) {
     os << Sequence(v.elementTypes, ",");
   }

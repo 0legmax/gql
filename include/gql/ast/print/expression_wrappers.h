@@ -14,23 +14,15 @@
 
 #pragma once
 
-#include "gql/ast/print/common.h"
-#include "gql/ast/print/expression.h"
-#include "gql/ast/print/generic.h"
-#include "gql/ast/print/graph_patterns.h"
-#include "gql/ast/print/graph_types.h"
-#include "gql/ast/print/output_stream.h"
-#include "gql/ast/print/references.h"
-#include "gql/ast/print/statements.h"
-#include "gql/ast/print/types.h"
+#include "gql/ast/nodes/expression.h"
 
-namespace gql::ast {
+namespace gql::ast::print {
 
-template <typename NodeType>
-std::string PrintTree(NodeType& node) {
-  print::OutputStream os;
-  os << node;
-  return os.str();
-}
+struct ValueExpressionPrimary {
+  ValueExpressionPrimary(ast::ValueExpression* expr) : expr(expr) {}
+  ValueExpressionPrimary(const ValueExpressionPtr& expr) : expr(expr.get()) {}
 
-}  // namespace gql::ast
+  ast::ValueExpression* expr;
+};
+
+}  // namespace gql::ast::print

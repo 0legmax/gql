@@ -15,6 +15,7 @@
 #include <gtest/gtest.h>
 
 #include "generated/GQLLexer.h"
+#include "gql/ast/print.h"
 #include "gql/parser/detail/GQLParser.h"
 #include "gql/parser/detail/ast_builder/ast.h"
 
@@ -116,6 +117,11 @@ TEST(ParseNode, CharacterStringLiteral) {
   EXPECT_EQ(numberOfSyntaxErrors, 0);
   EXPECT_EQ(value, "Hello, \"world\"! \\o/");
 
+  value = ParseCharacterStringLiteral(R"("Hello, ""world""! \\o/")",
+                                      &numberOfSyntaxErrors);
+  EXPECT_EQ(numberOfSyntaxErrors, 0);
+  EXPECT_EQ(value, "Hello, \"world\"! \\o/");
+
   value = ParseCharacterStringLiteral(
       R"(@"Hello, my world! \n \r \t \b \f \' \` \\o/")",
       &numberOfSyntaxErrors);
@@ -196,6 +202,66 @@ TEST(ParseNode, ClosedDynamicUnionType3) {
   EXPECT_EQ(*type1, ast::SimpleNumericType::Int16);
   EXPECT_EQ(*type2, ast::SimpleNumericType::Int32);
   EXPECT_EQ(*type3, ast::SimpleNumericType::Int64);
+}
+
+TEST(ParseAndPrintNode, BooleanValueExpression1) {
+  ParserWrapper p("1 OR 2 AND 3 OR 4");
+
+  ast::ValueExpression value;
+  parser::ast_builder::ValueExpression builder{&value};
+  p.parser.valueExpression(&builder);
+
+  EXPECT_EQ(ast::PrintTree(value), "1 OR 2 AND 3 OR 4");
+}
+
+TEST(ParseAndPrintNode, BooleanValueExpression2) {
+  ParserWrapper p("1 AND 2 OR 3 AND 4");
+
+  ast::ValueExpression value;
+  parser::ast_builder::ValueExpression builder{&value};
+  p.parser.valueExpression(&builder);
+
+  EXPECT_EQ(ast::PrintTree(value), "1 AND 2 OR 3 AND 4");
+}
+
+TEST(ParseAndPrintNode, BooleanValueExpression3) {
+  ParserWrapper p("1 AND (2 OR 3) AND 4");
+
+  ast::ValueExpression value;
+  parser::ast_builder::ValueExpression builder{&value};
+  p.parser.valueExpression(&builder);
+
+  EXPECT_EQ(ast::PrintTree(value), "1 AND (2 OR 3) AND 4");
+}
+
+TEST(ParseAndPrintNode, NumericValueExpression1) {
+  ParserWrapper p("1 + 2 * 3 + 4");
+
+  ast::ValueExpression value;
+  parser::ast_builder::ValueExpression builder{&value};
+  p.parser.valueExpression(&builder);
+
+  EXPECT_EQ(ast::PrintTree(value), "1 + 2 * 3 + 4");
+}
+
+TEST(ParseAndPrintNode, NumericValueExpression2) {
+  ParserWrapper p("1 * 2 + 3 * 4");
+
+  ast::ValueExpression value;
+  parser::ast_builder::ValueExpression builder{&value};
+  p.parser.valueExpression(&builder);
+
+  EXPECT_EQ(ast::PrintTree(value), "1 * 2 + 3 * 4");
+}
+
+TEST(ParseAndPrintNode, NumericValueExpression3) {
+  ParserWrapper p("1 * (2 + 3) * 4");
+
+  ast::ValueExpression value;
+  parser::ast_builder::ValueExpression builder{&value};
+  p.parser.valueExpression(&builder);
+
+  EXPECT_EQ(ast::PrintTree(value), "1 * (2 + 3) * 4");
 }
 
 }  // namespace gql

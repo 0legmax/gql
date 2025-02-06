@@ -572,9 +572,9 @@ struct OptTypedBindingTableInitializer : NodeBaseBuilder {
   OptTypedBindingTableInitializer(ast::OptTypedBindingTableInitializer* node)
       : NodeBaseBuilder(node), value(node) {}
 
-  BindingTableType EnterBindingTableReferenceValueType() {
+  BindingTableReferenceValueType EnterBindingTableReferenceValueType() {
     value->type.emplace();
-    return {&value->type->type, &value->type->notNull};
+    return {&value->type.value(), &value->type->notNull};
   }
 
   BindingTableExpression EnterBindingTableInitializer() {

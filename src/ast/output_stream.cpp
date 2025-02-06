@@ -20,29 +20,29 @@
 
 namespace gql::ast::print {
 
-OutputStream& OutputStream::operator<<(NoBreak) {
+OutputStreamBase& OutputStreamBase::operator<<(NoBreak) {
   noBreak = true;
   return *this;
 }
 
-OutputStream& OutputStream::operator<<(const char* str) {
+OutputStreamBase& OutputStreamBase::operator<<(const char* str) {
   if (*str) {
     MaybeSpace(*str) << str;
   }
   return *this;
 }
 
-OutputStream& OutputStream::operator<<(uint64_t num) {
+OutputStreamBase& OutputStreamBase::operator<<(uint64_t num) {
   MaybeSpace('1') << num;
   return *this;
 }
 
-OutputStream& OutputStream::operator<<(double num) {
+OutputStreamBase& OutputStreamBase::operator<<(double num) {
   MaybeSpace('1') << num;
   return *this;
 }
 
-OutputStream& OutputStream::operator<<(QuotedString str) {
+OutputStreamBase& OutputStreamBase::operator<<(QuotedString str) {
   std::string escaped = "\"";
   for (char c : str.str) {
     switch (c) {
@@ -77,20 +77,20 @@ OutputStream& OutputStream::operator<<(QuotedString str) {
   return *this;
 }
 
-std::string OutputStream::str() const {
+std::string OutputStreamBase::str() const {
   return os.str();
 }
 
-char OutputStream::LastChar() {
+char OutputStreamBase::LastChar() {
   auto pos = os.tellp();
   if (pos > 0) {
     os.seekg(pos - std::streamoff(1));
-    return os.get();
+    return static_cast<char>(os.get());
   }
   return '\0';
 }
 
-std::ostream& OutputStream::MaybeSpace(char nextChar) {
+std::ostream& OutputStreamBase::MaybeSpace(char nextChar) {
   if (nextChar == '\0') {
     return os;
   }

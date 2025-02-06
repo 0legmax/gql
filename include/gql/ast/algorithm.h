@@ -30,9 +30,9 @@ template <class... Ts>
 overloaded(Ts...) -> overloaded<Ts...>;
 
 template <class Variant, class... Ts>
-void variant_switch(Variant&& variant, Ts&&... ts) {
-  std::visit(overloaded<Ts...>(std::forward<Ts>(ts)...),
-             std::forward<Variant>(variant));
+auto variant_switch(Variant&& variant, Ts&&... ts) {
+  return std::visit(overloaded<Ts...>(std::forward<Ts>(ts)...),
+                    std::forward<Variant>(variant));
 }
 
 namespace detail {

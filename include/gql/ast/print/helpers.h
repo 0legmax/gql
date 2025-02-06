@@ -32,6 +32,7 @@
 #define GQL_AST_ENUM_PRINTER(EnumType, ...)                          \
   template <>                                                        \
   struct Printer<EnumType> {                                         \
+    template <typename OutputStream>                                 \
     static void Print(OutputStream& os, EnumType v) {                \
       switch (v) {                                                   \
         GQL_DETAIL_PP_FOR_EACH(GQL_AST_ENUM_PRINTER_CASE_, EnumType, \
@@ -48,6 +49,7 @@
 #define GQL_AST_ENUM_PRINTER_LITERAL(EnumType, ...)                         \
   template <>                                                               \
   struct Printer<EnumType> {                                                \
+    template <typename OutputStream>                                        \
     static void Print(OutputStream& os, EnumType v) {                       \
       switch (v) {                                                          \
         GQL_DETAIL_PP_FOR_EACH(GQL_AST_ENUM_PRINTER_LITERAL_CASE, EnumType, \
@@ -59,6 +61,7 @@
 #define GQL_AST_VALUE_PRINTER(ValueType, str)        \
   template <>                                        \
   struct Printer<ValueType> {                        \
+    template <typename OutputStream>                 \
     static void Print(OutputStream& os, ValueType) { \
       os << str;                                     \
     }                                                \

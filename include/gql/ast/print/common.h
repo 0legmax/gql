@@ -26,7 +26,7 @@ GQL_AST_ENUM_PRINTER_LITERAL(TruthValue, TRUE, FALSE, UNKNOWN)
 GQL_AST_VALUE_PRINTER(NullLiteral, "NULL")
 
 struct RegularIdentifierOrQuotedStringPrinter {
-  template <typename T>
+  template <typename OutputStream, typename T>
   static void Print(OutputStream& os, const T& v) {
     if (IsRegularIdentifier(v.name)) {
       os << v.name.c_str();
@@ -57,6 +57,7 @@ struct Printer<T, std::enable_if_t<std::is_base_of_v<IdentifierBase, T>>>
 
 template <>
 struct Printer<RegularIdentifier> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const RegularIdentifier& v) {
     os << v.name.c_str();
   }
@@ -67,6 +68,7 @@ struct Printer<GraphName> : RegularIdentifierOrQuotedStringPrinter {};
 
 template <>
 struct Printer<ObjectNameOrBindingVariable> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const ObjectNameOrBindingVariable& v) {
     os << v.name.c_str();
   }
@@ -74,11 +76,15 @@ struct Printer<ObjectNameOrBindingVariable> {
 
 template <typename T>
 struct Printer<T, std::enable_if_t<std::is_base_of_v<BindingVariableBase, T>>> {
-  static void Print(OutputStream& os, const T& v) { os << v.name.c_str(); }
+  template <typename OutputStream>
+  static void Print(OutputStream& os, const T& v) {
+    os << v.name.c_str();
+  }
 };
 
 template <>
 struct Printer<ByteStringLiteral> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const ByteStringLiteral& v) {
     os << "X'";
     for (uint8_t byte : v) {
@@ -92,6 +98,7 @@ struct Printer<ByteStringLiteral> {
 
 template <>
 struct Printer<DateLiteral> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const DateLiteral& v) {
     os << "DATE" << Quoted(v.value);
   }
@@ -99,6 +106,7 @@ struct Printer<DateLiteral> {
 
 template <>
 struct Printer<TimeLiteral> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const TimeLiteral& v) {
     os << "TIME" << Quoted(v.value);
   }
@@ -106,6 +114,7 @@ struct Printer<TimeLiteral> {
 
 template <>
 struct Printer<DatetimeLiteral> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const DatetimeLiteral& v) {
     os << "DATETIME" << Quoted(v.value);
   }
@@ -113,6 +122,7 @@ struct Printer<DatetimeLiteral> {
 
 template <>
 struct Printer<DurationLiteral> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const DurationLiteral& v) {
     os << "DURATION" << Quoted(v.value);
   }
@@ -120,6 +130,7 @@ struct Printer<DurationLiteral> {
 
 template <>
 struct Printer<ListValueConstructorByEnumeration> {
+  template <typename OutputStream>
   static void Print(OutputStream& os,
                     const ListValueConstructorByEnumeration& v) {
     os << "LIST [" << Sequence(v.elements, ",") << "]";
@@ -128,6 +139,7 @@ struct Printer<ListValueConstructorByEnumeration> {
 
 template <>
 struct Printer<Field> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const Field& v) {
     os << v.name << NoBreak() << ":" << *v.value;
   }
@@ -135,6 +147,7 @@ struct Printer<Field> {
 
 template <>
 struct Printer<RecordConstructor> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const RecordConstructor& v) {
     os << "RECORD {" << Sequence(v, ",") << "}";
   }
@@ -142,6 +155,7 @@ struct Printer<RecordConstructor> {
 
 template <>
 struct Printer<GeneralParameterReference> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const GeneralParameterReference& v) {
     os << "$" << NoBreak();
     RegularIdentifierOrQuotedStringPrinter::Print(os, v);
@@ -150,6 +164,7 @@ struct Printer<GeneralParameterReference> {
 
 template <>
 struct Printer<SubstitutedParameterReference> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SubstitutedParameterReference& v) {
     os << "$$" << NoBreak();
     RegularIdentifierOrQuotedStringPrinter::Print(os, v);

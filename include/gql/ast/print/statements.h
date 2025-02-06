@@ -16,13 +16,14 @@
 
 #include "gql/ast/algorithm.h"
 #include "gql/ast/nodes/statements.h"
+#include "gql/ast/print/expression_wrappers.h"
 #include "gql/ast/print/helpers.h"
-#include "gql/ast/print/output_stream.h"
 
 namespace gql::ast::print {
 
 template <>
 struct Printer<YieldItem> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const YieldItem& v) {
     os << v.name;
     if (v.alias) {
@@ -33,6 +34,7 @@ struct Printer<YieldItem> {
 
 template <>
 struct Printer<YieldClause> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const YieldClause& v) {
     if (!v.empty()) {
       os << "YIELD" << Sequence(v, ",");
@@ -42,6 +44,7 @@ struct Printer<YieldClause> {
 
 template <>
 struct Printer<InlineProcedureCall> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const InlineProcedureCall& v) {
     if (!v.vars.empty()) {
       os << "(" << Sequence(v.vars, ",") << ")";
@@ -52,6 +55,7 @@ struct Printer<InlineProcedureCall> {
 
 template <>
 struct Printer<NamedProcedureCall> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const NamedProcedureCall& v) {
     os << v.proc << "(" << Sequence(v.args, ",") << ")" << v.yield;
   }
@@ -59,6 +63,7 @@ struct Printer<NamedProcedureCall> {
 
 template <>
 struct Printer<CallProcedureStatement> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const CallProcedureStatement& v) {
     os << (v.isOptional ? "OPTIONAL " : "") << "CALL" << v.call;
   }
@@ -66,6 +71,7 @@ struct Printer<CallProcedureStatement> {
 
 template <>
 struct Printer<SessionSetSchemaClause> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SessionSetSchemaClause& v) {
     os << "SCHEMA" << v.schema;
   }
@@ -73,6 +79,7 @@ struct Printer<SessionSetSchemaClause> {
 
 template <>
 struct Printer<SessionSetGraphClause> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SessionSetGraphClause& v) {
     os << "GRAPH" << v.graph;
   }
@@ -80,6 +87,7 @@ struct Printer<SessionSetGraphClause> {
 
 template <>
 struct Printer<SessionSetTimeZoneClause> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SessionSetTimeZoneClause& v) {
     os << "TIME ZONE" << v.timeZoneString;
   }
@@ -87,6 +95,7 @@ struct Printer<SessionSetTimeZoneClause> {
 
 template <>
 struct Printer<SessionSetParameterName> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SessionSetParameterName& v) {
     if (v.ifNotExists) {
       os << "IF NOT EXISTS ";
@@ -97,6 +106,7 @@ struct Printer<SessionSetParameterName> {
 
 template <>
 struct Printer<OptTypedGraphInitializer> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const OptTypedGraphInitializer& v) {
     if (v.type) {
       os << "TYPED" << *v.type;
@@ -107,6 +117,7 @@ struct Printer<OptTypedGraphInitializer> {
 
 template <>
 struct Printer<OptTypedBindingTableInitializer> {
+  template <typename OutputStream>
   static void Print(OutputStream& os,
                     const OptTypedBindingTableInitializer& v) {
     if (v.type) {
@@ -118,6 +129,7 @@ struct Printer<OptTypedBindingTableInitializer> {
 
 template <>
 struct Printer<SessionSetGraphParameterClause> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SessionSetGraphParameterClause& v) {
     os << "GRAPH" << v.paramName << v.initializer;
   }
@@ -125,6 +137,7 @@ struct Printer<SessionSetGraphParameterClause> {
 
 template <>
 struct Printer<SessionSetBindingTableParameterClause> {
+  template <typename OutputStream>
   static void Print(OutputStream& os,
                     const SessionSetBindingTableParameterClause& v) {
     os << "TABLE" << v.paramName << v.initializer;
@@ -133,6 +146,7 @@ struct Printer<SessionSetBindingTableParameterClause> {
 
 template <>
 struct Printer<OptTypedValueInitializer> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const OptTypedValueInitializer& v) {
     if (v.type) {
       os << "TYPED" << *v.type;
@@ -143,6 +157,7 @@ struct Printer<OptTypedValueInitializer> {
 
 template <>
 struct Printer<SessionSetValueParameterClause> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SessionSetValueParameterClause& v) {
     os << "VALUE" << v.paramName << v.initializer;
   }
@@ -150,6 +165,7 @@ struct Printer<SessionSetValueParameterClause> {
 
 template <>
 struct Printer<SessionSetCommand> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SessionSetCommand& v) {
     os << "SESSION SET";
     std::visit([&](const auto& cmd) { os << cmd; }, v);
@@ -166,6 +182,7 @@ GQL_AST_ENUM_PRINTER(SessionResetArguments,
 
 template <>
 struct Printer<SessionResetCommand> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SessionResetCommand& v) {
     os << "SESSION RESET" << v.arguments;
   }
@@ -177,6 +194,7 @@ GQL_AST_ENUM_PRINTER(TransactionAccessMode,
 
 template <>
 struct Printer<StartTransactionCommand> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const StartTransactionCommand& v) {
     os << "START TRANSACTION" << Sequence(v.accessModes, ",");
   }
@@ -186,6 +204,7 @@ GQL_AST_ENUM_PRINTER_LITERAL(EndTransactionCommand, ROLLBACK, COMMIT)
 
 template <>
 struct Printer<GraphVariableDefinition> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const GraphVariableDefinition& v) {
     os << "GRAPH" << v.var << v.initializer;
   }
@@ -193,6 +212,7 @@ struct Printer<GraphVariableDefinition> {
 
 template <>
 struct Printer<BindingTableVariableDefinition> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const BindingTableVariableDefinition& v) {
     os << "TABLE" << v.var << v.initializer;
   }
@@ -200,6 +220,7 @@ struct Printer<BindingTableVariableDefinition> {
 
 template <>
 struct Printer<ValueVariableDefinition> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const ValueVariableDefinition& v) {
     os << "VALUE" << v.var << v.initializer;
   }
@@ -207,6 +228,7 @@ struct Printer<ValueVariableDefinition> {
 
 template <>
 struct Printer<NextStatement> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const NextStatement& v) {
     os << "NEXT" << v.yield << *v.statement;
   }
@@ -214,6 +236,7 @@ struct Printer<NextStatement> {
 
 template <>
 struct Printer<StatementBlock> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const StatementBlock& v) {
     os << *v.firstStatement << v.nextStatements;
   }
@@ -221,6 +244,7 @@ struct Printer<StatementBlock> {
 
 template <>
 struct Printer<ProcedureBody> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const ProcedureBody& v) {
     if (v.schema) {
       os << "AT" << *v.schema;
@@ -231,6 +255,7 @@ struct Printer<ProcedureBody> {
 
 template <>
 struct Printer<CreateSchemaStatement> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const CreateSchemaStatement& v) {
     os << "CREATE SCHEMA";
     if (v.ifNotExists) {
@@ -242,6 +267,7 @@ struct Printer<CreateSchemaStatement> {
 
 template <>
 struct Printer<DropSchemaStatement> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const DropSchemaStatement& v) {
     os << "DROP SCHEMA";
     if (v.ifExists) {
@@ -253,6 +279,7 @@ struct Printer<DropSchemaStatement> {
 
 template <>
 struct Printer<OfGraphType> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const OfGraphType& v) {
     variant_switch(
         v, [&](const GraphExpression& v) { os << "LIKE" << v; },
@@ -265,6 +292,7 @@ struct Printer<OfGraphType> {
 
 template <>
 struct Printer<CreateGraphStatement> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const CreateGraphStatement& v) {
     os << "CREATE";
     switch (v.createType) {
@@ -292,6 +320,7 @@ struct Printer<CreateGraphStatement> {
 
 template <>
 struct Printer<DropGraphStatement> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const DropGraphStatement& v) {
     os << "DROP GRAPH";
     if (v.ifExists) {
@@ -303,6 +332,7 @@ struct Printer<DropGraphStatement> {
 
 template <>
 struct Printer<GraphTypeSource> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const GraphTypeSource& v) {
     variant_switch(
         v, [&](const CopyOfGraphType& v) { os << "AS COPY OF" << v; },
@@ -313,6 +343,7 @@ struct Printer<GraphTypeSource> {
 
 template <>
 struct Printer<CreateGraphTypeStatement> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const CreateGraphTypeStatement& v) {
     os << "CREATE";
     switch (v.createType) {
@@ -332,6 +363,7 @@ struct Printer<CreateGraphTypeStatement> {
 
 template <>
 struct Printer<DropGraphTypeStatement> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const DropGraphTypeStatement& v) {
     os << "DROP GRAPH TYPE";
     if (v.ifExists) {
@@ -343,6 +375,7 @@ struct Printer<DropGraphTypeStatement> {
 
 template <>
 struct Printer<LinearCatalogModifyingStatement> {
+  template <typename OutputStream>
   static void Print(OutputStream& os,
                     const LinearCatalogModifyingStatement& v) {
     os << Sequence(v.statements, "\n");
@@ -351,6 +384,7 @@ struct Printer<LinearCatalogModifyingStatement> {
 
 template <>
 struct Printer<InsertElementPatternFiller> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const InsertElementPatternFiller& v) {
     os << NoBreak() << v.var;
     if (!v.labels.labels.empty())
@@ -363,6 +397,7 @@ struct Printer<InsertElementPatternFiller> {
 
 template <>
 struct Printer<InsertNodePattern> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const InsertNodePattern& v) {
     os << "(" << v.filler << ")";
   }
@@ -370,6 +405,7 @@ struct Printer<InsertNodePattern> {
 
 template <>
 struct Printer<InsertEdgePattern> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const InsertEdgePattern& v) {
     os << NoBreak();
     switch (v.direction) {
@@ -389,6 +425,7 @@ struct Printer<InsertEdgePattern> {
 
 template <>
 struct Printer<InsertPathPattern> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const InsertPathPattern& v) {
     auto nodeIt = v.nodes.begin();
     for (auto& edge : v.edges) {
@@ -401,6 +438,7 @@ struct Printer<InsertPathPattern> {
 
 template <>
 struct Printer<InsertStatement> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const InsertStatement& v) {
     os << "INSERT" << Sequence(v.paths, ",");
   }
@@ -408,6 +446,7 @@ struct Printer<InsertStatement> {
 
 template <>
 struct Printer<SetPropertyItem> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SetPropertyItem& v) {
     os << v.var << "." << v.property << "=" << v.value;
   }
@@ -415,6 +454,7 @@ struct Printer<SetPropertyItem> {
 
 template <>
 struct Printer<SetAllPropertiesItem> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SetAllPropertiesItem& v) {
     os << v.var << "= {" << v.properties << "}";
   }
@@ -422,6 +462,7 @@ struct Printer<SetAllPropertiesItem> {
 
 template <>
 struct Printer<SetLabelItem> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SetLabelItem& v) {
     os << v.var << ":" << NoBreak() << v.label;
   }
@@ -429,6 +470,7 @@ struct Printer<SetLabelItem> {
 
 template <>
 struct Printer<SetStatement> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SetStatement& v) {
     os << "SET" << Sequence(v.items, ",");
   }
@@ -436,6 +478,7 @@ struct Printer<SetStatement> {
 
 template <>
 struct Printer<RemovePropertyItem> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const RemovePropertyItem& v) {
     os << v.var << "." << v.property;
   }
@@ -443,6 +486,7 @@ struct Printer<RemovePropertyItem> {
 
 template <>
 struct Printer<RemoveLabelItem> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const RemoveLabelItem& v) {
     os << v.var << ":" << NoBreak() << v.label;
   }
@@ -450,6 +494,7 @@ struct Printer<RemoveLabelItem> {
 
 template <>
 struct Printer<RemoveStatement> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const RemoveStatement& v) {
     os << "REMOVE" << Sequence(v.items, ",");
   }
@@ -457,6 +502,7 @@ struct Printer<RemoveStatement> {
 
 template <>
 struct Printer<DeleteStatement> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const DeleteStatement& v) {
     if (v.detach)
       os << (*v.detach ? "DETACH" : "NODETACH");
@@ -474,6 +520,7 @@ GQL_AST_ENUM_PRINTER(MatchMode,
 
 template <>
 struct Printer<PathPatternPrefix> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const PathPatternPrefix& v) {
     switch (v.search) {
       case PathPatternPrefix::Search::No:
@@ -503,6 +550,7 @@ struct Printer<PathPatternPrefix> {
 
 template <>
 struct Printer<PathPattern> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const PathPattern& v) {
     if (v.var)
       os << *v.var << "=";
@@ -512,6 +560,7 @@ struct Printer<PathPattern> {
 
 template <>
 struct Printer<GraphPattern> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const GraphPattern& v) {
     os << v.matchMode << Sequence(v.patterns, ",");
     if (v.keep)
@@ -523,6 +572,7 @@ struct Printer<GraphPattern> {
 
 template <>
 struct Printer<SimpleMatchStatement> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SimpleMatchStatement& v) {
     os << "MATCH" << v.pattern;
     if (!v.yield.empty()) {
@@ -533,6 +583,7 @@ struct Printer<SimpleMatchStatement> {
 
 template <>
 struct Printer<OptionalMatchStatement> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const OptionalMatchStatement& v) {
     os << "OPTIONAL";
     if (v.statements.size() == 1)
@@ -545,6 +596,7 @@ struct Printer<OptionalMatchStatement> {
 
 template <>
 struct Printer<LetStatement> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const LetStatement& v) {
     os << "LET" << Sequence(v.definitions, ",");
   }
@@ -552,6 +604,7 @@ struct Printer<LetStatement> {
 
 template <>
 struct Printer<ForOrdinalityOrOffset> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const ForOrdinalityOrOffset& v) {
     os << "WITH" << (v.isOrdinality ? "ORDINALITY" : "OFFSET") << v.var;
   }
@@ -559,6 +612,7 @@ struct Printer<ForOrdinalityOrOffset> {
 
 template <>
 struct Printer<ForStatement> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const ForStatement& v) {
     os << "FOR" << v.alias << "IN" << v.source << v.ordinalityOrOffset;
   }
@@ -572,6 +626,7 @@ GQL_AST_ENUM_PRINTER(NullOrdering,
 
 template <>
 struct Printer<OrderByAndPageStatement> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const OrderByAndPageStatement& v) {
     if (!v.orderBy.empty()) {
       os << "ORDER BY" << Sequence(v.orderBy, ",");
@@ -587,6 +642,7 @@ GQL_AST_VALUE_PRINTER(FinishValue, "FINISH")
 
 template <>
 struct Printer<ReturnItem> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const ReturnItem& v) {
     os << v.aggregate;
     if (v.alias)
@@ -598,6 +654,7 @@ GQL_AST_VALUE_PRINTER(AsteriskValue, "*")
 
 template <>
 struct Printer<ReturnStatementBody> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const ReturnStatementBody& v) {
     os << v.quantifier;
     if (v.items)
@@ -615,6 +672,7 @@ struct Printer<ReturnStatementBody> {
 
 template <>
 struct Printer<PrimitiveResultStatement::Return> {
+  template <typename OutputStream>
   static void Print(OutputStream& os,
                     const PrimitiveResultStatement::Return& v) {
     os << "RETURN" << v.stmt << v.orderByAndPage;
@@ -623,6 +681,7 @@ struct Printer<PrimitiveResultStatement::Return> {
 
 template <>
 struct Printer<SelectItem> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SelectItem& v) {
     os << v.expr;
     if (v.alias)
@@ -632,6 +691,7 @@ struct Printer<SelectItem> {
 
 template <>
 struct Printer<SelectGraphMatchList> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SelectGraphMatchList& v) {
     os << Sequence(v.matches, ",");
   }
@@ -639,6 +699,7 @@ struct Printer<SelectGraphMatchList> {
 
 template <>
 struct Printer<SelectQuerySpecification> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SelectQuerySpecification& v) {
     os << v.graph << "{" << v.query << "}";
   }
@@ -646,6 +707,7 @@ struct Printer<SelectQuerySpecification> {
 
 template <>
 struct Printer<SelectItemList> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SelectItemList& v) {
     os << Sequence(v, ",");
   }
@@ -653,6 +715,7 @@ struct Printer<SelectItemList> {
 
 template <>
 struct Printer<SelectStatement> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SelectStatement& v) {
     os << "SELECT" << v.quantifier << v.items;
     if (v.body)
@@ -674,6 +737,7 @@ struct Printer<SelectStatement> {
 
 template <>
 struct Printer<FilterStatement> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const FilterStatement& v) {
     os << "FILTER" << v.condition;
   }
@@ -681,6 +745,7 @@ struct Printer<FilterStatement> {
 
 template <>
 struct Printer<NestedQuerySpecification> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const NestedQuerySpecification& v) {
     if (v.useGraph)
       os << "USE" << *v.useGraph;
@@ -690,6 +755,7 @@ struct Printer<NestedQuerySpecification> {
 
 template <>
 struct Printer<FocusedLinearQueryStatementPart> {
+  template <typename OutputStream>
   static void Print(OutputStream& os,
                     const FocusedLinearQueryStatementPart& v) {
     os << "USE" << v.useGraph << v.statements;
@@ -698,6 +764,7 @@ struct Printer<FocusedLinearQueryStatementPart> {
 
 template <>
 struct Printer<LinearQueryStatementOption> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const LinearQueryStatementOption& v) {
     os << v.queries;
     if (v.useGraph)
@@ -708,6 +775,7 @@ struct Printer<LinearQueryStatementOption> {
 
 template <>
 struct Printer<LinearDataModifyingStatement> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const LinearDataModifyingStatement& v) {
     if (v.useGraph)
       os << "USE" << *v.useGraph;
@@ -719,6 +787,7 @@ struct Printer<LinearDataModifyingStatement> {
 
 template <>
 struct Printer<GQLProgram> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const GQLProgram& v) {
     os << v.programActivity;
     if (v.sessionCloseCommand)

@@ -3971,8 +3971,8 @@ public:
   public:
     GraphExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    ObjectExpressionPrimaryContext *objectExpressionPrimary();
     GraphReferenceContext *graphReference();
+    ObjectExpressionPrimaryContext *objectExpressionPrimary();
     ObjectNameOrBindingVariableContext *objectNameOrBindingVariable();
     CurrentGraphContext *currentGraph();
 
@@ -4002,8 +4002,8 @@ public:
         enterOuterAlt(_localctx, 1);
         setState(1405);
         {
-          auto childCtxHolder = ctx->EnterObjectExpressionPrimary();
-          objectExpressionPrimary(get_raw_pointer(childCtxHolder));
+          auto childCtxHolder = ctx->EnterGraphReference();
+          graphReference(get_raw_pointer(childCtxHolder));
         }
         break;
       }
@@ -4012,8 +4012,8 @@ public:
         enterOuterAlt(_localctx, 2);
         setState(1406);
         {
-          auto childCtxHolder = ctx->EnterGraphReference();
-          graphReference(get_raw_pointer(childCtxHolder));
+          auto childCtxHolder = ctx->EnterObjectExpressionPrimary();
+          objectExpressionPrimary(get_raw_pointer(childCtxHolder));
         }
         break;
       }
@@ -4108,8 +4108,8 @@ public:
     BindingTableExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     NestedBindingTableQuerySpecificationContext *nestedBindingTableQuerySpecification();
-    ObjectExpressionPrimaryContext *objectExpressionPrimary();
     BindingTableReferenceContext *bindingTableReference();
+    ObjectExpressionPrimaryContext *objectExpressionPrimary();
     ObjectNameOrBindingVariableContext *objectNameOrBindingVariable();
 
    
@@ -4148,8 +4148,8 @@ public:
         enterOuterAlt(_localctx, 2);
         setState(1414);
         {
-          auto childCtxHolder = ctx->EnterObjectExpressionPrimary();
-          objectExpressionPrimary(get_raw_pointer(childCtxHolder));
+          auto childCtxHolder = ctx->EnterBindingTableReference();
+          bindingTableReference(get_raw_pointer(childCtxHolder));
         }
         break;
       }
@@ -4158,8 +4158,8 @@ public:
         enterOuterAlt(_localctx, 3);
         setState(1415);
         {
-          auto childCtxHolder = ctx->EnterBindingTableReference();
-          bindingTableReference(get_raw_pointer(childCtxHolder));
+          auto childCtxHolder = ctx->EnterObjectExpressionPrimary();
+          objectExpressionPrimary(get_raw_pointer(childCtxHolder));
         }
         break;
       }
@@ -6829,7 +6829,7 @@ public:
       if (_la == GQLParser::DOUBLE_QUOTED_CHARACTER_SEQUENCE
 
       || _la == GQLParser::ACCENT_QUOTED_CHARACTER_SEQUENCE || ((((_la - 277) & ~ 0x3fULL) == 0) &&
-        ((1ULL << (_la - 277)) & 562949953421311) != 0)) {
+        ((1ULL << (_la - 277)) & 560750930165759) != 0)) {
         setState(1656);
         {
           auto childCtxHolder = ctx->EnterPropertyKeyValuePairList();
@@ -9010,7 +9010,6 @@ public:
         case GQLParser::TO:
         case GQLParser::TRAIL:
         case GQLParser::TRANSACTION:
-        case GQLParser::TYPE:
         case GQLParser::UNDIRECTED:
         case GQLParser::VERTEX:
         case GQLParser::WALK:
@@ -9244,7 +9243,6 @@ public:
         case GQLParser::TO:
         case GQLParser::TRAIL:
         case GQLParser::TRANSACTION:
-        case GQLParser::TYPE:
         case GQLParser::UNDIRECTED:
         case GQLParser::VERTEX:
         case GQLParser::WALK:
@@ -10010,7 +10008,6 @@ public:
           case GQLParser::TO:
           case GQLParser::TRAIL:
           case GQLParser::TRANSACTION:
-          case GQLParser::TYPE:
           case GQLParser::UNDIRECTED:
           case GQLParser::VERTEX:
           case GQLParser::WALK:
@@ -10474,7 +10471,6 @@ public:
         case GQLParser::TO:
         case GQLParser::TRAIL:
         case GQLParser::TRANSACTION:
-        case GQLParser::TYPE:
         case GQLParser::UNDIRECTED:
         case GQLParser::VERTEX:
         case GQLParser::WALK:
@@ -11253,7 +11249,6 @@ public:
         case GQLParser::TO:
         case GQLParser::TRAIL:
         case GQLParser::TRANSACTION:
-        case GQLParser::TYPE:
         case GQLParser::UNDIRECTED:
         case GQLParser::VERTEX:
         case GQLParser::WALK:
@@ -11384,7 +11379,7 @@ public:
 
       _la = _input->LA(1);
       if (((((_la - 277) & ~ 0x3fULL) == 0) &&
-        ((1ULL << (_la - 277)) & 562949953421311) != 0)) {
+        ((1ULL << (_la - 277)) & 560750930165759) != 0)) {
         setState(1998);
         {
           auto childCtxHolder = ctx->EnterBindingVariableReferenceList();
@@ -11527,7 +11522,7 @@ public:
         ((1ULL << (_la - 64)) & 309341980913) != 0) || ((((_la - 129) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 129)) & -8011702113698201677) != 0) || ((((_la - 193) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 193)) & 26393111092643) != 0) || ((((_la - 277) & ~ 0x3fULL) == 0) &&
-        ((1ULL << (_la - 277)) & 1688849860263935) != 0) || ((((_la - 369) & ~ 0x3fULL) == 0) &&
+        ((1ULL << (_la - 277)) & 1686650837008383) != 0) || ((((_la - 369) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 369)) & 151) != 0)) {
         setState(2013);
         {
@@ -12955,7 +12950,7 @@ public:
 
       _la = _input->LA(1);
       if (_la == GQLParser::IS || ((((_la - 277) & ~ 0x3fULL) == 0) &&
-        ((1ULL << (_la - 277)) & 562949953421311) != 0) || _la == GQLParser::COLON
+        ((1ULL << (_la - 277)) & 560750930165759) != 0) || _la == GQLParser::COLON
 
       || _la == GQLParser::LEFT_BRACE) {
         setState(2136);
@@ -13097,7 +13092,7 @@ public:
 
       _la = _input->LA(1);
       if (_la == GQLParser::IS || ((((_la - 277) & ~ 0x3fULL) == 0) &&
-        ((1ULL << (_la - 277)) & 562949953421311) != 0) || _la == GQLParser::COLON
+        ((1ULL << (_la - 277)) & 560750930165759) != 0) || _la == GQLParser::COLON
 
       || _la == GQLParser::LEFT_BRACE) {
         setState(2147);
@@ -13165,7 +13160,7 @@ public:
 
       _la = _input->LA(1);
       if (_la == GQLParser::IS || ((((_la - 277) & ~ 0x3fULL) == 0) &&
-        ((1ULL << (_la - 277)) & 562949953421311) != 0) || _la == GQLParser::COLON
+        ((1ULL << (_la - 277)) & 560750930165759) != 0) || _la == GQLParser::COLON
 
       || _la == GQLParser::LEFT_BRACE) {
         setState(2153);
@@ -13233,7 +13228,7 @@ public:
 
       _la = _input->LA(1);
       if (_la == GQLParser::IS || ((((_la - 277) & ~ 0x3fULL) == 0) &&
-        ((1ULL << (_la - 277)) & 562949953421311) != 0) || _la == GQLParser::COLON
+        ((1ULL << (_la - 277)) & 560750930165759) != 0) || _la == GQLParser::COLON
 
       || _la == GQLParser::LEFT_BRACE) {
         setState(2159);
@@ -13320,7 +13315,7 @@ public:
 
         _la = _input->LA(1);
         if (((((_la - 277) & ~ 0x3fULL) == 0) &&
-          ((1ULL << (_la - 277)) & 562949953421311) != 0)) {
+          ((1ULL << (_la - 277)) & 560750930165759) != 0)) {
           setState(2168);
           {
             auto childCtxHolder = ctx->EnterElementVariableDeclaration();
@@ -14511,9 +14506,10 @@ public:
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
           (void)_localctx;
-          if constexpr (has_ExitRule<decltype(ctx)>::value) {
+          if constexpr (has_ExitRule<decltype(ctx)>::value)
             ctx->ExitRule(_localctx);
-          }
+          else
+            (void)ctx;
         });
         enterOuterAlt(_localctx, 1);
         setState(2267);
@@ -14530,9 +14526,10 @@ public:
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
           (void)_localctx;
-          if constexpr (has_ExitRule<decltype(ctx)>::value) {
+          if constexpr (has_ExitRule<decltype(ctx)>::value)
             ctx->ExitRule(_localctx);
-          }
+          else
+            (void)ctx;
         });
         enterOuterAlt(_localctx, 2);
         setState(2268);
@@ -14577,9 +14574,10 @@ public:
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
           (void)_localctx;
-          if constexpr (has_ExitRule<decltype(ctx)>::value) {
+          if constexpr (has_ExitRule<decltype(ctx)>::value)
             ctx->ExitRule(_localctx);
-          }
+          else
+            (void)ctx;
         });
         enterOuterAlt(_localctx, 3);
         setState(2275);
@@ -14753,9 +14751,10 @@ public:
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
           (void)_localctx;
-          if constexpr (has_ExitRule<decltype(ctx)>::value) {
+          if constexpr (has_ExitRule<decltype(ctx)>::value)
             ctx->ExitRule(_localctx);
-          }
+          else
+            (void)ctx;
         });
         enterOuterAlt(_localctx, 1);
         setState(2289);
@@ -14772,9 +14771,10 @@ public:
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
           (void)_localctx;
-          if constexpr (has_ExitRule<decltype(ctx)>::value) {
+          if constexpr (has_ExitRule<decltype(ctx)>::value)
             ctx->ExitRule(_localctx);
-          }
+          else
+            (void)ctx;
         });
         enterOuterAlt(_localctx, 2);
         setState(2290);
@@ -14796,9 +14796,10 @@ public:
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
           (void)_localctx;
-          if constexpr (has_ExitRule<decltype(ctx)>::value) {
+          if constexpr (has_ExitRule<decltype(ctx)>::value)
             ctx->ExitRule(_localctx);
-          }
+          else
+            (void)ctx;
         });
         enterOuterAlt(_localctx, 3);
         setState(2293);
@@ -14889,9 +14890,10 @@ public:
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
           (void)_localctx;
-          if constexpr (has_ExitRule<decltype(ctx)>::value) {
+          if constexpr (has_ExitRule<decltype(ctx)>::value)
             ctx->ExitRule(_localctx);
-          }
+          else
+            (void)ctx;
         });
         enterOuterAlt(_localctx, 1);
         setState(2298);
@@ -14908,9 +14910,10 @@ public:
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
           (void)_localctx;
-          if constexpr (has_ExitRule<decltype(ctx)>::value) {
+          if constexpr (has_ExitRule<decltype(ctx)>::value)
             ctx->ExitRule(_localctx);
-          }
+          else
+            (void)ctx;
         });
         enterOuterAlt(_localctx, 2);
         setState(2299);
@@ -14927,9 +14930,10 @@ public:
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
           (void)_localctx;
-          if constexpr (has_ExitRule<decltype(ctx)>::value) {
+          if constexpr (has_ExitRule<decltype(ctx)>::value)
             ctx->ExitRule(_localctx);
-          }
+          else
+            (void)ctx;
         });
         enterOuterAlt(_localctx, 3);
         setState(2300);
@@ -15119,7 +15123,7 @@ public:
 
       _la = _input->LA(1);
       if (((((_la - 277) & ~ 0x3fULL) == 0) &&
-        ((1ULL << (_la - 277)) & 562949953421311) != 0)) {
+        ((1ULL << (_la - 277)) & 560750930165759) != 0)) {
         setState(2311);
         {
           auto childCtxHolder = ctx->EnterElementVariableDeclaration();
@@ -16566,9 +16570,10 @@ public:
           auto ctx = get_raw_pointer(ctxHolder);
           auto onExit = antlrcpp::finally([ctx, _localctx] {
             (void)_localctx;
-            if constexpr (has_ExitRule<decltype(ctx)>::value) {
+            if constexpr (has_ExitRule<decltype(ctx)>::value)
               ctx->ExitRule(_localctx);
-            }
+            else
+              (void)ctx;
           });
 
           setState(2416);
@@ -16629,7 +16634,6 @@ public:
         case GQLParser::TO:
         case GQLParser::TRAIL:
         case GQLParser::TRANSACTION:
-        case GQLParser::TYPE:
         case GQLParser::UNDIRECTED:
         case GQLParser::VERTEX:
         case GQLParser::WALK:
@@ -16644,9 +16648,10 @@ public:
           auto ctx = get_raw_pointer(ctxHolder);
           auto onExit = antlrcpp::finally([ctx, _localctx] {
             (void)_localctx;
-            if constexpr (has_ExitRule<decltype(ctx)>::value) {
+            if constexpr (has_ExitRule<decltype(ctx)>::value)
               ctx->ExitRule(_localctx);
-            }
+            else
+              (void)ctx;
           });
           setState(2418);
           {
@@ -16664,9 +16669,10 @@ public:
           auto ctx = get_raw_pointer(ctxHolder);
           auto onExit = antlrcpp::finally([ctx, _localctx] {
             (void)_localctx;
-            if constexpr (has_ExitRule<decltype(ctx)>::value) {
+            if constexpr (has_ExitRule<decltype(ctx)>::value)
               ctx->ExitRule(_localctx);
-            }
+            else
+              (void)ctx;
           });
           setState(2419);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
@@ -16686,9 +16692,10 @@ public:
           auto ctx = get_raw_pointer(ctxHolder);
           auto onExit = antlrcpp::finally([ctx, _localctx] {
             (void)_localctx;
-            if constexpr (has_ExitRule<decltype(ctx)>::value) {
+            if constexpr (has_ExitRule<decltype(ctx)>::value)
               ctx->ExitRule(_localctx);
-            }
+            else
+              (void)ctx;
           });
           setState(2420);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
@@ -16738,9 +16745,10 @@ public:
             auto ctx = get_raw_pointer(ctxHolder);
             auto onExit = antlrcpp::finally([ctx, _localctx] {
               (void)_localctx;
-              if constexpr (has_ExitRule<decltype(ctx)>::value) {
+              if constexpr (has_ExitRule<decltype(ctx)>::value)
                 ctx->ExitRule(_localctx);
-              }
+              else
+                (void)ctx;
             });
             setState(2426);
 
@@ -16768,9 +16776,10 @@ public:
             auto ctx = get_raw_pointer(ctxHolder);
             auto onExit = antlrcpp::finally([ctx, _localctx] {
               (void)_localctx;
-              if constexpr (has_ExitRule<decltype(ctx)>::value) {
+              if constexpr (has_ExitRule<decltype(ctx)>::value)
                 ctx->ExitRule(_localctx);
-              }
+              else
+                (void)ctx;
             });
             setState(2429);
 
@@ -18029,9 +18038,10 @@ public:
       auto ctx = get_raw_pointer(ctxHolder);
       auto onExit = antlrcpp::finally([ctx, _localctx] {
         (void)_localctx;
-        if constexpr (has_ExitRule<decltype(ctx)>::value) {
+        if constexpr (has_ExitRule<decltype(ctx)>::value)
           ctx->ExitRule(_localctx);
-        }
+        else
+          (void)ctx;
       });
 
       setState(2528);
@@ -18058,9 +18068,10 @@ public:
           auto ctx = get_raw_pointer(ctxHolder);
           auto onExit = antlrcpp::finally([ctx, _localctx] {
             (void)_localctx;
-            if constexpr (has_ExitRule<decltype(ctx)>::value) {
+            if constexpr (has_ExitRule<decltype(ctx)>::value)
               ctx->ExitRule(_localctx);
-            }
+            else
+              (void)ctx;
           });
           setState(2530);
 
@@ -18151,9 +18162,10 @@ public:
       auto ctx = get_raw_pointer(ctxHolder);
       auto onExit = antlrcpp::finally([ctx, _localctx] {
         (void)_localctx;
-        if constexpr (has_ExitRule<decltype(ctx)>::value) {
+        if constexpr (has_ExitRule<decltype(ctx)>::value)
           ctx->ExitRule(_localctx);
-        }
+        else
+          (void)ctx;
       });
 
       setState(2538);
@@ -18180,9 +18192,10 @@ public:
           auto ctx = get_raw_pointer(ctxHolder);
           auto onExit = antlrcpp::finally([ctx, _localctx] {
             (void)_localctx;
-            if constexpr (has_ExitRule<decltype(ctx)>::value) {
+            if constexpr (has_ExitRule<decltype(ctx)>::value)
               ctx->ExitRule(_localctx);
-            }
+            else
+              (void)ctx;
           });
           setState(2540);
 
@@ -19004,7 +19017,6 @@ public:
         case GQLParser::TO:
         case GQLParser::TRAIL:
         case GQLParser::TRANSACTION:
-        case GQLParser::TYPE:
         case GQLParser::UNDIRECTED:
         case GQLParser::VERTEX:
         case GQLParser::WALK:
@@ -19170,7 +19182,6 @@ public:
         case GQLParser::TO:
         case GQLParser::TRAIL:
         case GQLParser::TRANSACTION:
-        case GQLParser::TYPE:
         case GQLParser::UNDIRECTED:
         case GQLParser::VERTEX:
         case GQLParser::WALK:
@@ -19670,7 +19681,6 @@ public:
         case GQLParser::TO:
         case GQLParser::TRAIL:
         case GQLParser::TRANSACTION:
-        case GQLParser::TYPE:
         case GQLParser::UNDIRECTED:
         case GQLParser::VERTEX:
         case GQLParser::WALK:
@@ -21552,7 +21562,6 @@ public:
         case GQLParser::TO:
         case GQLParser::TRAIL:
         case GQLParser::TRANSACTION:
-        case GQLParser::TYPE:
         case GQLParser::UNDIRECTED:
         case GQLParser::VERTEX:
         case GQLParser::WALK:
@@ -21990,8 +21999,8 @@ public:
         setState(2821);
         _errHandler->sync(this);
 
-        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 254, _ctx)) {
-        case 1: {
+        _la = _input->LA(1);
+        if (_la == GQLParser::TYPE) {
           setState(2820);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::TYPE) {
@@ -21999,11 +22008,6 @@ public:
             }
           }
           match(GQLParser::TYPE);
-          break;
-        }
-
-        default:
-          break;
         }
         setState(2823);
         {
@@ -22084,6 +22088,7 @@ public:
   NodeTypePhraseContext* nodeTypePhrase(ContextT* ctx) {
     NodeTypePhraseContext *_localctx = _tracker.createInstance<NodeTypePhraseContext>(_ctx, getState());
     enterRule(_localctx, 586, GQLParser::RuleNodeTypePhrase);
+    size_t _la = 0;
 
   #if __cplusplus > 201703L
     auto onExit = antlrcpp::finally([=, this] {
@@ -22105,8 +22110,8 @@ public:
       setState(2838);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 258, _ctx)) {
-      case 1: {
+      _la = _input->LA(1);
+      if (_la == GQLParser::TYPE) {
         setState(2837);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::TYPE) {
@@ -22114,11 +22119,6 @@ public:
           }
         }
         match(GQLParser::TYPE);
-        break;
-      }
-
-      default:
-        break;
       }
       setState(2840);
       {
@@ -22702,8 +22702,8 @@ public:
         setState(2886);
         _errHandler->sync(this);
 
-        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 268, _ctx)) {
-        case 1: {
+        _la = _input->LA(1);
+        if (_la == GQLParser::TYPE) {
           setState(2885);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::TYPE) {
@@ -22711,11 +22711,6 @@ public:
             }
           }
           match(GQLParser::TYPE);
-          break;
-        }
-
-        default:
-          break;
         }
         setState(2888);
         {
@@ -22775,6 +22770,7 @@ public:
   EdgeTypePhraseContext* edgeTypePhrase(ContextT* ctx) {
     EdgeTypePhraseContext *_localctx = _tracker.createInstance<EdgeTypePhraseContext>(_ctx, getState());
     enterRule(_localctx, 606, GQLParser::RuleEdgeTypePhrase);
+    size_t _la = 0;
 
   #if __cplusplus > 201703L
     auto onExit = antlrcpp::finally([=, this] {
@@ -22801,8 +22797,8 @@ public:
       setState(2899);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 271, _ctx)) {
-      case 1: {
+      _la = _input->LA(1);
+      if (_la == GQLParser::TYPE) {
         setState(2898);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::TYPE) {
@@ -22810,11 +22806,6 @@ public:
           }
         }
         match(GQLParser::TYPE);
-        break;
-      }
-
-      default:
-        break;
       }
       setState(2901);
       {
@@ -24653,7 +24644,7 @@ public:
       if (_la == GQLParser::DOUBLE_QUOTED_CHARACTER_SEQUENCE
 
       || _la == GQLParser::ACCENT_QUOTED_CHARACTER_SEQUENCE || ((((_la - 277) & ~ 0x3fULL) == 0) &&
-        ((1ULL << (_la - 277)) & 562949953421311) != 0)) {
+        ((1ULL << (_la - 277)) & 560750930165759) != 0)) {
         setState(3041);
         {
           auto childCtxHolder = ctx->EnterPropertyTypeList();
@@ -25067,9 +25058,10 @@ public:
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
           (void)_localctx;
-          if constexpr (has_ExitRule<decltype(ctx)>::value) {
+          if constexpr (has_ExitRule<decltype(ctx)>::value)
             ctx->ExitRule(_localctx);
-          }
+          else
+            (void)ctx;
         });
 
         setState(3069);
@@ -25088,9 +25080,10 @@ public:
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
           (void)_localctx;
-          if constexpr (has_ExitRule<decltype(ctx)>::value) {
+          if constexpr (has_ExitRule<decltype(ctx)>::value)
             ctx->ExitRule(_localctx);
-          }
+          else
+            (void)ctx;
         });
         setState(3070);
         {
@@ -25108,9 +25101,10 @@ public:
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
           (void)_localctx;
-          if constexpr (has_ExitRule<decltype(ctx)>::value) {
+          if constexpr (has_ExitRule<decltype(ctx)>::value)
             ctx->ExitRule(_localctx);
-          }
+          else
+            (void)ctx;
         });
         setState(3071);
         {
@@ -25193,9 +25187,10 @@ public:
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
           (void)_localctx;
-          if constexpr (has_ExitRule<decltype(ctx)>::value) {
+          if constexpr (has_ExitRule<decltype(ctx)>::value)
             ctx->ExitRule(_localctx);
-          }
+          else
+            (void)ctx;
         });
         setState(3084);
         {
@@ -25259,9 +25254,10 @@ public:
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
           (void)_localctx;
-          if constexpr (has_ExitRule<decltype(ctx)>::value) {
+          if constexpr (has_ExitRule<decltype(ctx)>::value)
             ctx->ExitRule(_localctx);
-          }
+          else
+            (void)ctx;
         });
         setState(3094);
         {
@@ -25279,9 +25275,10 @@ public:
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
           (void)_localctx;
-          if constexpr (has_ExitRule<decltype(ctx)>::value) {
+          if constexpr (has_ExitRule<decltype(ctx)>::value)
             ctx->ExitRule(_localctx);
-          }
+          else
+            (void)ctx;
         });
         setState(3095);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
@@ -25335,9 +25332,10 @@ public:
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
           (void)_localctx;
-          if constexpr (has_ExitRule<decltype(ctx)>::value) {
+          if constexpr (has_ExitRule<decltype(ctx)>::value)
             ctx->ExitRule(_localctx);
-          }
+          else
+            (void)ctx;
         });
         setState(3103);
         _errHandler->sync(this);
@@ -25393,9 +25391,10 @@ public:
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
           (void)_localctx;
-          if constexpr (has_ExitRule<decltype(ctx)>::value) {
+          if constexpr (has_ExitRule<decltype(ctx)>::value)
             ctx->ExitRule(_localctx);
-          }
+          else
+            (void)ctx;
         });
         setState(3110);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
@@ -25485,9 +25484,10 @@ public:
             auto ctx = get_raw_pointer(ctxHolder);
             auto onExit = antlrcpp::finally([ctx, _localctx] {
               (void)_localctx;
-              if constexpr (has_ExitRule<decltype(ctx)>::value) {
+              if constexpr (has_ExitRule<decltype(ctx)>::value)
                 ctx->ExitRule(_localctx);
-              }
+              else
+                (void)ctx;
             });
             setState(3127);
 
@@ -25515,9 +25515,10 @@ public:
             auto ctx = get_raw_pointer(ctxHolder);
             auto onExit = antlrcpp::finally([ctx, _localctx] {
               (void)_localctx;
-              if constexpr (has_ExitRule<decltype(ctx)>::value) {
+              if constexpr (has_ExitRule<decltype(ctx)>::value)
                 ctx->ExitRule(_localctx);
-              }
+              else
+                (void)ctx;
             });
             setState(3130);
 
@@ -30644,7 +30645,7 @@ public:
       if (_la == GQLParser::DOUBLE_QUOTED_CHARACTER_SEQUENCE
 
       || _la == GQLParser::ACCENT_QUOTED_CHARACTER_SEQUENCE || ((((_la - 277) & ~ 0x3fULL) == 0) &&
-        ((1ULL << (_la - 277)) & 562949953421311) != 0)) {
+        ((1ULL << (_la - 277)) & 560750930165759) != 0)) {
         setState(3644);
         {
           auto childCtxHolder = ctx->EnterFieldTypeList();
@@ -32651,9 +32652,10 @@ public:
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
           (void)_localctx;
-          if constexpr (has_ExitRule<decltype(ctx)>::value) {
+          if constexpr (has_ExitRule<decltype(ctx)>::value)
             ctx->ExitRule(_localctx);
-          }
+          else
+            (void)ctx;
         });
 
         setState(3816);
@@ -32685,9 +32687,10 @@ public:
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
           (void)_localctx;
-          if constexpr (has_ExitRule<decltype(ctx)>::value) {
+          if constexpr (has_ExitRule<decltype(ctx)>::value)
             ctx->ExitRule(_localctx);
-          }
+          else
+            (void)ctx;
         });
         setState(3818);
         {
@@ -32705,9 +32708,10 @@ public:
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
           (void)_localctx;
-          if constexpr (has_ExitRule<decltype(ctx)>::value) {
+          if constexpr (has_ExitRule<decltype(ctx)>::value)
             ctx->ExitRule(_localctx);
-          }
+          else
+            (void)ctx;
         });
         setState(3819);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
@@ -32719,7 +32723,7 @@ public:
         setState(3820);
         {
           auto childCtxHolder = ctx->EnterValueExpression();
-          valueExpression(8, get_raw_pointer(childCtxHolder));
+          valueExpression(7, get_raw_pointer(childCtxHolder));
         }
         break;
       }
@@ -32732,9 +32736,10 @@ public:
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
           (void)_localctx;
-          if constexpr (has_ExitRule<decltype(ctx)>::value) {
+          if constexpr (has_ExitRule<decltype(ctx)>::value)
             ctx->ExitRule(_localctx);
-          }
+          else
+            (void)ctx;
         });
         setState(3822);
         _errHandler->sync(this);
@@ -32772,9 +32777,10 @@ public:
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
           (void)_localctx;
-          if constexpr (has_ExitRule<decltype(ctx)>::value) {
+          if constexpr (has_ExitRule<decltype(ctx)>::value)
             ctx->ExitRule(_localctx);
-          }
+          else
+            (void)ctx;
         });
         setState(3827);
         _errHandler->sync(this);
@@ -32812,9 +32818,10 @@ public:
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
           (void)_localctx;
-          if constexpr (has_ExitRule<decltype(ctx)>::value) {
+          if constexpr (has_ExitRule<decltype(ctx)>::value)
             ctx->ExitRule(_localctx);
-          }
+          else
+            (void)ctx;
         });
         setState(3831);
         {
@@ -32832,9 +32839,10 @@ public:
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
           (void)_localctx;
-          if constexpr (has_ExitRule<decltype(ctx)>::value) {
+          if constexpr (has_ExitRule<decltype(ctx)>::value)
             ctx->ExitRule(_localctx);
-          }
+          else
+            (void)ctx;
         });
         setState(3832);
         {
@@ -32870,9 +32878,10 @@ public:
             auto ctx = get_raw_pointer(ctxHolder);
             auto onExit = antlrcpp::finally([ctx, _localctx] {
               (void)_localctx;
-              if constexpr (has_ExitRule<decltype(ctx)>::value) {
+              if constexpr (has_ExitRule<decltype(ctx)>::value)
                 ctx->ExitRule(_localctx);
-              }
+              else
+                (void)ctx;
             });
             setState(3835);
 
@@ -32906,9 +32915,10 @@ public:
             auto ctx = get_raw_pointer(ctxHolder);
             auto onExit = antlrcpp::finally([ctx, _localctx] {
               (void)_localctx;
-              if constexpr (has_ExitRule<decltype(ctx)>::value) {
+              if constexpr (has_ExitRule<decltype(ctx)>::value)
                 ctx->ExitRule(_localctx);
-              }
+              else
+                (void)ctx;
             });
             setState(3838);
 
@@ -32942,9 +32952,10 @@ public:
             auto ctx = get_raw_pointer(ctxHolder);
             auto onExit = antlrcpp::finally([ctx, _localctx] {
               (void)_localctx;
-              if constexpr (has_ExitRule<decltype(ctx)>::value) {
+              if constexpr (has_ExitRule<decltype(ctx)>::value)
                 ctx->ExitRule(_localctx);
-              }
+              else
+                (void)ctx;
             });
             setState(3841);
 
@@ -32972,9 +32983,10 @@ public:
             auto ctx = get_raw_pointer(ctxHolder);
             auto onExit = antlrcpp::finally([ctx, _localctx] {
               (void)_localctx;
-              if constexpr (has_ExitRule<decltype(ctx)>::value) {
+              if constexpr (has_ExitRule<decltype(ctx)>::value)
                 ctx->ExitRule(_localctx);
-              }
+              else
+                (void)ctx;
             });
             setState(3844);
 
@@ -33000,9 +33012,10 @@ public:
             auto ctx = get_raw_pointer(ctxHolder);
             auto onExit = antlrcpp::finally([ctx, _localctx] {
               (void)_localctx;
-              if constexpr (has_ExitRule<decltype(ctx)>::value) {
+              if constexpr (has_ExitRule<decltype(ctx)>::value)
                 ctx->ExitRule(_localctx);
-              }
+              else
+                (void)ctx;
             });
             setState(3848);
 
@@ -33030,9 +33043,10 @@ public:
             auto ctx = get_raw_pointer(ctxHolder);
             auto onExit = antlrcpp::finally([ctx, _localctx] {
               (void)_localctx;
-              if constexpr (has_ExitRule<decltype(ctx)>::value) {
+              if constexpr (has_ExitRule<decltype(ctx)>::value)
                 ctx->ExitRule(_localctx);
-              }
+              else
+                (void)ctx;
             });
             setState(3851);
 
@@ -33064,9 +33078,10 @@ public:
             auto ctx = get_raw_pointer(ctxHolder);
             auto onExit = antlrcpp::finally([ctx, _localctx] {
               (void)_localctx;
-              if constexpr (has_ExitRule<decltype(ctx)>::value) {
+              if constexpr (has_ExitRule<decltype(ctx)>::value)
                 ctx->ExitRule(_localctx);
-              }
+              else
+                (void)ctx;
             });
             setState(3854);
 
@@ -33087,13 +33102,14 @@ public:
             auto ctx = get_raw_pointer(ctxHolder);
             auto onExit = antlrcpp::finally([ctx, _localctx] {
               (void)_localctx;
-              if constexpr (has_ExitRule<decltype(ctx)>::value) {
+              if constexpr (has_ExitRule<decltype(ctx)>::value)
                 ctx->ExitRule(_localctx);
-              }
+              else
+                (void)ctx;
             });
             setState(3856);
 
-            if (!(precpred(_ctx, 7))) throw antlr4::FailedPredicateException(this, "precpred(_ctx, 7)");
+            if (!(precpred(_ctx, 8))) throw antlr4::FailedPredicateException(this, "precpred(_ctx, 8)");
             setState(3857);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::IS) {
@@ -34136,7 +34152,6 @@ public:
         case GQLParser::TO:
         case GQLParser::TRAIL:
         case GQLParser::TRANSACTION:
-        case GQLParser::TYPE:
         case GQLParser::UNDIRECTED:
         case GQLParser::VERTEX:
         case GQLParser::WALK:
@@ -34990,9 +35005,10 @@ public:
           auto ctx = get_raw_pointer(ctxHolder);
           auto onExit = antlrcpp::finally([ctx, _localctx] {
             (void)_localctx;
-            if constexpr (has_ExitRule<decltype(ctx)>::value) {
+            if constexpr (has_ExitRule<decltype(ctx)>::value)
               ctx->ExitRule(_localctx);
-            }
+            else
+              (void)ctx;
           });
           enterOuterAlt(_localctx, 1);
           setState(3995);
@@ -35042,9 +35058,10 @@ public:
           auto ctx = get_raw_pointer(ctxHolder);
           auto onExit = antlrcpp::finally([ctx, _localctx] {
             (void)_localctx;
-            if constexpr (has_ExitRule<decltype(ctx)>::value) {
+            if constexpr (has_ExitRule<decltype(ctx)>::value)
               ctx->ExitRule(_localctx);
-            }
+            else
+              (void)ctx;
           });
           enterOuterAlt(_localctx, 2);
           setState(4002);
@@ -37371,7 +37388,7 @@ public:
         ((1ULL << (_la - 64)) & 309341980913) != 0) || ((((_la - 129) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 129)) & -8011702113698201677) != 0) || ((((_la - 193) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 193)) & 26393111092643) != 0) || ((((_la - 277) & ~ 0x3fULL) == 0) &&
-        ((1ULL << (_la - 277)) & 1688849860263935) != 0) || ((((_la - 369) & ~ 0x3fULL) == 0) &&
+        ((1ULL << (_la - 277)) & 1686650837008383) != 0) || ((((_la - 369) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 369)) & 151) != 0)) {
         setState(4189);
         {
@@ -37605,7 +37622,7 @@ public:
       if (_la == GQLParser::DOUBLE_QUOTED_CHARACTER_SEQUENCE
 
       || _la == GQLParser::ACCENT_QUOTED_CHARACTER_SEQUENCE || ((((_la - 277) & ~ 0x3fULL) == 0) &&
-        ((1ULL << (_la - 277)) & 562949953421311) != 0)) {
+        ((1ULL << (_la - 277)) & 560750930165759) != 0)) {
         setState(4210);
         {
           auto childCtxHolder = ctx->EnterFieldList();
@@ -37898,9 +37915,10 @@ public:
           auto ctx = get_raw_pointer(ctxHolder);
           auto onExit = antlrcpp::finally([ctx, _localctx] {
             (void)_localctx;
-            if constexpr (has_ExitRule<decltype(ctx)>::value) {
+            if constexpr (has_ExitRule<decltype(ctx)>::value)
               ctx->ExitRule(_localctx);
-            }
+            else
+              (void)ctx;
           });
 
           setState(4230);
@@ -38010,7 +38028,6 @@ public:
         case GQLParser::TO:
         case GQLParser::TRAIL:
         case GQLParser::TRANSACTION:
-        case GQLParser::TYPE:
         case GQLParser::UNDIRECTED:
         case GQLParser::VERTEX:
         case GQLParser::WALK:
@@ -38029,9 +38046,10 @@ public:
           auto ctx = get_raw_pointer(ctxHolder);
           auto onExit = antlrcpp::finally([ctx, _localctx] {
             (void)_localctx;
-            if constexpr (has_ExitRule<decltype(ctx)>::value) {
+            if constexpr (has_ExitRule<decltype(ctx)>::value)
               ctx->ExitRule(_localctx);
-            }
+            else
+              (void)ctx;
           });
           setState(4232);
           {
@@ -38078,9 +38096,10 @@ public:
           auto ctx = get_raw_pointer(ctxHolder);
           auto onExit = antlrcpp::finally([ctx, _localctx] {
             (void)_localctx;
-            if constexpr (has_ExitRule<decltype(ctx)>::value) {
+            if constexpr (has_ExitRule<decltype(ctx)>::value)
               ctx->ExitRule(_localctx);
-            }
+            else
+              (void)ctx;
           });
           setState(4233);
           {
@@ -38116,9 +38135,10 @@ public:
             auto ctx = get_raw_pointer(ctxHolder);
             auto onExit = antlrcpp::finally([ctx, _localctx] {
               (void)_localctx;
-              if constexpr (has_ExitRule<decltype(ctx)>::value) {
+              if constexpr (has_ExitRule<decltype(ctx)>::value)
                 ctx->ExitRule(_localctx);
-              }
+              else
+                (void)ctx;
             });
             setState(4236);
 
@@ -38152,9 +38172,10 @@ public:
             auto ctx = get_raw_pointer(ctxHolder);
             auto onExit = antlrcpp::finally([ctx, _localctx] {
               (void)_localctx;
-              if constexpr (has_ExitRule<decltype(ctx)>::value) {
+              if constexpr (has_ExitRule<decltype(ctx)>::value)
                 ctx->ExitRule(_localctx);
-              }
+              else
+                (void)ctx;
             });
             setState(4239);
 
@@ -40060,7 +40081,7 @@ public:
           ((1ULL << (_la - 64)) & 309341980913) != 0) || ((((_la - 129) & ~ 0x3fULL) == 0) &&
           ((1ULL << (_la - 129)) & -8011702113698201677) != 0) || ((((_la - 193) & ~ 0x3fULL) == 0) &&
           ((1ULL << (_la - 193)) & 26393111092643) != 0) || ((((_la - 277) & ~ 0x3fULL) == 0) &&
-          ((1ULL << (_la - 277)) & 1688849860263935) != 0) || ((((_la - 369) & ~ 0x3fULL) == 0) &&
+          ((1ULL << (_la - 277)) & 1686650837008383) != 0) || ((((_la - 369) & ~ 0x3fULL) == 0) &&
           ((1ULL << (_la - 369)) & 151) != 0)) {
           setState(4378);
           {
@@ -41837,7 +41858,6 @@ public:
         case GQLParser::TO:
         case GQLParser::TRAIL:
         case GQLParser::TRANSACTION:
-        case GQLParser::TYPE:
         case GQLParser::UNDIRECTED:
         case GQLParser::VERTEX:
         case GQLParser::WALK:
@@ -42126,7 +42146,6 @@ public:
         case GQLParser::TO:
         case GQLParser::TRAIL:
         case GQLParser::TRANSACTION:
-        case GQLParser::TYPE:
         case GQLParser::UNDIRECTED:
         case GQLParser::VERTEX:
         case GQLParser::WALK:
@@ -43170,7 +43189,6 @@ public:
         case GQLParser::TO:
         case GQLParser::TRAIL:
         case GQLParser::TRANSACTION:
-        case GQLParser::TYPE:
         case GQLParser::UNDIRECTED:
         case GQLParser::VERTEX:
         case GQLParser::WALK:
@@ -43307,7 +43325,6 @@ public:
         case GQLParser::TO:
         case GQLParser::TRAIL:
         case GQLParser::TRANSACTION:
-        case GQLParser::TYPE:
         case GQLParser::UNDIRECTED:
         case GQLParser::VERTEX:
         case GQLParser::WALK:
@@ -44218,7 +44235,6 @@ public:
     antlr4::tree::TerminalNode *TO();
     antlr4::tree::TerminalNode *TRAIL();
     antlr4::tree::TerminalNode *TRANSACTION();
-    antlr4::tree::TerminalNode *TYPE();
     antlr4::tree::TerminalNode *UNDIRECTED();
     antlr4::tree::TerminalNode *VERTEX();
     antlr4::tree::TerminalNode *WALK();
@@ -44250,7 +44266,7 @@ public:
       setState(4614);
       _la = _input->LA(1);
       if (!(((((_la - 277) & ~ 0x3fULL) == 0) &&
-        ((1ULL << (_la - 277)) & 281474976710655) != 0))) {
+        ((1ULL << (_la - 277)) & 279275953455103) != 0))) {
       _errHandler->recoverInline(this);
       }
       else {

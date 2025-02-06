@@ -409,7 +409,7 @@ struct ValueType : NodeBase<ValueType> {
                PrecisionNumericType,
                ScaleNumericType,
                GraphReferenceValueType,
-               BindingTableType,
+               BindingTableReferenceValueType,
                NodeReferenceValueType,
                EdgeReferenceValueType,
                PathValueType,

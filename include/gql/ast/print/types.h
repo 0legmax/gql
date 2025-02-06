@@ -42,6 +42,7 @@ GQL_AST_ENUM_PRINTER_LITERAL(StringType::Kind,
 
 template <>
 struct Printer<StringType> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const StringType& v) {
     switch (v.kind) {
       case StringType::Kind::STRING:
@@ -99,6 +100,7 @@ GQL_AST_ENUM_PRINTER(PrecisionNumericType::Type, (Int, "INT"), (UInt, "UINT"))
 
 template <>
 struct Printer<PrecisionNumericType> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const PrecisionNumericType& v) {
     os << v.type;
     if (v.precision)
@@ -112,6 +114,7 @@ GQL_AST_ENUM_PRINTER(ScaleNumericType::Type,
 
 template <>
 struct Printer<ScaleNumericType> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const ScaleNumericType& v) {
     os << v.type;
     if (v.precision) {
@@ -129,6 +132,7 @@ GQL_AST_ENUM_PRINTER(TemporalDurationQualifier,
 
 template <>
 struct Printer<FieldType> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const FieldType& v) {
     os << v.name << "TYPED" << v.type;
   }
@@ -136,6 +140,7 @@ struct Printer<FieldType> {
 
 template <>
 struct Printer<FieldTypeList> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const FieldTypeList& v) {
     os << Sequence(v, ",");
   }
@@ -143,6 +148,7 @@ struct Printer<FieldTypeList> {
 
 template <>
 struct Printer<FieldTypesSpecification> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const FieldTypesSpecification& v) {
     os << "{" << v.fields << "}";
   }
@@ -150,6 +156,7 @@ struct Printer<FieldTypesSpecification> {
 
 template <>
 struct Printer<BindingTableReferenceValueType> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const BindingTableReferenceValueType& v) {
     os << "TABLE" << v.type;
   }
@@ -157,6 +164,7 @@ struct Printer<BindingTableReferenceValueType> {
 
 template <>
 struct Printer<GraphReferenceValueType> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const GraphReferenceValueType& v) {
     if (v.type)
       os << "GRAPH {" << *v.type << "}";
@@ -167,6 +175,7 @@ struct Printer<GraphReferenceValueType> {
 
 template <>
 struct Printer<NodeReferenceValueType> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const NodeReferenceValueType& v) {
     if (v.type)
       os << v.type;
@@ -177,6 +186,7 @@ struct Printer<NodeReferenceValueType> {
 
 template <>
 struct Printer<EdgeReferenceValueType> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const EdgeReferenceValueType& v) {
     if (v.type)
       os << v.type;
@@ -189,6 +199,7 @@ GQL_AST_VALUE_PRINTER(PathValueType, "PATH")
 
 template <>
 struct Printer<RecordType> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const RecordType& v) {
     if (v.fields)
       os << "RECORD" << *v.fields;
@@ -199,6 +210,7 @@ struct Printer<RecordType> {
 
 template <>
 struct Printer<ValueType> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const ValueType& v) {
     os << v.typeOption;
     if (v.notNull)
@@ -208,6 +220,7 @@ struct Printer<ValueType> {
 
 template <>
 struct Printer<ValueType::List> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const ValueType::List& v) {
     os << "LIST";
     if (v.valueType)
@@ -219,6 +232,7 @@ struct Printer<ValueType::List> {
 
 template <>
 struct Printer<ValueType::Union> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const ValueType::Union& v) {
     os << "ANY <" << NoBreak() << Sequence(v.types, " | ") << NoBreak() << ">";
   }

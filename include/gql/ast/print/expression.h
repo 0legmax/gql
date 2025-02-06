@@ -16,6 +16,8 @@
 
 #include "gql/ast/algorithm.h"
 #include "gql/ast/nodes/expression.h"
+#include "gql/ast/print/expression_parens_helpers.h"
+#include "gql/ast/print/expression_wrappers.h"
 #include "gql/ast/print/helpers.h"
 #include "gql/ast/print/output_stream.h"
 
@@ -31,17 +33,31 @@ GQL_AST_ENUM_PRINTER(CompOp,
 
 GQL_AST_ENUM_PRINTER_LITERAL(NormalForm, NFC, NFD, NFKC, NFKD)
 
+template <typename Condition>
+struct PrintWithParensIf {
+  PrintWithParensIf(ast::ValueExpression* expr) : expr(expr) {}
+  PrintWithParensIf(const ValueExpressionPtr& expr) : expr(expr.get()) {}
+
+  ast::ValueExpression* expr;
+};
+
 template <>
 struct Printer<BindingTableExpression> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const BindingTableExpression& v) {
     variant_switch(
         v.option, [&os](const ProcedureBodyPtr& v) { os << "{" << *v << "}"; },
+        [&os](const ast::ValueExpressionPtr& v) {
+          // objectExpressionPrimary
+          os << ValueExpressionPrimary(v);
+        },
         [&os](const auto& v) { os << v; });
   }
 };
 
 template <>
 struct Printer<SubCharacterOrByteString> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SubCharacterOrByteString& v) {
     if (v.direction == SubCharacterOrByteString::Direction::Left) {
       os << "LEFT(";
@@ -56,6 +72,7 @@ GQL_AST_ENUM_PRINTER_LITERAL(TrimSpecification, LEADING, TRAILING, BOTH)
 
 template <>
 struct Printer<TrimSingleCharacterOrByteString> {
+  template <typename OutputStream>
   static void Print(OutputStream& os,
                     const TrimSingleCharacterOrByteString& v) {
     os << "TRIM(" << v.specification << v.trimString << "FROM" << v.source
@@ -65,6 +82,7 @@ struct Printer<TrimSingleCharacterOrByteString> {
 
 template <>
 struct Printer<FoldCharacterString> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const FoldCharacterString& v) {
     if (v.case_ == FoldCharacterString::Case::Upper) {
       os << "UPPER(";
@@ -77,6 +95,7 @@ struct Printer<FoldCharacterString> {
 
 template <>
 struct Printer<TrimMultiCharacterCharacterString> {
+  template <typename OutputStream>
   static void Print(OutputStream& os,
                     const TrimMultiCharacterCharacterString& v) {
     switch (v.type) {
@@ -100,6 +119,7 @@ struct Printer<TrimMultiCharacterCharacterString> {
 
 template <>
 struct Printer<NormalizeCharacterString> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const NormalizeCharacterString& v) {
     os << "NORMALIZE(" << v.expr << "," << v.form << ")";
   }
@@ -107,21 +127,25 @@ struct Printer<NormalizeCharacterString> {
 
 template <>
 struct Printer<PathValueConstructor> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const PathValueConstructor& v) {
     os << "PATH [";
     auto nodeIt = v.nodes.begin();
     for (auto& edge : v.edges) {
-      os << *nodeIt << "," << edge << ",";
+      os << ValueExpressionPrimary(*nodeIt) << ","
+         << ValueExpressionPrimary(edge) << ",";
       nodeIt++;
     }
-    os << *nodeIt << "]";
+    os << ValueExpressionPrimary(*nodeIt) << "]";
   }
 };
 
 template <>
 struct Printer<PropertyReference> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const PropertyReference& v) {
-    os << v.element << NoBreak() << "." << NoBreak() << v.property;
+    os << ValueExpressionPrimary(v.element) << NoBreak() << "." << NoBreak()
+       << v.property;
   }
 };
 
@@ -129,6 +153,7 @@ GQL_AST_VALUE_PRINTER(SessionUserValue, "SESSION_USER")
 
 template <>
 struct Printer<LetVariableDefinition> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const LetVariableDefinition& v) {
     if (v.type) {
       os << "VALUE" << v.var << "TYPED" << v.type << "=" << v.expr;
@@ -140,6 +165,7 @@ struct Printer<LetVariableDefinition> {
 
 template <>
 struct Printer<LetValueExpression> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const LetValueExpression& v) {
     os << "LET" << Sequence(v.definitions, ",") << "IN" << v.expression
        << "END";
@@ -148,6 +174,7 @@ struct Printer<LetValueExpression> {
 
 template <>
 struct Printer<LabelExpression::Negation> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const LabelExpression::Negation& v) {
     os << "!" << NoBreak() << v.expr;
   }
@@ -155,6 +182,7 @@ struct Printer<LabelExpression::Negation> {
 
 template <>
 struct Printer<LabelExpression::Binary> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const LabelExpression::Binary& v) {
     os << "(" << v.left;
     switch (v.op) {
@@ -173,6 +201,7 @@ GQL_AST_VALUE_PRINTER(LabelExpression::Wildcard, "%")
 
 template <>
 struct Printer<WhenOperand::IsNull> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const WhenOperand::IsNull& v) {
     os << "IS";
     if (v.notNull) {
@@ -184,6 +213,7 @@ struct Printer<WhenOperand::IsNull> {
 
 template <>
 struct Printer<WhenOperand::IsTyped> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const WhenOperand::IsTyped& v) {
     os << "IS";
     if (v.isNot) {
@@ -195,6 +225,7 @@ struct Printer<WhenOperand::IsTyped> {
 
 template <>
 struct Printer<WhenOperand::IsNormalized> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const WhenOperand::IsNormalized& v) {
     os << "IS";
     if (v.isNot) {
@@ -206,6 +237,7 @@ struct Printer<WhenOperand::IsNormalized> {
 
 template <>
 struct Printer<WhenOperand::IsDirected> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const WhenOperand::IsDirected& v) {
     os << "IS";
     if (v.isNot) {
@@ -217,6 +249,7 @@ struct Printer<WhenOperand::IsDirected> {
 
 template <>
 struct Printer<WhenOperand::IsLabeled> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const WhenOperand::IsLabeled& v) {
     if (v.isNot) {
       os << "IS NOT LABELED";
@@ -229,6 +262,7 @@ struct Printer<WhenOperand::IsLabeled> {
 
 template <>
 struct Printer<WhenOperand::IsSourceOrDestinationOf> {
+  template <typename OutputStream>
   static void Print(OutputStream& os,
                     const WhenOperand::IsSourceOrDestinationOf& v) {
     os << "IS";
@@ -249,6 +283,7 @@ struct Printer<WhenOperand::IsSourceOrDestinationOf> {
 
 template <>
 struct Printer<NullIfCaseAbbreviation> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const NullIfCaseAbbreviation& v) {
     os << "NULLIF(" << v.first << "," << v.second << ")";
   }
@@ -256,6 +291,7 @@ struct Printer<NullIfCaseAbbreviation> {
 
 template <>
 struct Printer<CoalesceCaseAbbreviation> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const CoalesceCaseAbbreviation& v) {
     os << "COALESCE(" << Sequence(v.expressions, ",") << ")";
   }
@@ -263,6 +299,7 @@ struct Printer<CoalesceCaseAbbreviation> {
 
 template <>
 struct Printer<SimpleWhenClause> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SimpleWhenClause& v) {
     os << "WHEN" << Sequence(v.operands, ",") << "THEN" << v.result;
   }
@@ -270,6 +307,7 @@ struct Printer<SimpleWhenClause> {
 
 template <>
 struct Printer<SimpleCase> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SimpleCase& v) {
     os << "CASE" << v.operand << v.when;
     if (v.else_) {
@@ -281,6 +319,7 @@ struct Printer<SimpleCase> {
 
 template <>
 struct Printer<SearchedWhenClause> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SearchedWhenClause& v) {
     os << "WHEN" << v.condition << "THEN" << v.result;
   }
@@ -288,6 +327,7 @@ struct Printer<SearchedWhenClause> {
 
 template <>
 struct Printer<SearchedCase> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SearchedCase& v) {
     os << "CASE" << v.when;
     if (v.else_) {
@@ -299,6 +339,7 @@ struct Printer<SearchedCase> {
 
 template <>
 struct Printer<CastSpecification> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const CastSpecification& v) {
     os << "CAST(" << v.operand << "AS" << v.target << ")";
   }
@@ -320,8 +361,9 @@ GQL_AST_ENUM_PRINTER_LITERAL(SetQuantifier, DISTINCT, ALL)
 
 template <>
 struct Printer<GeneralSetFunction> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const GeneralSetFunction& v) {
-    os << v.type << "(" << v.quantifier << v.value << ")";
+    os << v.type << NoBreak() << "(" << v.quantifier << v.value << ")";
   }
 };
 
@@ -331,14 +373,16 @@ GQL_AST_ENUM_PRINTER_LITERAL(BinarySetFunctionType,
 
 template <>
 struct Printer<BinarySetFunction> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const BinarySetFunction& v) {
-    os << v.type << "(" << v.quantifier << v.dependentValue << ","
+    os << v.type << NoBreak() << "(" << v.quantifier << v.dependentValue << ","
        << v.independent << ")";
   }
 };
 
 template <>
 struct Printer<ElementIdFunction> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const ElementIdFunction& v) {
     os << "ELEMENT_ID(" << v.variable << ")";
   }
@@ -346,6 +390,7 @@ struct Printer<ElementIdFunction> {
 
 template <>
 struct Printer<DateTimeFunction> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const DateTimeFunction& v) {
     switch (v.function) {
       case DateTimeFunction::Function::LOCAL_TIME:
@@ -379,6 +424,7 @@ GQL_AST_ENUM_PRINTER_LITERAL(CurrentDateTimeFunction,
 
 template <>
 struct Printer<DatetimeSubtraction> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const DatetimeSubtraction& v) {
     os << "DURATION_BETWEEN(" << v.param1 << "," << v.param2 << ")"
        << v.qualifier;
@@ -387,6 +433,7 @@ struct Printer<DatetimeSubtraction> {
 
 template <>
 struct Printer<NormalizedPredicate> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const NormalizedPredicate& v) {
     os << v.expr << "IS";
     if (v.isNot) {
@@ -400,6 +447,7 @@ GQL_AST_VALUE_PRINTER(CurrentGraph, "CURRENT_GRAPH")
 
 template <>
 struct Printer<ExistsPredicate> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const ExistsPredicate& v) {
     os << "EXISTS {" << v.option << "}";
   }
@@ -407,8 +455,9 @@ struct Printer<ExistsPredicate> {
 
 template <>
 struct Printer<NullPredicate> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const NullPredicate& v) {
-    os << v.expr << "IS";
+    os << ValueExpressionPrimary(v.expr) << "IS";
     if (v.isNot)
       os << "NOT";
     os << "NULL";
@@ -417,8 +466,9 @@ struct Printer<NullPredicate> {
 
 template <>
 struct Printer<ValueTypePredicate> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const ValueTypePredicate& v) {
-    os << v.expr << "IS";
+    os << ValueExpressionPrimary(v.expr) << "IS";
     if (v.isNot)
       os << "NOT";
     os << "TYPED" << v.type;
@@ -427,6 +477,7 @@ struct Printer<ValueTypePredicate> {
 
 template <>
 struct Printer<DirectedPredicate> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const DirectedPredicate& v) {
     os << v.element << "IS";
     if (v.isNot)
@@ -437,6 +488,7 @@ struct Printer<DirectedPredicate> {
 
 template <>
 struct Printer<LabeledPredicate> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const LabeledPredicate& v) {
     os << v.element;
     if (v.isNot)
@@ -449,6 +501,7 @@ struct Printer<LabeledPredicate> {
 
 template <>
 struct Printer<SourceDestinationPredicate> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SourceDestinationPredicate& v) {
     os << v.node << "IS";
     if (v.isNot)
@@ -464,6 +517,7 @@ struct Printer<SourceDestinationPredicate> {
 
 template <>
 struct Printer<AllElementsPredicate> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const AllElementsPredicate& v) {
     switch (v.kind) {
       case AllElementsPredicate::Kind::AllDifferent:
@@ -479,99 +533,104 @@ struct Printer<AllElementsPredicate> {
 
 template <>
 struct Printer<PropertyExistsPredicate> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const PropertyExistsPredicate& v) {
     os << "PROPERTY_EXISTS(" << v.element << "," << v.property << ")";
   }
 };
 
 template <>
-struct Printer<ValueExpression::Unary> {
-  static void Print(OutputStream& os, const ValueExpression::Unary& v) {
-    switch (v.op) {
-      case ValueExpression::Unary::Op::Positive:
-        os << "+" << NoBreak() << v.expr;
+struct Printer<ast::ValueExpression::Unary> {
+  template <typename OutputStream>
+  static void Print(OutputStream& os, const ast::ValueExpression::Unary& v) {
+    const auto op = v.op;
+    switch (op) {
+      case ast::ValueExpression::Unary::Op::Positive:
+        os << "+" << NoBreak()
+           << PrintWithParensIf<NumericPrimaryRequiresParens>(v.expr);
         break;
-      case ValueExpression::Unary::Op::Negative:
-        os << "-" << NoBreak() << v.expr;
+      case ast::ValueExpression::Unary::Op::Negative:
+        os << "-" << NoBreak()
+           << PrintWithParensIf<NumericPrimaryRequiresParens>(v.expr);
         break;
-      case ValueExpression::Unary::Op::BoolNot:
-        os << "NOT" << v.expr;
+      case ast::ValueExpression::Unary::Op::BoolNot:
+        os << "NOT" << PrintWithParensIf<BooleanTestRequiresParens>(v.expr);
         break;
       default: {
-        switch (v.op) {
-          case ValueExpression::Unary::Op::Sin:
+        switch (op) {
+          case ast::ValueExpression::Unary::Op::Sin:
             os << "SIN";
             break;
-          case ValueExpression::Unary::Op::Cos:
+          case ast::ValueExpression::Unary::Op::Cos:
             os << "COS";
             break;
-          case ValueExpression::Unary::Op::Tan:
+          case ast::ValueExpression::Unary::Op::Tan:
             os << "TAN";
             break;
-          case ValueExpression::Unary::Op::Cot:
+          case ast::ValueExpression::Unary::Op::Cot:
             os << "COT";
             break;
-          case ValueExpression::Unary::Op::Sinh:
+          case ast::ValueExpression::Unary::Op::Sinh:
             os << "SINH";
             break;
-          case ValueExpression::Unary::Op::Cosh:
+          case ast::ValueExpression::Unary::Op::Cosh:
             os << "COSH";
             break;
-          case ValueExpression::Unary::Op::Tanh:
+          case ast::ValueExpression::Unary::Op::Tanh:
             os << "TANH";
             break;
-          case ValueExpression::Unary::Op::Asin:
+          case ast::ValueExpression::Unary::Op::Asin:
             os << "ASIN";
             break;
-          case ValueExpression::Unary::Op::Acos:
+          case ast::ValueExpression::Unary::Op::Acos:
             os << "ACOS";
             break;
-          case ValueExpression::Unary::Op::Atan:
+          case ast::ValueExpression::Unary::Op::Atan:
             os << "ATAN";
             break;
-          case ValueExpression::Unary::Op::Degrees:
+          case ast::ValueExpression::Unary::Op::Degrees:
             os << "DEGREES";
             break;
-          case ValueExpression::Unary::Op::Radians:
+          case ast::ValueExpression::Unary::Op::Radians:
             os << "RADIANS";
             break;
-          case ValueExpression::Unary::Op::Floor:
+          case ast::ValueExpression::Unary::Op::Floor:
             os << "FLOOR";
             break;
-          case ValueExpression::Unary::Op::Ceiling:
+          case ast::ValueExpression::Unary::Op::Ceiling:
             os << "CEILING";
             break;
-          case ValueExpression::Unary::Op::SquareRoot:
+          case ast::ValueExpression::Unary::Op::SquareRoot:
             os << "SQRT";
             break;
-          case ValueExpression::Unary::Op::Exponential:
+          case ast::ValueExpression::Unary::Op::Exponential:
             os << "EXP";
             break;
-          case ValueExpression::Unary::Op::NaturalLogarithm:
+          case ast::ValueExpression::Unary::Op::NaturalLogarithm:
             os << "LN";
             break;
-          case ValueExpression::Unary::Op::CommonLogarithm:
+          case ast::ValueExpression::Unary::Op::CommonLogarithm:
             os << "LOG10";
             break;
-          case ValueExpression::Unary::Op::AbsoluteValue:
+          case ast::ValueExpression::Unary::Op::AbsoluteValue:
             os << "ABS";
             break;
-          case ValueExpression::Unary::Op::CharLength:
+          case ast::ValueExpression::Unary::Op::CharLength:
             os << "CHAR_LENGTH";
             break;
-          case ValueExpression::Unary::Op::ByteLength:
+          case ast::ValueExpression::Unary::Op::ByteLength:
             os << "BYTE_LENGTH";
             break;
-          case ValueExpression::Unary::Op::PathLength:
+          case ast::ValueExpression::Unary::Op::PathLength:
             os << "PATH_LENGTH";
             break;
-          case ValueExpression::Unary::Op::Cardinality:
+          case ast::ValueExpression::Unary::Op::Cardinality:
             os << "CARDINALITY";
             break;
-          case ValueExpression::Unary::Op::Size:
+          case ast::ValueExpression::Unary::Op::Size:
             os << "SIZE";
             break;
-          case ValueExpression::Unary::Op::Elements:
+          case ast::ValueExpression::Unary::Op::Elements:
             os << "ELEMENTS";
             break;
         }
@@ -582,43 +641,52 @@ struct Printer<ValueExpression::Unary> {
 };
 
 template <>
-struct Printer<ValueExpression::Binary> {
-  static void Print(OutputStream& os, const ValueExpression::Binary& v) {
+struct Printer<ast::ValueExpression::Binary> {
+  template <typename OutputStream>
+  static void Print(OutputStream& os, const ast::ValueExpression::Binary& v) {
     switch (v.op) {
-      case ValueExpression::Binary::Op::Multiply:
-        os << v.left << "*" << v.right;
+      case ast::ValueExpression::Binary::Op::Multiply:
+        os << PrintWithParensIf<NumericTermRequiresParens>(v.left) << "*"
+           << PrintWithParensIf<NumericFactorRequiresParens>(v.right);
         break;
-      case ValueExpression::Binary::Op::Divide:
-        os << v.left << "/" << v.right;
+      case ast::ValueExpression::Binary::Op::Divide:
+        os << PrintWithParensIf<NumericTermRequiresParens>(v.left) << "/"
+           << PrintWithParensIf<NumericFactorRequiresParens>(v.right);
         break;
-      case ValueExpression::Binary::Op::Add:
-        os << v.left << "+" << v.right;
+      case ast::ValueExpression::Binary::Op::Add:
+        os << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.left)
+           << "+" << PrintWithParensIf<NumericTermRequiresParens>(v.right);
         break;
-      case ValueExpression::Binary::Op::Subtract:
-        os << v.left << "-" << v.right;
+      case ast::ValueExpression::Binary::Op::Subtract:
+        os << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.left)
+           << "-" << PrintWithParensIf<NumericTermRequiresParens>(v.right);
         break;
-      case ValueExpression::Binary::Op::Concatenate:
-        os << v.left << "||" << v.right;
+      case ast::ValueExpression::Binary::Op::Concatenate:
+        os << PrintWithParensIf<ConcatenateRequiresParens>(v.left) << "||"
+           << ValueExpressionPrimary(v.right);
         break;
-      case ValueExpression::Binary::Op::BoolAnd:
-        os << v.left << "AND" << v.right;
+      case ast::ValueExpression::Binary::Op::BoolAnd:
+        os << PrintWithParensIf<BooleanTermRequiresParens>(v.left) << "AND"
+           << PrintWithParensIf<BooleanFactorRequiresParens>(v.right);
         break;
-      case ValueExpression::Binary::Op::BoolOr:
-        os << v.left << "OR" << v.right;
+      case ast::ValueExpression::Binary::Op::BoolOr:
+        os << PrintWithParensIf<BooleanValueExpressionRequiresParens>(v.left)
+           << "OR" << PrintWithParensIf<BooleanTermRequiresParens>(v.right);
         break;
-      case ValueExpression::Binary::Op::BoolXor:
-        os << v.left << "XOR" << v.right;
+      case ast::ValueExpression::Binary::Op::BoolXor:
+        os << PrintWithParensIf<BooleanValueExpressionRequiresParens>(v.left)
+           << "XOR" << PrintWithParensIf<BooleanTermRequiresParens>(v.right);
         break;
-      case ValueExpression::Binary::Op::Power:
+      case ast::ValueExpression::Binary::Op::Power:
         os << "POWER(" << v.left << "," << v.right << ")";
         break;
-      case ValueExpression::Binary::Op::GeneralLogarithm:
+      case ast::ValueExpression::Binary::Op::GeneralLogarithm:
         os << "LOG(" << v.left << "," << v.right << ")";
         break;
-      case ValueExpression::Binary::Op::Modulus:
+      case ast::ValueExpression::Binary::Op::Modulus:
         os << "MOD(" << v.left << "," << v.right << ")";
         break;
-      case ValueExpression::Binary::Op::TrimList:
+      case ast::ValueExpression::Binary::Op::TrimList:
         os << "TRIM(" << v.left << "," << v.right << ")";
         break;
     }
@@ -626,16 +694,19 @@ struct Printer<ValueExpression::Binary> {
 };
 
 template <>
-struct Printer<ValueExpression::Comparison> {
-  static void Print(OutputStream& os, const ValueExpression::Comparison& v) {
+struct Printer<ast::ValueExpression::Comparison> {
+  template <typename OutputStream>
+  static void Print(OutputStream& os,
+                    const ast::ValueExpression::Comparison& v) {
     os << v.left << v.op << v.right;
   }
 };
 
 template <>
-struct Printer<ValueExpression::Is> {
-  static void Print(OutputStream& os, const ValueExpression::Is& v) {
-    os << v.expr << "IS";
+struct Printer<ast::ValueExpression::Is> {
+  template <typename OutputStream>
+  static void Print(OutputStream& os, const ast::ValueExpression::Is& v) {
+    os << PrintWithParensIf<BooleanPrimaryRequiresParens>(v.expr) << "IS";
     if (v.isNot)
       os << "NOT";
     os << v.value;
@@ -643,16 +714,49 @@ struct Printer<ValueExpression::Is> {
 };
 
 template <>
-struct Printer<ValueExpression> {
+struct Printer<ast::ValueExpression> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const ValueExpression& v) {
-    os << "(";
     variant_switch(
         v.option,
         [&os](const BindingTableExpression& v) { os << "TABLE" << v; },
         [&os](const GraphExpression& v) { os << "GRAPH" << v; },
         [&os](const ProcedureBodyPtr& v) { os << "VALUE {" << *v << "}"; },
         [&os](const auto& v) { os << v; });
-    os << ")";
+  }
+};
+
+template <typename Condition>
+struct Printer<PrintWithParensIf<Condition>> {
+  template <typename OutputStream>
+  static void Print(OutputStream& os, const PrintWithParensIf<Condition>& v) {
+    if (std::visit(Condition{}, v.expr->option)) {
+      os << "(" << *v.expr << ")";
+    } else {
+      os << *v.expr;
+    }
+  }
+};
+
+template <>
+struct Printer<ValueExpressionPrimary> {
+  template <typename OutputStream>
+  static void Print(OutputStream& os, const ValueExpressionPrimary& v) {
+    os << PrintWithParensIf<ValueExpressionRequiresParens>(v.expr);
+  }
+};
+
+template <>
+struct Printer<GraphExpression> {
+  template <typename OutputStream>
+  static void Print(OutputStream& os, const GraphExpression& v) {
+    variant_switch(
+        v.option,
+        [&os](const ast::ValueExpressionPtr& v) {
+          // objectExpressionPrimary
+          os << "VARIABLE" << ValueExpressionPrimary(v);
+        },
+        [&os](const auto& v) { os << v; });
   }
 };
 

@@ -48,40 +48,74 @@ inline QuotedString Quoted(const std::string& str) {
   return {str};
 }
 
-class OutputStream {
+class OutputStreamBase {
  public:
-  OutputStream& operator<<(NoBreak);
-  template <size_t N>
-  OutputStream& operator<<(const char (&str)[N]) {
-    (*this) << str;
-    return *this;
-  }
-  OutputStream& operator<<(const char* str);
-  OutputStream& operator<<(uint64_t num);
-  OutputStream& operator<<(double num);
-  OutputStream& operator<<(QuotedString str);
-
-  template <typename T>
-  OutputStream& operator<<(SequenceT<T> seq);
-
-  template <typename NodeType>
-  OutputStream& operator<<(const NodeType& node) {
-    Printer<NodeType>::Print(*this, node);
-    return *this;
-  }
+  OutputStreamBase& operator<<(NoBreak);
+  OutputStreamBase& operator<<(const char* str);
+  OutputStreamBase& operator<<(uint64_t num);
+  OutputStreamBase& operator<<(double num);
+  OutputStreamBase& operator<<(QuotedString str);
 
   std::string str() const;
 
- private:
+ protected:
   std::stringstream os;
+
+ private:
   bool noBreak = false;
 
   char LastChar();
   std::ostream& MaybeSpace(char nextChar);
 };
 
+template <template <typename> class Printer>
+class OutputStreamT : public OutputStreamBase {
+ public:
+  OutputStreamT& operator<<(NoBreak) {
+    OutputStreamBase::operator<<(NoBreak());
+    return *this;
+  }
+  template <size_t N>
+  OutputStreamT& operator<<(const char (&str)[N]) {
+    OutputStreamBase::operator<<(str);
+    return *this;
+  }
+  OutputStreamT& operator<<(const char* str) {
+    OutputStreamBase::operator<<(str);
+    return *this;
+  }
+  OutputStreamT& operator<<(uint64_t num) {
+    OutputStreamBase::operator<<(num);
+    return *this;
+  }
+  OutputStreamT& operator<<(double num) {
+    OutputStreamBase::operator<<(num);
+    return *this;
+  }
+  OutputStreamT& operator<<(QuotedString str) {
+    OutputStreamBase::operator<<(str);
+    return *this;
+  }
+  template <typename T>
+  OutputStreamT& operator<<(SequenceT<T> seq);
+
+  template <typename NodeType>
+  OutputStreamT& operator<<(const NodeType& node) {
+    Printer<NodeType>::Print(*this, node);
+    return *this;
+  }
+};
+
+// Converting two-argument Printer template to one-argument template required by
+// OutputStreamT.
 template <typename T>
-OutputStream& OutputStream::operator<<(SequenceT<T> seq) {
+using PrinterAdapter = Printer<T>;
+
+using OutputStream = OutputStreamT<PrinterAdapter>;
+
+template <template <typename> class Printer>
+template <typename T>
+OutputStreamT<Printer>& OutputStreamT<Printer>::operator<<(SequenceT<T> seq) {
   if (seq.items.empty()) {
     return *this;
   }

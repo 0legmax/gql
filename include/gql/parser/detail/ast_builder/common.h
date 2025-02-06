@@ -338,13 +338,13 @@ struct GeneralLiteral {
         const auto text = token->getText();
         str.reserve((text.size() - 3) / 2);
         char hex[3] = {};
-        size_t pos = 1;
+        size_t pos = 0;
         for (size_t i = 2; i < text.size() - 1; i++) {
           if (text[i] == ' ')
             continue;
           hex[pos] = text[i];
           pos = 1 - pos;
-          if (pos == 1) {
+          if (pos == 0) {
             char* end;
             str.push_back(static_cast<uint8_t>(std::strtoul(hex, &end, 16)));
             GQL_ASSERT(end == hex + 2);

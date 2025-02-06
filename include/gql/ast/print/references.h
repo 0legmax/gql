@@ -16,7 +16,6 @@
 
 #include "gql/ast/nodes/references.h"
 #include "gql/ast/print/helpers.h"
-#include "gql/ast/print/output_stream.h"
 
 namespace gql::ast::print {
 
@@ -28,6 +27,7 @@ GQL_AST_VALUE_PRINTER(HomeGraph, "HOME_GRAPH")
 
 template <>
 struct Printer<SimpleDirectoryPath> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SimpleDirectoryPath& v) {
     for (auto& dir : v)
       os << dir << NoBreak() << "/" << NoBreak();
@@ -36,6 +36,7 @@ struct Printer<SimpleDirectoryPath> {
 
 template <>
 struct Printer<CatalogSchemaReference> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const CatalogSchemaReference& v) {
     if (v.levelUpCount > 0) {
       for (int i = 0; i < v.levelUpCount; i++)
@@ -49,6 +50,7 @@ struct Printer<CatalogSchemaReference> {
 
 template <>
 struct Printer<CatalogObjectParentReference> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const CatalogObjectParentReference& v) {
     os << v.schema;
     for (auto& name : v.path)
@@ -58,6 +60,7 @@ struct Printer<CatalogObjectParentReference> {
 
 template <>
 struct Printer<CatalogSchemaParentAndName> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const CatalogSchemaParentAndName& v) {
     os << "/" << NoBreak() << v.absolutePath << v.name;
   }

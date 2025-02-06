@@ -22,6 +22,7 @@ namespace gql::ast::print {
 
 template <>
 struct Printer<ElementVariableDeclaration> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const ElementVariableDeclaration& v) {
     if (v.isTemp)
       os << "TEMP";
@@ -31,6 +32,7 @@ struct Printer<ElementVariableDeclaration> {
 
 template <>
 struct Printer<ElementPatternWhereClause> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const ElementPatternWhereClause& v) {
     os << "WHERE" << v.condition;
   }
@@ -38,13 +40,15 @@ struct Printer<ElementPatternWhereClause> {
 
 template <>
 struct Printer<PropertyKeyValuePair> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const PropertyKeyValuePair& v) {
-    os << v.name << NoBreak() << ":" << v.value;
+    os << v.name << NoBreak() << ":" << ValueExpression(v.value);
   }
 };
 
 template <>
 struct Printer<PropertyKeyValuePairList> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const PropertyKeyValuePairList& v) {
     os << Sequence(v, ",");
   }
@@ -52,6 +56,7 @@ struct Printer<PropertyKeyValuePairList> {
 
 template <>
 struct Printer<ElementPropertySpecification> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const ElementPropertySpecification& v) {
     os << "{" << v.props << "}";
   }
@@ -59,6 +64,7 @@ struct Printer<ElementPropertySpecification> {
 
 template <>
 struct Printer<ElementPatternFiller> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const ElementPatternFiller& v) {
     os << NoBreak() << v.varDecl;
     if (v.labelExpr)
@@ -69,6 +75,7 @@ struct Printer<ElementPatternFiller> {
 
 template <>
 struct Printer<NodePattern> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const NodePattern& v) {
     os << "(" << v.filler << ")";
   }
@@ -85,6 +92,7 @@ GQL_AST_ENUM_PRINTER(EdgePattern::Direction,
 
 template <>
 struct Printer<EdgePattern> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const EdgePattern& v) {
     os << NoBreak();
     if (v.filler) {
@@ -122,6 +130,7 @@ GQL_AST_ENUM_PRINTER_LITERAL(PathMode, WALK, TRAIL, SIMPLE, ACYCLIC)
 
 template <>
 struct Printer<GeneralQuantifier> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const GeneralQuantifier& v) {
     if (!v.upper && v.lower && *v.lower == 1)
       os << "+";
@@ -136,6 +145,7 @@ struct Printer<GeneralQuantifier> {
 
 template <>
 struct Printer<SimplifiedNodePattern> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SimplifiedNodePattern& v) {
     os << v.varDecl << v.labels;
     if (!v.props.empty())
@@ -145,6 +155,7 @@ struct Printer<SimplifiedNodePattern> {
 
 template <>
 struct Printer<SimplifiedEdgePattern> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SimplifiedEdgePattern& v) {
     os << v.varDecl << v.labels;
     if (!v.props.empty())
@@ -158,6 +169,7 @@ GQL_AST_VALUE_PRINTER(SimplifiedFactorHigh::Optional, "?");
 
 template <>
 struct Printer<SimplifiedFactorLow> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SimplifiedFactorLow& v) {
     os << Sequence(v.factors, "&");
   }
@@ -165,6 +177,7 @@ struct Printer<SimplifiedFactorLow> {
 
 template <>
 struct Printer<SimplifiedContents> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SimplifiedContents& v) {
     switch (v.op) {
       case SimplifiedContents::Op::PathUnion:
@@ -179,6 +192,7 @@ struct Printer<SimplifiedContents> {
 
 template <>
 struct Printer<SimplifiedPrimary> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SimplifiedPrimary& v) {
     if (auto* contents = std::get_if<SimplifiedContents>(&v))
       os << "(" << *contents << ")";
@@ -189,6 +203,7 @@ struct Printer<SimplifiedPrimary> {
 
 template <>
 struct Printer<SimplifiedTertiary> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const SimplifiedTertiary& v) {
     if (v.direction) {
       switch (*v.direction) {
@@ -222,6 +237,7 @@ struct Printer<SimplifiedTertiary> {
 
 template <>
 struct Printer<SimplifiedPathPatternExpression> {
+  template <typename OutputStream>
   static void Print(OutputStream& os,
                     const SimplifiedPathPatternExpression& v) {
     switch (v.direction) {
@@ -255,6 +271,7 @@ GQL_AST_VALUE_PRINTER(PathFactor::Optional, "?");
 
 template <>
 struct Printer<PathPatternExpression> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const PathPatternExpression& v) {
     switch (v.op) {
       case PathPatternExpression::Op::MultisetAlternation:
@@ -269,6 +286,7 @@ struct Printer<PathPatternExpression> {
 
 template <>
 struct Printer<ParenthesizedPathPatternExpression> {
+  template <typename OutputStream>
   static void Print(OutputStream& os,
                     const ParenthesizedPathPatternExpression& v) {
     os << "(";

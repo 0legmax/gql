@@ -129,7 +129,7 @@ struct NumericType {
         break;
       case GQLParser::UINT64:
         value->typeOption =
-            ast::SimpleNumericType{ast::SimpleNumericType::Int64};
+            ast::SimpleNumericType{ast::SimpleNumericType::UInt64};
         break;
       case GQLParser::UINT128:
         value->typeOption =
@@ -272,19 +272,15 @@ struct FieldTypesSpecification : NodeBaseBuilder {
   ast::FieldTypesSpecification* value;
 };
 
-struct BindingTableType : NodeBaseBuilder {
-  BindingTableType(ast::BindingTableType* node, bool* notNull)
-      : NodeBaseBuilder(node), value(node), notNull(notNull) {}
-
-  FieldTypesSpecification EnterBindingTableType() { return {value}; }
+struct BindingTableReferenceValueType {
+  FieldTypesSpecification EnterBindingTableType() { return {&value->type}; }
 
   SkipTokens EnterNotNull() {
     *notNull = true;
     return {};
   }
 
- private:
-  ast::BindingTableType* value;
+  ast::BindingTableReferenceValueType* value;
   bool* notNull;
 };
 
@@ -450,7 +446,10 @@ struct ImmaterialValueType {
   }
 
   SkipTokens EnterNotNull() {
-    *notNull = true;
+    if (*value != ast::SimplePredefinedType::Empty) {
+      // Empty type is "NULL NOT NULL" itself.
+      *notNull = true;
+    }
     return {};
   }
 
@@ -572,8 +571,8 @@ struct ReferenceValueType {
             &value->notNull};
   }
 
-  BindingTableType EnterBindingTableReferenceValueType() {
-    return {&value->typeOption.emplace<ast::BindingTableType>(),
+  BindingTableReferenceValueType EnterBindingTableReferenceValueType() {
+    return {&value->typeOption.emplace<ast::BindingTableReferenceValueType>(),
             &value->notNull};
   }
 

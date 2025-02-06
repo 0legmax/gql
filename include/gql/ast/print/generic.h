@@ -27,11 +27,15 @@ namespace gql::ast::print {
 
 template <>
 struct Printer<std::string> {
-  static void Print(OutputStream& os, const std::string& s) { os << Quoted(s); }
+  template <typename OutputStream>
+  static void Print(OutputStream& os, const std::string& s) {
+    os << Quoted(s);
+  }
 };
 
 template <typename T>
 struct Printer<std::optional<T>> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const std::optional<T>& o) {
     if (o)
       os << *o;
@@ -40,11 +44,15 @@ struct Printer<std::optional<T>> {
 
 template <typename T>
 struct Printer<copyable_ptr<T>> {
-  static void Print(OutputStream& os, const copyable_ptr<T>& o) { os << *o; }
+  template <typename OutputStream>
+  static void Print(OutputStream& os, const copyable_ptr<T>& o) {
+    os << *o;
+  }
 };
 
 template <typename T>
 struct Printer<std::vector<T>> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const std::vector<T>& o) {
     for (auto& item : o) {
       os << item;
@@ -54,6 +62,7 @@ struct Printer<std::vector<T>> {
 
 template <typename... Ts>
 struct Printer<std::variant<Ts...>> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const std::variant<Ts...>& v) {
     std::visit([&os](auto& arg) { os << arg; }, v);
   }
@@ -68,6 +77,7 @@ template <typename T>
 struct Printer<T,
                std::enable_if_t<SupportsEnumerateFields<T>::value &&
                                 !HasPrinterSpecialization<T>>> {
+  template <typename OutputStream>
   static void Print(OutputStream& os, const T& obj) {
     EnumerateFields<T>::ForEachField(obj, [&os](auto& field) {
       os << field;

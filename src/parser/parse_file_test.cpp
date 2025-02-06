@@ -108,29 +108,34 @@ void CheckInputPosition(const NodeType& node,
 TEST_P(GQLFileTest, Parse) {
   std::ifstream file(GetParam(), std::ios::binary);
   std::string query(std::istreambuf_iterator<char>(file), {});
+
+  gql::ast::GQLProgram program;
   try {
-    gql::ast::GQLProgram program = gql::parser::ParseProgram(query.c_str());
-
-    int count = 0;
-    gql::ast::ForEachNodeInTree(program, [&count](auto*) {
-      count++;
-      return true;
-    });
-    EXPECT_GT(count, 0);
-
-    gql::ast::InputPosition startPosition{0, 0};
-    CheckInputPosition(program, startPosition);
-
-    const auto print1 = gql::ast::PrintTree(program);
-    std::cout << print1 << std::endl;
-    gql::ast::GQLProgram program1 = gql::parser::ParseProgram(print1.c_str());
-#if 0
-    const auto print2 = gql::ast::PrintTree(program1);
-    EXPECT_EQ(print1, print2);
-#endif
+    program = gql::parser::ParseProgram(query.c_str());
   } catch (const std::runtime_error& e) {
-    GTEST_FAIL() << e.what();
+    GTEST_FAIL() << e.what() << "\nparsing loaded query: " << query;
   }
+
+  int count = 0;
+  gql::ast::ForEachNodeInTree(program, [&count](auto*) {
+    count++;
+    return true;
+  });
+  EXPECT_GT(count, 0);
+
+  gql::ast::InputPosition startPosition{0, 0};
+  CheckInputPosition(program, startPosition);
+
+  const auto print1 = gql::ast::PrintTree(program);
+  gql::ast::GQLProgram program1;
+  try {
+    program1 = gql::parser::ParseProgram(print1.c_str());
+  } catch (const std::runtime_error& e) {
+    GTEST_FAIL() << e.what() << "\nparsing printed query: " << print1;
+  }
+  const auto print2 = gql::ast::PrintTree(program1);
+
+  EXPECT_EQ(print1, print2);
 }
 
 std::string GetTestName(
