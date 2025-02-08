@@ -15,6 +15,7 @@
 #pragma once
 
 #include <cstdint>
+#include <optional>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -27,7 +28,13 @@ struct Printer {};
 template <typename T>
 struct Printer<const T> : Printer<T> {};
 
-struct NoBreak {};
+struct NoBreak {
+  std::string token;
+};
+
+struct MarkSymbol {
+  std::string token;
+};
 
 template <typename T>
 struct SequenceT {
@@ -50,7 +57,8 @@ inline QuotedString Quoted(const std::string& str) {
 
 class OutputStreamBase {
  public:
-  OutputStreamBase& operator<<(NoBreak);
+  OutputStreamBase& operator<<(const NoBreak&);
+  OutputStreamBase& operator<<(const MarkSymbol&);
   OutputStreamBase& operator<<(const char* str);
   OutputStreamBase& operator<<(uint64_t num);
   OutputStreamBase& operator<<(double num);
@@ -61,8 +69,11 @@ class OutputStreamBase {
  protected:
   std::stringstream os;
 
+  void ResetNoBreak();
+
  private:
   bool noBreak = false;
+  std::optional<std::string> lastMark;
 
   char LastChar();
   std::ostream& MaybeSpace(char nextChar);
@@ -71,8 +82,12 @@ class OutputStreamBase {
 template <template <typename> class Printer>
 class OutputStreamT : public OutputStreamBase {
  public:
-  OutputStreamT& operator<<(NoBreak) {
-    OutputStreamBase::operator<<(NoBreak());
+  OutputStreamT& operator<<(const NoBreak& b) {
+    OutputStreamBase::operator<<(b);
+    return *this;
+  }
+  OutputStreamT& operator<<(const MarkSymbol& symbol) {
+    OutputStreamBase::operator<<(symbol);
     return *this;
   }
   template <size_t N>
@@ -128,6 +143,7 @@ OutputStreamT<Printer>& OutputStreamT<Printer>::operator<<(SequenceT<T> seq) {
       os << seq.separator;
     }
     *this << item;
+    ResetNoBreak();
   }
   return *this;
 }

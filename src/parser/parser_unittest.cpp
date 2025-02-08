@@ -27,7 +27,9 @@ namespace {
 
 struct ParserWrapper {
   ParserWrapper(const char* query)
-      : input(query), lexer(&input), tokens(&lexer), parser(&tokens) {}
+      : input(query), lexer(&input), tokens(&lexer), parser(&tokens) {
+    parser.removeErrorListeners();
+  }
 
   ANTLRInputStream input;
   GQLLexer lexer;

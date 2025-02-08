@@ -12,10 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include <iostream>
-
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
+
 #include "gql/ast/algorithm.h"
 #include "gql/ast/print.h"
 #include "gql/parser/parser.h"
@@ -80,7 +79,9 @@ RETURN p, r, friend
     EXPECT_GT(count, 100);
   }
 
-  std::cout << gql::ast::PrintTree(program) << std::endl;
+  EXPECT_EQ(
+      gql::ast::PrintTree(program),
+      R"(MATCH (p :Person)-[r :IS_FRIENDS_WITH]->(friend :Person) WHERE EXISTS {MATCH (p)-[:WORKS_FOR]->(:Company {name: "GQL, Inc."})} RETURN p, r, friend)");
 
   gql::ast::ForEachNodeOfType<gql::ast::LabelSetSpecification>(program,
                                                                LabelsVisitor());

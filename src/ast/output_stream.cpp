@@ -20,8 +20,16 @@
 
 namespace gql::ast::print {
 
-OutputStreamBase& OutputStreamBase::operator<<(NoBreak) {
-  noBreak = true;
+OutputStreamBase& OutputStreamBase::operator<<(const NoBreak& b) {
+  if (b.token.empty() || (lastMark && b.token == lastMark)) {
+    noBreak = true;
+  }
+  lastMark.reset();
+  return *this;
+}
+
+OutputStreamBase& OutputStreamBase::operator<<(const MarkSymbol& symbol) {
+  lastMark = symbol.token;
   return *this;
 }
 
@@ -79,6 +87,11 @@ OutputStreamBase& OutputStreamBase::operator<<(QuotedString str) {
 
 std::string OutputStreamBase::str() const {
   return os.str();
+}
+
+void OutputStreamBase::ResetNoBreak() {
+  noBreak = false;
+  lastMark.reset();
 }
 
 char OutputStreamBase::LastChar() {

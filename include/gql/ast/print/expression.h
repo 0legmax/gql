@@ -375,8 +375,12 @@ template <>
 struct Printer<BinarySetFunction> {
   template <typename OutputStream>
   static void Print(OutputStream& os, const BinarySetFunction& v) {
-    os << v.type << NoBreak() << "(" << v.quantifier << v.dependentValue << ","
-       << v.independent << ")";
+    os << v.type << NoBreak() << "(" << v.quantifier
+       << PrintWithParensIf<NumericValueExpressionRequiresParens>(
+              v.dependentValue)
+       << ","
+       << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.independent)
+       << ")";
   }
 };
 
@@ -543,8 +547,7 @@ template <>
 struct Printer<ast::ValueExpression::Unary> {
   template <typename OutputStream>
   static void Print(OutputStream& os, const ast::ValueExpression::Unary& v) {
-    const auto op = v.op;
-    switch (op) {
+    switch (v.op) {
       case ast::ValueExpression::Unary::Op::Positive:
         os << "+" << NoBreak()
            << PrintWithParensIf<NumericPrimaryRequiresParens>(v.expr);
@@ -557,7 +560,7 @@ struct Printer<ast::ValueExpression::Unary> {
         os << "NOT" << PrintWithParensIf<BooleanTestRequiresParens>(v.expr);
         break;
       default: {
-        switch (op) {
+        switch (v.op) {
           case ast::ValueExpression::Unary::Op::Sin:
             os << "SIN";
             break;
@@ -632,6 +635,10 @@ struct Printer<ast::ValueExpression::Unary> {
             break;
           case ast::ValueExpression::Unary::Op::Elements:
             os << "ELEMENTS";
+            break;
+          case ast::ValueExpression::Unary::Op::Positive:
+          case ast::ValueExpression::Unary::Op::Negative:
+          case ast::ValueExpression::Unary::Op::BoolNot:
             break;
         }
         os << NoBreak() << "(" << v.expr << ")";

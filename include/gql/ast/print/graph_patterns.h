@@ -73,11 +73,15 @@ struct Printer<ElementPatternFiller> {
   }
 };
 
+inline constexpr const char* kEndOfNodePatternMark = "NodePattern";
+inline constexpr const char* kEndOfEdgePatternMark = "EdgePattern";
+
 template <>
 struct Printer<NodePattern> {
   template <typename OutputStream>
   static void Print(OutputStream& os, const NodePattern& v) {
-    os << "(" << v.filler << ")";
+    os << NoBreak{kEndOfEdgePatternMark};
+    os << "(" << v.filler << ")" << MarkSymbol{kEndOfNodePatternMark};
   }
 };
 
@@ -92,9 +96,11 @@ GQL_AST_ENUM_PRINTER(EdgePattern::Direction,
 
 template <>
 struct Printer<EdgePattern> {
+  constexpr static const char* kMark = "EdgePattern";
+
   template <typename OutputStream>
   static void Print(OutputStream& os, const EdgePattern& v) {
-    os << NoBreak();
+    os << NoBreak{kEndOfNodePatternMark};
     if (v.filler) {
       switch (v.direction) {
         case EdgePattern::Direction::Left:
@@ -122,7 +128,7 @@ struct Printer<EdgePattern> {
     } else {
       os << v.direction;
     }
-    os << NoBreak();
+    os << MarkSymbol{kEndOfEdgePatternMark};
   }
 };
 
