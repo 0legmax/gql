@@ -38,13 +38,38 @@ class GQLParserErrorListener : public BaseErrorListener {
   }
 };
 
-ast::GQLProgram ParseProgram(const char* query) {
+struct ParserCache::Impl {
+  atn::PredictionContextCache predictionContextCache_;
+  std::vector<dfa::DFA> decisionToDFA_;
+};
+
+ParserCache::ParserCache() : impl_(std::make_unique<Impl>()) {}
+
+ParserCache::~ParserCache() = default;
+
+ast::GQLProgram ParseProgram(const char* query, ParserCache* cache) {
   ANTLRInputStream input(query);
   GQLLexer lexer(&input);
   CommonTokenStream tokens(&lexer);
 
   GQLParserErrorListener errorListener;
   GQLParser parser(&tokens);
+
+  if (cache) {
+    auto& dfa = cache->impl_->decisionToDFA_;
+    if (dfa.empty()) {
+      const size_t count = parser.getATN().getNumberOfDecisions();
+      dfa.reserve(count);
+      for (size_t i = 0; i < count; i++) {
+        dfa.emplace_back(parser.getATN().getDecisionState(i), i);
+      }
+    }
+
+    parser.setInterpreter(new atn::ParserATNSimulator(
+        &parser, parser.getATN(), cache->impl_->decisionToDFA_,
+        cache->impl_->predictionContextCache_));
+  }
+
   parser.setBuildParseTree(false);
   parser.removeErrorListeners();
   parser.addErrorListener(&errorListener);

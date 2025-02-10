@@ -19,7 +19,25 @@
 
 namespace gql::parser {
 
+class ParserCache;
+
 // Throws ParserError exception on error.
-ast::GQLProgram ParseProgram(const char* query);
+// If cache is nullptr, the parser will use cache in static memory.
+ast::GQLProgram ParseProgram(const char* query, ParserCache* cache = nullptr);
+
+// Antlr4 part of the parser heavily relies on cache to speed up parsing.
+// This class may be used to manage memory of the cache instead of relying on
+// never-shrinking cache in static memory used by the parser by default.
+class ParserCache {
+ public:
+  ParserCache();
+  ~ParserCache();
+
+ private:
+  struct Impl;
+  std::unique_ptr<Impl> impl_;
+
+  friend ast::GQLProgram ParseProgram(const char* query, ParserCache* cache);
+};
 
 }  // namespace gql::parser

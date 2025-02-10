@@ -23,7 +23,17 @@
 #include "gql/ast/print.h"
 #include "gql/parser/parser.h"
 
-class GQLFileTest : public testing::TestWithParam<std::filesystem::path> {};
+class GQLFileTest : public testing::TestWithParam<std::filesystem::path> {
+ public:
+  static void TearDownTestSuite() { parserCache_.reset(); }
+
+ protected:
+  static std::unique_ptr<gql::parser::ParserCache> parserCache_;
+  static int cacheUseCount_;
+};
+
+std::unique_ptr<gql::parser::ParserCache> GQLFileTest::parserCache_;
+int GQLFileTest::cacheUseCount_ = 0;
 
 template <typename Class, typename Enabled = void>
 struct has_MaybeNotSet : std::false_type {};
@@ -109,9 +119,15 @@ TEST_P(GQLFileTest, Parse) {
   std::ifstream file(GetParam(), std::ios::binary);
   std::string query(std::istreambuf_iterator<char>(file), {});
 
+  if (!parserCache_ || cacheUseCount_ > 100) {
+    parserCache_ = std::make_unique<gql::parser::ParserCache>();
+    cacheUseCount_ = 0;
+  }
+  cacheUseCount_++;
+
   gql::ast::GQLProgram program;
   try {
-    program = gql::parser::ParseProgram(query.c_str());
+    program = gql::parser::ParseProgram(query.c_str(), parserCache_.get());
   } catch (const std::runtime_error& e) {
     GTEST_FAIL() << e.what() << "\nparsing loaded query: " << query;
   }
@@ -129,10 +145,11 @@ TEST_P(GQLFileTest, Parse) {
   const auto print1 = gql::ast::PrintTree(program);
   gql::ast::GQLProgram program1;
   try {
-    program1 = gql::parser::ParseProgram(print1.c_str());
+    program1 = gql::parser::ParseProgram(print1.c_str(), parserCache_.get());
   } catch (const std::runtime_error& e) {
     GTEST_FAIL() << e.what() << "\nparsing printed query: " << print1;
   }
+
   const auto print2 = gql::ast::PrintTree(program1);
 
   EXPECT_EQ(print1, print2);
