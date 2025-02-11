@@ -26,3 +26,4 @@ FetchContent_MakeAvailable(googletest)
 
 add_subdirectory(ast)
 add_subdirectory(parser)
+add_subdirectory(rewrite)

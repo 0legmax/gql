@@ -190,7 +190,7 @@ template <>
 struct Printer<SimplifiedFactorLow> {
   template <typename OutputStream>
   static void Print(OutputStream& os, const SimplifiedFactorLow& v) {
-    os << Sequence(v.factors, "&");
+    os << Sequence(v.factors, " & ");
   }
 };
 
@@ -200,10 +200,10 @@ struct Printer<SimplifiedContents> {
   static void Print(OutputStream& os, const SimplifiedContents& v) {
     switch (v.op) {
       case SimplifiedContents::Op::Union:
-        os << Sequence(v.terms, "|");
+        os << Sequence(v.terms, " | ");
         break;
       case SimplifiedContents::Op::MultisetAlternation:
-        os << Sequence(v.terms, "|+|");
+        os << Sequence(v.terms, " |+| ");
         break;
     }
   }
@@ -291,10 +291,10 @@ struct Printer<PathPatternExpression> {
   static void Print(OutputStream& os, const PathPatternExpression& v) {
     switch (v.op) {
       case PathPatternExpression::Op::MultisetAlternation:
-        os << Sequence(v.terms, "|+|");
+        os << Sequence(v.terms, " |+| ");
         break;
       case PathPatternExpression::Op::Union:
-        os << Sequence(v.terms, "|");
+        os << Sequence(v.terms, " | ");
         break;
     }
   }

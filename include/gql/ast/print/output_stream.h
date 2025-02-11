@@ -44,6 +44,8 @@ struct SequenceT {
 
 template <typename T>
 SequenceT<T> Sequence(const std::vector<T>& items, const char* separator) {
+  if (separator[0] == ',' && separator[1] == 0)
+    separator = ", ";
   return {items, separator};
 }
 
@@ -141,6 +143,7 @@ OutputStreamT<Printer>& OutputStreamT<Printer>::operator<<(SequenceT<T> seq) {
       first = false;
     } else {
       os << seq.separator;
+      *this << NoBreak();
     }
     *this << item;
     ResetNoBreak();
