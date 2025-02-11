@@ -14,7 +14,7 @@
 
 #pragma once
 
-#include "gql/ast/nodes/graph_patterns.h"
+#include "gql/ast/nodes/path_patterns.h"
 #include "gql/parser/detail/ast_builder/expression.h"
 
 namespace gql::parser::ast_builder {
@@ -138,56 +138,56 @@ struct EdgePattern : NodeBaseBuilder {
   }
 
   auto EnterFullEdgePointingLeft() {
-    value->direction = ast::EdgePattern::Direction::Left;
+    value->direction = ast::EdgeDirectionPattern::Left;
     return this;
   }
   auto EnterFullEdgeUndirected() {
-    value->direction = ast::EdgePattern::Direction::Undirected;
+    value->direction = ast::EdgeDirectionPattern::Undirected;
     return this;
   }
   auto EnterFullEdgePointingRight() {
-    value->direction = ast::EdgePattern::Direction::Right;
+    value->direction = ast::EdgeDirectionPattern::Right;
     return this;
   }
   auto EnterFullEdgeLeftOrUndirected() {
-    value->direction = ast::EdgePattern::Direction::LeftOrUndirected;
+    value->direction = ast::EdgeDirectionPattern::LeftOrUndirected;
     return this;
   }
   auto EnterFullEdgeUndirectedOrRight() {
-    value->direction = ast::EdgePattern::Direction::UndirectedOrRight;
+    value->direction = ast::EdgeDirectionPattern::UndirectedOrRight;
     return this;
   }
   auto EnterFullEdgeLeftOrRight() {
-    value->direction = ast::EdgePattern::Direction::LeftOrRight;
+    value->direction = ast::EdgeDirectionPattern::LeftOrRight;
     return this;
   }
   auto EnterFullEdgeAnyDirection() {
-    value->direction = ast::EdgePattern::Direction::AnyDirection;
+    value->direction = ast::EdgeDirectionPattern::AnyDirection;
     return this;
   }
 
   void OnToken(antlr4::Token* token) {
     switch (token->getType()) {
       case GQLParser::LEFT_ARROW:
-        value->direction = ast::EdgePattern::Direction::Left;
+        value->direction = ast::EdgeDirectionPattern::Left;
         break;
       case GQLParser::TILDE:
-        value->direction = ast::EdgePattern::Direction::Undirected;
+        value->direction = ast::EdgeDirectionPattern::Undirected;
         break;
       case GQLParser::RIGHT_ARROW:
-        value->direction = ast::EdgePattern::Direction::Right;
+        value->direction = ast::EdgeDirectionPattern::Right;
         break;
       case GQLParser::LEFT_ARROW_TILDE:
-        value->direction = ast::EdgePattern::Direction::LeftOrUndirected;
+        value->direction = ast::EdgeDirectionPattern::LeftOrUndirected;
         break;
       case GQLParser::TILDE_RIGHT_ARROW:
-        value->direction = ast::EdgePattern::Direction::UndirectedOrRight;
+        value->direction = ast::EdgeDirectionPattern::UndirectedOrRight;
         break;
       case GQLParser::LEFT_MINUS_RIGHT:
-        value->direction = ast::EdgePattern::Direction::LeftOrRight;
+        value->direction = ast::EdgeDirectionPattern::LeftOrRight;
         break;
       case GQLParser::MINUS_SIGN:
-        value->direction = ast::EdgePattern::Direction::AnyDirection;
+        value->direction = ast::EdgeDirectionPattern::AnyDirection;
         break;
     }
   }
@@ -382,7 +382,7 @@ struct SimplifiedContents : NodeBaseBuilder {
   }
 
   auto EnterSimplifiedPathUnion() {
-    value->op = ast::SimplifiedContents::Op::PathUnion;
+    value->op = ast::SimplifiedContents::Op::Union;
     return this;
   }
 
@@ -421,37 +421,37 @@ struct SimplifiedTertiary : NodeBaseBuilder {
   }
 
   auto EnterSimplifiedOverrideLeft() {
-    value->direction = ast::SimplifiedTertiary::Direction::Left;
+    value->direction = ast::EdgeDirectionPattern::Left;
     return this;
   }
 
   auto EnterSimplifiedOverrideUndirected() {
-    value->direction = ast::SimplifiedTertiary::Direction::Undirected;
+    value->direction = ast::EdgeDirectionPattern::Undirected;
     return this;
   }
 
   auto EnterSimplifiedOverrideRight() {
-    value->direction = ast::SimplifiedTertiary::Direction::Right;
+    value->direction = ast::EdgeDirectionPattern::Right;
     return this;
   }
 
   auto EnterSimplifiedOverrideLeftOrUndirected() {
-    value->direction = ast::SimplifiedTertiary::Direction::LeftOrUndirected;
+    value->direction = ast::EdgeDirectionPattern::LeftOrUndirected;
     return this;
   }
 
   auto EnterSimplifiedOverrideUndirectedOrRight() {
-    value->direction = ast::SimplifiedTertiary::Direction::UndirectedOrRight;
+    value->direction = ast::EdgeDirectionPattern::UndirectedOrRight;
     return this;
   }
 
   auto EnterSimplifiedOverrideLeftOrRight() {
-    value->direction = ast::SimplifiedTertiary::Direction::LeftOrRight;
+    value->direction = ast::EdgeDirectionPattern::LeftOrRight;
     return this;
   }
 
   auto EnterSimplifiedOverrideAnyDirection() {
-    value->direction = ast::SimplifiedTertiary::Direction::AnyDirection;
+    value->direction = ast::EdgeDirectionPattern::AnyDirection;
     return this;
   }
 
@@ -466,42 +466,37 @@ struct SimplifiedPathPatternExpression : NodeBaseBuilder {
   SimplifiedContents EnterSimplifiedContents() { return {&value->contents}; }
 
   auto EnterSimplifiedDefaultingLeft() {
-    value->direction = ast::SimplifiedPathPatternExpression::Direction::Left;
+    value->direction = ast::EdgeDirectionPattern::Left;
     return this;
   }
 
   auto EnterSimplifiedDefaultingUndirected() {
-    value->direction =
-        ast::SimplifiedPathPatternExpression::Direction::Undirected;
+    value->direction = ast::EdgeDirectionPattern::Undirected;
     return this;
   }
 
   auto EnterSimplifiedDefaultingRight() {
-    value->direction = ast::SimplifiedPathPatternExpression::Direction::Right;
+    value->direction = ast::EdgeDirectionPattern::Right;
     return this;
   }
 
   auto EnterSimplifiedDefaultingLeftOrUndirected() {
-    value->direction =
-        ast::SimplifiedPathPatternExpression::Direction::LeftOrUndirected;
+    value->direction = ast::EdgeDirectionPattern::LeftOrUndirected;
     return this;
   }
 
   auto EnterSimplifiedDefaultingUndirectedOrRight() {
-    value->direction =
-        ast::SimplifiedPathPatternExpression::Direction::UndirectedOrRight;
+    value->direction = ast::EdgeDirectionPattern::UndirectedOrRight;
     return this;
   }
 
   auto EnterSimplifiedDefaultingLeftOrRight() {
-    value->direction =
-        ast::SimplifiedPathPatternExpression::Direction::LeftOrRight;
+    value->direction = ast::EdgeDirectionPattern::LeftOrRight;
     return this;
   }
 
   auto EnterSimplifiedDefaultingAnyDirection() {
-    value->direction =
-        ast::SimplifiedPathPatternExpression::Direction::AnyDirection;
+    value->direction = ast::EdgeDirectionPattern::AnyDirection;
     return this;
   }
 
@@ -597,12 +592,14 @@ struct ParenthesizedPathPatternExpression : NodeBaseBuilder {
     return {&value->varDecl.emplace()};
   }
 
-  PathMode EnterPathModePrefix() { return {&value->modePrefix.emplace()}; }
+  PathMode EnterPathModePrefix() { return {&value->pathMode.emplace()}; }
 
-  PathPatternExpression EnterPathPatternExpression() { return {&value->expr}; }
+  PathPatternExpression EnterPathPatternExpression() {
+    return {&value->pattern};
+  }
 
   ValueExpression EnterParenthesizedPathPatternWhereClause() {
-    return {value->whereClause.emplace()};
+    return {value->where.emplace()};
   }
 
  private:

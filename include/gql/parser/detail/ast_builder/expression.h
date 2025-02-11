@@ -55,10 +55,10 @@ struct CompOp {
 
 struct LabelExpression;
 
-struct LabelExpressionBinary {
+struct LabelExpressionLogical {
   LabelExpression EnterLabelExpression();
 
-  ast::LabelExpression::Binary* value;
+  ast::LabelExpression::Logical* value;
 };
 
 struct LabelExpression : NodeBaseBuilder {
@@ -79,19 +79,33 @@ struct LabelExpression : NodeBaseBuilder {
     return {};
   }
 
-  LabelExpressionBinary PushLabelExpressionConjunction_LabelExpression() {
-    auto copy = std::make_unique<ast::LabelExpression>(std::move(*value));
-    auto& inner = value->option.emplace<ast::LabelExpression::Binary>();
-    inner.op = ast::LabelExpression::Binary::Op::And;
-    inner.left.reset(copy.release());
+  LabelExpressionLogical PushLabelExpressionConjunction_LabelExpression() {
+    if (auto* logical =
+            std::get_if<ast::LabelExpression::Logical>(&value->option)) {
+      if (logical->op == ast::LabelExpression::Logical::Op::And) {
+        return {logical};
+      }
+    }
+
+    auto copy = ast::make_copyable<ast::LabelExpression>(std::move(*value));
+    auto& inner = value->option.emplace<ast::LabelExpression::Logical>();
+    inner.op = ast::LabelExpression::Logical::Op::And;
+    inner.terms.emplace_back(std::move(copy));
     return {&inner};
   }
 
-  LabelExpressionBinary PushLabelExpressionDisjunction_LabelExpression() {
-    auto copy = std::make_unique<ast::LabelExpression>(std::move(*value));
-    auto& inner = value->option.emplace<ast::LabelExpression::Binary>();
-    inner.op = ast::LabelExpression::Binary::Op::Or;
-    inner.left.reset(copy.release());
+  LabelExpressionLogical PushLabelExpressionDisjunction_LabelExpression() {
+    if (auto* logical =
+            std::get_if<ast::LabelExpression::Logical>(&value->option)) {
+      if (logical->op == ast::LabelExpression::Logical::Op::Or) {
+        return {logical};
+      }
+    }
+
+    auto copy = ast::make_copyable<ast::LabelExpression>(std::move(*value));
+    auto& inner = value->option.emplace<ast::LabelExpression::Logical>();
+    inner.op = ast::LabelExpression::Logical::Op::Or;
+    inner.terms.emplace_back(std::move(copy));
     return {&inner};
   }
 
@@ -103,14 +117,8 @@ struct LabelExpression : NodeBaseBuilder {
   ast::LabelExpression* value;
 };
 
-inline LabelExpression LabelExpressionBinary::EnterLabelExpression() {
-  if (value->left) {
-    value->right.reset(new ast::LabelExpression());
-    return {value->right.get()};
-  } else {
-    value->left.reset(new ast::LabelExpression());
-    return {value->left.get()};
-  }
+inline LabelExpression LabelExpressionLogical::EnterLabelExpression() {
+  return {value->terms.emplace_back(new ast::LabelExpression()).get()};
 }
 
 struct BinaryValueExpression {
@@ -749,10 +757,10 @@ struct ValueExpressionPrimary : NodeBaseBuilder {
     expectingPropertyName = true;
 #endif
     NodePushed();
-    auto copy = std::make_unique<ast::ValueExpression>(std::move(*value));
+    auto copy = ast::make_copyable<ast::ValueExpression>(std::move(*value));
     auto& ref = value->option.emplace<ast::PropertyReference>();
     SharePositionWithNode(&ref);
-    ref.element.reset(copy.release());
+    ref.element = std::move(copy);
   }
 
   Identifier EnterPropertyName() {
@@ -1604,9 +1612,9 @@ struct ValueExpression : NodeBaseBuilder {
 
   IsExpr PushIsNotExprAlt_ValueExpression() {
     NodePushed();
-    auto copy = std::make_unique<ast::ValueExpression>(std::move(*value));
+    auto copy = ast::make_copyable<ast::ValueExpression>(std::move(*value));
     auto& inner = value->option.emplace<ast::ValueExpression::Is>();
-    inner.expr.reset(copy.release());
+    inner.expr = std::move(copy);
     return {&inner};
   }
 
@@ -1616,9 +1624,9 @@ struct ValueExpression : NodeBaseBuilder {
 
   BinaryValueExpression PushMultDivExprAlt2_NumericValueExpression() {
     NodePushed();
-    auto copy = std::make_unique<ast::ValueExpression>(std::move(*value));
+    auto copy = ast::make_copyable<ast::ValueExpression>(std::move(*value));
     auto& inner = value->option.emplace<ast::ValueExpression::Binary>();
-    inner.left.reset(copy.release());
+    inner.left = std::move(copy);
     return {&inner};
   }
 
@@ -1644,9 +1652,9 @@ struct ValueExpression : NodeBaseBuilder {
 
   ComparisonValueExpression PushComparisonExprAlt_ValueExpression() {
     NodePushed();
-    auto copy = std::make_unique<ast::ValueExpression>(std::move(*value));
+    auto copy = ast::make_copyable<ast::ValueExpression>(std::move(*value));
     auto& inner = value->option.emplace<ast::ValueExpression::Comparison>();
-    inner.left.reset(copy.release());
+    inner.left = std::move(copy);
     return {&inner};
   }
 
@@ -1656,9 +1664,9 @@ struct ValueExpression : NodeBaseBuilder {
 
   NormalizedPredicate PushNormalizedPredicateExprAlt_ValueExpression() {
     NodePushed();
-    auto copy = std::make_unique<ast::ValueExpression>(std::move(*value));
+    auto copy = ast::make_copyable<ast::ValueExpression>(std::move(*value));
     auto& inner = value->option.emplace<ast::NormalizedPredicate>();
-    inner.expr.reset(copy.release());
+    inner.expr = std::move(copy);
     return {&inner};
   }
 

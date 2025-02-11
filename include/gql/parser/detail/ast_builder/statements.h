@@ -15,7 +15,7 @@
 #pragma once
 
 #include "gql/ast/nodes/statements.h"
-#include "gql/parser/detail/ast_builder/graph_patterns.h"
+#include "gql/parser/detail/ast_builder/path_patterns.h"
 
 namespace gql::parser::ast_builder {
 

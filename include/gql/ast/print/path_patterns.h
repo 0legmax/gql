@@ -14,7 +14,7 @@
 
 #pragma once
 
-#include "gql/ast/nodes/graph_patterns.h"
+#include "gql/ast/nodes/path_patterns.h"
 #include "gql/ast/print/helpers.h"
 #include "gql/ast/print/output_stream.h"
 
@@ -85,15 +85,6 @@ struct Printer<NodePattern> {
   }
 };
 
-GQL_AST_ENUM_PRINTER(EdgePattern::Direction,
-                     (Left, "<-"),
-                     (Undirected, "~"),
-                     (Right, "->"),
-                     (LeftOrUndirected, "<~"),
-                     (UndirectedOrRight, "~>"),
-                     (LeftOrRight, "<->"),
-                     (AnyDirection, "-"))
-
 template <>
 struct Printer<EdgePattern> {
   constexpr static const char* kMark = "EdgePattern";
@@ -103,30 +94,52 @@ struct Printer<EdgePattern> {
     os << NoBreak{kEndOfNodePatternMark};
     if (v.filler) {
       switch (v.direction) {
-        case EdgePattern::Direction::Left:
+        case EdgeDirectionPattern::Left:
           os << "<-[" << v.filler << "]-";
           break;
-        case EdgePattern::Direction::Undirected:
+        case EdgeDirectionPattern::Undirected:
           os << "~[" << v.filler << "]~";
           break;
-        case EdgePattern::Direction::Right:
+        case EdgeDirectionPattern::Right:
           os << "-[" << v.filler << "]->";
           break;
-        case EdgePattern::Direction::LeftOrUndirected:
+        case EdgeDirectionPattern::LeftOrUndirected:
           os << "<~[" << v.filler << "]~";
           break;
-        case EdgePattern::Direction::UndirectedOrRight:
+        case EdgeDirectionPattern::UndirectedOrRight:
           os << "~[" << v.filler << "]~>";
           break;
-        case EdgePattern::Direction::LeftOrRight:
+        case EdgeDirectionPattern::LeftOrRight:
           os << "<-[" << v.filler << "]->";
           break;
-        case EdgePattern::Direction::AnyDirection:
+        case EdgeDirectionPattern::AnyDirection:
           os << "-[" << v.filler << "]-";
           break;
       }
     } else {
-      os << v.direction;
+      switch (v.direction) {
+        case EdgeDirectionPattern::Left:
+          os << "<-";
+          break;
+        case EdgeDirectionPattern::Undirected:
+          os << "~";
+          break;
+        case EdgeDirectionPattern::Right:
+          os << "->";
+          break;
+        case EdgeDirectionPattern::LeftOrUndirected:
+          os << "<~";
+          break;
+        case EdgeDirectionPattern::UndirectedOrRight:
+          os << "~>";
+          break;
+        case EdgeDirectionPattern::LeftOrRight:
+          os << "<->";
+          break;
+        case EdgeDirectionPattern::AnyDirection:
+          os << "-";
+          break;
+      }
     }
     os << MarkSymbol{kEndOfEdgePatternMark};
   }
@@ -186,7 +199,7 @@ struct Printer<SimplifiedContents> {
   template <typename OutputStream>
   static void Print(OutputStream& os, const SimplifiedContents& v) {
     switch (v.op) {
-      case SimplifiedContents::Op::PathUnion:
+      case SimplifiedContents::Op::Union:
         os << Sequence(v.terms, "|");
         break;
       case SimplifiedContents::Op::MultisetAlternation:
@@ -213,25 +226,25 @@ struct Printer<SimplifiedTertiary> {
   static void Print(OutputStream& os, const SimplifiedTertiary& v) {
     if (v.direction) {
       switch (*v.direction) {
-        case SimplifiedTertiary::Direction::Left:
+        case EdgeDirectionPattern::Left:
           os << "<" << (v.isNegation ? "!" : "") << v.primary;
           break;
-        case SimplifiedTertiary::Direction::Undirected:
+        case EdgeDirectionPattern::Undirected:
           os << "~" << (v.isNegation ? "!" : "") << v.primary;
           break;
-        case SimplifiedTertiary::Direction::Right:
+        case EdgeDirectionPattern::Right:
           os << (v.isNegation ? "!" : "") << v.primary << ">";
           break;
-        case SimplifiedTertiary::Direction::LeftOrUndirected:
+        case EdgeDirectionPattern::LeftOrUndirected:
           os << "<~" << (v.isNegation ? "!" : "") << v.primary;
           break;
-        case SimplifiedTertiary::Direction::UndirectedOrRight:
+        case EdgeDirectionPattern::UndirectedOrRight:
           os << "~" << (v.isNegation ? "!" : "") << v.primary << ">";
           break;
-        case SimplifiedTertiary::Direction::LeftOrRight:
+        case EdgeDirectionPattern::LeftOrRight:
           os << "<" << (v.isNegation ? "!" : "") << v.primary << ">";
           break;
-        case SimplifiedTertiary::Direction::AnyDirection:
+        case EdgeDirectionPattern::AnyDirection:
           os << "-" << (v.isNegation ? "!" : "") << v.primary;
           break;
       }
@@ -247,33 +260,30 @@ struct Printer<SimplifiedPathPatternExpression> {
   static void Print(OutputStream& os,
                     const SimplifiedPathPatternExpression& v) {
     switch (v.direction) {
-      case SimplifiedPathPatternExpression::Direction::Left:
+      case EdgeDirectionPattern::Left:
         os << "<-/" << v.contents << "/-";
         break;
-      case SimplifiedPathPatternExpression::Direction::Undirected:
+      case EdgeDirectionPattern::Undirected:
         os << "~/" << v.contents << "/~";
         break;
-      case SimplifiedPathPatternExpression::Direction::Right:
+      case EdgeDirectionPattern::Right:
         os << "-/" << v.contents << "/->";
         break;
-      case SimplifiedPathPatternExpression::Direction::LeftOrUndirected:
+      case EdgeDirectionPattern::LeftOrUndirected:
         os << "<~/" << v.contents << "/~";
         break;
-      case SimplifiedPathPatternExpression::Direction::UndirectedOrRight:
+      case EdgeDirectionPattern::UndirectedOrRight:
         os << "~/" << v.contents << "/~>";
         break;
-      case SimplifiedPathPatternExpression::Direction::LeftOrRight:
+      case EdgeDirectionPattern::LeftOrRight:
         os << "<-/" << v.contents << "/->";
         break;
-      case SimplifiedPathPatternExpression::Direction::AnyDirection:
+      case EdgeDirectionPattern::AnyDirection:
         os << "-/" << v.contents << "/-";
         break;
     }
   }
 };
-
-GQL_AST_VALUE_PRINTER(PathFactor::NoQuantifier, "")
-GQL_AST_VALUE_PRINTER(PathFactor::Optional, "?");
 
 template <>
 struct Printer<PathPatternExpression> {
@@ -298,11 +308,11 @@ struct Printer<ParenthesizedPathPatternExpression> {
     os << "(";
     if (v.varDecl)
       os << v.varDecl << "=";
-    if (v.modePrefix)
-      os << *v.modePrefix << "PATH";
-    os << v.expr;
-    if (v.whereClause)
-      os << "WHERE" << *v.whereClause;
+    if (v.pathMode)
+      os << *v.pathMode << "PATH";
+    os << v.pattern;
+    if (v.where)
+      os << "WHERE" << *v.where;
     os << ")";
   }
 };

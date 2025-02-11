@@ -135,7 +135,7 @@ TEST_P(GQLFileTest, Parse) {
   int count = 0;
   gql::ast::ForEachNodeInTree(program, [&count](auto*) {
     count++;
-    return true;
+    return gql::ast::VisitorResult::kContinue;
   });
   EXPECT_GT(count, 0);
 

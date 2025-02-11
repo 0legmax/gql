@@ -249,19 +249,18 @@ struct LabelExpression : NodeBase<LabelExpression> {
   struct Negation {
     LabelExpressionPtr expr;
   };
-  struct Binary {
+  struct Logical {
     enum class Op { And, Or };
 
     Op op;
-    LabelExpressionPtr left;
-    LabelExpressionPtr right;
+    std::vector<LabelExpressionPtr> terms;
   };
   struct Wildcard {};
-  std::variant<Negation, Binary, LabelName, Wildcard> option;
+  std::variant<Negation, Logical, LabelName, Wildcard> option;
 };
 GQL_AST_STRUCT(LabelExpression, option)
 GQL_AST_STRUCT(LabelExpression::Negation, expr)
-GQL_AST_STRUCT(LabelExpression::Binary, op, left, right)
+GQL_AST_STRUCT(LabelExpression::Logical, terms)
 GQL_AST_VALUE(LabelExpression::Wildcard)
 
 // nullPredicatePart2

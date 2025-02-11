@@ -35,44 +35,22 @@ auto variant_switch(Variant&& variant, Ts&&... ts) {
                     std::forward<Variant>(variant));
 }
 
-namespace detail {
-
-template <typename TargetType>
-struct FindFirstNodeOfTypeVisitor {
-  template <typename NodeType>
-  bool operator()(NodeType*) {
-    return true;
-  }
-
-  bool operator()(TargetType* node) {
-    result = node;
-    return false;
-  }
-
-  TargetType* result;
+enum class VisitorResult {
+  kContinue,
+  kSkipChildren,
+  kStop,
 };
-
-template <typename TargetType, typename Func>
-struct ForEachNodeOfTypeVisitor {
-  ForEachNodeOfTypeVisitor(Func& func) : func(func) {}
-
-  template <typename NodeType>
-  bool operator()(NodeType*) {
-    return true;
-  }
-
-  bool operator()(TargetType* node) { return func(*node); }
-
- private:
-  Func& func;
-};
-
-}  // namespace detail
 
 template <typename NodeType, typename VisitorType>
 bool ForEachNodeInTree(NodeType& node, VisitorType&& visitor) {
-  if (!visitor(&node))
-    return false;
+  switch (visitor(&node)) {
+    case VisitorResult::kContinue:
+      break;
+    case VisitorResult::kSkipChildren:
+      return true;
+    case VisitorResult::kStop:
+      return false;
+  }
   return EnumerateChildren<NodeType>::ForEachChild(
       node,
       [&visitor](auto& node) { return ForEachNodeInTree(node, visitor); });
@@ -83,6 +61,40 @@ bool ForEachChild(NodeType& node, VisitorType&& visitor) {
   return EnumerateChildren<NodeType>::ForEachChild(
       node, std::forward<VisitorType>(visitor));
 }
+
+namespace detail {
+
+template <typename TargetType>
+struct FindFirstNodeOfTypeVisitor {
+  template <typename NodeType>
+  auto operator()(NodeType*) {
+    return VisitorResult::kContinue;
+  }
+
+  auto operator()(TargetType* node) {
+    result = node;
+    return VisitorResult::kStop;
+  }
+
+  TargetType* result;
+};
+
+template <typename TargetType, typename Func>
+struct ForEachNodeOfTypeVisitor {
+  ForEachNodeOfTypeVisitor(Func& func) : func(func) {}
+
+  template <typename NodeType>
+  auto operator()(NodeType*) {
+    return VisitorResult::kContinue;
+  }
+
+  VisitorResult operator()(TargetType* node) { return func(*node); }
+
+ private:
+  Func& func;
+};
+
+}  // namespace detail
 
 template <typename NodeType, typename RootType>
 NodeType* FindFirstNodeOfType(RootType& root) {

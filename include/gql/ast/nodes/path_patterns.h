@@ -124,21 +124,21 @@ struct NodePattern : NodeBase<NodePattern> {
 };
 GQL_AST_STRUCT(NodePattern, filler)
 
+enum class EdgeDirectionPattern {
+  Left,
+  Undirected,
+  Right,
+  LeftOrUndirected,
+  UndirectedOrRight,
+  LeftOrRight,
+  AnyDirection
+};
+
 // edgePattern
 //    : fullEdgePattern
 //    | abbreviatedEdgePattern
 struct EdgePattern : NodeBase<EdgePattern> {
-  enum class Direction {
-    Left,
-    Undirected,
-    Right,
-    LeftOrUndirected,
-    UndirectedOrRight,
-    LeftOrRight,
-    AnyDirection
-  };
-
-  Direction direction;
+  EdgeDirectionPattern direction;
   std::optional<ElementPatternFiller> filler;
 };
 GQL_AST_STRUCT(EdgePattern, direction, filler)
@@ -238,9 +238,11 @@ using SimplifiedPathPatternPrimary =
 struct SimplifiedFactorHigh : NodeBase<SimplifiedFactorHigh> {
   struct NoQuantifier {};
   struct Optional {};
+  using Quantifier =
+      std::variant<NoQuantifier, Optional, GraphPatternQuantifier>;
 
   SimplifiedTertiaryPtr tertiary;
-  std::variant<NoQuantifier, Optional, GraphPatternQuantifier> quantifier;
+  Quantifier quantifier;
 };
 GQL_AST_STRUCT(SimplifiedFactorHigh, tertiary, quantifier)
 
@@ -281,7 +283,7 @@ GQL_AST_STRUCT(SimplifiedTerm, factors)
 //     | simplifiedMultisetAlternation
 //     ;
 struct SimplifiedContents : NodeBase<SimplifiedContents> {
-  enum class Op { PathUnion, MultisetAlternation };
+  enum class Op { Union, MultisetAlternation };
 
   Op op;
   std::vector<SimplifiedTerm> terms;
@@ -374,17 +376,7 @@ using SimplifiedPrimary = std::variant<LabelName, SimplifiedContents>;
 //     | simplifiedSecondary
 //     ;
 struct SimplifiedTertiary : NodeBase<SimplifiedTertiary> {
-  enum class Direction {
-    Left,
-    Undirected,
-    Right,
-    LeftOrUndirected,
-    UndirectedOrRight,
-    LeftOrRight,
-    AnyDirection
-  };
-
-  std::optional<Direction> direction;
+  std::optional<EdgeDirectionPattern> direction;
   SimplifiedPrimary primary;
   bool isNegation;
 };
@@ -401,17 +393,7 @@ GQL_AST_STRUCT(SimplifiedTertiary, direction, primary, isNegation)
 //     ;
 struct SimplifiedPathPatternExpression
     : NodeBase<SimplifiedPathPatternExpression> {
-  enum class Direction {
-    Left,
-    Undirected,
-    Right,
-    LeftOrUndirected,
-    UndirectedOrRight,
-    LeftOrRight,
-    AnyDirection
-  };
-
-  Direction direction;
+  EdgeDirectionPattern direction;
   SimplifiedContents contents;
 };
 GQL_AST_STRUCT(SimplifiedPathPatternExpression, direction, contents)
@@ -429,16 +411,14 @@ using PathPrimary = std::variant<ElementPattern,
 //    | pathPrimary graphPatternQuantifier
 //    | pathPrimary QUESTION_MARK
 struct PathFactor : NodeBase<PathFactor> {
-  struct Optional {};
-  struct NoQuantifier {};
+  using NoQuantifier = SimplifiedFactorHigh::NoQuantifier;
+  using Optional = SimplifiedFactorHigh::Optional;
+  using Quantifier = SimplifiedFactorHigh::Quantifier;
 
   PathPrimary path;
-  std::variant<NoQuantifier, Optional, GraphPatternQuantifier> quantifier;
+  Quantifier quantifier;
 };
 GQL_AST_STRUCT(PathFactor, path, quantifier)
-
-GQL_AST_VALUE(PathFactor::Optional)
-GQL_AST_VALUE(PathFactor::NoQuantifier)
 
 // pathTerm
 //    : pathFactor+
@@ -449,7 +429,7 @@ using PathTerm = std::vector<PathFactor>;
 //    | pathTerm (MULTISET_ALTERNATION_OPERATOR pathTerm)+
 //    | pathTerm (VERTICAL_BAR pathTerm)+
 struct PathPatternExpression : NodeBase<PathPatternExpression> {
-  enum class Op { MultisetAlternation, Union };
+  using Op = SimplifiedContents::Op;
 
   Op op;
   std::vector<PathTerm> terms;
@@ -462,14 +442,14 @@ GQL_AST_STRUCT(PathPatternExpression, op, terms)
 struct ParenthesizedPathPatternExpression
     : NodeBase<ParenthesizedPathPatternExpression> {
   std::optional<SubpathVariableDeclaration> varDecl;
-  std::optional<PathModePrefix> modePrefix;
-  PathPatternExpression expr;
-  std::optional<ParenthesizedPathPatternWhereClause> whereClause;
+  std::optional<PathModePrefix> pathMode;
+  PathPatternExpression pattern;
+  std::optional<ParenthesizedPathPatternWhereClause> where;
 };
 GQL_AST_STRUCT(ParenthesizedPathPatternExpression,
                varDecl,
-               modePrefix,
-               expr,
-               whereClause)
+               pathMode,
+               pattern,
+               where)
 
 }  // namespace gql::ast

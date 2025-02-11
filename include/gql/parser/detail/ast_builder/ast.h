@@ -15,8 +15,8 @@
 #pragma once
 
 #include "gql/parser/detail/ast_builder/expression.h"
-#include "gql/parser/detail/ast_builder/graph_patterns.h"
 #include "gql/parser/detail/ast_builder/graph_types.h"
+#include "gql/parser/detail/ast_builder/path_patterns.h"
 #include "gql/parser/detail/ast_builder/statements.h"
 #include "gql/parser/detail/ast_builder/types.h"
 

@@ -26,8 +26,15 @@ class copyable_ptr : public std::unique_ptr<T> {
 
   copyable_ptr(const copyable_ptr& other)
       : std::unique_ptr<T>(other ? new T(*other) : nullptr) {}
+  copyable_ptr(copyable_ptr&& other) : std::unique_ptr<T>(other.release()) {}
+
   copyable_ptr& operator=(const copyable_ptr& other) {
     this->reset(other ? new T(*other) : nullptr);
+    return *this;
+  }
+
+  copyable_ptr& operator=(copyable_ptr&& other) {
+    this->reset(other.release());
     return *this;
   }
 
@@ -38,5 +45,10 @@ class copyable_ptr : public std::unique_ptr<T> {
     return this->get();
   }
 };
+
+template <class T, class... Args>
+copyable_ptr<T> make_copyable(Args&&... args) {
+  return copyable_ptr<T>(new T(std::forward<Args>(args)...));
+}
 
 }  // namespace gql::ast

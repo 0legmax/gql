@@ -181,19 +181,13 @@ struct Printer<LabelExpression::Negation> {
 };
 
 template <>
-struct Printer<LabelExpression::Binary> {
+struct Printer<LabelExpression::Logical> {
   template <typename OutputStream>
-  static void Print(OutputStream& os, const LabelExpression::Binary& v) {
-    os << "(" << v.left;
-    switch (v.op) {
-      case LabelExpression::Binary::Op::And:
-        os << "&";
-        break;
-      case LabelExpression::Binary::Op::Or:
-        os << "|";
-        break;
-    }
-    os << v.right << ")";
+  static void Print(OutputStream& os, const LabelExpression::Logical& v) {
+    os << "("
+       << Sequence(v.terms,
+                   v.op == LabelExpression::Logical::Op::And ? "&" : "|")
+       << ")";
   }
 };
 

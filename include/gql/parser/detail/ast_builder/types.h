@@ -645,10 +645,10 @@ struct ValueType : NodeBaseBuilder {
   }
 
   ListValueType PushListValueTypeAlt2_ValueType() {
-    auto copy = std::make_unique<ast::ValueType>(std::move(*value));
+    auto copy = ast::make_copyable<ast::ValueType>(std::move(*value));
     *value = ast::ValueType{};
     auto& listType = value->typeOption.emplace<ast::ValueType::List>();
-    listType.valueType.emplace(copy.release());
+    listType.valueType = std::move(copy);
     return {&listType, &value->notNull};
   }
 
@@ -686,7 +686,7 @@ struct ValueType : NodeBaseBuilder {
       // Don't create nested union type nodes and flatten them.
       return {unionType, &value->notNull};
     }
-    auto copy = std::make_unique<ast::ValueType>(std::move(*value));
+    auto copy = ast::make_copyable<ast::ValueType>(std::move(*value));
     *value = ast::ValueType{};
     auto& unionType = value->typeOption.emplace<ast::ValueType::Union>();
     unionType.types.emplace_back(copy.release());

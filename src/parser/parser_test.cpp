@@ -28,7 +28,9 @@ struct LabelsVisitor {
   LabelsVisitor& operator=(LabelsVisitor&&) = delete;
   LabelsVisitor& operator=(const LabelsVisitor&) = delete;
 
-  bool operator()(const gql::ast::LabelSetSpecification&) { return true; }
+  auto operator()(const gql::ast::LabelSetSpecification&) {
+    return gql::ast::VisitorResult::kContinue;
+  }
 };
 
 struct NodePositions {
@@ -59,14 +61,14 @@ RETURN p, r, friend
   gql::ast::ForEachNodeOfType<gql::ast::SimpleMatchStatement>(
       program, [&](const gql::ast::SimpleMatchStatement& node) {
         simpleMatchStatementNodes.OnNode(node.inputPosition());
-        return true;
+        return gql::ast::VisitorResult::kContinue;
       });
 
   {
     int count = 0;
     gql::ast::ForEachNodeInTree(program, [&count](auto*) {
       count++;
-      return true;
+      return gql::ast::VisitorResult::kContinue;
     });
     EXPECT_GT(count, 100);
   }
@@ -74,7 +76,7 @@ RETURN p, r, friend
     int count = 0;
     gql::ast::ForEachNodeInTree(programConstCopy, [&count](auto*) {
       count++;
-      return true;
+      return gql::ast::VisitorResult::kContinue;
     });
     EXPECT_GT(count, 100);
   }

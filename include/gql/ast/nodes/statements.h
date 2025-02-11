@@ -14,7 +14,7 @@
 
 #pragma once
 
-#include "gql/ast/nodes/graph_patterns.h"
+#include "gql/ast/nodes/path_patterns.h"
 
 namespace gql::ast {
 
