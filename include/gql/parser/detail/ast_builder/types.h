@@ -635,7 +635,7 @@ struct ValueType : NodeBaseBuilder {
   auto EnterPathValueTypeLabel() { return this; }
 
   auto EnterPathValueType() {
-    value->typeOption.emplace<ast::PathValueType>();
+    value->typeOption = ast::SimplePredefinedType::Path;
     return this;
   }
 
@@ -662,12 +662,12 @@ struct ValueType : NodeBaseBuilder {
   }
 
   auto EnterOpenDynamicUnionTypeLabel() {
-    value->typeOption.emplace<ast::ValueType::Any>();
+    value->typeOption = ast::SimplePredefinedType::Any;
     return this;
   }
 
   auto EnterDynamicPropertyValueTypeLabel() {
-    value->typeOption.emplace<ast::ValueType::AnyProperty>();
+    value->typeOption = ast::SimplePredefinedType::AnyProperty;
     return this;
   }
 

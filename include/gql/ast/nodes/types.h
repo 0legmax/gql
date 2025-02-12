@@ -28,7 +28,10 @@ enum class SimplePredefinedType {
   DurationYearToMonth,
   DurationDayToSecond,
   Null,
-  Empty
+  Empty,
+  Any,
+  AnyProperty,
+  Path,
 };
 
 // booleanType
@@ -43,7 +46,7 @@ enum class SimplePredefinedType {
 struct StringType {
   enum class Kind { STRING, CHAR, VARCHAR, BYTES, BINARY, VARBINARY };
 
-  Kind kind;
+  Kind kind = Kind::STRING;
   UnsignedInteger minLength = 0;
   std::optional<UnsignedInteger> maxLength;
 };
@@ -266,7 +269,7 @@ using BindingTableType = FieldTypesSpecification;
 //    ;
 struct BindingTableReferenceValueType {
   BindingTableType type;
-  bool notNull;
+  bool notNull = false;
 };
 GQL_AST_STRUCT(BindingTableReferenceValueType, type, notNull)
 
@@ -298,7 +301,7 @@ GQL_AST_STRUCT(BindingTableReferenceValueType, type, notNull)
 //     ;
 struct GraphReferenceValueType : NodeBase<GraphReferenceValueType> {
   std::optional<NestedGraphTypeSpecification> type;  // Not set means "any"
-  bool notNull;
+  bool notNull = false;
 };
 GQL_AST_STRUCT(GraphReferenceValueType, type, notNull)
 
@@ -350,8 +353,6 @@ GQL_AST_STRUCT(EdgeReferenceValueType, type)
 // pathValueType
 //     : PATH notNull?
 //     ;
-struct PathValueType {};
-GQL_AST_VALUE(PathValueType)
 
 // listValueTypeName
 //     : GROUP? listValueTypeNameSynonym
@@ -397,8 +398,6 @@ struct ValueType : NodeBase<ValueType> {
     std::optional<ValueTypePtr> valueType;
     std::optional<UnsignedInteger> maxLength;
   };
-  struct Any {};
-  struct AnyProperty {};
   struct Union {
     std::vector<ValueTypePtr> types;
   };
@@ -412,22 +411,16 @@ struct ValueType : NodeBase<ValueType> {
                BindingTableReferenceValueType,
                NodeReferenceValueType,
                EdgeReferenceValueType,
-               PathValueType,
                List,
                RecordType,
-               Any,
-               AnyProperty,
                Union>
       typeOption;
 
-  bool notNull;  // Not applicable for Union
+  bool notNull = false;  // Not applicable for Union
 };
 
 GQL_AST_STRUCT(ValueType, typeOption, notNull)
 GQL_AST_STRUCT(ValueType::List, valueType, maxLength)
 GQL_AST_STRUCT(ValueType::Union, types)
-
-GQL_AST_VALUE(ValueType::Any)
-GQL_AST_VALUE(ValueType::AnyProperty)
 
 }  // namespace gql::ast

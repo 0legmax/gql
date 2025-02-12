@@ -48,7 +48,7 @@ using LocalNodeTypeAlias = RegularIdentifier;
 struct PropertyType : NodeBase<PropertyType> {
   PropertyName name;
   ValueTypePtr type;
-  bool isOptional;
+  bool isOptional = false;
 };
 GQL_AST_STRUCT(PropertyType, name, type, isOptional)
 
@@ -207,7 +207,7 @@ GQL_AST_STRUCT(EdgeTypeFiller, keyLabels, implied)
 // EdgeTypePattern is used both for edgeTypePhrase and edgeTypePattern.
 struct EdgeTypePattern : NodeBase<EdgeTypePattern> {
   std::optional<EdgeTypeName> typeName;
-  bool isDirected;
+  bool isDirected = false;
   std::optional<NodeTypeReference> source;
   std::optional<EdgeTypeFiller> filler;
   std::optional<NodeTypeReference> destination;

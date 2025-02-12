@@ -48,6 +48,11 @@ ParserCache::ParserCache() : impl_(std::make_unique<Impl>()) {}
 ParserCache::~ParserCache() = default;
 
 ast::GQLProgram ParseProgram(const char* query, ParserCache* cache) {
+  static_assert(
+      std::is_default_constructible<ast::ValueExpression::Unary>::value);
+
+  ast::ValueExpression::Unary unary;
+
   ANTLRInputStream input(query);
   GQLLexer lexer(&input);
   CommonTokenStream tokens(&lexer);

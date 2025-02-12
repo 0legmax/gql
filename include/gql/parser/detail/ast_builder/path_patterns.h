@@ -592,7 +592,7 @@ struct ParenthesizedPathPatternExpression : NodeBaseBuilder {
     return {&value->varDecl.emplace()};
   }
 
-  PathMode EnterPathModePrefix() { return {&value->pathMode.emplace()}; }
+  PathMode EnterPathModePrefix() { return {&value->pathMode}; }
 
   PathPatternExpression EnterPathPatternExpression() {
     return {&value->pattern};

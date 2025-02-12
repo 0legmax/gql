@@ -308,8 +308,8 @@ struct Printer<ParenthesizedPathPatternExpression> {
     os << "(";
     if (v.varDecl)
       os << v.varDecl << "=";
-    if (v.pathMode)
-      os << *v.pathMode << "PATH";
+    if (v.pathMode != PathMode::WALK)
+      os << v.pathMode << "PATH";
     os << v.pattern;
     if (v.where)
       os << "WHERE" << *v.where;

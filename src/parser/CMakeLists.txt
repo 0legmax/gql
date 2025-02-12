@@ -39,9 +39,19 @@ add_executable(gql_parser_test
   parser_unittest.cpp
 )
 
+if(0)
+  if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    target_link_options(gql_parser_test PRIVATE -Wl,--gc-sections -Wl,--print-gc-sections)
+  elseif(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+    target_link_options(gql_parser_test PRIVATE /MAP:linker_map.txt)
+    target_link_options(gql_parser_test PRIVATE /OPT:REF /VERBOSE)
+  endif()
+endif()
+
 target_link_libraries(gql_parser_test
   gql_parser
   gql_ast_print
+  gql_ast_test_utils
   GTest::gtest_main
   GTest::gmock_main
 )

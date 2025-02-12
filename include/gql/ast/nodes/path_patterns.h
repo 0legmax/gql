@@ -28,7 +28,7 @@ using ParenthesizedPathPatternExpressionPtr =
 // elementVariableDeclaration
 //    : TEMP? elementVariable
 struct ElementVariableDeclaration : NodeBase<ElementVariableDeclaration> {
-  bool isTemp;
+  bool isTemp = false;
   ElementVariable name;
 };
 GQL_AST_STRUCT(ElementVariableDeclaration, isTemp, name)
@@ -138,7 +138,7 @@ enum class EdgeDirectionPattern {
 //    : fullEdgePattern
 //    | abbreviatedEdgePattern
 struct EdgePattern : NodeBase<EdgePattern> {
-  EdgeDirectionPattern direction;
+  EdgeDirectionPattern direction = EdgeDirectionPattern::Left;
   std::optional<ElementPatternFiller> filler;
 };
 GQL_AST_STRUCT(EdgePattern, direction, filler)
@@ -167,7 +167,6 @@ enum class PathMode { WALK, TRAIL, SIMPLE, ACYCLIC };
 
 // pathModePrefix
 //    : pathMode pathOrPaths?
-using PathModePrefix = PathMode;
 
 // fixedQuantifier
 //    : LEFT_BRACE unsignedInteger RIGHT_BRACE
@@ -285,7 +284,7 @@ GQL_AST_STRUCT(SimplifiedTerm, factors)
 struct SimplifiedContents : NodeBase<SimplifiedContents> {
   enum class Op { Union, MultisetAlternation };
 
-  Op op;
+  Op op = Op::Union;
   std::vector<SimplifiedTerm> terms;
 };
 GQL_AST_STRUCT(SimplifiedContents, op, terms)
@@ -378,7 +377,7 @@ using SimplifiedPrimary = std::variant<LabelName, SimplifiedContents>;
 struct SimplifiedTertiary : NodeBase<SimplifiedTertiary> {
   std::optional<EdgeDirectionPattern> direction;
   SimplifiedPrimary primary;
-  bool isNegation;
+  bool isNegation = false;
 };
 GQL_AST_STRUCT(SimplifiedTertiary, direction, primary, isNegation)
 
@@ -393,7 +392,7 @@ GQL_AST_STRUCT(SimplifiedTertiary, direction, primary, isNegation)
 //     ;
 struct SimplifiedPathPatternExpression
     : NodeBase<SimplifiedPathPatternExpression> {
-  EdgeDirectionPattern direction;
+  EdgeDirectionPattern direction = EdgeDirectionPattern::Left;
   SimplifiedContents contents;
 };
 GQL_AST_STRUCT(SimplifiedPathPatternExpression, direction, contents)
@@ -431,7 +430,7 @@ using PathTerm = std::vector<PathFactor>;
 struct PathPatternExpression : NodeBase<PathPatternExpression> {
   using Op = SimplifiedContents::Op;
 
-  Op op;
+  Op op = Op::Union;
   std::vector<PathTerm> terms;
 };
 GQL_AST_STRUCT(PathPatternExpression, op, terms)
@@ -442,7 +441,7 @@ GQL_AST_STRUCT(PathPatternExpression, op, terms)
 struct ParenthesizedPathPatternExpression
     : NodeBase<ParenthesizedPathPatternExpression> {
   std::optional<SubpathVariableDeclaration> varDecl;
-  std::optional<PathModePrefix> pathMode;
+  PathMode pathMode = PathMode::WALK;  // WALK is implicit value.
   PathPatternExpression pattern;
   std::optional<ParenthesizedPathPatternWhereClause> where;
 };

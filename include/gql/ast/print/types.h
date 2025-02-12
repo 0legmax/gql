@@ -30,7 +30,10 @@ GQL_AST_ENUM_PRINTER(SimplePredefinedType,
                      (DurationYearToMonth, "DURATION(YEAR TO MONTH)"),
                      (DurationDayToSecond, "DURATION(DAY TO SECOND)"),
                      (Null, "NULL"),
-                     (Empty, "NOTHING"))
+                     (Empty, "NOTHING"),
+                     (Any, "ANY VALUE"),
+                     (AnyProperty, "ANY PROPERTY VALUE"),
+                     (Path, "PATH"))
 
 GQL_AST_ENUM_PRINTER_LITERAL(StringType::Kind,
                              STRING,
@@ -195,8 +198,6 @@ struct Printer<EdgeReferenceValueType> {
   }
 };
 
-GQL_AST_VALUE_PRINTER(PathValueType, "PATH")
-
 template <>
 struct Printer<RecordType> {
   template <typename OutputStream>
@@ -237,8 +238,5 @@ struct Printer<ValueType::Union> {
     os << "ANY <" << NoBreak() << Sequence(v.types, " | ") << NoBreak() << ">";
   }
 };
-
-GQL_AST_VALUE_PRINTER(ValueType::Any, "ANY VALUE")
-GQL_AST_VALUE_PRINTER(ValueType::AnyProperty, "ANY PROPERTY VALUE")
 
 }  // namespace gql::ast::print

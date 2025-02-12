@@ -109,9 +109,9 @@ struct Printer<TrimMultiCharacterCharacterString> {
         os << "RTRIM(";
         break;
     }
-    os << v.expr;
-    if (v.trimExpr) {
-      os << "," << *v.trimExpr;
+    os << v.source;
+    if (v.trimString) {
+      os << "," << *v.trimString;
     }
     os << ")";
   }

@@ -22,6 +22,7 @@
 #include "gql/ast/ast.h"
 #include "gql/ast/print.h"
 #include "gql/parser/parser.h"
+#include "input_positions_test.h"
 
 class GQLFileTest : public testing::TestWithParam<std::filesystem::path> {
  public:
@@ -34,86 +35,6 @@ class GQLFileTest : public testing::TestWithParam<std::filesystem::path> {
 
 std::unique_ptr<gql::parser::ParserCache> GQLFileTest::parserCache_;
 int GQLFileTest::cacheUseCount_ = 0;
-
-template <typename Class, typename Enabled = void>
-struct has_MaybeNotSet : std::false_type {};
-
-template <typename Class>
-struct has_MaybeNotSet<Class,
-                       std::enable_if_t<std::is_member_function_pointer_v<
-                           decltype(&Class::MaybeNotSet)>>> : std::true_type {};
-
-template <typename NodeType>
-struct ChildrenEnumeratedInOrder {
-  static constexpr bool value = true;
-};
-
-template <>
-struct ChildrenEnumeratedInOrder<gql::ast::PathValueConstructor> {
-  static constexpr bool value = false;
-};
-
-template <>
-struct ChildrenEnumeratedInOrder<gql::ast::InsertPathPattern> {
-  static constexpr bool value = false;
-};
-
-template <>
-struct ChildrenEnumeratedInOrder<gql::ast::LinearDataModifyingStatement> {
-  static constexpr bool value = false;
-};
-
-template <>
-struct ChildrenEnumeratedInOrder<gql::ast::EdgeTypePattern> {
-  static constexpr bool value = false;
-};
-
-template <>
-struct ChildrenEnumeratedInOrder<gql::ast::NodeTypePattern> {
-  static constexpr bool value = false;
-};
-
-template <typename NodeType>
-void CheckInputPosition(const NodeType& node,
-                        gql::ast::InputPosition& minStart) {
-  if constexpr (std::is_base_of_v<gql::ast::Node, NodeType>) {
-    bool maybeNotSet = false;
-    if constexpr (has_MaybeNotSet<NodeType>::value) {
-      maybeNotSet = node.MaybeNotSet();
-    }
-
-    if (!node.inputPosition().IsSet() && !maybeNotSet) {
-      ADD_FAILURE() << "Node position is not set";
-    }
-
-    if (node.inputPosition().IsSet()) {
-      if (node.inputPosition() < minStart) {
-        ADD_FAILURE() << "Node " << node.inputPosition().line << ":"
-                      << node.inputPosition().col << " is before "
-                      << minStart.line << ":" << minStart.col;
-      } else {
-        minStart = node.inputPosition();
-      }
-    }
-  }
-
-  if constexpr (ChildrenEnumeratedInOrder<NodeType>::value) {
-    gql::ast::ForEachChild(node, [&minStart](auto& childNode) {
-      CheckInputPosition(childNode, minStart);
-      return true;
-    });
-  } else {
-    const auto parentStart = minStart;
-    gql::ast::ForEachChild(node, [&minStart, parentStart](auto& childNode) {
-      gql::ast::InputPosition childMinStart = parentStart;
-      CheckInputPosition(childNode, childMinStart);
-      if (childMinStart > minStart) {
-        minStart = childMinStart;
-      }
-      return true;
-    });
-  }
-}
 
 TEST_P(GQLFileTest, Parse) {
   std::ifstream file(GetParam(), std::ios::binary);
@@ -132,6 +53,7 @@ TEST_P(GQLFileTest, Parse) {
     GTEST_FAIL() << e.what() << "\nparsing loaded query: " << query;
   }
 
+  // Check that there are no unitialized pointers in the tree.
   int count = 0;
   gql::ast::ForEachNodeInTree(program, [&count](auto*) {
     count++;
@@ -139,8 +61,7 @@ TEST_P(GQLFileTest, Parse) {
   });
   EXPECT_GT(count, 0);
 
-  gql::ast::InputPosition startPosition{0, 0};
-  CheckInputPosition(program, startPosition);
+  gql::ast::CheckInputPositions(program);
 
   const auto print1 = gql::ast::PrintTree(program);
   gql::ast::GQLProgram program1;

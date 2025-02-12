@@ -71,7 +71,7 @@ using SearchCondition = BooleanValueExpression;
 struct SubCharacterOrByteString : NodeBase<SubCharacterOrByteString> {
   enum class Direction { Left, Right };
 
-  Direction direction;
+  Direction direction = Direction::Left;
   ValueExpressionPtr expr;
   StringLength length;
 };
@@ -103,7 +103,7 @@ GQL_AST_STRUCT(TrimSingleCharacterOrByteString,
 struct FoldCharacterString : NodeBase<FoldCharacterString> {
   enum class Case { Upper, Lower };
 
-  Case case_;
+  Case case_ = Case::Upper;
   ValueExpressionPtr expr;
 };
 GQL_AST_STRUCT(FoldCharacterString, case_, expr)
@@ -116,11 +116,11 @@ struct TrimMultiCharacterCharacterString
     : NodeBase<TrimMultiCharacterCharacterString> {
   enum class TrimType { BTrim, LTrim, RTrim };
 
-  TrimType type;
-  ValueExpressionPtr expr;
-  std::optional<ValueExpressionPtr> trimExpr;
+  TrimType type = TrimType::BTrim;
+  ValueExpressionPtr source;
+  std::optional<ValueExpressionPtr> trimString;
 };
-GQL_AST_STRUCT(TrimMultiCharacterCharacterString, type, expr, trimExpr)
+GQL_AST_STRUCT(TrimMultiCharacterCharacterString, type, source, trimString)
 
 // normalizeCharacterString
 //     : NORMALIZE LEFT_PAREN valueExpression (COMMA normalForm)? RIGHT_PAREN
@@ -252,7 +252,7 @@ struct LabelExpression : NodeBase<LabelExpression> {
   struct Logical {
     enum class Op { And, Or };
 
-    Op op;
+    Op op = Op::And;
     std::vector<LabelExpressionPtr> terms;
   };
   struct Wildcard {};
@@ -304,31 +304,31 @@ GQL_AST_VALUE(LabelExpression::Wildcard)
 //     ;
 struct WhenOperand : NodeBase<WhenOperand> {
   struct Comparison {
-    CompOp op;
+    CompOp op = CompOp::Equals;
     ValueExpressionPtr value;
   };
   struct IsNull {
-    bool notNull;
+    bool notNull = false;
   };
   struct IsTyped {
-    bool isNot;
+    bool isNot = false;
     ValueType type;
   };
   struct IsNormalized {
-    bool isNot;
+    bool isNot = false;
     NormalForm form = NormalForm::NFC;
   };
   struct IsDirected {
-    bool isNot;
+    bool isNot = false;
   };
   struct IsLabeled {
-    bool isNot;
+    bool isNot = false;
     LabelExpression label;
   };
   struct IsSourceOrDestinationOf {
-    bool isNot;
+    bool isNot = false;
     enum class Direction { Source, Destination };
-    Direction direction;
+    Direction direction = Direction::Source;
     EdgeReference edge;
   };
   std::variant<ValueExpressionPtr,
@@ -477,7 +477,7 @@ enum class SetQuantifier { DISTINCT, ALL };
 //     RIGHT_PAREN
 //     ;
 struct GeneralSetFunction : NodeBase<GeneralSetFunction> {
-  GeneralSetFunctionType type;
+  GeneralSetFunctionType type = GeneralSetFunctionType::AVG;
   std::optional<SetQuantifier> quantifier;
   ValueExpressionPtr value;
 };
@@ -496,7 +496,7 @@ using IndependentValueExpression = NumericValueExpression;
 //     independentValueExpression RIGHT_PAREN
 //     ;
 struct BinarySetFunction : NodeBase<BinarySetFunction> {
-  BinarySetFunctionType type;
+  BinarySetFunctionType type = BinarySetFunctionType::PERCENTILE_CONT;
   std::optional<SetQuantifier> quantifier;
   NumericValueExpression dependentValue;
   IndependentValueExpression independent;
@@ -660,7 +660,7 @@ struct DateTimeFunction : NodeBase<DateTimeFunction> {
     DURATION
   };
 
-  Function function;
+  Function function = Function::LOCAL_TIME;
   std::optional<Parameters> parameters;
 };
 GQL_AST_STRUCT(DateTimeFunction, function, parameters)
@@ -779,7 +779,7 @@ using ValueFunction = std::variant<DatetimeSubtraction,
 //    : valueExpression IS NOT? normalForm? NORMALIZED
 struct NormalizedPredicate : NodeBase<NormalizedPredicate> {
   ValueExpressionPtr expr;
-  bool isNot;
+  bool isNot = false;
   NormalForm form = NormalForm::NFC;
 };
 GQL_AST_STRUCT(NormalizedPredicate, expr, isNot, form)
@@ -854,7 +854,7 @@ GQL_AST_STRUCT(ExistsPredicate, option)
 //     ;
 struct NullPredicate : NodeBase<NullPredicate> {
   ValueExpressionPtr expr;
-  bool isNot;
+  bool isNot = false;
 };
 GQL_AST_STRUCT(NullPredicate, expr, isNot)
 
@@ -867,7 +867,7 @@ GQL_AST_STRUCT(NullPredicate, expr, isNot)
 //     ;
 struct ValueTypePredicate : NodeBase<ValueTypePredicate> {
   ValueExpressionPtr expr;
-  bool isNot;
+  bool isNot = false;
   ValueType type;
 };
 GQL_AST_STRUCT(ValueTypePredicate, expr, isNot, type)
@@ -881,7 +881,7 @@ GQL_AST_STRUCT(ValueTypePredicate, expr, isNot, type)
 //     ;
 struct DirectedPredicate : NodeBase<DirectedPredicate> {
   ElementVariableReference element;
-  bool isNot;
+  bool isNot = false;
 };
 GQL_AST_STRUCT(DirectedPredicate, element, isNot)
 
@@ -900,7 +900,7 @@ GQL_AST_STRUCT(DirectedPredicate, element, isNot)
 
 struct LabeledPredicate : NodeBase<LabeledPredicate> {
   ElementVariableReference element;
-  bool isNot;
+  bool isNot = false;
   LabelExpression label;
 };
 GQL_AST_STRUCT(LabeledPredicate, element, isNot, label)
@@ -929,8 +929,8 @@ GQL_AST_STRUCT(LabeledPredicate, element, isNot, label)
 struct SourceDestinationPredicate : NodeBase<SourceDestinationPredicate> {
   enum class Kind { NodeIsSourceOfEdge, NodeIsDestinationOfEdge };
 
-  Kind kind;
-  bool isNot;
+  Kind kind = Kind::NodeIsSourceOfEdge;
+  bool isNot = false;
   ElementVariableReference node;
   ElementVariableReference edge;
 };
@@ -950,7 +950,7 @@ GQL_AST_STRUCT(SourceDestinationPredicate, kind, isNot, node, edge)
 struct AllElementsPredicate : NodeBase<AllElementsPredicate> {
   enum class Kind { AllDifferent, Same };
 
-  Kind kind;
+  Kind kind = Kind::AllDifferent;
   std::vector<ElementVariableReference> elements;
 };
 GQL_AST_STRUCT(AllElementsPredicate, kind, elements)
@@ -1056,7 +1056,7 @@ struct ValueExpression : NodeBase<ValueExpression> {
       Elements,
     };
 
-    Op op;
+    Op op = Op::Positive;
     ValueExpressionPtr expr;
   };
   struct Binary {
@@ -1075,20 +1075,21 @@ struct ValueExpression : NodeBase<ValueExpression> {
       TrimList,
     };
 
-    Op op;
+    Op op = Op::Multiply;
     ValueExpressionPtr left, right;
   };
   struct Comparison {
-    CompOp op;
+    CompOp op = CompOp::Equals;
     ValueExpressionPtr left, right;
   };
   struct Is {
     ValueExpressionPtr expr;
-    bool isNot;
-    TruthValue value;
+    bool isNot = false;
+    TruthValue value = TruthValue::UNKNOWN;
   };
 
-  std::variant<Unary,
+  std::variant<BindingVariableReference,
+               Unary,
                Binary,
                Comparison,
                Is,
@@ -1107,7 +1108,6 @@ struct ValueExpression : NodeBase<ValueExpression> {
                CastSpecification,
                ElementIdFunction,
                LetValueExpression,
-               BindingVariableReference,
                Predicate>
       option;
 };

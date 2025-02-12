@@ -17,6 +17,7 @@
 #include "gql/ast/print.h"
 #include "gql/parser/parser.h"
 #include "gql/rewrite/simplified_path_pattern.h"
+#include "input_positions_test.h"
 
 struct RewriteTestParam {
   std::string original;
@@ -35,6 +36,8 @@ TEST_P(RewriteTest, SimplifiedPathPattern) {
   }
 
   gql::rewrite::RewriteSimplifiedPathPattern(program);
+
+  gql::ast::CheckInputPositions(program);
 
   int count = 0;
   gql::ast::ForEachNodeInTree(program, [&count](auto*) {

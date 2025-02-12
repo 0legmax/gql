@@ -173,7 +173,6 @@ struct Printer<SessionSetCommand> {
 };
 
 GQL_AST_ENUM_PRINTER(SessionResetArguments,
-                     (None, ""),
                      (Parameters, "PARAMETERS"),
                      (Characteristics, "CHARACTERISTICS"),
                      (Schema, "SCHEMA"),
@@ -196,7 +195,7 @@ template <>
 struct Printer<StartTransactionCommand> {
   template <typename OutputStream>
   static void Print(OutputStream& os, const StartTransactionCommand& v) {
-    os << "START TRANSACTION" << Sequence(v.accessModes, ",");
+    os << "START TRANSACTION" << v.accessMode;
   }
 };
 
@@ -505,7 +504,7 @@ struct Printer<DeleteStatement> {
   template <typename OutputStream>
   static void Print(OutputStream& os, const DeleteStatement& v) {
     if (v.detach)
-      os << (*v.detach ? "DETACH" : "NODETACH");
+      os << (v.detach ? "DETACH" : "NODETACH");
     os << "DELETE" << Sequence(v.items, ",");
   }
 };
@@ -586,10 +585,12 @@ struct Printer<OptionalMatchStatement> {
   template <typename OutputStream>
   static void Print(OutputStream& os, const OptionalMatchStatement& v) {
     os << "OPTIONAL";
-    if (v.statements.size() == 1)
-      os << v.statements[0];
+    if (v.statements->statements.size() == 1 &&
+        std::holds_alternative<ast::SimpleMatchStatement>(
+            v.statements->statements[0]))
+      os << v.statements->statements[0];
     else {
-      os << "{" << v.statements << "}";
+      os << "{" << v.statements->statements << "}";
     }
   }
 };
@@ -656,14 +657,18 @@ template <>
 struct Printer<ReturnStatementBody> {
   template <typename OutputStream>
   static void Print(OutputStream& os, const ReturnStatementBody& v) {
-    os << v.quantifier;
-    if (v.items)
+    if (v.quantifier != SetQuantifier::ALL)
+      os << v.quantifier;
+
+    if (v.items) {
       if (v.items->empty())
         os << "NO BINDINGS";
       else
         os << Sequence(*v.items, ",");
-    else
+    } else {
       os << "*";
+    }
+
     if (!v.groupBy.empty()) {
       os << "GROUP BY" << Sequence(v.groupBy, ",");
     }

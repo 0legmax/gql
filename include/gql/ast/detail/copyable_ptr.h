@@ -26,14 +26,15 @@ class copyable_ptr : public std::unique_ptr<T> {
 
   copyable_ptr(const copyable_ptr& other)
       : std::unique_ptr<T>(other ? new T(*other) : nullptr) {}
-  copyable_ptr(copyable_ptr&& other) : std::unique_ptr<T>(other.release()) {}
+  copyable_ptr(copyable_ptr&& other) noexcept
+      : std::unique_ptr<T>(other.release()) {}
 
   copyable_ptr& operator=(const copyable_ptr& other) {
     this->reset(other ? new T(*other) : nullptr);
     return *this;
   }
 
-  copyable_ptr& operator=(copyable_ptr&& other) {
+  copyable_ptr& operator=(copyable_ptr&& other) noexcept {
     this->reset(other.release());
     return *this;
   }

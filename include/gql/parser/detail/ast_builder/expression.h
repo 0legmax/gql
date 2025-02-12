@@ -1902,10 +1902,10 @@ inline ValueExpression FoldCharacterString::EnterValueExpression() {
 
 inline ValueExpression
 TrimMultiCharacterCharacterString::EnterValueExpression() {
-  if (!value->expr) {
-    return {value->expr};
+  if (!value->source) {
+    return {value->source};
   }
-  return {value->trimExpr.emplace()};
+  return {value->trimString.emplace()};
 }
 
 inline ValueExpression NormalizeCharacterString::EnterValueExpression() {

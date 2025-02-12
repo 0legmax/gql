@@ -390,595 +390,9 @@ public:
                          decltype(&std::remove_pointer_t<Class>::OnToken)>>> : std::true_type {};
 
 
-  class GqlProgramContext;
-  class ProgramActivityContext;
-  class SessionActivityContext;
-  class TransactionActivityContext;
-  class EndTransactionCommandContext;
-  class SessionSetCommandContext;
-  class SessionSetSchemaClauseContext;
-  class SessionSetGraphClauseContext;
-  class SessionSetTimeZoneClauseContext;
-  class SetTimeZoneValueContext;
-  class SessionSetParameterClauseContext;
-  class SessionSetGraphParameterClauseContext;
-  class SessionSetBindingTableParameterClauseContext;
-  class SessionSetValueParameterClauseContext;
-  class SessionSetParameterNameContext;
-  class SessionResetCommandContext;
-  class SessionResetArgumentsContext;
-  class SessionCloseCommandContext;
-  class SessionParameterSpecificationContext;
-  class StartTransactionCommandContext;
-  class TransactionCharacteristicsContext;
-  class TransactionModeContext;
-  class TransactionAccessModeContext;
-  class RollbackCommandContext;
-  class CommitCommandContext;
-  class NestedProcedureSpecificationContext;
-  class ProcedureSpecificationContext;
-  class NestedDataModifyingProcedureSpecificationContext;
-  class NestedQuerySpecificationContext;
-  class ProcedureBodyContext;
-  class BindingVariableDefinitionBlockContext;
-  class BindingVariableDefinitionContext;
-  class StatementBlockContext;
-  class StatementContext;
-  class NextStatementContext;
-  class GraphVariableDefinitionContext;
-  class OptTypedGraphInitializerContext;
-  class GraphInitializerContext;
-  class BindingTableVariableDefinitionContext;
-  class OptTypedBindingTableInitializerContext;
-  class BindingTableInitializerContext;
-  class ValueVariableDefinitionContext;
-  class OptTypedValueInitializerContext;
-  class ValueInitializerContext;
-  class GraphExpressionContext;
-  class CurrentGraphContext;
-  class BindingTableExpressionContext;
-  class NestedBindingTableQuerySpecificationContext;
-  class ObjectExpressionPrimaryContext;
-  class LinearCatalogModifyingStatementContext;
-  class SimpleCatalogModifyingStatementContext;
-  class PrimitiveCatalogModifyingStatementContext;
-  class CreateSchemaStatementContext;
-  class DropSchemaStatementContext;
-  class CreateGraphStatementContext;
-  class OpenGraphTypeContext;
-  class OfGraphTypeContext;
-  class GraphTypeLikeGraphContext;
-  class GraphSourceContext;
-  class DropGraphStatementContext;
-  class CreateGraphTypeStatementContext;
-  class GraphTypeSourceContext;
-  class CopyOfGraphTypeContext;
-  class DropGraphTypeStatementContext;
-  class CallCatalogModifyingProcedureStatementContext;
-  class LinearDataModifyingStatementContext;
-  class FocusedLinearDataModifyingStatementContext;
-  class FocusedLinearDataModifyingStatementBodyContext;
-  class FocusedNestedDataModifyingProcedureSpecificationContext;
-  class AmbientLinearDataModifyingStatementContext;
-  class AmbientLinearDataModifyingStatementBodyContext;
-  class SimpleLinearDataAccessingStatementContext;
-  class SimpleDataAccessingStatementContext;
-  class SimpleDataModifyingStatementContext;
-  class PrimitiveDataModifyingStatementContext;
-  class InsertStatementContext;
-  class SetStatementContext;
-  class SetItemListContext;
-  class SetItemContext;
-  class SetPropertyItemContext;
-  class SetAllPropertiesItemContext;
-  class SetLabelItemContext;
-  class RemoveStatementContext;
-  class RemoveItemListContext;
-  class RemoveItemContext;
-  class RemovePropertyItemContext;
-  class RemoveLabelItemContext;
-  class DeleteStatementContext;
-  class DeleteItemListContext;
-  class DeleteItemContext;
-  class CallDataModifyingProcedureStatementContext;
-  class CompositeQueryStatementContext;
-  class CompositeQueryExpressionContext;
-  class QueryConjunctionContext;
-  class SetOperatorContext;
-  class CompositeQueryPrimaryContext;
-  class LinearQueryStatementContext;
-  class FocusedLinearQueryStatementContext;
-  class FocusedLinearQueryStatementPartContext;
-  class FocusedLinearQueryAndPrimitiveResultStatementPartContext;
-  class FocusedPrimitiveResultStatementContext;
-  class FocusedNestedQuerySpecificationContext;
-  class AmbientLinearQueryStatementContext;
-  class SimpleLinearQueryStatementContext;
-  class SimpleQueryStatementContext;
-  class PrimitiveQueryStatementContext;
-  class MatchStatementContext;
-  class SimpleMatchStatementContext;
-  class OptionalMatchStatementContext;
-  class OptionalOperandContext;
-  class MatchStatementBlockContext;
-  class CallQueryStatementContext;
-  class FilterStatementContext;
-  class LetStatementContext;
-  class LetVariableDefinitionListContext;
-  class LetVariableDefinitionContext;
-  class ForStatementContext;
-  class ForItemContext;
-  class ForItemAliasContext;
-  class ForItemSourceContext;
-  class ForOrdinalityOrOffsetContext;
-  class OrderByAndPageStatementContext;
-  class PrimitiveResultStatementContext;
-  class ReturnStatementContext;
-  class ReturnStatementBodyContext;
-  class ReturnItemListContext;
-  class ReturnItemContext;
-  class ReturnItemAliasContext;
-  class SelectStatementContext;
-  class SelectItemListContext;
-  class SelectItemContext;
-  class SelectItemAliasContext;
-  class HavingClauseContext;
-  class SelectStatementBodyContext;
-  class SelectGraphMatchListContext;
-  class SelectGraphMatchContext;
-  class SelectQuerySpecificationContext;
-  class CallProcedureStatementContext;
-  class ProcedureCallContext;
-  class InlineProcedureCallContext;
-  class VariableScopeClauseContext;
-  class BindingVariableReferenceListContext;
-  class NamedProcedureCallContext;
-  class ProcedureArgumentListContext;
-  class ProcedureArgumentContext;
-  class AtSchemaClauseContext;
-  class UseGraphClauseContext;
-  class GraphPatternBindingTableContext;
-  class GraphPatternYieldClauseContext;
-  class GraphPatternYieldItemListContext;
-  class GraphPatternYieldItemContext;
-  class GraphPatternContext;
-  class MatchModeContext;
-  class RepeatableElementsMatchModeContext;
-  class DifferentEdgesMatchModeContext;
-  class ElementBindingsOrElementsContext;
-  class EdgeBindingsOrEdgesContext;
-  class PathPatternListContext;
-  class PathPatternContext;
-  class PathVariableDeclarationContext;
-  class KeepClauseContext;
-  class GraphPatternWhereClauseContext;
-  class InsertGraphPatternContext;
-  class InsertPathPatternListContext;
-  class InsertPathPatternContext;
-  class InsertNodePatternContext;
-  class InsertEdgePatternContext;
-  class InsertEdgePointingLeftContext;
-  class InsertEdgePointingRightContext;
-  class InsertEdgeUndirectedContext;
-  class InsertElementPatternFillerContext;
-  class LabelAndPropertySetSpecificationContext;
-  class PathPatternPrefixContext;
-  class PathModePrefixContext;
-  class PathModeContext;
-  class PathSearchPrefixContext;
-  class AllPathSearchContext;
-  class PathOrPathsContext;
-  class AnyPathSearchContext;
-  class NumberOfPathsContext;
-  class ShortestPathSearchContext;
-  class AllShortestPathSearchContext;
-  class AnyShortestPathSearchContext;
-  class CountedShortestPathSearchContext;
-  class CountedShortestGroupSearchContext;
-  class NumberOfGroupsContext;
-  class PathPatternExpressionContext;
-  class PathTermContext;
-  class PathFactorContext;
-  class PathPrimaryContext;
-  class ElementPatternContext;
-  class NodePatternContext;
-  class ElementPatternFillerContext;
-  class ElementVariableDeclarationContext;
-  class IsLabelExpressionContext;
-  class IsOrColonContext;
-  class ElementPatternPredicateContext;
-  class ElementPatternWhereClauseContext;
-  class ElementPropertySpecificationContext;
-  class PropertyKeyValuePairListContext;
-  class PropertyKeyValuePairContext;
-  class EdgePatternContext;
-  class FullEdgePatternContext;
-  class FullEdgePointingLeftContext;
-  class FullEdgeUndirectedContext;
-  class FullEdgePointingRightContext;
-  class FullEdgeLeftOrUndirectedContext;
-  class FullEdgeUndirectedOrRightContext;
-  class FullEdgeLeftOrRightContext;
-  class FullEdgeAnyDirectionContext;
-  class AbbreviatedEdgePatternContext;
-  class ParenthesizedPathPatternExpressionContext;
-  class SubpathVariableDeclarationContext;
-  class ParenthesizedPathPatternWhereClauseContext;
-  class LabelExpressionContext;
-  class PathVariableReferenceContext;
-  class ElementVariableReferenceContext;
-  class GraphPatternQuantifierContext;
-  class FixedQuantifierContext;
-  class GeneralQuantifierContext;
-  class LowerBoundContext;
-  class UpperBoundContext;
-  class SimplifiedPathPatternExpressionContext;
-  class SimplifiedDefaultingLeftContext;
-  class SimplifiedDefaultingUndirectedContext;
-  class SimplifiedDefaultingRightContext;
-  class SimplifiedDefaultingLeftOrUndirectedContext;
-  class SimplifiedDefaultingUndirectedOrRightContext;
-  class SimplifiedDefaultingLeftOrRightContext;
-  class SimplifiedDefaultingAnyDirectionContext;
-  class SimplifiedContentsContext;
-  class SimplifiedPathUnionContext;
-  class SimplifiedMultisetAlternationContext;
-  class SimplifiedTermContext;
-  class SimplifiedFactorLowContext;
-  class SimplifiedFactorHighContext;
-  class SimplifiedQuantifiedContext;
-  class SimplifiedQuestionedContext;
-  class SimplifiedTertiaryContext;
-  class SimplifiedDirectionOverrideContext;
-  class SimplifiedOverrideLeftContext;
-  class SimplifiedOverrideUndirectedContext;
-  class SimplifiedOverrideRightContext;
-  class SimplifiedOverrideLeftOrUndirectedContext;
-  class SimplifiedOverrideUndirectedOrRightContext;
-  class SimplifiedOverrideLeftOrRightContext;
-  class SimplifiedOverrideAnyDirectionContext;
-  class SimplifiedSecondaryContext;
-  class SimplifiedNegationContext;
-  class SimplifiedPrimaryContext;
-  class WhereClauseContext;
-  class YieldClauseContext;
-  class YieldItemListContext;
-  class YieldItemContext;
-  class YieldItemNameContext;
-  class YieldItemAliasContext;
-  class GroupByClauseContext;
-  class GroupingElementListContext;
-  class GroupingElementContext;
-  class EmptyGroupingSetContext;
-  class OrderByClauseContext;
-  class SortSpecificationListContext;
-  class SortSpecificationContext;
-  class SortKeyContext;
-  class OrderingSpecificationContext;
-  class NullOrderingContext;
-  class LimitClauseContext;
-  class OffsetClauseContext;
-  class OffsetSynonymContext;
-  class SchemaReferenceContext;
-  class AbsoluteCatalogSchemaReferenceContext;
-  class CatalogSchemaParentAndNameContext;
-  class RelativeCatalogSchemaReferenceContext;
-  class PredefinedSchemaReferenceContext;
-  class AbsoluteDirectoryPathContext;
-  class RelativeDirectoryPathContext;
-  class SimpleDirectoryPathContext;
-  class GraphReferenceContext;
-  class CatalogGraphParentAndNameContext;
-  class HomeGraphContext;
-  class GraphTypeReferenceContext;
-  class CatalogGraphTypeParentAndNameContext;
-  class BindingTableReferenceContext;
-  class ProcedureReferenceContext;
-  class CatalogProcedureParentAndNameContext;
-  class CatalogObjectParentReferenceContext;
-  class ReferenceParameterSpecificationContext;
-  class NestedGraphTypeSpecificationContext;
-  class GraphTypeSpecificationBodyContext;
-  class ElementTypeListContext;
-  class ElementTypeSpecificationContext;
-  class NodeTypeSpecificationContext;
-  class NodeTypePatternContext;
-  class NodeTypePhraseContext;
-  class NodeTypePhraseFillerContext;
-  class NodeTypeFillerContext;
-  class LocalNodeTypeAliasContext;
-  class NodeTypeImpliedContentContext;
-  class NodeTypeKeyLabelSetContext;
-  class NodeTypeLabelSetContext;
-  class NodeTypePropertyTypesContext;
-  class EdgeTypeSpecificationContext;
-  class EdgeTypePatternContext;
-  class EdgeTypePhraseContext;
-  class EdgeTypePhraseFillerContext;
-  class EdgeTypeFillerContext;
-  class EdgeTypeImpliedContentContext;
-  class EdgeTypeKeyLabelSetContext;
-  class EdgeTypeLabelSetContext;
-  class EdgeTypePropertyTypesContext;
-  class EdgeTypePatternDirectedContext;
-  class EdgeTypePatternPointingRightContext;
-  class EdgeTypePatternPointingLeftContext;
-  class EdgeTypePatternUndirectedContext;
-  class ArcTypePointingRightContext;
-  class ArcTypePointingLeftContext;
-  class ArcTypeUndirectedContext;
-  class SourceNodeTypeReferenceContext;
-  class DestinationNodeTypeReferenceContext;
-  class EdgeKindContext;
-  class EndpointPairPhraseContext;
-  class EndpointPairContext;
-  class EndpointPairDirectedContext;
-  class EndpointPairPointingRightContext;
-  class EndpointPairPointingLeftContext;
-  class EndpointPairUndirectedContext;
-  class ConnectorPointingRightContext;
-  class ConnectorUndirectedContext;
-  class SourceNodeTypeAliasContext;
-  class DestinationNodeTypeAliasContext;
-  class LabelSetPhraseContext;
-  class LabelSetSpecificationContext;
-  class PropertyTypesSpecificationContext;
-  class PropertyTypeListContext;
-  class PropertyTypeContext;
-  class PropertyValueTypeContext;
-  class BindingTableTypeContext;
-  class ValueTypeContext;
-  class TypedContext;
-  class PredefinedTypeContext;
-  class BooleanTypeContext;
-  class CharacterStringTypeContext;
-  class ByteStringTypeContext;
-  class MinLengthContext;
-  class MaxLengthContext;
-  class FixedLengthContext;
-  class NumericTypeContext;
-  class ExactNumericTypeContext;
-  class BinaryExactNumericTypeContext;
-  class SignedBinaryExactNumericTypeContext;
-  class UnsignedBinaryExactNumericTypeContext;
-  class VerboseBinaryExactNumericTypeContext;
-  class DecimalExactNumericTypeContext;
-  class PrecisionContext;
-  class ScaleContext;
-  class ApproximateNumericTypeContext;
-  class TemporalTypeContext;
-  class TemporalInstantTypeContext;
-  class DatetimeTypeContext;
-  class LocaldatetimeTypeContext;
-  class DateTypeContext;
-  class TimeTypeContext;
-  class LocaltimeTypeContext;
-  class TemporalDurationTypeContext;
-  class TemporalDurationQualifierContext;
-  class ReferenceValueTypeContext;
-  class ImmaterialValueTypeContext;
-  class NullTypeContext;
-  class EmptyTypeContext;
-  class GraphReferenceValueTypeContext;
-  class ClosedGraphReferenceValueTypeContext;
-  class OpenGraphReferenceValueTypeContext;
-  class BindingTableReferenceValueTypeContext;
-  class NodeReferenceValueTypeContext;
-  class ClosedNodeReferenceValueTypeContext;
-  class OpenNodeReferenceValueTypeContext;
-  class EdgeReferenceValueTypeContext;
-  class ClosedEdgeReferenceValueTypeContext;
-  class OpenEdgeReferenceValueTypeContext;
-  class PathValueTypeContext;
-  class ListValueTypeNameContext;
-  class ListValueTypeNameSynonymContext;
-  class RecordTypeContext;
-  class FieldTypesSpecificationContext;
-  class FieldTypeListContext;
-  class NotNullContext;
-  class FieldTypeContext;
-  class SearchConditionContext;
-  class PredicateContext;
-  class CompOpContext;
-  class ExistsPredicateContext;
-  class NullPredicateContext;
-  class NullPredicatePart2Context;
-  class ValueTypePredicateContext;
-  class ValueTypePredicatePart2Context;
-  class NormalizedPredicatePart2Context;
-  class DirectedPredicateContext;
-  class DirectedPredicatePart2Context;
-  class LabeledPredicateContext;
-  class LabeledPredicatePart2Context;
-  class IsLabeledOrColonContext;
-  class SourceDestinationPredicateContext;
-  class NodeReferenceContext;
-  class SourcePredicatePart2Context;
-  class DestinationPredicatePart2Context;
-  class EdgeReferenceContext;
-  class All_differentPredicateContext;
-  class SamePredicateContext;
-  class Property_existsPredicateContext;
-  class ValueExpressionContext;
-  class ValueFunctionContext;
-  class BooleanValueExpressionContext;
-  class CharacterOrByteStringFunctionContext;
-  class SubCharacterOrByteStringContext;
-  class TrimSingleCharacterOrByteStringContext;
-  class FoldCharacterStringContext;
-  class TrimMultiCharacterCharacterStringContext;
-  class NormalizeCharacterStringContext;
-  class NodeReferenceValueExpressionContext;
-  class EdgeReferenceValueExpressionContext;
-  class AggregatingValueExpressionContext;
-  class ValueExpressionPrimaryContext;
-  class ParenthesizedValueExpressionContext;
-  class NonParenthesizedValueExpressionPrimaryContext;
-  class NonParenthesizedValueExpressionPrimarySpecialCaseContext;
-  class UnsignedValueSpecificationContext;
-  class NonNegativeIntegerSpecificationContext;
-  class GeneralValueSpecificationContext;
-  class DynamicParameterSpecificationContext;
-  class LetValueExpressionContext;
-  class ValueQueryExpressionContext;
-  class CaseExpressionContext;
-  class CaseAbbreviationContext;
-  class CaseSpecificationContext;
-  class SimpleCaseContext;
-  class SearchedCaseContext;
-  class SimpleWhenClauseContext;
-  class SearchedWhenClauseContext;
-  class ElseClauseContext;
-  class CaseOperandContext;
-  class WhenOperandListContext;
-  class WhenOperandContext;
-  class ResultContext;
-  class ResultExpressionContext;
-  class CastSpecificationContext;
-  class CastOperandContext;
-  class CastTargetContext;
-  class AggregateFunctionContext;
-  class GeneralSetFunctionContext;
-  class BinarySetFunctionContext;
-  class GeneralSetFunctionTypeContext;
-  class SetQuantifierContext;
-  class BinarySetFunctionTypeContext;
-  class DependentValueExpressionContext;
-  class IndependentValueExpressionContext;
-  class Element_idFunctionContext;
-  class BindingVariableReferenceContext;
-  class PathValueExpressionContext;
-  class PathValueConstructorContext;
-  class PathValueConstructorByEnumerationContext;
-  class PathElementListContext;
-  class PathElementListStartContext;
-  class PathElementListStepContext;
-  class ListValueExpressionContext;
-  class ListValueFunctionContext;
-  class TrimListFunctionContext;
-  class ElementsFunctionContext;
-  class ListValueConstructorContext;
-  class ListValueConstructorByEnumerationContext;
-  class ListElementListContext;
-  class ListElementContext;
-  class RecordConstructorContext;
-  class FieldsSpecificationContext;
-  class FieldListContext;
-  class FieldContext;
-  class TruthValueContext;
-  class NumericValueExpressionContext;
-  class NumericValueFunctionContext;
-  class LengthExpressionContext;
-  class CardinalityExpressionContext;
-  class CardinalityExpressionArgumentContext;
-  class CharLengthExpressionContext;
-  class ByteLengthExpressionContext;
-  class PathLengthExpressionContext;
-  class AbsoluteValueExpressionContext;
-  class ModulusExpressionContext;
-  class NumericValueExpressionDividendContext;
-  class NumericValueExpressionDivisorContext;
-  class TrigonometricFunctionContext;
-  class TrigonometricFunctionNameContext;
-  class GeneralLogarithmFunctionContext;
-  class GeneralLogarithmBaseContext;
-  class GeneralLogarithmArgumentContext;
-  class CommonLogarithmContext;
-  class NaturalLogarithmContext;
-  class ExponentialFunctionContext;
-  class PowerFunctionContext;
-  class NumericValueExpressionBaseContext;
-  class NumericValueExpressionExponentContext;
-  class SquareRootContext;
-  class FloorFunctionContext;
-  class CeilingFunctionContext;
-  class CharacterStringValueExpressionContext;
-  class ByteStringValueExpressionContext;
-  class TrimOperandsContext;
-  class TrimCharacterOrByteStringSourceContext;
-  class TrimSpecificationContext;
-  class TrimCharacterOrByteStringContext;
-  class NormalFormContext;
-  class StringLengthContext;
-  class DatetimeValueExpressionContext;
-  class DatetimeValueFunctionContext;
-  class DateFunctionContext;
-  class TimeFunctionContext;
-  class LocaltimeFunctionContext;
-  class DatetimeFunctionContext;
-  class LocaldatetimeFunctionContext;
-  class DateFunctionParametersContext;
-  class TimeFunctionParametersContext;
-  class DatetimeFunctionParametersContext;
-  class DurationValueExpressionContext;
-  class DatetimeSubtractionContext;
-  class DatetimeSubtractionParametersContext;
-  class DatetimeValueExpression1Context;
-  class DatetimeValueExpression2Context;
-  class DurationValueFunctionContext;
-  class DurationFunctionContext;
-  class DurationFunctionParametersContext;
-  class ObjectNameContext;
-  class ObjectNameOrBindingVariableContext;
-  class DirectoryNameContext;
-  class SchemaNameContext;
-  class GraphNameContext;
-  class DelimitedGraphNameContext;
-  class GraphTypeNameContext;
-  class NodeTypeNameContext;
-  class EdgeTypeNameContext;
-  class BindingTableNameContext;
-  class DelimitedBindingTableNameContext;
-  class ProcedureNameContext;
-  class LabelNameContext;
-  class PropertyNameContext;
-  class FieldNameContext;
-  class ElementVariableContext;
-  class PathVariableContext;
-  class SubpathVariableContext;
-  class BindingVariableContext;
-  class UnsignedLiteralContext;
-  class GeneralLiteralContext;
-  class TemporalLiteralContext;
-  class DateLiteralContext;
-  class TimeLiteralContext;
-  class DatetimeLiteralContext;
-  class ListLiteralContext;
-  class RecordLiteralContext;
-  class IdentifierContext;
-  class RegularIdentifierContext;
-  class TimeZoneStringContext;
-  class CharacterStringLiteralContext;
-  class UnsignedNumericLiteralContext;
-  class ExactNumericLiteralContext;
-  class ApproximateNumericLiteralContext;
-  class UnsignedIntegerContext;
-  class UnsignedDecimalIntegerContext;
-  class NullLiteralContext;
-  class DateStringContext;
-  class TimeStringContext;
-  class DatetimeStringContext;
-  class DurationLiteralContext;
-  class DurationStringContext;
-  class NodeSynonymContext;
-  class EdgesSynonymContext;
-  class EdgeSynonymContext;
-  class NonReservedWordsContext; 
-
-  class  GqlProgramContext : public antlr4::ParserRuleContext {
-  public:
-    GqlProgramContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ProgramActivityContext *programActivity();
-    antlr4::tree::TerminalNode *EOF();
-    SessionCloseCommandContext *sessionCloseCommand();
-
-   
-  };
-
   template<typename ContextT>
-  GqlProgramContext* gqlProgram(ContextT* ctx) {
-    GqlProgramContext *_localctx = _tracker.createInstance<GqlProgramContext>(_ctx, getState());
+  antlr4::ParserRuleContext* gqlProgram(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 0, GQLParser::RuleGqlProgram);
     size_t _la = 0;
 
@@ -1055,19 +469,9 @@ public:
     return _localctx;
   }
 
-  class  ProgramActivityContext : public antlr4::ParserRuleContext {
-  public:
-    ProgramActivityContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SessionActivityContext *sessionActivity();
-    TransactionActivityContext *transactionActivity();
-
-   
-  };
-
   template<typename ContextT>
-  ProgramActivityContext* programActivity(ContextT* ctx) {
-    ProgramActivityContext *_localctx = _tracker.createInstance<ProgramActivityContext>(_ctx, getState());
+  antlr4::ParserRuleContext* programActivity(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 2, GQLParser::RuleProgramActivity);
 
   #if __cplusplus > 201703L
@@ -1149,21 +553,9 @@ public:
     return _localctx;
   }
 
-  class  SessionActivityContext : public antlr4::ParserRuleContext {
-  public:
-    SessionActivityContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<SessionResetCommandContext *> sessionResetCommand();
-    SessionResetCommandContext* sessionResetCommand(size_t i);
-    std::vector<SessionSetCommandContext *> sessionSetCommand();
-    SessionSetCommandContext* sessionSetCommand(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  SessionActivityContext* sessionActivity(ContextT* ctx) {
-    SessionActivityContext *_localctx = _tracker.createInstance<SessionActivityContext>(_ctx, getState());
+  antlr4::ParserRuleContext* sessionActivity(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 4, GQLParser::RuleSessionActivity);
 
   #if __cplusplus > 201703L
@@ -1262,20 +654,9 @@ public:
     return _localctx;
   }
 
-  class  TransactionActivityContext : public antlr4::ParserRuleContext {
-  public:
-    TransactionActivityContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    StartTransactionCommandContext *startTransactionCommand();
-    ProcedureSpecificationContext *procedureSpecification();
-    EndTransactionCommandContext *endTransactionCommand();
-
-   
-  };
-
   template<typename ContextT>
-  TransactionActivityContext* transactionActivity(ContextT* ctx) {
-    TransactionActivityContext *_localctx = _tracker.createInstance<TransactionActivityContext>(_ctx, getState());
+  antlr4::ParserRuleContext* transactionActivity(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 6, GQLParser::RuleTransactionActivity);
     size_t _la = 0;
 
@@ -1403,19 +784,9 @@ public:
     return _localctx;
   }
 
-  class  EndTransactionCommandContext : public antlr4::ParserRuleContext {
-  public:
-    EndTransactionCommandContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    RollbackCommandContext *rollbackCommand();
-    CommitCommandContext *commitCommand();
-
-   
-  };
-
   template<typename ContextT>
-  EndTransactionCommandContext* endTransactionCommand(ContextT* ctx) {
-    EndTransactionCommandContext *_localctx = _tracker.createInstance<EndTransactionCommandContext>(_ctx, getState());
+  antlr4::ParserRuleContext* endTransactionCommand(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 8, GQLParser::RuleEndTransactionCommand);
 
   #if __cplusplus > 201703L
@@ -1466,23 +837,9 @@ public:
     return _localctx;
   }
 
-  class  SessionSetCommandContext : public antlr4::ParserRuleContext {
-  public:
-    SessionSetCommandContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *SESSION();
-    antlr4::tree::TerminalNode *SET();
-    SessionSetSchemaClauseContext *sessionSetSchemaClause();
-    SessionSetGraphClauseContext *sessionSetGraphClause();
-    SessionSetTimeZoneClauseContext *sessionSetTimeZoneClause();
-    SessionSetParameterClauseContext *sessionSetParameterClause();
-
-   
-  };
-
   template<typename ContextT>
-  SessionSetCommandContext* sessionSetCommand(ContextT* ctx) {
-    SessionSetCommandContext *_localctx = _tracker.createInstance<SessionSetCommandContext>(_ctx, getState());
+  antlr4::ParserRuleContext* sessionSetCommand(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 10, GQLParser::RuleSessionSetCommand);
 
   #if __cplusplus > 201703L
@@ -1564,19 +921,9 @@ public:
     return _localctx;
   }
 
-  class  SessionSetSchemaClauseContext : public antlr4::ParserRuleContext {
-  public:
-    SessionSetSchemaClauseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *SCHEMA();
-    SchemaReferenceContext *schemaReference();
-
-   
-  };
-
   template<typename ContextT>
-  SessionSetSchemaClauseContext* sessionSetSchemaClause(ContextT* ctx) {
-    SessionSetSchemaClauseContext *_localctx = _tracker.createInstance<SessionSetSchemaClauseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* sessionSetSchemaClause(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 12, GQLParser::RuleSessionSetSchemaClause);
 
   #if __cplusplus > 201703L
@@ -1614,20 +961,9 @@ public:
     return _localctx;
   }
 
-  class  SessionSetGraphClauseContext : public antlr4::ParserRuleContext {
-  public:
-    SessionSetGraphClauseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *GRAPH();
-    GraphExpressionContext *graphExpression();
-    antlr4::tree::TerminalNode *PROPERTY();
-
-   
-  };
-
   template<typename ContextT>
-  SessionSetGraphClauseContext* sessionSetGraphClause(ContextT* ctx) {
-    SessionSetGraphClauseContext *_localctx = _tracker.createInstance<SessionSetGraphClauseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* sessionSetGraphClause(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 14, GQLParser::RuleSessionSetGraphClause);
     size_t _la = 0;
 
@@ -1679,20 +1015,9 @@ public:
     return _localctx;
   }
 
-  class  SessionSetTimeZoneClauseContext : public antlr4::ParserRuleContext {
-  public:
-    SessionSetTimeZoneClauseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *TIME();
-    antlr4::tree::TerminalNode *ZONE();
-    SetTimeZoneValueContext *setTimeZoneValue();
-
-   
-  };
-
   template<typename ContextT>
-  SessionSetTimeZoneClauseContext* sessionSetTimeZoneClause(ContextT* ctx) {
-    SessionSetTimeZoneClauseContext *_localctx = _tracker.createInstance<SessionSetTimeZoneClauseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* sessionSetTimeZoneClause(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 16, GQLParser::RuleSessionSetTimeZoneClause);
 
   #if __cplusplus > 201703L
@@ -1737,18 +1062,9 @@ public:
     return _localctx;
   }
 
-  class  SetTimeZoneValueContext : public antlr4::ParserRuleContext {
-  public:
-    SetTimeZoneValueContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    TimeZoneStringContext *timeZoneString();
-
-   
-  };
-
   template<typename ContextT>
-  SetTimeZoneValueContext* setTimeZoneValue(ContextT* ctx) {
-    SetTimeZoneValueContext *_localctx = _tracker.createInstance<SetTimeZoneValueContext>(_ctx, getState());
+  antlr4::ParserRuleContext* setTimeZoneValue(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 18, GQLParser::RuleSetTimeZoneValue);
 
   #if __cplusplus > 201703L
@@ -1779,20 +1095,9 @@ public:
     return _localctx;
   }
 
-  class  SessionSetParameterClauseContext : public antlr4::ParserRuleContext {
-  public:
-    SessionSetParameterClauseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SessionSetGraphParameterClauseContext *sessionSetGraphParameterClause();
-    SessionSetBindingTableParameterClauseContext *sessionSetBindingTableParameterClause();
-    SessionSetValueParameterClauseContext *sessionSetValueParameterClause();
-
-   
-  };
-
   template<typename ContextT>
-  SessionSetParameterClauseContext* sessionSetParameterClause(ContextT* ctx) {
-    SessionSetParameterClauseContext *_localctx = _tracker.createInstance<SessionSetParameterClauseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* sessionSetParameterClause(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 20, GQLParser::RuleSessionSetParameterClause);
 
   #if __cplusplus > 201703L
@@ -1855,21 +1160,9 @@ public:
     return _localctx;
   }
 
-  class  SessionSetGraphParameterClauseContext : public antlr4::ParserRuleContext {
-  public:
-    SessionSetGraphParameterClauseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *GRAPH();
-    SessionSetParameterNameContext *sessionSetParameterName();
-    OptTypedGraphInitializerContext *optTypedGraphInitializer();
-    antlr4::tree::TerminalNode *PROPERTY();
-
-   
-  };
-
   template<typename ContextT>
-  SessionSetGraphParameterClauseContext* sessionSetGraphParameterClause(ContextT* ctx) {
-    SessionSetGraphParameterClauseContext *_localctx = _tracker.createInstance<SessionSetGraphParameterClauseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* sessionSetGraphParameterClause(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 22, GQLParser::RuleSessionSetGraphParameterClause);
     size_t _la = 0;
 
@@ -1926,21 +1219,9 @@ public:
     return _localctx;
   }
 
-  class  SessionSetBindingTableParameterClauseContext : public antlr4::ParserRuleContext {
-  public:
-    SessionSetBindingTableParameterClauseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *TABLE();
-    SessionSetParameterNameContext *sessionSetParameterName();
-    OptTypedBindingTableInitializerContext *optTypedBindingTableInitializer();
-    antlr4::tree::TerminalNode *BINDING();
-
-   
-  };
-
   template<typename ContextT>
-  SessionSetBindingTableParameterClauseContext* sessionSetBindingTableParameterClause(ContextT* ctx) {
-    SessionSetBindingTableParameterClauseContext *_localctx = _tracker.createInstance<SessionSetBindingTableParameterClauseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* sessionSetBindingTableParameterClause(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 24, GQLParser::RuleSessionSetBindingTableParameterClause);
     size_t _la = 0;
 
@@ -1997,20 +1278,9 @@ public:
     return _localctx;
   }
 
-  class  SessionSetValueParameterClauseContext : public antlr4::ParserRuleContext {
-  public:
-    SessionSetValueParameterClauseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *VALUE();
-    SessionSetParameterNameContext *sessionSetParameterName();
-    OptTypedValueInitializerContext *optTypedValueInitializer();
-
-   
-  };
-
   template<typename ContextT>
-  SessionSetValueParameterClauseContext* sessionSetValueParameterClause(ContextT* ctx) {
-    SessionSetValueParameterClauseContext *_localctx = _tracker.createInstance<SessionSetValueParameterClauseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* sessionSetValueParameterClause(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 26, GQLParser::RuleSessionSetValueParameterClause);
 
   #if __cplusplus > 201703L
@@ -2053,21 +1323,9 @@ public:
     return _localctx;
   }
 
-  class  SessionSetParameterNameContext : public antlr4::ParserRuleContext {
-  public:
-    SessionSetParameterNameContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SessionParameterSpecificationContext *sessionParameterSpecification();
-    antlr4::tree::TerminalNode *IF();
-    antlr4::tree::TerminalNode *NOT();
-    antlr4::tree::TerminalNode *EXISTS();
-
-   
-  };
-
   template<typename ContextT>
-  SessionSetParameterNameContext* sessionSetParameterName(ContextT* ctx) {
-    SessionSetParameterNameContext *_localctx = _tracker.createInstance<SessionSetParameterNameContext>(_ctx, getState());
+  antlr4::ParserRuleContext* sessionSetParameterName(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 28, GQLParser::RuleSessionSetParameterName);
     size_t _la = 0;
 
@@ -2126,20 +1384,9 @@ public:
     return _localctx;
   }
 
-  class  SessionResetCommandContext : public antlr4::ParserRuleContext {
-  public:
-    SessionResetCommandContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *SESSION();
-    antlr4::tree::TerminalNode *RESET();
-    SessionResetArgumentsContext *sessionResetArguments();
-
-   
-  };
-
   template<typename ContextT>
-  SessionResetCommandContext* sessionResetCommand(ContextT* ctx) {
-    SessionResetCommandContext *_localctx = _tracker.createInstance<SessionResetCommandContext>(_ctx, getState());
+  antlr4::ParserRuleContext* sessionResetCommand(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 30, GQLParser::RuleSessionResetCommand);
     size_t _la = 0;
 
@@ -2195,27 +1442,9 @@ public:
     return _localctx;
   }
 
-  class  SessionResetArgumentsContext : public antlr4::ParserRuleContext {
-  public:
-    SessionResetArgumentsContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *PARAMETERS();
-    antlr4::tree::TerminalNode *CHARACTERISTICS();
-    antlr4::tree::TerminalNode *ALL();
-    antlr4::tree::TerminalNode *SCHEMA();
-    antlr4::tree::TerminalNode *GRAPH();
-    antlr4::tree::TerminalNode *PROPERTY();
-    antlr4::tree::TerminalNode *TIME();
-    antlr4::tree::TerminalNode *ZONE();
-    SessionParameterSpecificationContext *sessionParameterSpecification();
-    antlr4::tree::TerminalNode *PARAMETER();
-
-   
-  };
-
   template<typename ContextT>
-  SessionResetArgumentsContext* sessionResetArguments(ContextT* ctx) {
-    SessionResetArgumentsContext *_localctx = _tracker.createInstance<SessionResetArgumentsContext>(_ctx, getState());
+  antlr4::ParserRuleContext* sessionResetArguments(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 32, GQLParser::RuleSessionResetArguments);
     size_t _la = 0;
 
@@ -2253,7 +1482,7 @@ public:
           setState(1260);
           _la = _input->LA(1);
           if (!(_la == GQLParser::CHARACTERISTICS || _la == GQLParser::PARAMETERS)) {
-          _errHandler->recoverInline(this);
+            _errHandler->recoverInline(this);
           }
           else {
             _errHandler->reportMatch(this);
@@ -2358,19 +1587,9 @@ public:
     return _localctx;
   }
 
-  class  SessionCloseCommandContext : public antlr4::ParserRuleContext {
-  public:
-    SessionCloseCommandContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *SESSION();
-    antlr4::tree::TerminalNode *CLOSE();
-
-   
-  };
-
   template<typename ContextT>
-  SessionCloseCommandContext* sessionCloseCommand(ContextT* ctx) {
-    SessionCloseCommandContext *_localctx = _tracker.createInstance<SessionCloseCommandContext>(_ctx, getState());
+  antlr4::ParserRuleContext* sessionCloseCommand(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 34, GQLParser::RuleSessionCloseCommand);
 
   #if __cplusplus > 201703L
@@ -2410,18 +1629,9 @@ public:
     return _localctx;
   }
 
-  class  SessionParameterSpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    SessionParameterSpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *GENERAL_PARAMETER_REFERENCE();
-
-   
-  };
-
   template<typename ContextT>
-  SessionParameterSpecificationContext* sessionParameterSpecification(ContextT* ctx) {
-    SessionParameterSpecificationContext *_localctx = _tracker.createInstance<SessionParameterSpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* sessionParameterSpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 36, GQLParser::RuleSessionParameterSpecification);
 
   #if __cplusplus > 201703L
@@ -2454,20 +1664,9 @@ public:
     return _localctx;
   }
 
-  class  StartTransactionCommandContext : public antlr4::ParserRuleContext {
-  public:
-    StartTransactionCommandContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *START();
-    antlr4::tree::TerminalNode *TRANSACTION();
-    TransactionCharacteristicsContext *transactionCharacteristics();
-
-   
-  };
-
   template<typename ContextT>
-  StartTransactionCommandContext* startTransactionCommand(ContextT* ctx) {
-    StartTransactionCommandContext *_localctx = _tracker.createInstance<StartTransactionCommandContext>(_ctx, getState());
+  antlr4::ParserRuleContext* startTransactionCommand(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 38, GQLParser::RuleStartTransactionCommand);
     size_t _la = 0;
 
@@ -2519,21 +1718,9 @@ public:
     return _localctx;
   }
 
-  class  TransactionCharacteristicsContext : public antlr4::ParserRuleContext {
-  public:
-    TransactionCharacteristicsContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<TransactionModeContext *> transactionMode();
-    TransactionModeContext* transactionMode(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  TransactionCharacteristicsContext* transactionCharacteristics(ContextT* ctx) {
-    TransactionCharacteristicsContext *_localctx = _tracker.createInstance<TransactionCharacteristicsContext>(_ctx, getState());
+  antlr4::ParserRuleContext* transactionCharacteristics(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 40, GQLParser::RuleTransactionCharacteristics);
     size_t _la = 0;
 
@@ -2585,18 +1772,9 @@ public:
     return _localctx;
   }
 
-  class  TransactionModeContext : public antlr4::ParserRuleContext {
-  public:
-    TransactionModeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    TransactionAccessModeContext *transactionAccessMode();
-
-   
-  };
-
   template<typename ContextT>
-  TransactionModeContext* transactionMode(ContextT* ctx) {
-    TransactionModeContext *_localctx = _tracker.createInstance<TransactionModeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* transactionMode(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 42, GQLParser::RuleTransactionMode);
 
   #if __cplusplus > 201703L
@@ -2627,20 +1805,9 @@ public:
     return _localctx;
   }
 
-  class  TransactionAccessModeContext : public antlr4::ParserRuleContext {
-  public:
-    TransactionAccessModeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *READ();
-    antlr4::tree::TerminalNode *ONLY();
-    antlr4::tree::TerminalNode *WRITE();
-
-   
-  };
-
   template<typename ContextT>
-  TransactionAccessModeContext* transactionAccessMode(ContextT* ctx) {
-    TransactionAccessModeContext *_localctx = _tracker.createInstance<TransactionAccessModeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* transactionAccessMode(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 44, GQLParser::RuleTransactionAccessMode);
 
   #if __cplusplus > 201703L
@@ -2709,18 +1876,9 @@ public:
     return _localctx;
   }
 
-  class  RollbackCommandContext : public antlr4::ParserRuleContext {
-  public:
-    RollbackCommandContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *ROLLBACK();
-
-   
-  };
-
   template<typename ContextT>
-  RollbackCommandContext* rollbackCommand(ContextT* ctx) {
-    RollbackCommandContext *_localctx = _tracker.createInstance<RollbackCommandContext>(_ctx, getState());
+  antlr4::ParserRuleContext* rollbackCommand(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 46, GQLParser::RuleRollbackCommand);
 
   #if __cplusplus > 201703L
@@ -2753,18 +1911,9 @@ public:
     return _localctx;
   }
 
-  class  CommitCommandContext : public antlr4::ParserRuleContext {
-  public:
-    CommitCommandContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *COMMIT();
-
-   
-  };
-
   template<typename ContextT>
-  CommitCommandContext* commitCommand(ContextT* ctx) {
-    CommitCommandContext *_localctx = _tracker.createInstance<CommitCommandContext>(_ctx, getState());
+  antlr4::ParserRuleContext* commitCommand(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 48, GQLParser::RuleCommitCommand);
 
   #if __cplusplus > 201703L
@@ -2797,20 +1946,9 @@ public:
     return _localctx;
   }
 
-  class  NestedProcedureSpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    NestedProcedureSpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_BRACE();
-    ProcedureSpecificationContext *procedureSpecification();
-    antlr4::tree::TerminalNode *RIGHT_BRACE();
-
-   
-  };
-
   template<typename ContextT>
-  NestedProcedureSpecificationContext* nestedProcedureSpecification(ContextT* ctx) {
-    NestedProcedureSpecificationContext *_localctx = _tracker.createInstance<NestedProcedureSpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nestedProcedureSpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 50, GQLParser::RuleNestedProcedureSpecification);
 
   #if __cplusplus > 201703L
@@ -2855,18 +1993,9 @@ public:
     return _localctx;
   }
 
-  class  ProcedureSpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    ProcedureSpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ProcedureBodyContext *procedureBody();
-
-   
-  };
-
   template<typename ContextT>
-  ProcedureSpecificationContext* procedureSpecification(ContextT* ctx) {
-    ProcedureSpecificationContext *_localctx = _tracker.createInstance<ProcedureSpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* procedureSpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 52, GQLParser::RuleProcedureSpecification);
 
   #if __cplusplus > 201703L
@@ -2897,20 +2026,9 @@ public:
     return _localctx;
   }
 
-  class  NestedDataModifyingProcedureSpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    NestedDataModifyingProcedureSpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_BRACE();
-    ProcedureBodyContext *procedureBody();
-    antlr4::tree::TerminalNode *RIGHT_BRACE();
-
-   
-  };
-
   template<typename ContextT>
-  NestedDataModifyingProcedureSpecificationContext* nestedDataModifyingProcedureSpecification(ContextT* ctx) {
-    NestedDataModifyingProcedureSpecificationContext *_localctx = _tracker.createInstance<NestedDataModifyingProcedureSpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nestedDataModifyingProcedureSpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 54, GQLParser::RuleNestedDataModifyingProcedureSpecification);
 
   #if __cplusplus > 201703L
@@ -2955,20 +2073,9 @@ public:
     return _localctx;
   }
 
-  class  NestedQuerySpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    NestedQuerySpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_BRACE();
-    ProcedureBodyContext *procedureBody();
-    antlr4::tree::TerminalNode *RIGHT_BRACE();
-
-   
-  };
-
   template<typename ContextT>
-  NestedQuerySpecificationContext* nestedQuerySpecification(ContextT* ctx) {
-    NestedQuerySpecificationContext *_localctx = _tracker.createInstance<NestedQuerySpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nestedQuerySpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 56, GQLParser::RuleNestedQuerySpecification);
 
   #if __cplusplus > 201703L
@@ -3013,20 +2120,9 @@ public:
     return _localctx;
   }
 
-  class  ProcedureBodyContext : public antlr4::ParserRuleContext {
-  public:
-    ProcedureBodyContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    StatementBlockContext *statementBlock();
-    AtSchemaClauseContext *atSchemaClause();
-    BindingVariableDefinitionBlockContext *bindingVariableDefinitionBlock();
-
-   
-  };
-
   template<typename ContextT>
-  ProcedureBodyContext* procedureBody(ContextT* ctx) {
-    ProcedureBodyContext *_localctx = _tracker.createInstance<ProcedureBodyContext>(_ctx, getState());
+  antlr4::ParserRuleContext* procedureBody(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 58, GQLParser::RuleProcedureBody);
     size_t _la = 0;
 
@@ -3083,19 +2179,9 @@ public:
     return _localctx;
   }
 
-  class  BindingVariableDefinitionBlockContext : public antlr4::ParserRuleContext {
-  public:
-    BindingVariableDefinitionBlockContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<BindingVariableDefinitionContext *> bindingVariableDefinition();
-    BindingVariableDefinitionContext* bindingVariableDefinition(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  BindingVariableDefinitionBlockContext* bindingVariableDefinitionBlock(ContextT* ctx) {
-    BindingVariableDefinitionBlockContext *_localctx = _tracker.createInstance<BindingVariableDefinitionBlockContext>(_ctx, getState());
+  antlr4::ParserRuleContext* bindingVariableDefinitionBlock(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 60, GQLParser::RuleBindingVariableDefinitionBlock);
     size_t _la = 0;
 
@@ -3138,20 +2224,9 @@ public:
     return _localctx;
   }
 
-  class  BindingVariableDefinitionContext : public antlr4::ParserRuleContext {
-  public:
-    BindingVariableDefinitionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    GraphVariableDefinitionContext *graphVariableDefinition();
-    BindingTableVariableDefinitionContext *bindingTableVariableDefinition();
-    ValueVariableDefinitionContext *valueVariableDefinition();
-
-   
-  };
-
   template<typename ContextT>
-  BindingVariableDefinitionContext* bindingVariableDefinition(ContextT* ctx) {
-    BindingVariableDefinitionContext *_localctx = _tracker.createInstance<BindingVariableDefinitionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* bindingVariableDefinition(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 62, GQLParser::RuleBindingVariableDefinition);
 
   #if __cplusplus > 201703L
@@ -3214,20 +2289,9 @@ public:
     return _localctx;
   }
 
-  class  StatementBlockContext : public antlr4::ParserRuleContext {
-  public:
-    StatementBlockContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    StatementContext *statement();
-    std::vector<NextStatementContext *> nextStatement();
-    NextStatementContext* nextStatement(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  StatementBlockContext* statementBlock(ContextT* ctx) {
-    StatementBlockContext *_localctx = _tracker.createInstance<StatementBlockContext>(_ctx, getState());
+  antlr4::ParserRuleContext* statementBlock(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 64, GQLParser::RuleStatementBlock);
     size_t _la = 0;
 
@@ -3272,20 +2336,9 @@ public:
     return _localctx;
   }
 
-  class  StatementContext : public antlr4::ParserRuleContext {
-  public:
-    StatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    LinearCatalogModifyingStatementContext *linearCatalogModifyingStatement();
-    LinearDataModifyingStatementContext *linearDataModifyingStatement();
-    CompositeQueryStatementContext *compositeQueryStatement();
-
-   
-  };
-
   template<typename ContextT>
-  StatementContext* statement(ContextT* ctx) {
-    StatementContext *_localctx = _tracker.createInstance<StatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* statement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 66, GQLParser::RuleStatement);
 
   #if __cplusplus > 201703L
@@ -3346,20 +2399,9 @@ public:
     return _localctx;
   }
 
-  class  NextStatementContext : public antlr4::ParserRuleContext {
-  public:
-    NextStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *NEXT();
-    StatementContext *statement();
-    YieldClauseContext *yieldClause();
-
-   
-  };
-
   template<typename ContextT>
-  NextStatementContext* nextStatement(ContextT* ctx) {
-    NextStatementContext *_localctx = _tracker.createInstance<NextStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nextStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 68, GQLParser::RuleNextStatement);
     size_t _la = 0;
 
@@ -3409,21 +2451,9 @@ public:
     return _localctx;
   }
 
-  class  GraphVariableDefinitionContext : public antlr4::ParserRuleContext {
-  public:
-    GraphVariableDefinitionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *GRAPH();
-    BindingVariableContext *bindingVariable();
-    OptTypedGraphInitializerContext *optTypedGraphInitializer();
-    antlr4::tree::TerminalNode *PROPERTY();
-
-   
-  };
-
   template<typename ContextT>
-  GraphVariableDefinitionContext* graphVariableDefinition(ContextT* ctx) {
-    GraphVariableDefinitionContext *_localctx = _tracker.createInstance<GraphVariableDefinitionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* graphVariableDefinition(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 70, GQLParser::RuleGraphVariableDefinition);
     size_t _la = 0;
 
@@ -3480,20 +2510,9 @@ public:
     return _localctx;
   }
 
-  class  OptTypedGraphInitializerContext : public antlr4::ParserRuleContext {
-  public:
-    OptTypedGraphInitializerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    GraphInitializerContext *graphInitializer();
-    GraphReferenceValueTypeContext *graphReferenceValueType();
-    TypedContext *typed();
-
-   
-  };
-
   template<typename ContextT>
-  OptTypedGraphInitializerContext* optTypedGraphInitializer(ContextT* ctx) {
-    OptTypedGraphInitializerContext *_localctx = _tracker.createInstance<OptTypedGraphInitializerContext>(_ctx, getState());
+  antlr4::ParserRuleContext* optTypedGraphInitializer(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 72, GQLParser::RuleOptTypedGraphInitializer);
     size_t _la = 0;
 
@@ -3548,19 +2567,9 @@ public:
     return _localctx;
   }
 
-  class  GraphInitializerContext : public antlr4::ParserRuleContext {
-  public:
-    GraphInitializerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *EQUALS_OPERATOR();
-    GraphExpressionContext *graphExpression();
-
-   
-  };
-
   template<typename ContextT>
-  GraphInitializerContext* graphInitializer(ContextT* ctx) {
-    GraphInitializerContext *_localctx = _tracker.createInstance<GraphInitializerContext>(_ctx, getState());
+  antlr4::ParserRuleContext* graphInitializer(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 74, GQLParser::RuleGraphInitializer);
 
   #if __cplusplus > 201703L
@@ -3598,21 +2607,9 @@ public:
     return _localctx;
   }
 
-  class  BindingTableVariableDefinitionContext : public antlr4::ParserRuleContext {
-  public:
-    BindingTableVariableDefinitionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *TABLE();
-    BindingVariableContext *bindingVariable();
-    OptTypedBindingTableInitializerContext *optTypedBindingTableInitializer();
-    antlr4::tree::TerminalNode *BINDING();
-
-   
-  };
-
   template<typename ContextT>
-  BindingTableVariableDefinitionContext* bindingTableVariableDefinition(ContextT* ctx) {
-    BindingTableVariableDefinitionContext *_localctx = _tracker.createInstance<BindingTableVariableDefinitionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* bindingTableVariableDefinition(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 76, GQLParser::RuleBindingTableVariableDefinition);
     size_t _la = 0;
 
@@ -3669,20 +2666,9 @@ public:
     return _localctx;
   }
 
-  class  OptTypedBindingTableInitializerContext : public antlr4::ParserRuleContext {
-  public:
-    OptTypedBindingTableInitializerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    BindingTableInitializerContext *bindingTableInitializer();
-    BindingTableReferenceValueTypeContext *bindingTableReferenceValueType();
-    TypedContext *typed();
-
-   
-  };
-
   template<typename ContextT>
-  OptTypedBindingTableInitializerContext* optTypedBindingTableInitializer(ContextT* ctx) {
-    OptTypedBindingTableInitializerContext *_localctx = _tracker.createInstance<OptTypedBindingTableInitializerContext>(_ctx, getState());
+  antlr4::ParserRuleContext* optTypedBindingTableInitializer(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 78, GQLParser::RuleOptTypedBindingTableInitializer);
     size_t _la = 0;
 
@@ -3737,19 +2723,9 @@ public:
     return _localctx;
   }
 
-  class  BindingTableInitializerContext : public antlr4::ParserRuleContext {
-  public:
-    BindingTableInitializerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *EQUALS_OPERATOR();
-    BindingTableExpressionContext *bindingTableExpression();
-
-   
-  };
-
   template<typename ContextT>
-  BindingTableInitializerContext* bindingTableInitializer(ContextT* ctx) {
-    BindingTableInitializerContext *_localctx = _tracker.createInstance<BindingTableInitializerContext>(_ctx, getState());
+  antlr4::ParserRuleContext* bindingTableInitializer(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 80, GQLParser::RuleBindingTableInitializer);
 
   #if __cplusplus > 201703L
@@ -3787,20 +2763,9 @@ public:
     return _localctx;
   }
 
-  class  ValueVariableDefinitionContext : public antlr4::ParserRuleContext {
-  public:
-    ValueVariableDefinitionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *VALUE();
-    BindingVariableContext *bindingVariable();
-    OptTypedValueInitializerContext *optTypedValueInitializer();
-
-   
-  };
-
   template<typename ContextT>
-  ValueVariableDefinitionContext* valueVariableDefinition(ContextT* ctx) {
-    ValueVariableDefinitionContext *_localctx = _tracker.createInstance<ValueVariableDefinitionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* valueVariableDefinition(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 82, GQLParser::RuleValueVariableDefinition);
 
   #if __cplusplus > 201703L
@@ -3843,20 +2808,9 @@ public:
     return _localctx;
   }
 
-  class  OptTypedValueInitializerContext : public antlr4::ParserRuleContext {
-  public:
-    OptTypedValueInitializerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ValueInitializerContext *valueInitializer();
-    ValueTypeContext *valueType();
-    TypedContext *typed();
-
-   
-  };
-
   template<typename ContextT>
-  OptTypedValueInitializerContext* optTypedValueInitializer(ContextT* ctx) {
-    OptTypedValueInitializerContext *_localctx = _tracker.createInstance<OptTypedValueInitializerContext>(_ctx, getState());
+  antlr4::ParserRuleContext* optTypedValueInitializer(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 84, GQLParser::RuleOptTypedValueInitializer);
     size_t _la = 0;
 
@@ -3917,19 +2871,9 @@ public:
     return _localctx;
   }
 
-  class  ValueInitializerContext : public antlr4::ParserRuleContext {
-  public:
-    ValueInitializerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *EQUALS_OPERATOR();
-    ValueExpressionContext *valueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  ValueInitializerContext* valueInitializer(ContextT* ctx) {
-    ValueInitializerContext *_localctx = _tracker.createInstance<ValueInitializerContext>(_ctx, getState());
+  antlr4::ParserRuleContext* valueInitializer(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 86, GQLParser::RuleValueInitializer);
 
   #if __cplusplus > 201703L
@@ -3967,21 +2911,9 @@ public:
     return _localctx;
   }
 
-  class  GraphExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    GraphExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    GraphReferenceContext *graphReference();
-    ObjectExpressionPrimaryContext *objectExpressionPrimary();
-    ObjectNameOrBindingVariableContext *objectNameOrBindingVariable();
-    CurrentGraphContext *currentGraph();
-
-   
-  };
-
   template<typename ContextT>
-  GraphExpressionContext* graphExpression(ContextT* ctx) {
-    GraphExpressionContext *_localctx = _tracker.createInstance<GraphExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* graphExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 88, GQLParser::RuleGraphExpression);
 
   #if __cplusplus > 201703L
@@ -4052,19 +2984,9 @@ public:
     return _localctx;
   }
 
-  class  CurrentGraphContext : public antlr4::ParserRuleContext {
-  public:
-    CurrentGraphContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *CURRENT_PROPERTY_GRAPH();
-    antlr4::tree::TerminalNode *CURRENT_GRAPH();
-
-   
-  };
-
   template<typename ContextT>
-  CurrentGraphContext* currentGraph(ContextT* ctx) {
-    CurrentGraphContext *_localctx = _tracker.createInstance<CurrentGraphContext>(_ctx, getState());
+  antlr4::ParserRuleContext* currentGraph(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 90, GQLParser::RuleCurrentGraph);
     size_t _la = 0;
 
@@ -4085,7 +3007,7 @@ public:
       if (!(_la == GQLParser::CURRENT_GRAPH
 
       || _la == GQLParser::CURRENT_PROPERTY_GRAPH)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -4103,21 +3025,9 @@ public:
     return _localctx;
   }
 
-  class  BindingTableExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    BindingTableExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NestedBindingTableQuerySpecificationContext *nestedBindingTableQuerySpecification();
-    BindingTableReferenceContext *bindingTableReference();
-    ObjectExpressionPrimaryContext *objectExpressionPrimary();
-    ObjectNameOrBindingVariableContext *objectNameOrBindingVariable();
-
-   
-  };
-
   template<typename ContextT>
-  BindingTableExpressionContext* bindingTableExpression(ContextT* ctx) {
-    BindingTableExpressionContext *_localctx = _tracker.createInstance<BindingTableExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* bindingTableExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 92, GQLParser::RuleBindingTableExpression);
 
   #if __cplusplus > 201703L
@@ -4188,18 +3098,9 @@ public:
     return _localctx;
   }
 
-  class  NestedBindingTableQuerySpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    NestedBindingTableQuerySpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NestedQuerySpecificationContext *nestedQuerySpecification();
-
-   
-  };
-
   template<typename ContextT>
-  NestedBindingTableQuerySpecificationContext* nestedBindingTableQuerySpecification(ContextT* ctx) {
-    NestedBindingTableQuerySpecificationContext *_localctx = _tracker.createInstance<NestedBindingTableQuerySpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nestedBindingTableQuerySpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 94, GQLParser::RuleNestedBindingTableQuerySpecification);
 
   #if __cplusplus > 201703L
@@ -4230,21 +3131,9 @@ public:
     return _localctx;
   }
 
-  class  ObjectExpressionPrimaryContext : public antlr4::ParserRuleContext {
-  public:
-    ObjectExpressionPrimaryContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *VARIABLE();
-    ValueExpressionPrimaryContext *valueExpressionPrimary();
-    ParenthesizedValueExpressionContext *parenthesizedValueExpression();
-    NonParenthesizedValueExpressionPrimarySpecialCaseContext *nonParenthesizedValueExpressionPrimarySpecialCase();
-
-   
-  };
-
   template<typename ContextT>
-  ObjectExpressionPrimaryContext* objectExpressionPrimary(ContextT* ctx) {
-    ObjectExpressionPrimaryContext *_localctx = _tracker.createInstance<ObjectExpressionPrimaryContext>(_ctx, getState());
+  antlr4::ParserRuleContext* objectExpressionPrimary(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 96, GQLParser::RuleObjectExpressionPrimary);
 
   #if __cplusplus > 201703L
@@ -4312,19 +3201,9 @@ public:
     return _localctx;
   }
 
-  class  LinearCatalogModifyingStatementContext : public antlr4::ParserRuleContext {
-  public:
-    LinearCatalogModifyingStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<SimpleCatalogModifyingStatementContext *> simpleCatalogModifyingStatement();
-    SimpleCatalogModifyingStatementContext* simpleCatalogModifyingStatement(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  LinearCatalogModifyingStatementContext* linearCatalogModifyingStatement(ContextT* ctx) {
-    LinearCatalogModifyingStatementContext *_localctx = _tracker.createInstance<LinearCatalogModifyingStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* linearCatalogModifyingStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 98, GQLParser::RuleLinearCatalogModifyingStatement);
     size_t _la = 0;
 
@@ -4365,19 +3244,9 @@ public:
     return _localctx;
   }
 
-  class  SimpleCatalogModifyingStatementContext : public antlr4::ParserRuleContext {
-  public:
-    SimpleCatalogModifyingStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    PrimitiveCatalogModifyingStatementContext *primitiveCatalogModifyingStatement();
-    CallCatalogModifyingProcedureStatementContext *callCatalogModifyingProcedureStatement();
-
-   
-  };
-
   template<typename ContextT>
-  SimpleCatalogModifyingStatementContext* simpleCatalogModifyingStatement(ContextT* ctx) {
-    SimpleCatalogModifyingStatementContext *_localctx = _tracker.createInstance<SimpleCatalogModifyingStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simpleCatalogModifyingStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 100, GQLParser::RuleSimpleCatalogModifyingStatement);
 
   #if __cplusplus > 201703L
@@ -4430,23 +3299,9 @@ public:
     return _localctx;
   }
 
-  class  PrimitiveCatalogModifyingStatementContext : public antlr4::ParserRuleContext {
-  public:
-    PrimitiveCatalogModifyingStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    CreateSchemaStatementContext *createSchemaStatement();
-    DropSchemaStatementContext *dropSchemaStatement();
-    CreateGraphStatementContext *createGraphStatement();
-    DropGraphStatementContext *dropGraphStatement();
-    CreateGraphTypeStatementContext *createGraphTypeStatement();
-    DropGraphTypeStatementContext *dropGraphTypeStatement();
-
-   
-  };
-
   template<typename ContextT>
-  PrimitiveCatalogModifyingStatementContext* primitiveCatalogModifyingStatement(ContextT* ctx) {
-    PrimitiveCatalogModifyingStatementContext *_localctx = _tracker.createInstance<PrimitiveCatalogModifyingStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* primitiveCatalogModifyingStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 102, GQLParser::RulePrimitiveCatalogModifyingStatement);
 
   #if __cplusplus > 201703L
@@ -4537,23 +3392,9 @@ public:
     return _localctx;
   }
 
-  class  CreateSchemaStatementContext : public antlr4::ParserRuleContext {
-  public:
-    CreateSchemaStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *CREATE();
-    antlr4::tree::TerminalNode *SCHEMA();
-    CatalogSchemaParentAndNameContext *catalogSchemaParentAndName();
-    antlr4::tree::TerminalNode *IF();
-    antlr4::tree::TerminalNode *NOT();
-    antlr4::tree::TerminalNode *EXISTS();
-
-   
-  };
-
   template<typename ContextT>
-  CreateSchemaStatementContext* createSchemaStatement(ContextT* ctx) {
-    CreateSchemaStatementContext *_localctx = _tracker.createInstance<CreateSchemaStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* createSchemaStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 104, GQLParser::RuleCreateSchemaStatement);
     size_t _la = 0;
 
@@ -4626,22 +3467,9 @@ public:
     return _localctx;
   }
 
-  class  DropSchemaStatementContext : public antlr4::ParserRuleContext {
-  public:
-    DropSchemaStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *DROP();
-    antlr4::tree::TerminalNode *SCHEMA();
-    CatalogSchemaParentAndNameContext *catalogSchemaParentAndName();
-    antlr4::tree::TerminalNode *IF();
-    antlr4::tree::TerminalNode *EXISTS();
-
-   
-  };
-
   template<typename ContextT>
-  DropSchemaStatementContext* dropSchemaStatement(ContextT* ctx) {
-    DropSchemaStatementContext *_localctx = _tracker.createInstance<DropSchemaStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* dropSchemaStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 106, GQLParser::RuleDropSchemaStatement);
     size_t _la = 0;
 
@@ -4707,29 +3535,9 @@ public:
     return _localctx;
   }
 
-  class  CreateGraphStatementContext : public antlr4::ParserRuleContext {
-  public:
-    CreateGraphStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *CREATE();
-    CatalogGraphParentAndNameContext *catalogGraphParentAndName();
-    antlr4::tree::TerminalNode *GRAPH();
-    antlr4::tree::TerminalNode *OR();
-    antlr4::tree::TerminalNode *REPLACE();
-    OpenGraphTypeContext *openGraphType();
-    OfGraphTypeContext *ofGraphType();
-    GraphSourceContext *graphSource();
-    antlr4::tree::TerminalNode *PROPERTY();
-    antlr4::tree::TerminalNode *IF();
-    antlr4::tree::TerminalNode *NOT();
-    antlr4::tree::TerminalNode *EXISTS();
-
-   
-  };
-
   template<typename ContextT>
-  CreateGraphStatementContext* createGraphStatement(ContextT* ctx) {
-    CreateGraphStatementContext *_localctx = _tracker.createInstance<CreateGraphStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* createGraphStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 108, GQLParser::RuleCreateGraphStatement);
     size_t _la = 0;
 
@@ -4899,21 +3707,9 @@ public:
     return _localctx;
   }
 
-  class  OpenGraphTypeContext : public antlr4::ParserRuleContext {
-  public:
-    OpenGraphTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *ANY();
-    TypedContext *typed();
-    antlr4::tree::TerminalNode *GRAPH();
-    antlr4::tree::TerminalNode *PROPERTY();
-
-   
-  };
-
   template<typename ContextT>
-  OpenGraphTypeContext* openGraphType(ContextT* ctx) {
-    OpenGraphTypeContext *_localctx = _tracker.createInstance<OpenGraphTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* openGraphType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 110, GQLParser::RuleOpenGraphType);
     size_t _la = 0;
 
@@ -4986,23 +3782,9 @@ public:
     return _localctx;
   }
 
-  class  OfGraphTypeContext : public antlr4::ParserRuleContext {
-  public:
-    OfGraphTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    GraphTypeLikeGraphContext *graphTypeLikeGraph();
-    GraphTypeReferenceContext *graphTypeReference();
-    TypedContext *typed();
-    NestedGraphTypeSpecificationContext *nestedGraphTypeSpecification();
-    antlr4::tree::TerminalNode *GRAPH();
-    antlr4::tree::TerminalNode *PROPERTY();
-
-   
-  };
-
   template<typename ContextT>
-  OfGraphTypeContext* ofGraphType(ContextT* ctx) {
-    OfGraphTypeContext *_localctx = _tracker.createInstance<OfGraphTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* ofGraphType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 112, GQLParser::RuleOfGraphType);
     size_t _la = 0;
 
@@ -5114,19 +3896,9 @@ public:
     return _localctx;
   }
 
-  class  GraphTypeLikeGraphContext : public antlr4::ParserRuleContext {
-  public:
-    GraphTypeLikeGraphContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LIKE();
-    GraphExpressionContext *graphExpression();
-
-   
-  };
-
   template<typename ContextT>
-  GraphTypeLikeGraphContext* graphTypeLikeGraph(ContextT* ctx) {
-    GraphTypeLikeGraphContext *_localctx = _tracker.createInstance<GraphTypeLikeGraphContext>(_ctx, getState());
+  antlr4::ParserRuleContext* graphTypeLikeGraph(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 114, GQLParser::RuleGraphTypeLikeGraph);
 
   #if __cplusplus > 201703L
@@ -5164,21 +3936,9 @@ public:
     return _localctx;
   }
 
-  class  GraphSourceContext : public antlr4::ParserRuleContext {
-  public:
-    GraphSourceContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *AS();
-    antlr4::tree::TerminalNode *COPY();
-    antlr4::tree::TerminalNode *OF();
-    GraphExpressionContext *graphExpression();
-
-   
-  };
-
   template<typename ContextT>
-  GraphSourceContext* graphSource(ContextT* ctx) {
-    GraphSourceContext *_localctx = _tracker.createInstance<GraphSourceContext>(_ctx, getState());
+  antlr4::ParserRuleContext* graphSource(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 116, GQLParser::RuleGraphSource);
 
   #if __cplusplus > 201703L
@@ -5230,23 +3990,9 @@ public:
     return _localctx;
   }
 
-  class  DropGraphStatementContext : public antlr4::ParserRuleContext {
-  public:
-    DropGraphStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *DROP();
-    antlr4::tree::TerminalNode *GRAPH();
-    CatalogGraphParentAndNameContext *catalogGraphParentAndName();
-    antlr4::tree::TerminalNode *PROPERTY();
-    antlr4::tree::TerminalNode *IF();
-    antlr4::tree::TerminalNode *EXISTS();
-
-   
-  };
-
   template<typename ContextT>
-  DropGraphStatementContext* dropGraphStatement(ContextT* ctx) {
-    DropGraphStatementContext *_localctx = _tracker.createInstance<DropGraphStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* dropGraphStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 118, GQLParser::RuleDropGraphStatement);
     size_t _la = 0;
 
@@ -5325,28 +4071,9 @@ public:
     return _localctx;
   }
 
-  class  CreateGraphTypeStatementContext : public antlr4::ParserRuleContext {
-  public:
-    CreateGraphTypeStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *CREATE();
-    CatalogGraphTypeParentAndNameContext *catalogGraphTypeParentAndName();
-    GraphTypeSourceContext *graphTypeSource();
-    antlr4::tree::TerminalNode *GRAPH();
-    antlr4::tree::TerminalNode *TYPE();
-    antlr4::tree::TerminalNode *OR();
-    antlr4::tree::TerminalNode *REPLACE();
-    antlr4::tree::TerminalNode *PROPERTY();
-    antlr4::tree::TerminalNode *IF();
-    antlr4::tree::TerminalNode *NOT();
-    antlr4::tree::TerminalNode *EXISTS();
-
-   
-  };
-
   template<typename ContextT>
-  CreateGraphTypeStatementContext* createGraphTypeStatement(ContextT* ctx) {
-    CreateGraphTypeStatementContext *_localctx = _tracker.createInstance<CreateGraphTypeStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* createGraphTypeStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 120, GQLParser::RuleCreateGraphTypeStatement);
     size_t _la = 0;
 
@@ -5500,21 +4227,9 @@ public:
     return _localctx;
   }
 
-  class  GraphTypeSourceContext : public antlr4::ParserRuleContext {
-  public:
-    GraphTypeSourceContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    CopyOfGraphTypeContext *copyOfGraphType();
-    antlr4::tree::TerminalNode *AS();
-    GraphTypeLikeGraphContext *graphTypeLikeGraph();
-    NestedGraphTypeSpecificationContext *nestedGraphTypeSpecification();
-
-   
-  };
-
   template<typename ContextT>
-  GraphTypeSourceContext* graphTypeSource(ContextT* ctx) {
-    GraphTypeSourceContext *_localctx = _tracker.createInstance<GraphTypeSourceContext>(_ctx, getState());
+  antlr4::ParserRuleContext* graphTypeSource(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 122, GQLParser::RuleGraphTypeSource);
     size_t _la = 0;
 
@@ -5602,20 +4317,9 @@ public:
     return _localctx;
   }
 
-  class  CopyOfGraphTypeContext : public antlr4::ParserRuleContext {
-  public:
-    CopyOfGraphTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *COPY();
-    antlr4::tree::TerminalNode *OF();
-    GraphTypeReferenceContext *graphTypeReference();
-
-   
-  };
-
   template<typename ContextT>
-  CopyOfGraphTypeContext* copyOfGraphType(ContextT* ctx) {
-    CopyOfGraphTypeContext *_localctx = _tracker.createInstance<CopyOfGraphTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* copyOfGraphType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 124, GQLParser::RuleCopyOfGraphType);
 
   #if __cplusplus > 201703L
@@ -5660,24 +4364,9 @@ public:
     return _localctx;
   }
 
-  class  DropGraphTypeStatementContext : public antlr4::ParserRuleContext {
-  public:
-    DropGraphTypeStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *DROP();
-    antlr4::tree::TerminalNode *GRAPH();
-    antlr4::tree::TerminalNode *TYPE();
-    CatalogGraphTypeParentAndNameContext *catalogGraphTypeParentAndName();
-    antlr4::tree::TerminalNode *PROPERTY();
-    antlr4::tree::TerminalNode *IF();
-    antlr4::tree::TerminalNode *EXISTS();
-
-   
-  };
-
   template<typename ContextT>
-  DropGraphTypeStatementContext* dropGraphTypeStatement(ContextT* ctx) {
-    DropGraphTypeStatementContext *_localctx = _tracker.createInstance<DropGraphTypeStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* dropGraphTypeStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 126, GQLParser::RuleDropGraphTypeStatement);
     size_t _la = 0;
 
@@ -5763,18 +4452,9 @@ public:
     return _localctx;
   }
 
-  class  CallCatalogModifyingProcedureStatementContext : public antlr4::ParserRuleContext {
-  public:
-    CallCatalogModifyingProcedureStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    CallProcedureStatementContext *callProcedureStatement();
-
-   
-  };
-
   template<typename ContextT>
-  CallCatalogModifyingProcedureStatementContext* callCatalogModifyingProcedureStatement(ContextT* ctx) {
-    CallCatalogModifyingProcedureStatementContext *_localctx = _tracker.createInstance<CallCatalogModifyingProcedureStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* callCatalogModifyingProcedureStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 128, GQLParser::RuleCallCatalogModifyingProcedureStatement);
 
   #if __cplusplus > 201703L
@@ -5805,19 +4485,9 @@ public:
     return _localctx;
   }
 
-  class  LinearDataModifyingStatementContext : public antlr4::ParserRuleContext {
-  public:
-    LinearDataModifyingStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    FocusedLinearDataModifyingStatementContext *focusedLinearDataModifyingStatement();
-    AmbientLinearDataModifyingStatementContext *ambientLinearDataModifyingStatement();
-
-   
-  };
-
   template<typename ContextT>
-  LinearDataModifyingStatementContext* linearDataModifyingStatement(ContextT* ctx) {
-    LinearDataModifyingStatementContext *_localctx = _tracker.createInstance<LinearDataModifyingStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* linearDataModifyingStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 130, GQLParser::RuleLinearDataModifyingStatement);
 
   #if __cplusplus > 201703L
@@ -5884,19 +4554,9 @@ public:
     return _localctx;
   }
 
-  class  FocusedLinearDataModifyingStatementContext : public antlr4::ParserRuleContext {
-  public:
-    FocusedLinearDataModifyingStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    FocusedLinearDataModifyingStatementBodyContext *focusedLinearDataModifyingStatementBody();
-    FocusedNestedDataModifyingProcedureSpecificationContext *focusedNestedDataModifyingProcedureSpecification();
-
-   
-  };
-
   template<typename ContextT>
-  FocusedLinearDataModifyingStatementContext* focusedLinearDataModifyingStatement(ContextT* ctx) {
-    FocusedLinearDataModifyingStatementContext *_localctx = _tracker.createInstance<FocusedLinearDataModifyingStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* focusedLinearDataModifyingStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 132, GQLParser::RuleFocusedLinearDataModifyingStatement);
 
   #if __cplusplus > 201703L
@@ -5947,20 +4607,9 @@ public:
     return _localctx;
   }
 
-  class  FocusedLinearDataModifyingStatementBodyContext : public antlr4::ParserRuleContext {
-  public:
-    FocusedLinearDataModifyingStatementBodyContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    UseGraphClauseContext *useGraphClause();
-    SimpleLinearDataAccessingStatementContext *simpleLinearDataAccessingStatement();
-    PrimitiveResultStatementContext *primitiveResultStatement();
-
-   
-  };
-
   template<typename ContextT>
-  FocusedLinearDataModifyingStatementBodyContext* focusedLinearDataModifyingStatementBody(ContextT* ctx) {
-    FocusedLinearDataModifyingStatementBodyContext *_localctx = _tracker.createInstance<FocusedLinearDataModifyingStatementBodyContext>(_ctx, getState());
+  antlr4::ParserRuleContext* focusedLinearDataModifyingStatementBody(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 134, GQLParser::RuleFocusedLinearDataModifyingStatementBody);
     size_t _la = 0;
 
@@ -6008,19 +4657,9 @@ public:
     return _localctx;
   }
 
-  class  FocusedNestedDataModifyingProcedureSpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    FocusedNestedDataModifyingProcedureSpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    UseGraphClauseContext *useGraphClause();
-    NestedDataModifyingProcedureSpecificationContext *nestedDataModifyingProcedureSpecification();
-
-   
-  };
-
   template<typename ContextT>
-  FocusedNestedDataModifyingProcedureSpecificationContext* focusedNestedDataModifyingProcedureSpecification(ContextT* ctx) {
-    FocusedNestedDataModifyingProcedureSpecificationContext *_localctx = _tracker.createInstance<FocusedNestedDataModifyingProcedureSpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* focusedNestedDataModifyingProcedureSpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 136, GQLParser::RuleFocusedNestedDataModifyingProcedureSpecification);
 
   #if __cplusplus > 201703L
@@ -6056,19 +4695,9 @@ public:
     return _localctx;
   }
 
-  class  AmbientLinearDataModifyingStatementContext : public antlr4::ParserRuleContext {
-  public:
-    AmbientLinearDataModifyingStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    AmbientLinearDataModifyingStatementBodyContext *ambientLinearDataModifyingStatementBody();
-    NestedDataModifyingProcedureSpecificationContext *nestedDataModifyingProcedureSpecification();
-
-   
-  };
-
   template<typename ContextT>
-  AmbientLinearDataModifyingStatementContext* ambientLinearDataModifyingStatement(ContextT* ctx) {
-    AmbientLinearDataModifyingStatementContext *_localctx = _tracker.createInstance<AmbientLinearDataModifyingStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* ambientLinearDataModifyingStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 138, GQLParser::RuleAmbientLinearDataModifyingStatement);
 
   #if __cplusplus > 201703L
@@ -6134,19 +4763,9 @@ public:
     return _localctx;
   }
 
-  class  AmbientLinearDataModifyingStatementBodyContext : public antlr4::ParserRuleContext {
-  public:
-    AmbientLinearDataModifyingStatementBodyContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SimpleLinearDataAccessingStatementContext *simpleLinearDataAccessingStatement();
-    PrimitiveResultStatementContext *primitiveResultStatement();
-
-   
-  };
-
   template<typename ContextT>
-  AmbientLinearDataModifyingStatementBodyContext* ambientLinearDataModifyingStatementBody(ContextT* ctx) {
-    AmbientLinearDataModifyingStatementBodyContext *_localctx = _tracker.createInstance<AmbientLinearDataModifyingStatementBodyContext>(_ctx, getState());
+  antlr4::ParserRuleContext* ambientLinearDataModifyingStatementBody(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 140, GQLParser::RuleAmbientLinearDataModifyingStatementBody);
     size_t _la = 0;
 
@@ -6189,19 +4808,9 @@ public:
     return _localctx;
   }
 
-  class  SimpleLinearDataAccessingStatementContext : public antlr4::ParserRuleContext {
-  public:
-    SimpleLinearDataAccessingStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<SimpleDataAccessingStatementContext *> simpleDataAccessingStatement();
-    SimpleDataAccessingStatementContext* simpleDataAccessingStatement(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  SimpleLinearDataAccessingStatementContext* simpleLinearDataAccessingStatement(ContextT* ctx) {
-    SimpleLinearDataAccessingStatementContext *_localctx = _tracker.createInstance<SimpleLinearDataAccessingStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simpleLinearDataAccessingStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 142, GQLParser::RuleSimpleLinearDataAccessingStatement);
     size_t _la = 0;
 
@@ -6243,19 +4852,9 @@ public:
     return _localctx;
   }
 
-  class  SimpleDataAccessingStatementContext : public antlr4::ParserRuleContext {
-  public:
-    SimpleDataAccessingStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SimpleQueryStatementContext *simpleQueryStatement();
-    SimpleDataModifyingStatementContext *simpleDataModifyingStatement();
-
-   
-  };
-
   template<typename ContextT>
-  SimpleDataAccessingStatementContext* simpleDataAccessingStatement(ContextT* ctx) {
-    SimpleDataAccessingStatementContext *_localctx = _tracker.createInstance<SimpleDataAccessingStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simpleDataAccessingStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 144, GQLParser::RuleSimpleDataAccessingStatement);
 
   #if __cplusplus > 201703L
@@ -6306,19 +4905,9 @@ public:
     return _localctx;
   }
 
-  class  SimpleDataModifyingStatementContext : public antlr4::ParserRuleContext {
-  public:
-    SimpleDataModifyingStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    PrimitiveDataModifyingStatementContext *primitiveDataModifyingStatement();
-    CallDataModifyingProcedureStatementContext *callDataModifyingProcedureStatement();
-
-   
-  };
-
   template<typename ContextT>
-  SimpleDataModifyingStatementContext* simpleDataModifyingStatement(ContextT* ctx) {
-    SimpleDataModifyingStatementContext *_localctx = _tracker.createInstance<SimpleDataModifyingStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simpleDataModifyingStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 146, GQLParser::RuleSimpleDataModifyingStatement);
 
   #if __cplusplus > 201703L
@@ -6375,21 +4964,9 @@ public:
     return _localctx;
   }
 
-  class  PrimitiveDataModifyingStatementContext : public antlr4::ParserRuleContext {
-  public:
-    PrimitiveDataModifyingStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    InsertStatementContext *insertStatement();
-    SetStatementContext *setStatement();
-    RemoveStatementContext *removeStatement();
-    DeleteStatementContext *deleteStatement();
-
-   
-  };
-
   template<typename ContextT>
-  PrimitiveDataModifyingStatementContext* primitiveDataModifyingStatement(ContextT* ctx) {
-    PrimitiveDataModifyingStatementContext *_localctx = _tracker.createInstance<PrimitiveDataModifyingStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* primitiveDataModifyingStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 148, GQLParser::RulePrimitiveDataModifyingStatement);
 
   #if __cplusplus > 201703L
@@ -6462,19 +5039,9 @@ public:
     return _localctx;
   }
 
-  class  InsertStatementContext : public antlr4::ParserRuleContext {
-  public:
-    InsertStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *INSERT();
-    InsertGraphPatternContext *insertGraphPattern();
-
-   
-  };
-
   template<typename ContextT>
-  InsertStatementContext* insertStatement(ContextT* ctx) {
-    InsertStatementContext *_localctx = _tracker.createInstance<InsertStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* insertStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 150, GQLParser::RuleInsertStatement);
 
   #if __cplusplus > 201703L
@@ -6512,19 +5079,9 @@ public:
     return _localctx;
   }
 
-  class  SetStatementContext : public antlr4::ParserRuleContext {
-  public:
-    SetStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *SET();
-    SetItemListContext *setItemList();
-
-   
-  };
-
   template<typename ContextT>
-  SetStatementContext* setStatement(ContextT* ctx) {
-    SetStatementContext *_localctx = _tracker.createInstance<SetStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* setStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 152, GQLParser::RuleSetStatement);
 
   #if __cplusplus > 201703L
@@ -6562,21 +5119,9 @@ public:
     return _localctx;
   }
 
-  class  SetItemListContext : public antlr4::ParserRuleContext {
-  public:
-    SetItemListContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<SetItemContext *> setItem();
-    SetItemContext* setItem(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  SetItemListContext* setItemList(ContextT* ctx) {
-    SetItemListContext *_localctx = _tracker.createInstance<SetItemListContext>(_ctx, getState());
+  antlr4::ParserRuleContext* setItemList(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 154, GQLParser::RuleSetItemList);
     size_t _la = 0;
 
@@ -6628,20 +5173,9 @@ public:
     return _localctx;
   }
 
-  class  SetItemContext : public antlr4::ParserRuleContext {
-  public:
-    SetItemContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SetPropertyItemContext *setPropertyItem();
-    SetAllPropertiesItemContext *setAllPropertiesItem();
-    SetLabelItemContext *setLabelItem();
-
-   
-  };
-
   template<typename ContextT>
-  SetItemContext* setItem(ContextT* ctx) {
-    SetItemContext *_localctx = _tracker.createInstance<SetItemContext>(_ctx, getState());
+  antlr4::ParserRuleContext* setItem(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 156, GQLParser::RuleSetItem);
 
   #if __cplusplus > 201703L
@@ -6702,22 +5236,9 @@ public:
     return _localctx;
   }
 
-  class  SetPropertyItemContext : public antlr4::ParserRuleContext {
-  public:
-    SetPropertyItemContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    BindingVariableReferenceContext *bindingVariableReference();
-    antlr4::tree::TerminalNode *PERIOD();
-    PropertyNameContext *propertyName();
-    antlr4::tree::TerminalNode *EQUALS_OPERATOR();
-    ValueExpressionContext *valueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  SetPropertyItemContext* setPropertyItem(ContextT* ctx) {
-    SetPropertyItemContext *_localctx = _tracker.createInstance<SetPropertyItemContext>(_ctx, getState());
+  antlr4::ParserRuleContext* setPropertyItem(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 158, GQLParser::RuleSetPropertyItem);
 
   #if __cplusplus > 201703L
@@ -6772,22 +5293,9 @@ public:
     return _localctx;
   }
 
-  class  SetAllPropertiesItemContext : public antlr4::ParserRuleContext {
-  public:
-    SetAllPropertiesItemContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    BindingVariableReferenceContext *bindingVariableReference();
-    antlr4::tree::TerminalNode *EQUALS_OPERATOR();
-    antlr4::tree::TerminalNode *LEFT_BRACE();
-    antlr4::tree::TerminalNode *RIGHT_BRACE();
-    PropertyKeyValuePairListContext *propertyKeyValuePairList();
-
-   
-  };
-
   template<typename ContextT>
-  SetAllPropertiesItemContext* setAllPropertiesItem(ContextT* ctx) {
-    SetAllPropertiesItemContext *_localctx = _tracker.createInstance<SetAllPropertiesItemContext>(_ctx, getState());
+  antlr4::ParserRuleContext* setAllPropertiesItem(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 160, GQLParser::RuleSetAllPropertiesItem);
     size_t _la = 0;
 
@@ -6854,20 +5362,9 @@ public:
     return _localctx;
   }
 
-  class  SetLabelItemContext : public antlr4::ParserRuleContext {
-  public:
-    SetLabelItemContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    BindingVariableReferenceContext *bindingVariableReference();
-    IsOrColonContext *isOrColon();
-    LabelNameContext *labelName();
-
-   
-  };
-
   template<typename ContextT>
-  SetLabelItemContext* setLabelItem(ContextT* ctx) {
-    SetLabelItemContext *_localctx = _tracker.createInstance<SetLabelItemContext>(_ctx, getState());
+  antlr4::ParserRuleContext* setLabelItem(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 162, GQLParser::RuleSetLabelItem);
 
   #if __cplusplus > 201703L
@@ -6908,19 +5405,9 @@ public:
     return _localctx;
   }
 
-  class  RemoveStatementContext : public antlr4::ParserRuleContext {
-  public:
-    RemoveStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *REMOVE();
-    RemoveItemListContext *removeItemList();
-
-   
-  };
-
   template<typename ContextT>
-  RemoveStatementContext* removeStatement(ContextT* ctx) {
-    RemoveStatementContext *_localctx = _tracker.createInstance<RemoveStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* removeStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 164, GQLParser::RuleRemoveStatement);
 
   #if __cplusplus > 201703L
@@ -6958,21 +5445,9 @@ public:
     return _localctx;
   }
 
-  class  RemoveItemListContext : public antlr4::ParserRuleContext {
-  public:
-    RemoveItemListContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<RemoveItemContext *> removeItem();
-    RemoveItemContext* removeItem(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  RemoveItemListContext* removeItemList(ContextT* ctx) {
-    RemoveItemListContext *_localctx = _tracker.createInstance<RemoveItemListContext>(_ctx, getState());
+  antlr4::ParserRuleContext* removeItemList(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 166, GQLParser::RuleRemoveItemList);
     size_t _la = 0;
 
@@ -7024,19 +5499,9 @@ public:
     return _localctx;
   }
 
-  class  RemoveItemContext : public antlr4::ParserRuleContext {
-  public:
-    RemoveItemContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    RemovePropertyItemContext *removePropertyItem();
-    RemoveLabelItemContext *removeLabelItem();
-
-   
-  };
-
   template<typename ContextT>
-  RemoveItemContext* removeItem(ContextT* ctx) {
-    RemoveItemContext *_localctx = _tracker.createInstance<RemoveItemContext>(_ctx, getState());
+  antlr4::ParserRuleContext* removeItem(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 168, GQLParser::RuleRemoveItem);
 
   #if __cplusplus > 201703L
@@ -7087,20 +5552,9 @@ public:
     return _localctx;
   }
 
-  class  RemovePropertyItemContext : public antlr4::ParserRuleContext {
-  public:
-    RemovePropertyItemContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    BindingVariableReferenceContext *bindingVariableReference();
-    antlr4::tree::TerminalNode *PERIOD();
-    PropertyNameContext *propertyName();
-
-   
-  };
-
   template<typename ContextT>
-  RemovePropertyItemContext* removePropertyItem(ContextT* ctx) {
-    RemovePropertyItemContext *_localctx = _tracker.createInstance<RemovePropertyItemContext>(_ctx, getState());
+  antlr4::ParserRuleContext* removePropertyItem(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 170, GQLParser::RuleRemovePropertyItem);
 
   #if __cplusplus > 201703L
@@ -7143,20 +5597,9 @@ public:
     return _localctx;
   }
 
-  class  RemoveLabelItemContext : public antlr4::ParserRuleContext {
-  public:
-    RemoveLabelItemContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    BindingVariableReferenceContext *bindingVariableReference();
-    IsOrColonContext *isOrColon();
-    LabelNameContext *labelName();
-
-   
-  };
-
   template<typename ContextT>
-  RemoveLabelItemContext* removeLabelItem(ContextT* ctx) {
-    RemoveLabelItemContext *_localctx = _tracker.createInstance<RemoveLabelItemContext>(_ctx, getState());
+  antlr4::ParserRuleContext* removeLabelItem(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 172, GQLParser::RuleRemoveLabelItem);
 
   #if __cplusplus > 201703L
@@ -7197,21 +5640,9 @@ public:
     return _localctx;
   }
 
-  class  DeleteStatementContext : public antlr4::ParserRuleContext {
-  public:
-    DeleteStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *DELETE();
-    DeleteItemListContext *deleteItemList();
-    antlr4::tree::TerminalNode *DETACH();
-    antlr4::tree::TerminalNode *NODETACH();
-
-   
-  };
-
   template<typename ContextT>
-  DeleteStatementContext* deleteStatement(ContextT* ctx) {
-    DeleteStatementContext *_localctx = _tracker.createInstance<DeleteStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* deleteStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 174, GQLParser::RuleDeleteStatement);
     size_t _la = 0;
 
@@ -7235,7 +5666,7 @@ public:
         setState(1688);
         _la = _input->LA(1);
         if (!(_la == GQLParser::DETACH || _la == GQLParser::NODETACH)) {
-        _errHandler->recoverInline(this);
+          _errHandler->recoverInline(this);
         }
         else {
           _errHandler->reportMatch(this);
@@ -7266,21 +5697,9 @@ public:
     return _localctx;
   }
 
-  class  DeleteItemListContext : public antlr4::ParserRuleContext {
-  public:
-    DeleteItemListContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<DeleteItemContext *> deleteItem();
-    DeleteItemContext* deleteItem(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  DeleteItemListContext* deleteItemList(ContextT* ctx) {
-    DeleteItemListContext *_localctx = _tracker.createInstance<DeleteItemListContext>(_ctx, getState());
+  antlr4::ParserRuleContext* deleteItemList(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 176, GQLParser::RuleDeleteItemList);
     size_t _la = 0;
 
@@ -7332,18 +5751,9 @@ public:
     return _localctx;
   }
 
-  class  DeleteItemContext : public antlr4::ParserRuleContext {
-  public:
-    DeleteItemContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ValueExpressionContext *valueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  DeleteItemContext* deleteItem(ContextT* ctx) {
-    DeleteItemContext *_localctx = _tracker.createInstance<DeleteItemContext>(_ctx, getState());
+  antlr4::ParserRuleContext* deleteItem(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 178, GQLParser::RuleDeleteItem);
 
   #if __cplusplus > 201703L
@@ -7374,18 +5784,9 @@ public:
     return _localctx;
   }
 
-  class  CallDataModifyingProcedureStatementContext : public antlr4::ParserRuleContext {
-  public:
-    CallDataModifyingProcedureStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    CallProcedureStatementContext *callProcedureStatement();
-
-   
-  };
-
   template<typename ContextT>
-  CallDataModifyingProcedureStatementContext* callDataModifyingProcedureStatement(ContextT* ctx) {
-    CallDataModifyingProcedureStatementContext *_localctx = _tracker.createInstance<CallDataModifyingProcedureStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* callDataModifyingProcedureStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 180, GQLParser::RuleCallDataModifyingProcedureStatement);
 
   #if __cplusplus > 201703L
@@ -7416,18 +5817,9 @@ public:
     return _localctx;
   }
 
-  class  CompositeQueryStatementContext : public antlr4::ParserRuleContext {
-  public:
-    CompositeQueryStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    CompositeQueryExpressionContext *compositeQueryExpression();
-
-   
-  };
-
   template<typename ContextT>
-  CompositeQueryStatementContext* compositeQueryStatement(ContextT* ctx) {
-    CompositeQueryStatementContext *_localctx = _tracker.createInstance<CompositeQueryStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* compositeQueryStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 182, GQLParser::RuleCompositeQueryStatement);
 
   #if __cplusplus > 201703L
@@ -7458,29 +5850,18 @@ public:
     return _localctx;
   }
 
-  class  CompositeQueryExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    CompositeQueryExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    CompositeQueryPrimaryContext *compositeQueryPrimary();
-    CompositeQueryExpressionContext *compositeQueryExpression();
-    QueryConjunctionContext *queryConjunction();
-
-   
-  };
-
 
   template<typename ContextT>
-  CompositeQueryExpressionContext* compositeQueryExpression(ContextT* ctx) {
+  antlr4::ParserRuleContext* compositeQueryExpression(ContextT* ctx) {
      return compositeQueryExpression(0, ctx);
   }
 
   template<typename ContextT>
-  CompositeQueryExpressionContext* compositeQueryExpression(int precedence, ContextT* ctx) {
+  antlr4::ParserRuleContext* compositeQueryExpression(int precedence, ContextT* ctx) {
     antlr4::ParserRuleContext *parentContext = _ctx;
     size_t parentState = getState();
-    GQLParser::CompositeQueryExpressionContext *_localctx = _tracker.createInstance<CompositeQueryExpressionContext>(_ctx, parentState);
-    GQLParser::CompositeQueryExpressionContext *previousContext = _localctx;
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, parentState);
+    antlr4::ParserRuleContext *previousContext = _localctx;
     (void)previousContext; // Silence compiler, in case the context is not used by generated code.
     size_t startState = 184;
     enterRecursionRule(_localctx, 184, GQLParser::RuleCompositeQueryExpression, precedence);
@@ -7517,7 +5898,7 @@ public:
             ctx->ExitRule(_ctx);
           }
           previousContext = _localctx;
-          _localctx = _tracker.createInstance<CompositeQueryExpressionContext>(parentContext, parentState);
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>(parentContext, parentState);
           pushNewRecursionContext(_localctx, startState, RuleCompositeQueryExpression);
           ctx->PushCompositeQueryExpression();
           setState(1711);
@@ -7547,19 +5928,9 @@ public:
     return _localctx;
   }
 
-  class  QueryConjunctionContext : public antlr4::ParserRuleContext {
-  public:
-    QueryConjunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SetOperatorContext *setOperator();
-    antlr4::tree::TerminalNode *OTHERWISE();
-
-   
-  };
-
   template<typename ContextT>
-  QueryConjunctionContext* queryConjunction(ContextT* ctx) {
-    QueryConjunctionContext *_localctx = _tracker.createInstance<QueryConjunctionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* queryConjunction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 186, GQLParser::RuleQueryConjunction);
 
   #if __cplusplus > 201703L
@@ -7614,21 +5985,9 @@ public:
     return _localctx;
   }
 
-  class  SetOperatorContext : public antlr4::ParserRuleContext {
-  public:
-    SetOperatorContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *UNION();
-    SetQuantifierContext *setQuantifier();
-    antlr4::tree::TerminalNode *EXCEPT();
-    antlr4::tree::TerminalNode *INTERSECT();
-
-   
-  };
-
   template<typename ContextT>
-  SetOperatorContext* setOperator(ContextT* ctx) {
-    SetOperatorContext *_localctx = _tracker.createInstance<SetOperatorContext>(_ctx, getState());
+  antlr4::ParserRuleContext* setOperator(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 188, GQLParser::RuleSetOperator);
     size_t _la = 0;
 
@@ -7735,18 +6094,9 @@ public:
     return _localctx;
   }
 
-  class  CompositeQueryPrimaryContext : public antlr4::ParserRuleContext {
-  public:
-    CompositeQueryPrimaryContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    LinearQueryStatementContext *linearQueryStatement();
-
-   
-  };
-
   template<typename ContextT>
-  CompositeQueryPrimaryContext* compositeQueryPrimary(ContextT* ctx) {
-    CompositeQueryPrimaryContext *_localctx = _tracker.createInstance<CompositeQueryPrimaryContext>(_ctx, getState());
+  antlr4::ParserRuleContext* compositeQueryPrimary(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 190, GQLParser::RuleCompositeQueryPrimary);
 
   #if __cplusplus > 201703L
@@ -7777,19 +6127,9 @@ public:
     return _localctx;
   }
 
-  class  LinearQueryStatementContext : public antlr4::ParserRuleContext {
-  public:
-    LinearQueryStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    FocusedLinearQueryStatementContext *focusedLinearQueryStatement();
-    AmbientLinearQueryStatementContext *ambientLinearQueryStatement();
-
-   
-  };
-
   template<typename ContextT>
-  LinearQueryStatementContext* linearQueryStatement(ContextT* ctx) {
-    LinearQueryStatementContext *_localctx = _tracker.createInstance<LinearQueryStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* linearQueryStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 192, GQLParser::RuleLinearQueryStatement);
 
   #if __cplusplus > 201703L
@@ -7853,23 +6193,9 @@ public:
     return _localctx;
   }
 
-  class  FocusedLinearQueryStatementContext : public antlr4::ParserRuleContext {
-  public:
-    FocusedLinearQueryStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    FocusedLinearQueryAndPrimitiveResultStatementPartContext *focusedLinearQueryAndPrimitiveResultStatementPart();
-    std::vector<FocusedLinearQueryStatementPartContext *> focusedLinearQueryStatementPart();
-    FocusedLinearQueryStatementPartContext* focusedLinearQueryStatementPart(size_t i);
-    FocusedPrimitiveResultStatementContext *focusedPrimitiveResultStatement();
-    FocusedNestedQuerySpecificationContext *focusedNestedQuerySpecification();
-    SelectStatementContext *selectStatement();
-
-   
-  };
-
   template<typename ContextT>
-  FocusedLinearQueryStatementContext* focusedLinearQueryStatement(ContextT* ctx) {
-    FocusedLinearQueryStatementContext *_localctx = _tracker.createInstance<FocusedLinearQueryStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* focusedLinearQueryStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 194, GQLParser::RuleFocusedLinearQueryStatement);
 
   #if __cplusplus > 201703L
@@ -7956,19 +6282,9 @@ public:
     return _localctx;
   }
 
-  class  FocusedLinearQueryStatementPartContext : public antlr4::ParserRuleContext {
-  public:
-    FocusedLinearQueryStatementPartContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    UseGraphClauseContext *useGraphClause();
-    SimpleLinearQueryStatementContext *simpleLinearQueryStatement();
-
-   
-  };
-
   template<typename ContextT>
-  FocusedLinearQueryStatementPartContext* focusedLinearQueryStatementPart(ContextT* ctx) {
-    FocusedLinearQueryStatementPartContext *_localctx = _tracker.createInstance<FocusedLinearQueryStatementPartContext>(_ctx, getState());
+  antlr4::ParserRuleContext* focusedLinearQueryStatementPart(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 196, GQLParser::RuleFocusedLinearQueryStatementPart);
 
   #if __cplusplus > 201703L
@@ -8004,20 +6320,9 @@ public:
     return _localctx;
   }
 
-  class  FocusedLinearQueryAndPrimitiveResultStatementPartContext : public antlr4::ParserRuleContext {
-  public:
-    FocusedLinearQueryAndPrimitiveResultStatementPartContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    UseGraphClauseContext *useGraphClause();
-    SimpleLinearQueryStatementContext *simpleLinearQueryStatement();
-    PrimitiveResultStatementContext *primitiveResultStatement();
-
-   
-  };
-
   template<typename ContextT>
-  FocusedLinearQueryAndPrimitiveResultStatementPartContext* focusedLinearQueryAndPrimitiveResultStatementPart(ContextT* ctx) {
-    FocusedLinearQueryAndPrimitiveResultStatementPartContext *_localctx = _tracker.createInstance<FocusedLinearQueryAndPrimitiveResultStatementPartContext>(_ctx, getState());
+  antlr4::ParserRuleContext* focusedLinearQueryAndPrimitiveResultStatementPart(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 198, GQLParser::RuleFocusedLinearQueryAndPrimitiveResultStatementPart);
 
   #if __cplusplus > 201703L
@@ -8058,19 +6363,9 @@ public:
     return _localctx;
   }
 
-  class  FocusedPrimitiveResultStatementContext : public antlr4::ParserRuleContext {
-  public:
-    FocusedPrimitiveResultStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    UseGraphClauseContext *useGraphClause();
-    PrimitiveResultStatementContext *primitiveResultStatement();
-
-   
-  };
-
   template<typename ContextT>
-  FocusedPrimitiveResultStatementContext* focusedPrimitiveResultStatement(ContextT* ctx) {
-    FocusedPrimitiveResultStatementContext *_localctx = _tracker.createInstance<FocusedPrimitiveResultStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* focusedPrimitiveResultStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 200, GQLParser::RuleFocusedPrimitiveResultStatement);
 
   #if __cplusplus > 201703L
@@ -8106,19 +6401,9 @@ public:
     return _localctx;
   }
 
-  class  FocusedNestedQuerySpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    FocusedNestedQuerySpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    UseGraphClauseContext *useGraphClause();
-    NestedQuerySpecificationContext *nestedQuerySpecification();
-
-   
-  };
-
   template<typename ContextT>
-  FocusedNestedQuerySpecificationContext* focusedNestedQuerySpecification(ContextT* ctx) {
-    FocusedNestedQuerySpecificationContext *_localctx = _tracker.createInstance<FocusedNestedQuerySpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* focusedNestedQuerySpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 202, GQLParser::RuleFocusedNestedQuerySpecification);
 
   #if __cplusplus > 201703L
@@ -8154,20 +6439,9 @@ public:
     return _localctx;
   }
 
-  class  AmbientLinearQueryStatementContext : public antlr4::ParserRuleContext {
-  public:
-    AmbientLinearQueryStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    PrimitiveResultStatementContext *primitiveResultStatement();
-    SimpleLinearQueryStatementContext *simpleLinearQueryStatement();
-    NestedQuerySpecificationContext *nestedQuerySpecification();
-
-   
-  };
-
   template<typename ContextT>
-  AmbientLinearQueryStatementContext* ambientLinearQueryStatement(ContextT* ctx) {
-    AmbientLinearQueryStatementContext *_localctx = _tracker.createInstance<AmbientLinearQueryStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* ambientLinearQueryStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 204, GQLParser::RuleAmbientLinearQueryStatement);
     size_t _la = 0;
 
@@ -8243,19 +6517,9 @@ public:
     return _localctx;
   }
 
-  class  SimpleLinearQueryStatementContext : public antlr4::ParserRuleContext {
-  public:
-    SimpleLinearQueryStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<SimpleQueryStatementContext *> simpleQueryStatement();
-    SimpleQueryStatementContext* simpleQueryStatement(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  SimpleLinearQueryStatementContext* simpleLinearQueryStatement(ContextT* ctx) {
-    SimpleLinearQueryStatementContext *_localctx = _tracker.createInstance<SimpleLinearQueryStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simpleLinearQueryStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 206, GQLParser::RuleSimpleLinearQueryStatement);
     size_t _la = 0;
 
@@ -8297,19 +6561,9 @@ public:
     return _localctx;
   }
 
-  class  SimpleQueryStatementContext : public antlr4::ParserRuleContext {
-  public:
-    SimpleQueryStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    PrimitiveQueryStatementContext *primitiveQueryStatement();
-    CallQueryStatementContext *callQueryStatement();
-
-   
-  };
-
   template<typename ContextT>
-  SimpleQueryStatementContext* simpleQueryStatement(ContextT* ctx) {
-    SimpleQueryStatementContext *_localctx = _tracker.createInstance<SimpleQueryStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simpleQueryStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 208, GQLParser::RuleSimpleQueryStatement);
 
   #if __cplusplus > 201703L
@@ -8360,22 +6614,9 @@ public:
     return _localctx;
   }
 
-  class  PrimitiveQueryStatementContext : public antlr4::ParserRuleContext {
-  public:
-    PrimitiveQueryStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    MatchStatementContext *matchStatement();
-    LetStatementContext *letStatement();
-    ForStatementContext *forStatement();
-    FilterStatementContext *filterStatement();
-    OrderByAndPageStatementContext *orderByAndPageStatement();
-
-   
-  };
-
   template<typename ContextT>
-  PrimitiveQueryStatementContext* primitiveQueryStatement(ContextT* ctx) {
-    PrimitiveQueryStatementContext *_localctx = _tracker.createInstance<PrimitiveQueryStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* primitiveQueryStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 210, GQLParser::RulePrimitiveQueryStatement);
 
   #if __cplusplus > 201703L
@@ -8460,19 +6701,9 @@ public:
     return _localctx;
   }
 
-  class  MatchStatementContext : public antlr4::ParserRuleContext {
-  public:
-    MatchStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SimpleMatchStatementContext *simpleMatchStatement();
-    OptionalMatchStatementContext *optionalMatchStatement();
-
-   
-  };
-
   template<typename ContextT>
-  MatchStatementContext* matchStatement(ContextT* ctx) {
-    MatchStatementContext *_localctx = _tracker.createInstance<MatchStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* matchStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 212, GQLParser::RuleMatchStatement);
 
   #if __cplusplus > 201703L
@@ -8523,19 +6754,9 @@ public:
     return _localctx;
   }
 
-  class  SimpleMatchStatementContext : public antlr4::ParserRuleContext {
-  public:
-    SimpleMatchStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *MATCH();
-    GraphPatternBindingTableContext *graphPatternBindingTable();
-
-   
-  };
-
   template<typename ContextT>
-  SimpleMatchStatementContext* simpleMatchStatement(ContextT* ctx) {
-    SimpleMatchStatementContext *_localctx = _tracker.createInstance<SimpleMatchStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simpleMatchStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 214, GQLParser::RuleSimpleMatchStatement);
 
   #if __cplusplus > 201703L
@@ -8573,19 +6794,9 @@ public:
     return _localctx;
   }
 
-  class  OptionalMatchStatementContext : public antlr4::ParserRuleContext {
-  public:
-    OptionalMatchStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *OPTIONAL();
-    OptionalOperandContext *optionalOperand();
-
-   
-  };
-
   template<typename ContextT>
-  OptionalMatchStatementContext* optionalMatchStatement(ContextT* ctx) {
-    OptionalMatchStatementContext *_localctx = _tracker.createInstance<OptionalMatchStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* optionalMatchStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 216, GQLParser::RuleOptionalMatchStatement);
 
   #if __cplusplus > 201703L
@@ -8623,23 +6834,9 @@ public:
     return _localctx;
   }
 
-  class  OptionalOperandContext : public antlr4::ParserRuleContext {
-  public:
-    OptionalOperandContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SimpleMatchStatementContext *simpleMatchStatement();
-    antlr4::tree::TerminalNode *LEFT_BRACE();
-    MatchStatementBlockContext *matchStatementBlock();
-    antlr4::tree::TerminalNode *RIGHT_BRACE();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  OptionalOperandContext* optionalOperand(ContextT* ctx) {
-    OptionalOperandContext *_localctx = _tracker.createInstance<OptionalOperandContext>(_ctx, getState());
+  antlr4::ParserRuleContext* optionalOperand(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 218, GQLParser::RuleOptionalOperand);
 
   #if __cplusplus > 201703L
@@ -8728,19 +6925,9 @@ public:
     return _localctx;
   }
 
-  class  MatchStatementBlockContext : public antlr4::ParserRuleContext {
-  public:
-    MatchStatementBlockContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<MatchStatementContext *> matchStatement();
-    MatchStatementContext* matchStatement(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  MatchStatementBlockContext* matchStatementBlock(ContextT* ctx) {
-    MatchStatementBlockContext *_localctx = _tracker.createInstance<MatchStatementBlockContext>(_ctx, getState());
+  antlr4::ParserRuleContext* matchStatementBlock(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 220, GQLParser::RuleMatchStatementBlock);
     size_t _la = 0;
 
@@ -8782,18 +6969,9 @@ public:
     return _localctx;
   }
 
-  class  CallQueryStatementContext : public antlr4::ParserRuleContext {
-  public:
-    CallQueryStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    CallProcedureStatementContext *callProcedureStatement();
-
-   
-  };
-
   template<typename ContextT>
-  CallQueryStatementContext* callQueryStatement(ContextT* ctx) {
-    CallQueryStatementContext *_localctx = _tracker.createInstance<CallQueryStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* callQueryStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 222, GQLParser::RuleCallQueryStatement);
 
   #if __cplusplus > 201703L
@@ -8824,20 +7002,9 @@ public:
     return _localctx;
   }
 
-  class  FilterStatementContext : public antlr4::ParserRuleContext {
-  public:
-    FilterStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *FILTER();
-    WhereClauseContext *whereClause();
-    SearchConditionContext *searchCondition();
-
-   
-  };
-
   template<typename ContextT>
-  FilterStatementContext* filterStatement(ContextT* ctx) {
-    FilterStatementContext *_localctx = _tracker.createInstance<FilterStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* filterStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 224, GQLParser::RuleFilterStatement);
 
   #if __cplusplus > 201703L
@@ -9045,19 +7212,9 @@ public:
     return _localctx;
   }
 
-  class  LetStatementContext : public antlr4::ParserRuleContext {
-  public:
-    LetStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LET();
-    LetVariableDefinitionListContext *letVariableDefinitionList();
-
-   
-  };
-
   template<typename ContextT>
-  LetStatementContext* letStatement(ContextT* ctx) {
-    LetStatementContext *_localctx = _tracker.createInstance<LetStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* letStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 226, GQLParser::RuleLetStatement);
 
   #if __cplusplus > 201703L
@@ -9095,21 +7252,9 @@ public:
     return _localctx;
   }
 
-  class  LetVariableDefinitionListContext : public antlr4::ParserRuleContext {
-  public:
-    LetVariableDefinitionListContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<LetVariableDefinitionContext *> letVariableDefinition();
-    LetVariableDefinitionContext* letVariableDefinition(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  LetVariableDefinitionListContext* letVariableDefinitionList(ContextT* ctx) {
-    LetVariableDefinitionListContext *_localctx = _tracker.createInstance<LetVariableDefinitionListContext>(_ctx, getState());
+  antlr4::ParserRuleContext* letVariableDefinitionList(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 228, GQLParser::RuleLetVariableDefinitionList);
     size_t _la = 0;
 
@@ -9161,21 +7306,9 @@ public:
     return _localctx;
   }
 
-  class  LetVariableDefinitionContext : public antlr4::ParserRuleContext {
-  public:
-    LetVariableDefinitionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ValueVariableDefinitionContext *valueVariableDefinition();
-    BindingVariableContext *bindingVariable();
-    antlr4::tree::TerminalNode *EQUALS_OPERATOR();
-    ValueExpressionContext *valueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  LetVariableDefinitionContext* letVariableDefinition(ContextT* ctx) {
-    LetVariableDefinitionContext *_localctx = _tracker.createInstance<LetVariableDefinitionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* letVariableDefinition(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 230, GQLParser::RuleLetVariableDefinition);
 
   #if __cplusplus > 201703L
@@ -9285,20 +7418,9 @@ public:
     return _localctx;
   }
 
-  class  ForStatementContext : public antlr4::ParserRuleContext {
-  public:
-    ForStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *FOR();
-    ForItemContext *forItem();
-    ForOrdinalityOrOffsetContext *forOrdinalityOrOffset();
-
-   
-  };
-
   template<typename ContextT>
-  ForStatementContext* forStatement(ContextT* ctx) {
-    ForStatementContext *_localctx = _tracker.createInstance<ForStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* forStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 232, GQLParser::RuleForStatement);
     size_t _la = 0;
 
@@ -9348,19 +7470,9 @@ public:
     return _localctx;
   }
 
-  class  ForItemContext : public antlr4::ParserRuleContext {
-  public:
-    ForItemContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ForItemAliasContext *forItemAlias();
-    ForItemSourceContext *forItemSource();
-
-   
-  };
-
   template<typename ContextT>
-  ForItemContext* forItem(ContextT* ctx) {
-    ForItemContext *_localctx = _tracker.createInstance<ForItemContext>(_ctx, getState());
+  antlr4::ParserRuleContext* forItem(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 234, GQLParser::RuleForItem);
 
   #if __cplusplus > 201703L
@@ -9396,19 +7508,9 @@ public:
     return _localctx;
   }
 
-  class  ForItemAliasContext : public antlr4::ParserRuleContext {
-  public:
-    ForItemAliasContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    BindingVariableContext *bindingVariable();
-    antlr4::tree::TerminalNode *IN();
-
-   
-  };
-
   template<typename ContextT>
-  ForItemAliasContext* forItemAlias(ContextT* ctx) {
-    ForItemAliasContext *_localctx = _tracker.createInstance<ForItemAliasContext>(_ctx, getState());
+  antlr4::ParserRuleContext* forItemAlias(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 236, GQLParser::RuleForItemAlias);
 
   #if __cplusplus > 201703L
@@ -9446,18 +7548,9 @@ public:
     return _localctx;
   }
 
-  class  ForItemSourceContext : public antlr4::ParserRuleContext {
-  public:
-    ForItemSourceContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ValueExpressionContext *valueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  ForItemSourceContext* forItemSource(ContextT* ctx) {
-    ForItemSourceContext *_localctx = _tracker.createInstance<ForItemSourceContext>(_ctx, getState());
+  antlr4::ParserRuleContext* forItemSource(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 238, GQLParser::RuleForItemSource);
 
   #if __cplusplus > 201703L
@@ -9488,21 +7581,9 @@ public:
     return _localctx;
   }
 
-  class  ForOrdinalityOrOffsetContext : public antlr4::ParserRuleContext {
-  public:
-    ForOrdinalityOrOffsetContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *WITH();
-    BindingVariableContext *bindingVariable();
-    antlr4::tree::TerminalNode *ORDINALITY();
-    antlr4::tree::TerminalNode *OFFSET();
-
-   
-  };
-
   template<typename ContextT>
-  ForOrdinalityOrOffsetContext* forOrdinalityOrOffset(ContextT* ctx) {
-    ForOrdinalityOrOffsetContext *_localctx = _tracker.createInstance<ForOrdinalityOrOffsetContext>(_ctx, getState());
+  antlr4::ParserRuleContext* forOrdinalityOrOffset(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 240, GQLParser::RuleForOrdinalityOrOffset);
     size_t _la = 0;
 
@@ -9528,7 +7609,7 @@ public:
       setState(1857);
       _la = _input->LA(1);
       if (!(_la == GQLParser::OFFSET || _la == GQLParser::ORDINALITY)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -9551,20 +7632,9 @@ public:
     return _localctx;
   }
 
-  class  OrderByAndPageStatementContext : public antlr4::ParserRuleContext {
-  public:
-    OrderByAndPageStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    OrderByClauseContext *orderByClause();
-    OffsetClauseContext *offsetClause();
-    LimitClauseContext *limitClause();
-
-   
-  };
-
   template<typename ContextT>
-  OrderByAndPageStatementContext* orderByAndPageStatement(ContextT* ctx) {
-    OrderByAndPageStatementContext *_localctx = _tracker.createInstance<OrderByAndPageStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* orderByAndPageStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 242, GQLParser::RuleOrderByAndPageStatement);
 
   #if __cplusplus > 201703L
@@ -9674,20 +7744,9 @@ public:
     return _localctx;
   }
 
-  class  PrimitiveResultStatementContext : public antlr4::ParserRuleContext {
-  public:
-    PrimitiveResultStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ReturnStatementContext *returnStatement();
-    OrderByAndPageStatementContext *orderByAndPageStatement();
-    antlr4::tree::TerminalNode *FINISH();
-
-   
-  };
-
   template<typename ContextT>
-  PrimitiveResultStatementContext* primitiveResultStatement(ContextT* ctx) {
-    PrimitiveResultStatementContext *_localctx = _tracker.createInstance<PrimitiveResultStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* primitiveResultStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 244, GQLParser::RulePrimitiveResultStatement);
 
   #if __cplusplus > 201703L
@@ -9756,19 +7815,9 @@ public:
     return _localctx;
   }
 
-  class  ReturnStatementContext : public antlr4::ParserRuleContext {
-  public:
-    ReturnStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *RETURN();
-    ReturnStatementBodyContext *returnStatementBody();
-
-   
-  };
-
   template<typename ContextT>
-  ReturnStatementContext* returnStatement(ContextT* ctx) {
-    ReturnStatementContext *_localctx = _tracker.createInstance<ReturnStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* returnStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 246, GQLParser::RuleReturnStatement);
 
   #if __cplusplus > 201703L
@@ -9806,23 +7855,9 @@ public:
     return _localctx;
   }
 
-  class  ReturnStatementBodyContext : public antlr4::ParserRuleContext {
-  public:
-    ReturnStatementBodyContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *ASTERISK();
-    ReturnItemListContext *returnItemList();
-    SetQuantifierContext *setQuantifier();
-    GroupByClauseContext *groupByClause();
-    antlr4::tree::TerminalNode *NO();
-    antlr4::tree::TerminalNode *BINDINGS();
-
-   
-  };
-
   template<typename ContextT>
-  ReturnStatementBodyContext* returnStatementBody(ContextT* ctx) {
-    ReturnStatementBodyContext *_localctx = _tracker.createInstance<ReturnStatementBodyContext>(_ctx, getState());
+  antlr4::ParserRuleContext* returnStatementBody(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 248, GQLParser::RuleReturnStatementBody);
     size_t _la = 0;
 
@@ -10084,21 +8119,9 @@ public:
     return _localctx;
   }
 
-  class  ReturnItemListContext : public antlr4::ParserRuleContext {
-  public:
-    ReturnItemListContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<ReturnItemContext *> returnItem();
-    ReturnItemContext* returnItem(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  ReturnItemListContext* returnItemList(ContextT* ctx) {
-    ReturnItemListContext *_localctx = _tracker.createInstance<ReturnItemListContext>(_ctx, getState());
+  antlr4::ParserRuleContext* returnItemList(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 250, GQLParser::RuleReturnItemList);
 
   #if __cplusplus > 201703L
@@ -10152,19 +8175,9 @@ public:
     return _localctx;
   }
 
-  class  ReturnItemContext : public antlr4::ParserRuleContext {
-  public:
-    ReturnItemContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    AggregatingValueExpressionContext *aggregatingValueExpression();
-    ReturnItemAliasContext *returnItemAlias();
-
-   
-  };
-
   template<typename ContextT>
-  ReturnItemContext* returnItem(ContextT* ctx) {
-    ReturnItemContext *_localctx = _tracker.createInstance<ReturnItemContext>(_ctx, getState());
+  antlr4::ParserRuleContext* returnItem(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 252, GQLParser::RuleReturnItem);
 
   #if __cplusplus > 201703L
@@ -10211,19 +8224,9 @@ public:
     return _localctx;
   }
 
-  class  ReturnItemAliasContext : public antlr4::ParserRuleContext {
-  public:
-    ReturnItemAliasContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *AS();
-    IdentifierContext *identifier();
-
-   
-  };
-
   template<typename ContextT>
-  ReturnItemAliasContext* returnItemAlias(ContextT* ctx) {
-    ReturnItemAliasContext *_localctx = _tracker.createInstance<ReturnItemAliasContext>(_ctx, getState());
+  antlr4::ParserRuleContext* returnItemAlias(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 254, GQLParser::RuleReturnItemAlias);
 
   #if __cplusplus > 201703L
@@ -10261,28 +8264,9 @@ public:
     return _localctx;
   }
 
-  class  SelectStatementContext : public antlr4::ParserRuleContext {
-  public:
-    SelectStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *SELECT();
-    antlr4::tree::TerminalNode *ASTERISK();
-    SelectItemListContext *selectItemList();
-    SetQuantifierContext *setQuantifier();
-    SelectStatementBodyContext *selectStatementBody();
-    WhereClauseContext *whereClause();
-    GroupByClauseContext *groupByClause();
-    HavingClauseContext *havingClause();
-    OrderByClauseContext *orderByClause();
-    OffsetClauseContext *offsetClause();
-    LimitClauseContext *limitClause();
-
-   
-  };
-
   template<typename ContextT>
-  SelectStatementContext* selectStatement(ContextT* ctx) {
-    SelectStatementContext *_localctx = _tracker.createInstance<SelectStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* selectStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 256, GQLParser::RuleSelectStatement);
     size_t _la = 0;
 
@@ -10618,21 +8602,9 @@ public:
     return _localctx;
   }
 
-  class  SelectItemListContext : public antlr4::ParserRuleContext {
-  public:
-    SelectItemListContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<SelectItemContext *> selectItem();
-    SelectItemContext* selectItem(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  SelectItemListContext* selectItemList(ContextT* ctx) {
-    SelectItemListContext *_localctx = _tracker.createInstance<SelectItemListContext>(_ctx, getState());
+  antlr4::ParserRuleContext* selectItemList(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 258, GQLParser::RuleSelectItemList);
 
   #if __cplusplus > 201703L
@@ -10686,19 +8658,9 @@ public:
     return _localctx;
   }
 
-  class  SelectItemContext : public antlr4::ParserRuleContext {
-  public:
-    SelectItemContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    AggregatingValueExpressionContext *aggregatingValueExpression();
-    SelectItemAliasContext *selectItemAlias();
-
-   
-  };
-
   template<typename ContextT>
-  SelectItemContext* selectItem(ContextT* ctx) {
-    SelectItemContext *_localctx = _tracker.createInstance<SelectItemContext>(_ctx, getState());
+  antlr4::ParserRuleContext* selectItem(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 260, GQLParser::RuleSelectItem);
 
   #if __cplusplus > 201703L
@@ -10745,19 +8707,9 @@ public:
     return _localctx;
   }
 
-  class  SelectItemAliasContext : public antlr4::ParserRuleContext {
-  public:
-    SelectItemAliasContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *AS();
-    IdentifierContext *identifier();
-
-   
-  };
-
   template<typename ContextT>
-  SelectItemAliasContext* selectItemAlias(ContextT* ctx) {
-    SelectItemAliasContext *_localctx = _tracker.createInstance<SelectItemAliasContext>(_ctx, getState());
+  antlr4::ParserRuleContext* selectItemAlias(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 262, GQLParser::RuleSelectItemAlias);
 
   #if __cplusplus > 201703L
@@ -10795,19 +8747,9 @@ public:
     return _localctx;
   }
 
-  class  HavingClauseContext : public antlr4::ParserRuleContext {
-  public:
-    HavingClauseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *HAVING();
-    SearchConditionContext *searchCondition();
-
-   
-  };
-
   template<typename ContextT>
-  HavingClauseContext* havingClause(ContextT* ctx) {
-    HavingClauseContext *_localctx = _tracker.createInstance<HavingClauseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* havingClause(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 264, GQLParser::RuleHavingClause);
 
   #if __cplusplus > 201703L
@@ -10845,20 +8787,9 @@ public:
     return _localctx;
   }
 
-  class  SelectStatementBodyContext : public antlr4::ParserRuleContext {
-  public:
-    SelectStatementBodyContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *FROM();
-    SelectGraphMatchListContext *selectGraphMatchList();
-    SelectQuerySpecificationContext *selectQuerySpecification();
-
-   
-  };
-
   template<typename ContextT>
-  SelectStatementBodyContext* selectStatementBody(ContextT* ctx) {
-    SelectStatementBodyContext *_localctx = _tracker.createInstance<SelectStatementBodyContext>(_ctx, getState());
+  antlr4::ParserRuleContext* selectStatementBody(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 266, GQLParser::RuleSelectStatementBody);
 
   #if __cplusplus > 201703L
@@ -10915,21 +8846,9 @@ public:
     return _localctx;
   }
 
-  class  SelectGraphMatchListContext : public antlr4::ParserRuleContext {
-  public:
-    SelectGraphMatchListContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<SelectGraphMatchContext *> selectGraphMatch();
-    SelectGraphMatchContext* selectGraphMatch(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  SelectGraphMatchListContext* selectGraphMatchList(ContextT* ctx) {
-    SelectGraphMatchListContext *_localctx = _tracker.createInstance<SelectGraphMatchListContext>(_ctx, getState());
+  antlr4::ParserRuleContext* selectGraphMatchList(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 268, GQLParser::RuleSelectGraphMatchList);
 
   #if __cplusplus > 201703L
@@ -10983,19 +8902,9 @@ public:
     return _localctx;
   }
 
-  class  SelectGraphMatchContext : public antlr4::ParserRuleContext {
-  public:
-    SelectGraphMatchContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    GraphExpressionContext *graphExpression();
-    MatchStatementContext *matchStatement();
-
-   
-  };
-
   template<typename ContextT>
-  SelectGraphMatchContext* selectGraphMatch(ContextT* ctx) {
-    SelectGraphMatchContext *_localctx = _tracker.createInstance<SelectGraphMatchContext>(_ctx, getState());
+  antlr4::ParserRuleContext* selectGraphMatch(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 270, GQLParser::RuleSelectGraphMatch);
 
   #if __cplusplus > 201703L
@@ -11031,19 +8940,9 @@ public:
     return _localctx;
   }
 
-  class  SelectQuerySpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    SelectQuerySpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NestedQuerySpecificationContext *nestedQuerySpecification();
-    GraphExpressionContext *graphExpression();
-
-   
-  };
-
   template<typename ContextT>
-  SelectQuerySpecificationContext* selectQuerySpecification(ContextT* ctx) {
-    SelectQuerySpecificationContext *_localctx = _tracker.createInstance<SelectQuerySpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* selectQuerySpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 272, GQLParser::RuleSelectQuerySpecification);
 
   #if __cplusplus > 201703L
@@ -11099,20 +8998,9 @@ public:
     return _localctx;
   }
 
-  class  CallProcedureStatementContext : public antlr4::ParserRuleContext {
-  public:
-    CallProcedureStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *CALL();
-    ProcedureCallContext *procedureCall();
-    antlr4::tree::TerminalNode *OPTIONAL();
-
-   
-  };
-
   template<typename ContextT>
-  CallProcedureStatementContext* callProcedureStatement(ContextT* ctx) {
-    CallProcedureStatementContext *_localctx = _tracker.createInstance<CallProcedureStatementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* callProcedureStatement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 274, GQLParser::RuleCallProcedureStatement);
     size_t _la = 0;
 
@@ -11164,19 +9052,9 @@ public:
     return _localctx;
   }
 
-  class  ProcedureCallContext : public antlr4::ParserRuleContext {
-  public:
-    ProcedureCallContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    InlineProcedureCallContext *inlineProcedureCall();
-    NamedProcedureCallContext *namedProcedureCall();
-
-   
-  };
-
   template<typename ContextT>
-  ProcedureCallContext* procedureCall(ContextT* ctx) {
-    ProcedureCallContext *_localctx = _tracker.createInstance<ProcedureCallContext>(_ctx, getState());
+  antlr4::ParserRuleContext* procedureCall(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 276, GQLParser::RuleProcedureCall);
 
   #if __cplusplus > 201703L
@@ -11283,19 +9161,9 @@ public:
     return _localctx;
   }
 
-  class  InlineProcedureCallContext : public antlr4::ParserRuleContext {
-  public:
-    InlineProcedureCallContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NestedProcedureSpecificationContext *nestedProcedureSpecification();
-    VariableScopeClauseContext *variableScopeClause();
-
-   
-  };
-
   template<typename ContextT>
-  InlineProcedureCallContext* inlineProcedureCall(ContextT* ctx) {
-    InlineProcedureCallContext *_localctx = _tracker.createInstance<InlineProcedureCallContext>(_ctx, getState());
+  antlr4::ParserRuleContext* inlineProcedureCall(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 278, GQLParser::RuleInlineProcedureCall);
     size_t _la = 0;
 
@@ -11338,20 +9206,9 @@ public:
     return _localctx;
   }
 
-  class  VariableScopeClauseContext : public antlr4::ParserRuleContext {
-  public:
-    VariableScopeClauseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    BindingVariableReferenceListContext *bindingVariableReferenceList();
-
-   
-  };
-
   template<typename ContextT>
-  VariableScopeClauseContext* variableScopeClause(ContextT* ctx) {
-    VariableScopeClauseContext *_localctx = _tracker.createInstance<VariableScopeClauseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* variableScopeClause(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 280, GQLParser::RuleVariableScopeClause);
     size_t _la = 0;
 
@@ -11404,21 +9261,9 @@ public:
     return _localctx;
   }
 
-  class  BindingVariableReferenceListContext : public antlr4::ParserRuleContext {
-  public:
-    BindingVariableReferenceListContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<BindingVariableReferenceContext *> bindingVariableReference();
-    BindingVariableReferenceContext* bindingVariableReference(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  BindingVariableReferenceListContext* bindingVariableReferenceList(ContextT* ctx) {
-    BindingVariableReferenceListContext *_localctx = _tracker.createInstance<BindingVariableReferenceListContext>(_ctx, getState());
+  antlr4::ParserRuleContext* bindingVariableReferenceList(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 282, GQLParser::RuleBindingVariableReferenceList);
     size_t _la = 0;
 
@@ -11470,22 +9315,9 @@ public:
     return _localctx;
   }
 
-  class  NamedProcedureCallContext : public antlr4::ParserRuleContext {
-  public:
-    NamedProcedureCallContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ProcedureReferenceContext *procedureReference();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    ProcedureArgumentListContext *procedureArgumentList();
-    YieldClauseContext *yieldClause();
-
-   
-  };
-
   template<typename ContextT>
-  NamedProcedureCallContext* namedProcedureCall(ContextT* ctx) {
-    NamedProcedureCallContext *_localctx = _tracker.createInstance<NamedProcedureCallContext>(_ctx, getState());
+  antlr4::ParserRuleContext* namedProcedureCall(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 284, GQLParser::RuleNamedProcedureCall);
     size_t _la = 0;
 
@@ -11559,21 +9391,9 @@ public:
     return _localctx;
   }
 
-  class  ProcedureArgumentListContext : public antlr4::ParserRuleContext {
-  public:
-    ProcedureArgumentListContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<ProcedureArgumentContext *> procedureArgument();
-    ProcedureArgumentContext* procedureArgument(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  ProcedureArgumentListContext* procedureArgumentList(ContextT* ctx) {
-    ProcedureArgumentListContext *_localctx = _tracker.createInstance<ProcedureArgumentListContext>(_ctx, getState());
+  antlr4::ParserRuleContext* procedureArgumentList(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 286, GQLParser::RuleProcedureArgumentList);
     size_t _la = 0;
 
@@ -11625,18 +9445,9 @@ public:
     return _localctx;
   }
 
-  class  ProcedureArgumentContext : public antlr4::ParserRuleContext {
-  public:
-    ProcedureArgumentContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ValueExpressionContext *valueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  ProcedureArgumentContext* procedureArgument(ContextT* ctx) {
-    ProcedureArgumentContext *_localctx = _tracker.createInstance<ProcedureArgumentContext>(_ctx, getState());
+  antlr4::ParserRuleContext* procedureArgument(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 288, GQLParser::RuleProcedureArgument);
 
   #if __cplusplus > 201703L
@@ -11667,19 +9478,9 @@ public:
     return _localctx;
   }
 
-  class  AtSchemaClauseContext : public antlr4::ParserRuleContext {
-  public:
-    AtSchemaClauseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *AT();
-    SchemaReferenceContext *schemaReference();
-
-   
-  };
-
   template<typename ContextT>
-  AtSchemaClauseContext* atSchemaClause(ContextT* ctx) {
-    AtSchemaClauseContext *_localctx = _tracker.createInstance<AtSchemaClauseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* atSchemaClause(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 290, GQLParser::RuleAtSchemaClause);
 
   #if __cplusplus > 201703L
@@ -11717,19 +9518,9 @@ public:
     return _localctx;
   }
 
-  class  UseGraphClauseContext : public antlr4::ParserRuleContext {
-  public:
-    UseGraphClauseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *USE();
-    GraphExpressionContext *graphExpression();
-
-   
-  };
-
   template<typename ContextT>
-  UseGraphClauseContext* useGraphClause(ContextT* ctx) {
-    UseGraphClauseContext *_localctx = _tracker.createInstance<UseGraphClauseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* useGraphClause(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 292, GQLParser::RuleUseGraphClause);
 
   #if __cplusplus > 201703L
@@ -11767,19 +9558,9 @@ public:
     return _localctx;
   }
 
-  class  GraphPatternBindingTableContext : public antlr4::ParserRuleContext {
-  public:
-    GraphPatternBindingTableContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    GraphPatternContext *graphPattern();
-    GraphPatternYieldClauseContext *graphPatternYieldClause();
-
-   
-  };
-
   template<typename ContextT>
-  GraphPatternBindingTableContext* graphPatternBindingTable(ContextT* ctx) {
-    GraphPatternBindingTableContext *_localctx = _tracker.createInstance<GraphPatternBindingTableContext>(_ctx, getState());
+  antlr4::ParserRuleContext* graphPatternBindingTable(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 294, GQLParser::RuleGraphPatternBindingTable);
 
   #if __cplusplus > 201703L
@@ -11826,19 +9607,9 @@ public:
     return _localctx;
   }
 
-  class  GraphPatternYieldClauseContext : public antlr4::ParserRuleContext {
-  public:
-    GraphPatternYieldClauseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *YIELD();
-    GraphPatternYieldItemListContext *graphPatternYieldItemList();
-
-   
-  };
-
   template<typename ContextT>
-  GraphPatternYieldClauseContext* graphPatternYieldClause(ContextT* ctx) {
-    GraphPatternYieldClauseContext *_localctx = _tracker.createInstance<GraphPatternYieldClauseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* graphPatternYieldClause(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 296, GQLParser::RuleGraphPatternYieldClause);
 
   #if __cplusplus > 201703L
@@ -11876,23 +9647,9 @@ public:
     return _localctx;
   }
 
-  class  GraphPatternYieldItemListContext : public antlr4::ParserRuleContext {
-  public:
-    GraphPatternYieldItemListContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<GraphPatternYieldItemContext *> graphPatternYieldItem();
-    GraphPatternYieldItemContext* graphPatternYieldItem(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-    antlr4::tree::TerminalNode *NO();
-    antlr4::tree::TerminalNode *BINDINGS();
-
-   
-  };
-
   template<typename ContextT>
-  GraphPatternYieldItemListContext* graphPatternYieldItemList(ContextT* ctx) {
-    GraphPatternYieldItemListContext *_localctx = _tracker.createInstance<GraphPatternYieldItemListContext>(_ctx, getState());
+  antlr4::ParserRuleContext* graphPatternYieldItemList(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 298, GQLParser::RuleGraphPatternYieldItemList);
 
   #if __cplusplus > 201703L
@@ -11975,18 +9732,9 @@ public:
     return _localctx;
   }
 
-  class  GraphPatternYieldItemContext : public antlr4::ParserRuleContext {
-  public:
-    GraphPatternYieldItemContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    BindingVariableReferenceContext *bindingVariableReference();
-
-   
-  };
-
   template<typename ContextT>
-  GraphPatternYieldItemContext* graphPatternYieldItem(ContextT* ctx) {
-    GraphPatternYieldItemContext *_localctx = _tracker.createInstance<GraphPatternYieldItemContext>(_ctx, getState());
+  antlr4::ParserRuleContext* graphPatternYieldItem(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 300, GQLParser::RuleGraphPatternYieldItem);
 
   #if __cplusplus > 201703L
@@ -12017,21 +9765,9 @@ public:
     return _localctx;
   }
 
-  class  GraphPatternContext : public antlr4::ParserRuleContext {
-  public:
-    GraphPatternContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    PathPatternListContext *pathPatternList();
-    MatchModeContext *matchMode();
-    KeepClauseContext *keepClause();
-    GraphPatternWhereClauseContext *graphPatternWhereClause();
-
-   
-  };
-
   template<typename ContextT>
-  GraphPatternContext* graphPattern(ContextT* ctx) {
-    GraphPatternContext *_localctx = _tracker.createInstance<GraphPatternContext>(_ctx, getState());
+  antlr4::ParserRuleContext* graphPattern(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 302, GQLParser::RuleGraphPattern);
 
   #if __cplusplus > 201703L
@@ -12110,19 +9846,9 @@ public:
     return _localctx;
   }
 
-  class  MatchModeContext : public antlr4::ParserRuleContext {
-  public:
-    MatchModeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    RepeatableElementsMatchModeContext *repeatableElementsMatchMode();
-    DifferentEdgesMatchModeContext *differentEdgesMatchMode();
-
-   
-  };
-
   template<typename ContextT>
-  MatchModeContext* matchMode(ContextT* ctx) {
-    MatchModeContext *_localctx = _tracker.createInstance<MatchModeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* matchMode(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 304, GQLParser::RuleMatchMode);
 
   #if __cplusplus > 201703L
@@ -12173,19 +9899,9 @@ public:
     return _localctx;
   }
 
-  class  RepeatableElementsMatchModeContext : public antlr4::ParserRuleContext {
-  public:
-    RepeatableElementsMatchModeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *REPEATABLE();
-    ElementBindingsOrElementsContext *elementBindingsOrElements();
-
-   
-  };
-
   template<typename ContextT>
-  RepeatableElementsMatchModeContext* repeatableElementsMatchMode(ContextT* ctx) {
-    RepeatableElementsMatchModeContext *_localctx = _tracker.createInstance<RepeatableElementsMatchModeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* repeatableElementsMatchMode(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 306, GQLParser::RuleRepeatableElementsMatchMode);
 
   #if __cplusplus > 201703L
@@ -12223,19 +9939,9 @@ public:
     return _localctx;
   }
 
-  class  DifferentEdgesMatchModeContext : public antlr4::ParserRuleContext {
-  public:
-    DifferentEdgesMatchModeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *DIFFERENT();
-    EdgeBindingsOrEdgesContext *edgeBindingsOrEdges();
-
-   
-  };
-
   template<typename ContextT>
-  DifferentEdgesMatchModeContext* differentEdgesMatchMode(ContextT* ctx) {
-    DifferentEdgesMatchModeContext *_localctx = _tracker.createInstance<DifferentEdgesMatchModeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* differentEdgesMatchMode(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 308, GQLParser::RuleDifferentEdgesMatchMode);
 
   #if __cplusplus > 201703L
@@ -12273,20 +9979,9 @@ public:
     return _localctx;
   }
 
-  class  ElementBindingsOrElementsContext : public antlr4::ParserRuleContext {
-  public:
-    ElementBindingsOrElementsContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *ELEMENT();
-    antlr4::tree::TerminalNode *BINDINGS();
-    antlr4::tree::TerminalNode *ELEMENTS();
-
-   
-  };
-
   template<typename ContextT>
-  ElementBindingsOrElementsContext* elementBindingsOrElements(ContextT* ctx) {
-    ElementBindingsOrElementsContext *_localctx = _tracker.createInstance<ElementBindingsOrElementsContext>(_ctx, getState());
+  antlr4::ParserRuleContext* elementBindingsOrElements(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 310, GQLParser::RuleElementBindingsOrElements);
 
   #if __cplusplus > 201703L
@@ -12359,20 +10054,9 @@ public:
     return _localctx;
   }
 
-  class  EdgeBindingsOrEdgesContext : public antlr4::ParserRuleContext {
-  public:
-    EdgeBindingsOrEdgesContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    EdgeSynonymContext *edgeSynonym();
-    antlr4::tree::TerminalNode *BINDINGS();
-    EdgesSynonymContext *edgesSynonym();
-
-   
-  };
-
   template<typename ContextT>
-  EdgeBindingsOrEdgesContext* edgeBindingsOrEdges(ContextT* ctx) {
-    EdgeBindingsOrEdgesContext *_localctx = _tracker.createInstance<EdgeBindingsOrEdgesContext>(_ctx, getState());
+  antlr4::ParserRuleContext* edgeBindingsOrEdges(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 312, GQLParser::RuleEdgeBindingsOrEdges);
 
   #if __cplusplus > 201703L
@@ -12443,21 +10127,9 @@ public:
     return _localctx;
   }
 
-  class  PathPatternListContext : public antlr4::ParserRuleContext {
-  public:
-    PathPatternListContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<PathPatternContext *> pathPattern();
-    PathPatternContext* pathPattern(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  PathPatternListContext* pathPatternList(ContextT* ctx) {
-    PathPatternListContext *_localctx = _tracker.createInstance<PathPatternListContext>(_ctx, getState());
+  antlr4::ParserRuleContext* pathPatternList(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 314, GQLParser::RulePathPatternList);
 
   #if __cplusplus > 201703L
@@ -12511,20 +10183,9 @@ public:
     return _localctx;
   }
 
-  class  PathPatternContext : public antlr4::ParserRuleContext {
-  public:
-    PathPatternContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    PathPatternExpressionContext *pathPatternExpression();
-    PathVariableDeclarationContext *pathVariableDeclaration();
-    PathPatternPrefixContext *pathPatternPrefix();
-
-   
-  };
-
   template<typename ContextT>
-  PathPatternContext* pathPattern(ContextT* ctx) {
-    PathPatternContext *_localctx = _tracker.createInstance<PathPatternContext>(_ctx, getState());
+  antlr4::ParserRuleContext* pathPattern(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 316, GQLParser::RulePathPattern);
     size_t _la = 0;
 
@@ -12586,19 +10247,9 @@ public:
     return _localctx;
   }
 
-  class  PathVariableDeclarationContext : public antlr4::ParserRuleContext {
-  public:
-    PathVariableDeclarationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    PathVariableContext *pathVariable();
-    antlr4::tree::TerminalNode *EQUALS_OPERATOR();
-
-   
-  };
-
   template<typename ContextT>
-  PathVariableDeclarationContext* pathVariableDeclaration(ContextT* ctx) {
-    PathVariableDeclarationContext *_localctx = _tracker.createInstance<PathVariableDeclarationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* pathVariableDeclaration(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 318, GQLParser::RulePathVariableDeclaration);
 
   #if __cplusplus > 201703L
@@ -12636,19 +10287,9 @@ public:
     return _localctx;
   }
 
-  class  KeepClauseContext : public antlr4::ParserRuleContext {
-  public:
-    KeepClauseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *KEEP();
-    PathPatternPrefixContext *pathPatternPrefix();
-
-   
-  };
-
   template<typename ContextT>
-  KeepClauseContext* keepClause(ContextT* ctx) {
-    KeepClauseContext *_localctx = _tracker.createInstance<KeepClauseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* keepClause(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 320, GQLParser::RuleKeepClause);
 
   #if __cplusplus > 201703L
@@ -12686,19 +10327,9 @@ public:
     return _localctx;
   }
 
-  class  GraphPatternWhereClauseContext : public antlr4::ParserRuleContext {
-  public:
-    GraphPatternWhereClauseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *WHERE();
-    SearchConditionContext *searchCondition();
-
-   
-  };
-
   template<typename ContextT>
-  GraphPatternWhereClauseContext* graphPatternWhereClause(ContextT* ctx) {
-    GraphPatternWhereClauseContext *_localctx = _tracker.createInstance<GraphPatternWhereClauseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* graphPatternWhereClause(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 322, GQLParser::RuleGraphPatternWhereClause);
 
   #if __cplusplus > 201703L
@@ -12736,18 +10367,9 @@ public:
     return _localctx;
   }
 
-  class  InsertGraphPatternContext : public antlr4::ParserRuleContext {
-  public:
-    InsertGraphPatternContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    InsertPathPatternListContext *insertPathPatternList();
-
-   
-  };
-
   template<typename ContextT>
-  InsertGraphPatternContext* insertGraphPattern(ContextT* ctx) {
-    InsertGraphPatternContext *_localctx = _tracker.createInstance<InsertGraphPatternContext>(_ctx, getState());
+  antlr4::ParserRuleContext* insertGraphPattern(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 324, GQLParser::RuleInsertGraphPattern);
 
   #if __cplusplus > 201703L
@@ -12778,21 +10400,9 @@ public:
     return _localctx;
   }
 
-  class  InsertPathPatternListContext : public antlr4::ParserRuleContext {
-  public:
-    InsertPathPatternListContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<InsertPathPatternContext *> insertPathPattern();
-    InsertPathPatternContext* insertPathPattern(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  InsertPathPatternListContext* insertPathPatternList(ContextT* ctx) {
-    InsertPathPatternListContext *_localctx = _tracker.createInstance<InsertPathPatternListContext>(_ctx, getState());
+  antlr4::ParserRuleContext* insertPathPatternList(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 326, GQLParser::RuleInsertPathPatternList);
     size_t _la = 0;
 
@@ -12844,21 +10454,9 @@ public:
     return _localctx;
   }
 
-  class  InsertPathPatternContext : public antlr4::ParserRuleContext {
-  public:
-    InsertPathPatternContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<InsertNodePatternContext *> insertNodePattern();
-    InsertNodePatternContext* insertNodePattern(size_t i);
-    std::vector<InsertEdgePatternContext *> insertEdgePattern();
-    InsertEdgePatternContext* insertEdgePattern(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  InsertPathPatternContext* insertPathPattern(ContextT* ctx) {
-    InsertPathPatternContext *_localctx = _tracker.createInstance<InsertPathPatternContext>(_ctx, getState());
+  antlr4::ParserRuleContext* insertPathPattern(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 328, GQLParser::RuleInsertPathPattern);
     size_t _la = 0;
 
@@ -12909,20 +10507,9 @@ public:
     return _localctx;
   }
 
-  class  InsertNodePatternContext : public antlr4::ParserRuleContext {
-  public:
-    InsertNodePatternContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    InsertElementPatternFillerContext *insertElementPatternFiller();
-
-   
-  };
-
   template<typename ContextT>
-  InsertNodePatternContext* insertNodePattern(ContextT* ctx) {
-    InsertNodePatternContext *_localctx = _tracker.createInstance<InsertNodePatternContext>(_ctx, getState());
+  antlr4::ParserRuleContext* insertNodePattern(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 330, GQLParser::RuleInsertNodePattern);
     size_t _la = 0;
 
@@ -12977,20 +10564,9 @@ public:
     return _localctx;
   }
 
-  class  InsertEdgePatternContext : public antlr4::ParserRuleContext {
-  public:
-    InsertEdgePatternContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    InsertEdgePointingLeftContext *insertEdgePointingLeft();
-    InsertEdgePointingRightContext *insertEdgePointingRight();
-    InsertEdgeUndirectedContext *insertEdgeUndirected();
-
-   
-  };
-
   template<typename ContextT>
-  InsertEdgePatternContext* insertEdgePattern(ContextT* ctx) {
-    InsertEdgePatternContext *_localctx = _tracker.createInstance<InsertEdgePatternContext>(_ctx, getState());
+  antlr4::ParserRuleContext* insertEdgePattern(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 332, GQLParser::RuleInsertEdgePattern);
 
   #if __cplusplus > 201703L
@@ -13051,20 +10627,9 @@ public:
     return _localctx;
   }
 
-  class  InsertEdgePointingLeftContext : public antlr4::ParserRuleContext {
-  public:
-    InsertEdgePointingLeftContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_ARROW_BRACKET();
-    antlr4::tree::TerminalNode *RIGHT_BRACKET_MINUS();
-    InsertElementPatternFillerContext *insertElementPatternFiller();
-
-   
-  };
-
   template<typename ContextT>
-  InsertEdgePointingLeftContext* insertEdgePointingLeft(ContextT* ctx) {
-    InsertEdgePointingLeftContext *_localctx = _tracker.createInstance<InsertEdgePointingLeftContext>(_ctx, getState());
+  antlr4::ParserRuleContext* insertEdgePointingLeft(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 334, GQLParser::RuleInsertEdgePointingLeft);
     size_t _la = 0;
 
@@ -13119,20 +10684,9 @@ public:
     return _localctx;
   }
 
-  class  InsertEdgePointingRightContext : public antlr4::ParserRuleContext {
-  public:
-    InsertEdgePointingRightContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *MINUS_LEFT_BRACKET();
-    antlr4::tree::TerminalNode *BRACKET_RIGHT_ARROW();
-    InsertElementPatternFillerContext *insertElementPatternFiller();
-
-   
-  };
-
   template<typename ContextT>
-  InsertEdgePointingRightContext* insertEdgePointingRight(ContextT* ctx) {
-    InsertEdgePointingRightContext *_localctx = _tracker.createInstance<InsertEdgePointingRightContext>(_ctx, getState());
+  antlr4::ParserRuleContext* insertEdgePointingRight(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 336, GQLParser::RuleInsertEdgePointingRight);
     size_t _la = 0;
 
@@ -13187,20 +10741,9 @@ public:
     return _localctx;
   }
 
-  class  InsertEdgeUndirectedContext : public antlr4::ParserRuleContext {
-  public:
-    InsertEdgeUndirectedContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *TILDE_LEFT_BRACKET();
-    antlr4::tree::TerminalNode *RIGHT_BRACKET_TILDE();
-    InsertElementPatternFillerContext *insertElementPatternFiller();
-
-   
-  };
-
   template<typename ContextT>
-  InsertEdgeUndirectedContext* insertEdgeUndirected(ContextT* ctx) {
-    InsertEdgeUndirectedContext *_localctx = _tracker.createInstance<InsertEdgeUndirectedContext>(_ctx, getState());
+  antlr4::ParserRuleContext* insertEdgeUndirected(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 338, GQLParser::RuleInsertEdgeUndirected);
     size_t _la = 0;
 
@@ -13255,19 +10798,9 @@ public:
     return _localctx;
   }
 
-  class  InsertElementPatternFillerContext : public antlr4::ParserRuleContext {
-  public:
-    InsertElementPatternFillerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ElementVariableDeclarationContext *elementVariableDeclaration();
-    LabelAndPropertySetSpecificationContext *labelAndPropertySetSpecification();
-
-   
-  };
-
   template<typename ContextT>
-  InsertElementPatternFillerContext* insertElementPatternFiller(ContextT* ctx) {
-    InsertElementPatternFillerContext *_localctx = _tracker.createInstance<InsertElementPatternFillerContext>(_ctx, getState());
+  antlr4::ParserRuleContext* insertElementPatternFiller(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 340, GQLParser::RuleInsertElementPatternFiller);
     size_t _la = 0;
 
@@ -13344,20 +10877,9 @@ public:
     return _localctx;
   }
 
-  class  LabelAndPropertySetSpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    LabelAndPropertySetSpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    IsOrColonContext *isOrColon();
-    LabelSetSpecificationContext *labelSetSpecification();
-    ElementPropertySpecificationContext *elementPropertySpecification();
-
-   
-  };
-
   template<typename ContextT>
-  LabelAndPropertySetSpecificationContext* labelAndPropertySetSpecification(ContextT* ctx) {
-    LabelAndPropertySetSpecificationContext *_localctx = _tracker.createInstance<LabelAndPropertySetSpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* labelAndPropertySetSpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 342, GQLParser::RuleLabelAndPropertySetSpecification);
     size_t _la = 0;
 
@@ -13441,19 +10963,9 @@ public:
     return _localctx;
   }
 
-  class  PathPatternPrefixContext : public antlr4::ParserRuleContext {
-  public:
-    PathPatternPrefixContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    PathModePrefixContext *pathModePrefix();
-    PathSearchPrefixContext *pathSearchPrefix();
-
-   
-  };
-
   template<typename ContextT>
-  PathPatternPrefixContext* pathPatternPrefix(ContextT* ctx) {
-    PathPatternPrefixContext *_localctx = _tracker.createInstance<PathPatternPrefixContext>(_ctx, getState());
+  antlr4::ParserRuleContext* pathPatternPrefix(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 344, GQLParser::RulePathPatternPrefix);
 
   #if __cplusplus > 201703L
@@ -13509,19 +11021,9 @@ public:
     return _localctx;
   }
 
-  class  PathModePrefixContext : public antlr4::ParserRuleContext {
-  public:
-    PathModePrefixContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    PathModeContext *pathMode();
-    PathOrPathsContext *pathOrPaths();
-
-   
-  };
-
   template<typename ContextT>
-  PathModePrefixContext* pathModePrefix(ContextT* ctx) {
-    PathModePrefixContext *_localctx = _tracker.createInstance<PathModePrefixContext>(_ctx, getState());
+  antlr4::ParserRuleContext* pathModePrefix(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 346, GQLParser::RulePathModePrefix);
 
   #if __cplusplus > 201703L
@@ -13568,21 +11070,9 @@ public:
     return _localctx;
   }
 
-  class  PathModeContext : public antlr4::ParserRuleContext {
-  public:
-    PathModeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *WALK();
-    antlr4::tree::TerminalNode *TRAIL();
-    antlr4::tree::TerminalNode *SIMPLE();
-    antlr4::tree::TerminalNode *ACYCLIC();
-
-   
-  };
-
   template<typename ContextT>
-  PathModeContext* pathMode(ContextT* ctx) {
-    PathModeContext *_localctx = _tracker.createInstance<PathModeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* pathMode(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 348, GQLParser::RulePathMode);
     size_t _la = 0;
 
@@ -13602,7 +11092,7 @@ public:
       _la = _input->LA(1);
       if (!(((((_la - 277) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 277)) & 18159121727489) != 0))) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -13620,20 +11110,9 @@ public:
     return _localctx;
   }
 
-  class  PathSearchPrefixContext : public antlr4::ParserRuleContext {
-  public:
-    PathSearchPrefixContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    AllPathSearchContext *allPathSearch();
-    AnyPathSearchContext *anyPathSearch();
-    ShortestPathSearchContext *shortestPathSearch();
-
-   
-  };
-
   template<typename ContextT>
-  PathSearchPrefixContext* pathSearchPrefix(ContextT* ctx) {
-    PathSearchPrefixContext *_localctx = _tracker.createInstance<PathSearchPrefixContext>(_ctx, getState());
+  antlr4::ParserRuleContext* pathSearchPrefix(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 350, GQLParser::RulePathSearchPrefix);
 
   #if __cplusplus > 201703L
@@ -13694,20 +11173,9 @@ public:
     return _localctx;
   }
 
-  class  AllPathSearchContext : public antlr4::ParserRuleContext {
-  public:
-    AllPathSearchContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *ALL();
-    PathModeContext *pathMode();
-    PathOrPathsContext *pathOrPaths();
-
-   
-  };
-
   template<typename ContextT>
-  AllPathSearchContext* allPathSearch(ContextT* ctx) {
-    AllPathSearchContext *_localctx = _tracker.createInstance<AllPathSearchContext>(_ctx, getState());
+  antlr4::ParserRuleContext* allPathSearch(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 352, GQLParser::RuleAllPathSearch);
 
   #if __cplusplus > 201703L
@@ -13772,19 +11240,9 @@ public:
     return _localctx;
   }
 
-  class  PathOrPathsContext : public antlr4::ParserRuleContext {
-  public:
-    PathOrPathsContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *PATH();
-    antlr4::tree::TerminalNode *PATHS();
-
-   
-  };
-
   template<typename ContextT>
-  PathOrPathsContext* pathOrPaths(ContextT* ctx) {
-    PathOrPathsContext *_localctx = _tracker.createInstance<PathOrPathsContext>(_ctx, getState());
+  antlr4::ParserRuleContext* pathOrPaths(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 354, GQLParser::RulePathOrPaths);
     size_t _la = 0;
 
@@ -13805,7 +11263,7 @@ public:
       if (!(_la == GQLParser::PATH
 
       || _la == GQLParser::PATHS)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -13823,21 +11281,9 @@ public:
     return _localctx;
   }
 
-  class  AnyPathSearchContext : public antlr4::ParserRuleContext {
-  public:
-    AnyPathSearchContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *ANY();
-    NumberOfPathsContext *numberOfPaths();
-    PathModeContext *pathMode();
-    PathOrPathsContext *pathOrPaths();
-
-   
-  };
-
   template<typename ContextT>
-  AnyPathSearchContext* anyPathSearch(ContextT* ctx) {
-    AnyPathSearchContext *_localctx = _tracker.createInstance<AnyPathSearchContext>(_ctx, getState());
+  antlr4::ParserRuleContext* anyPathSearch(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 356, GQLParser::RuleAnyPathSearch);
 
   #if __cplusplus > 201703L
@@ -13918,18 +11364,9 @@ public:
     return _localctx;
   }
 
-  class  NumberOfPathsContext : public antlr4::ParserRuleContext {
-  public:
-    NumberOfPathsContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NonNegativeIntegerSpecificationContext *nonNegativeIntegerSpecification();
-
-   
-  };
-
   template<typename ContextT>
-  NumberOfPathsContext* numberOfPaths(ContextT* ctx) {
-    NumberOfPathsContext *_localctx = _tracker.createInstance<NumberOfPathsContext>(_ctx, getState());
+  antlr4::ParserRuleContext* numberOfPaths(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 358, GQLParser::RuleNumberOfPaths);
 
   #if __cplusplus > 201703L
@@ -13960,21 +11397,9 @@ public:
     return _localctx;
   }
 
-  class  ShortestPathSearchContext : public antlr4::ParserRuleContext {
-  public:
-    ShortestPathSearchContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    AllShortestPathSearchContext *allShortestPathSearch();
-    AnyShortestPathSearchContext *anyShortestPathSearch();
-    CountedShortestPathSearchContext *countedShortestPathSearch();
-    CountedShortestGroupSearchContext *countedShortestGroupSearch();
-
-   
-  };
-
   template<typename ContextT>
-  ShortestPathSearchContext* shortestPathSearch(ContextT* ctx) {
-    ShortestPathSearchContext *_localctx = _tracker.createInstance<ShortestPathSearchContext>(_ctx, getState());
+  antlr4::ParserRuleContext* shortestPathSearch(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 360, GQLParser::RuleShortestPathSearch);
 
   #if __cplusplus > 201703L
@@ -14045,21 +11470,9 @@ public:
     return _localctx;
   }
 
-  class  AllShortestPathSearchContext : public antlr4::ParserRuleContext {
-  public:
-    AllShortestPathSearchContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *ALL();
-    antlr4::tree::TerminalNode *SHORTEST();
-    PathModeContext *pathMode();
-    PathOrPathsContext *pathOrPaths();
-
-   
-  };
-
   template<typename ContextT>
-  AllShortestPathSearchContext* allShortestPathSearch(ContextT* ctx) {
-    AllShortestPathSearchContext *_localctx = _tracker.createInstance<AllShortestPathSearchContext>(_ctx, getState());
+  antlr4::ParserRuleContext* allShortestPathSearch(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 362, GQLParser::RuleAllShortestPathSearch);
 
   #if __cplusplus > 201703L
@@ -14131,21 +11544,9 @@ public:
     return _localctx;
   }
 
-  class  AnyShortestPathSearchContext : public antlr4::ParserRuleContext {
-  public:
-    AnyShortestPathSearchContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *ANY();
-    antlr4::tree::TerminalNode *SHORTEST();
-    PathModeContext *pathMode();
-    PathOrPathsContext *pathOrPaths();
-
-   
-  };
-
   template<typename ContextT>
-  AnyShortestPathSearchContext* anyShortestPathSearch(ContextT* ctx) {
-    AnyShortestPathSearchContext *_localctx = _tracker.createInstance<AnyShortestPathSearchContext>(_ctx, getState());
+  antlr4::ParserRuleContext* anyShortestPathSearch(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 364, GQLParser::RuleAnyShortestPathSearch);
 
   #if __cplusplus > 201703L
@@ -14217,21 +11618,9 @@ public:
     return _localctx;
   }
 
-  class  CountedShortestPathSearchContext : public antlr4::ParserRuleContext {
-  public:
-    CountedShortestPathSearchContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *SHORTEST();
-    NumberOfPathsContext *numberOfPaths();
-    PathModeContext *pathMode();
-    PathOrPathsContext *pathOrPaths();
-
-   
-  };
-
   template<typename ContextT>
-  CountedShortestPathSearchContext* countedShortestPathSearch(ContextT* ctx) {
-    CountedShortestPathSearchContext *_localctx = _tracker.createInstance<CountedShortestPathSearchContext>(_ctx, getState());
+  antlr4::ParserRuleContext* countedShortestPathSearch(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 366, GQLParser::RuleCountedShortestPathSearch);
 
   #if __cplusplus > 201703L
@@ -14301,23 +11690,9 @@ public:
     return _localctx;
   }
 
-  class  CountedShortestGroupSearchContext : public antlr4::ParserRuleContext {
-  public:
-    CountedShortestGroupSearchContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *SHORTEST();
-    antlr4::tree::TerminalNode *GROUP();
-    antlr4::tree::TerminalNode *GROUPS();
-    NumberOfGroupsContext *numberOfGroups();
-    PathModeContext *pathMode();
-    PathOrPathsContext *pathOrPaths();
-
-   
-  };
-
   template<typename ContextT>
-  CountedShortestGroupSearchContext* countedShortestGroupSearch(ContextT* ctx) {
-    CountedShortestGroupSearchContext *_localctx = _tracker.createInstance<CountedShortestGroupSearchContext>(_ctx, getState());
+  antlr4::ParserRuleContext* countedShortestGroupSearch(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 368, GQLParser::RuleCountedShortestGroupSearch);
     size_t _la = 0;
 
@@ -14380,7 +11755,7 @@ public:
       setState(2263);
       _la = _input->LA(1);
       if (!(_la == GQLParser::GROUP || _la == GQLParser::GROUPS)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -14398,18 +11773,9 @@ public:
     return _localctx;
   }
 
-  class  NumberOfGroupsContext : public antlr4::ParserRuleContext {
-  public:
-    NumberOfGroupsContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NonNegativeIntegerSpecificationContext *nonNegativeIntegerSpecification();
-
-   
-  };
-
   template<typename ContextT>
-  NumberOfGroupsContext* numberOfGroups(ContextT* ctx) {
-    NumberOfGroupsContext *_localctx = _tracker.createInstance<NumberOfGroupsContext>(_ctx, getState());
+  antlr4::ParserRuleContext* numberOfGroups(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 370, GQLParser::RuleNumberOfGroups);
 
   #if __cplusplus > 201703L
@@ -14440,49 +11806,9 @@ public:
     return _localctx;
   }
 
-  class  PathPatternExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    PathPatternExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-   
-    PathPatternExpressionContext() = default;
-    void copyFrom(PathPatternExpressionContext *context);
-    using antlr4::ParserRuleContext::copyFrom;
-
-    virtual size_t getRuleIndex() const override;
-
-   
-  };
-
-  class  PpePatternUnionContext : public PathPatternExpressionContext {
-  public:
-    PpePatternUnionContext(PathPatternExpressionContext *ctx);
-
-    std::vector<PathTermContext *> pathTerm();
-    PathTermContext* pathTerm(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> VERTICAL_BAR();
-    antlr4::tree::TerminalNode* VERTICAL_BAR(size_t i);
-  };
-
-  class  PpePathTermContext : public PathPatternExpressionContext {
-  public:
-    PpePathTermContext(PathPatternExpressionContext *ctx);
-
-    PathTermContext *pathTerm();
-  };
-
-  class  PpeMultisetAlternationContext : public PathPatternExpressionContext {
-  public:
-    PpeMultisetAlternationContext(PathPatternExpressionContext *ctx);
-
-    std::vector<PathTermContext *> pathTerm();
-    PathTermContext* pathTerm(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> MULTISET_ALTERNATION_OPERATOR();
-    antlr4::tree::TerminalNode* MULTISET_ALTERNATION_OPERATOR(size_t i);
-  };
-
   template<typename ContextT>
-  PathPatternExpressionContext* pathPatternExpression(ContextT* ctx) {
-    PathPatternExpressionContext *_localctx = _tracker.createInstance<PathPatternExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* pathPatternExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 372, GQLParser::RulePathPatternExpression);
 
   #if __cplusplus > 201703L
@@ -14501,7 +11827,11 @@ public:
       _errHandler->sync(this);
       switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 192, _ctx)) {
       case 1: {
-        _localctx = _tracker.createInstance<GQLParser::PpePathTermContext>(_localctx);
+        {
+          auto savedLocalCtx = _localctx;
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+          _localctx->copyFrom(savedLocalCtx);
+        }
         auto ctxHolder = ctx->EnterPpePathTerm();
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
@@ -14521,7 +11851,11 @@ public:
       }
 
       case 2: {
-        _localctx = _tracker.createInstance<GQLParser::PpeMultisetAlternationContext>(_localctx);
+        {
+          auto savedLocalCtx = _localctx;
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+          _localctx->copyFrom(savedLocalCtx);
+        }
         auto ctxHolder = ctx->EnterPpeMultisetAlternation();
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
@@ -14569,7 +11903,11 @@ public:
       }
 
       case 3: {
-        _localctx = _tracker.createInstance<GQLParser::PpePatternUnionContext>(_localctx);
+        {
+          auto savedLocalCtx = _localctx;
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+          _localctx->copyFrom(savedLocalCtx);
+        }
         auto ctxHolder = ctx->EnterPpePatternUnion();
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
@@ -14630,19 +11968,9 @@ public:
     return _localctx;
   }
 
-  class  PathTermContext : public antlr4::ParserRuleContext {
-  public:
-    PathTermContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<PathFactorContext *> pathFactor();
-    PathFactorContext* pathFactor(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  PathTermContext* pathTerm(ContextT* ctx) {
-    PathTermContext *_localctx = _tracker.createInstance<PathTermContext>(_ctx, getState());
+  antlr4::ParserRuleContext* pathTerm(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 374, GQLParser::RulePathTerm);
 
   #if __cplusplus > 201703L
@@ -14690,45 +12018,9 @@ public:
     return _localctx;
   }
 
-  class  PathFactorContext : public antlr4::ParserRuleContext {
-  public:
-    PathFactorContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-   
-    PathFactorContext() = default;
-    void copyFrom(PathFactorContext *context);
-    using antlr4::ParserRuleContext::copyFrom;
-
-    virtual size_t getRuleIndex() const override;
-
-   
-  };
-
-  class  PfQuantifiedPathPrimaryContext : public PathFactorContext {
-  public:
-    PfQuantifiedPathPrimaryContext(PathFactorContext *ctx);
-
-    PathPrimaryContext *pathPrimary();
-    GraphPatternQuantifierContext *graphPatternQuantifier();
-  };
-
-  class  PfQuestionedPathPrimaryContext : public PathFactorContext {
-  public:
-    PfQuestionedPathPrimaryContext(PathFactorContext *ctx);
-
-    PathPrimaryContext *pathPrimary();
-    antlr4::tree::TerminalNode *QUESTION_MARK();
-  };
-
-  class  PfPathPrimaryContext : public PathFactorContext {
-  public:
-    PfPathPrimaryContext(PathFactorContext *ctx);
-
-    PathPrimaryContext *pathPrimary();
-  };
-
   template<typename ContextT>
-  PathFactorContext* pathFactor(ContextT* ctx) {
-    PathFactorContext *_localctx = _tracker.createInstance<PathFactorContext>(_ctx, getState());
+  antlr4::ParserRuleContext* pathFactor(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 376, GQLParser::RulePathFactor);
 
   #if __cplusplus > 201703L
@@ -14746,7 +12038,11 @@ public:
       _errHandler->sync(this);
       switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 194, _ctx)) {
       case 1: {
-        _localctx = _tracker.createInstance<GQLParser::PfPathPrimaryContext>(_localctx);
+        {
+          auto savedLocalCtx = _localctx;
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+          _localctx->copyFrom(savedLocalCtx);
+        }
         auto ctxHolder = ctx->EnterPfPathPrimary();
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
@@ -14766,7 +12062,11 @@ public:
       }
 
       case 2: {
-        _localctx = _tracker.createInstance<GQLParser::PfQuantifiedPathPrimaryContext>(_localctx);
+        {
+          auto savedLocalCtx = _localctx;
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+          _localctx->copyFrom(savedLocalCtx);
+        }
         auto ctxHolder = ctx->EnterPfQuantifiedPathPrimary();
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
@@ -14791,7 +12091,11 @@ public:
       }
 
       case 3: {
-        _localctx = _tracker.createInstance<GQLParser::PfQuestionedPathPrimaryContext>(_localctx);
+        {
+          auto savedLocalCtx = _localctx;
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+          _localctx->copyFrom(savedLocalCtx);
+        }
         auto ctxHolder = ctx->EnterPfQuestionedPathPrimary();
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
@@ -14831,43 +12135,9 @@ public:
     return _localctx;
   }
 
-  class  PathPrimaryContext : public antlr4::ParserRuleContext {
-  public:
-    PathPrimaryContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-   
-    PathPrimaryContext() = default;
-    void copyFrom(PathPrimaryContext *context);
-    using antlr4::ParserRuleContext::copyFrom;
-
-    virtual size_t getRuleIndex() const override;
-
-   
-  };
-
-  class  PpParenthesizedPathPatternExpressionContext : public PathPrimaryContext {
-  public:
-    PpParenthesizedPathPatternExpressionContext(PathPrimaryContext *ctx);
-
-    ParenthesizedPathPatternExpressionContext *parenthesizedPathPatternExpression();
-  };
-
-  class  PpElementPatternContext : public PathPrimaryContext {
-  public:
-    PpElementPatternContext(PathPrimaryContext *ctx);
-
-    ElementPatternContext *elementPattern();
-  };
-
-  class  PpSimplifiedPathPatternExpressionContext : public PathPrimaryContext {
-  public:
-    PpSimplifiedPathPatternExpressionContext(PathPrimaryContext *ctx);
-
-    SimplifiedPathPatternExpressionContext *simplifiedPathPatternExpression();
-  };
-
   template<typename ContextT>
-  PathPrimaryContext* pathPrimary(ContextT* ctx) {
-    PathPrimaryContext *_localctx = _tracker.createInstance<PathPrimaryContext>(_ctx, getState());
+  antlr4::ParserRuleContext* pathPrimary(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 378, GQLParser::RulePathPrimary);
 
   #if __cplusplus > 201703L
@@ -14885,7 +12155,11 @@ public:
       _errHandler->sync(this);
       switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 195, _ctx)) {
       case 1: {
-        _localctx = _tracker.createInstance<GQLParser::PpElementPatternContext>(_localctx);
+        {
+          auto savedLocalCtx = _localctx;
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+          _localctx->copyFrom(savedLocalCtx);
+        }
         auto ctxHolder = ctx->EnterPpElementPattern();
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
@@ -14905,7 +12179,11 @@ public:
       }
 
       case 2: {
-        _localctx = _tracker.createInstance<GQLParser::PpParenthesizedPathPatternExpressionContext>(_localctx);
+        {
+          auto savedLocalCtx = _localctx;
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+          _localctx->copyFrom(savedLocalCtx);
+        }
         auto ctxHolder = ctx->EnterPpParenthesizedPathPatternExpression();
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
@@ -14925,7 +12203,11 @@ public:
       }
 
       case 3: {
-        _localctx = _tracker.createInstance<GQLParser::PpSimplifiedPathPatternExpressionContext>(_localctx);
+        {
+          auto savedLocalCtx = _localctx;
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+          _localctx->copyFrom(savedLocalCtx);
+        }
         auto ctxHolder = ctx->EnterPpSimplifiedPathPatternExpression();
         auto ctx = get_raw_pointer(ctxHolder);
         auto onExit = antlrcpp::finally([ctx, _localctx] {
@@ -14958,19 +12240,9 @@ public:
     return _localctx;
   }
 
-  class  ElementPatternContext : public antlr4::ParserRuleContext {
-  public:
-    ElementPatternContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NodePatternContext *nodePattern();
-    EdgePatternContext *edgePattern();
-
-   
-  };
-
   template<typename ContextT>
-  ElementPatternContext* elementPattern(ContextT* ctx) {
-    ElementPatternContext *_localctx = _tracker.createInstance<ElementPatternContext>(_ctx, getState());
+  antlr4::ParserRuleContext* elementPattern(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 380, GQLParser::RuleElementPattern);
 
   #if __cplusplus > 201703L
@@ -15031,20 +12303,9 @@ public:
     return _localctx;
   }
 
-  class  NodePatternContext : public antlr4::ParserRuleContext {
-  public:
-    NodePatternContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    ElementPatternFillerContext *elementPatternFiller();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  NodePatternContext* nodePattern(ContextT* ctx) {
-    NodePatternContext *_localctx = _tracker.createInstance<NodePatternContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nodePattern(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 382, GQLParser::RuleNodePattern);
 
   #if __cplusplus > 201703L
@@ -15089,20 +12350,9 @@ public:
     return _localctx;
   }
 
-  class  ElementPatternFillerContext : public antlr4::ParserRuleContext {
-  public:
-    ElementPatternFillerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ElementVariableDeclarationContext *elementVariableDeclaration();
-    IsLabelExpressionContext *isLabelExpression();
-    ElementPatternPredicateContext *elementPatternPredicate();
-
-   
-  };
-
   template<typename ContextT>
-  ElementPatternFillerContext* elementPatternFiller(ContextT* ctx) {
-    ElementPatternFillerContext *_localctx = _tracker.createInstance<ElementPatternFillerContext>(_ctx, getState());
+  antlr4::ParserRuleContext* elementPatternFiller(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 384, GQLParser::RuleElementPatternFiller);
     size_t _la = 0;
 
@@ -15163,19 +12413,9 @@ public:
     return _localctx;
   }
 
-  class  ElementVariableDeclarationContext : public antlr4::ParserRuleContext {
-  public:
-    ElementVariableDeclarationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ElementVariableContext *elementVariable();
-    antlr4::tree::TerminalNode *TEMP();
-
-   
-  };
-
   template<typename ContextT>
-  ElementVariableDeclarationContext* elementVariableDeclaration(ContextT* ctx) {
-    ElementVariableDeclarationContext *_localctx = _tracker.createInstance<ElementVariableDeclarationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* elementVariableDeclaration(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 386, GQLParser::RuleElementVariableDeclaration);
 
   #if __cplusplus > 201703L
@@ -15224,19 +12464,9 @@ public:
     return _localctx;
   }
 
-  class  IsLabelExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    IsLabelExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    IsOrColonContext *isOrColon();
-    LabelExpressionContext *labelExpression();
-
-   
-  };
-
   template<typename ContextT>
-  IsLabelExpressionContext* isLabelExpression(ContextT* ctx) {
-    IsLabelExpressionContext *_localctx = _tracker.createInstance<IsLabelExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* isLabelExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 388, GQLParser::RuleIsLabelExpression);
 
   #if __cplusplus > 201703L
@@ -15272,19 +12502,9 @@ public:
     return _localctx;
   }
 
-  class  IsOrColonContext : public antlr4::ParserRuleContext {
-  public:
-    IsOrColonContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *IS();
-    antlr4::tree::TerminalNode *COLON();
-
-   
-  };
-
   template<typename ContextT>
-  IsOrColonContext* isOrColon(ContextT* ctx) {
-    IsOrColonContext *_localctx = _tracker.createInstance<IsOrColonContext>(_ctx, getState());
+  antlr4::ParserRuleContext* isOrColon(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 390, GQLParser::RuleIsOrColon);
     size_t _la = 0;
 
@@ -15303,7 +12523,7 @@ public:
       setState(2328);
       _la = _input->LA(1);
       if (!(_la == GQLParser::IS || _la == GQLParser::COLON)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -15321,19 +12541,9 @@ public:
     return _localctx;
   }
 
-  class  ElementPatternPredicateContext : public antlr4::ParserRuleContext {
-  public:
-    ElementPatternPredicateContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ElementPatternWhereClauseContext *elementPatternWhereClause();
-    ElementPropertySpecificationContext *elementPropertySpecification();
-
-   
-  };
-
   template<typename ContextT>
-  ElementPatternPredicateContext* elementPatternPredicate(ContextT* ctx) {
-    ElementPatternPredicateContext *_localctx = _tracker.createInstance<ElementPatternPredicateContext>(_ctx, getState());
+  antlr4::ParserRuleContext* elementPatternPredicate(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 392, GQLParser::RuleElementPatternPredicate);
 
   #if __cplusplus > 201703L
@@ -15384,19 +12594,9 @@ public:
     return _localctx;
   }
 
-  class  ElementPatternWhereClauseContext : public antlr4::ParserRuleContext {
-  public:
-    ElementPatternWhereClauseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *WHERE();
-    SearchConditionContext *searchCondition();
-
-   
-  };
-
   template<typename ContextT>
-  ElementPatternWhereClauseContext* elementPatternWhereClause(ContextT* ctx) {
-    ElementPatternWhereClauseContext *_localctx = _tracker.createInstance<ElementPatternWhereClauseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* elementPatternWhereClause(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 394, GQLParser::RuleElementPatternWhereClause);
 
   #if __cplusplus > 201703L
@@ -15434,20 +12634,9 @@ public:
     return _localctx;
   }
 
-  class  ElementPropertySpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    ElementPropertySpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_BRACE();
-    PropertyKeyValuePairListContext *propertyKeyValuePairList();
-    antlr4::tree::TerminalNode *RIGHT_BRACE();
-
-   
-  };
-
   template<typename ContextT>
-  ElementPropertySpecificationContext* elementPropertySpecification(ContextT* ctx) {
-    ElementPropertySpecificationContext *_localctx = _tracker.createInstance<ElementPropertySpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* elementPropertySpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 396, GQLParser::RuleElementPropertySpecification);
 
   #if __cplusplus > 201703L
@@ -15492,21 +12681,9 @@ public:
     return _localctx;
   }
 
-  class  PropertyKeyValuePairListContext : public antlr4::ParserRuleContext {
-  public:
-    PropertyKeyValuePairListContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<PropertyKeyValuePairContext *> propertyKeyValuePair();
-    PropertyKeyValuePairContext* propertyKeyValuePair(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  PropertyKeyValuePairListContext* propertyKeyValuePairList(ContextT* ctx) {
-    PropertyKeyValuePairListContext *_localctx = _tracker.createInstance<PropertyKeyValuePairListContext>(_ctx, getState());
+  antlr4::ParserRuleContext* propertyKeyValuePairList(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 398, GQLParser::RulePropertyKeyValuePairList);
     size_t _la = 0;
 
@@ -15558,20 +12735,9 @@ public:
     return _localctx;
   }
 
-  class  PropertyKeyValuePairContext : public antlr4::ParserRuleContext {
-  public:
-    PropertyKeyValuePairContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    PropertyNameContext *propertyName();
-    antlr4::tree::TerminalNode *COLON();
-    ValueExpressionContext *valueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  PropertyKeyValuePairContext* propertyKeyValuePair(ContextT* ctx) {
-    PropertyKeyValuePairContext *_localctx = _tracker.createInstance<PropertyKeyValuePairContext>(_ctx, getState());
+  antlr4::ParserRuleContext* propertyKeyValuePair(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 400, GQLParser::RulePropertyKeyValuePair);
 
   #if __cplusplus > 201703L
@@ -15614,19 +12780,9 @@ public:
     return _localctx;
   }
 
-  class  EdgePatternContext : public antlr4::ParserRuleContext {
-  public:
-    EdgePatternContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    FullEdgePatternContext *fullEdgePattern();
-    AbbreviatedEdgePatternContext *abbreviatedEdgePattern();
-
-   
-  };
-
   template<typename ContextT>
-  EdgePatternContext* edgePattern(ContextT* ctx) {
-    EdgePatternContext *_localctx = _tracker.createInstance<EdgePatternContext>(_ctx, getState());
+  antlr4::ParserRuleContext* edgePattern(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 402, GQLParser::RuleEdgePattern);
 
   #if __cplusplus > 201703L
@@ -15686,24 +12842,9 @@ public:
     return _localctx;
   }
 
-  class  FullEdgePatternContext : public antlr4::ParserRuleContext {
-  public:
-    FullEdgePatternContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    FullEdgePointingLeftContext *fullEdgePointingLeft();
-    FullEdgeUndirectedContext *fullEdgeUndirected();
-    FullEdgePointingRightContext *fullEdgePointingRight();
-    FullEdgeLeftOrUndirectedContext *fullEdgeLeftOrUndirected();
-    FullEdgeUndirectedOrRightContext *fullEdgeUndirectedOrRight();
-    FullEdgeLeftOrRightContext *fullEdgeLeftOrRight();
-    FullEdgeAnyDirectionContext *fullEdgeAnyDirection();
-
-   
-  };
-
   template<typename ContextT>
-  FullEdgePatternContext* fullEdgePattern(ContextT* ctx) {
-    FullEdgePatternContext *_localctx = _tracker.createInstance<FullEdgePatternContext>(_ctx, getState());
+  antlr4::ParserRuleContext* fullEdgePattern(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 404, GQLParser::RuleFullEdgePattern);
 
   #if __cplusplus > 201703L
@@ -15804,20 +12945,9 @@ public:
     return _localctx;
   }
 
-  class  FullEdgePointingLeftContext : public antlr4::ParserRuleContext {
-  public:
-    FullEdgePointingLeftContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_ARROW_BRACKET();
-    ElementPatternFillerContext *elementPatternFiller();
-    antlr4::tree::TerminalNode *RIGHT_BRACKET_MINUS();
-
-   
-  };
-
   template<typename ContextT>
-  FullEdgePointingLeftContext* fullEdgePointingLeft(ContextT* ctx) {
-    FullEdgePointingLeftContext *_localctx = _tracker.createInstance<FullEdgePointingLeftContext>(_ctx, getState());
+  antlr4::ParserRuleContext* fullEdgePointingLeft(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 406, GQLParser::RuleFullEdgePointingLeft);
 
   #if __cplusplus > 201703L
@@ -15862,20 +12992,9 @@ public:
     return _localctx;
   }
 
-  class  FullEdgeUndirectedContext : public antlr4::ParserRuleContext {
-  public:
-    FullEdgeUndirectedContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *TILDE_LEFT_BRACKET();
-    ElementPatternFillerContext *elementPatternFiller();
-    antlr4::tree::TerminalNode *RIGHT_BRACKET_TILDE();
-
-   
-  };
-
   template<typename ContextT>
-  FullEdgeUndirectedContext* fullEdgeUndirected(ContextT* ctx) {
-    FullEdgeUndirectedContext *_localctx = _tracker.createInstance<FullEdgeUndirectedContext>(_ctx, getState());
+  antlr4::ParserRuleContext* fullEdgeUndirected(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 408, GQLParser::RuleFullEdgeUndirected);
 
   #if __cplusplus > 201703L
@@ -15920,20 +13039,9 @@ public:
     return _localctx;
   }
 
-  class  FullEdgePointingRightContext : public antlr4::ParserRuleContext {
-  public:
-    FullEdgePointingRightContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *MINUS_LEFT_BRACKET();
-    ElementPatternFillerContext *elementPatternFiller();
-    antlr4::tree::TerminalNode *BRACKET_RIGHT_ARROW();
-
-   
-  };
-
   template<typename ContextT>
-  FullEdgePointingRightContext* fullEdgePointingRight(ContextT* ctx) {
-    FullEdgePointingRightContext *_localctx = _tracker.createInstance<FullEdgePointingRightContext>(_ctx, getState());
+  antlr4::ParserRuleContext* fullEdgePointingRight(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 410, GQLParser::RuleFullEdgePointingRight);
 
   #if __cplusplus > 201703L
@@ -15978,20 +13086,9 @@ public:
     return _localctx;
   }
 
-  class  FullEdgeLeftOrUndirectedContext : public antlr4::ParserRuleContext {
-  public:
-    FullEdgeLeftOrUndirectedContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_ARROW_TILDE_BRACKET();
-    ElementPatternFillerContext *elementPatternFiller();
-    antlr4::tree::TerminalNode *RIGHT_BRACKET_TILDE();
-
-   
-  };
-
   template<typename ContextT>
-  FullEdgeLeftOrUndirectedContext* fullEdgeLeftOrUndirected(ContextT* ctx) {
-    FullEdgeLeftOrUndirectedContext *_localctx = _tracker.createInstance<FullEdgeLeftOrUndirectedContext>(_ctx, getState());
+  antlr4::ParserRuleContext* fullEdgeLeftOrUndirected(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 412, GQLParser::RuleFullEdgeLeftOrUndirected);
 
   #if __cplusplus > 201703L
@@ -16036,20 +13133,9 @@ public:
     return _localctx;
   }
 
-  class  FullEdgeUndirectedOrRightContext : public antlr4::ParserRuleContext {
-  public:
-    FullEdgeUndirectedOrRightContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *TILDE_LEFT_BRACKET();
-    ElementPatternFillerContext *elementPatternFiller();
-    antlr4::tree::TerminalNode *BRACKET_TILDE_RIGHT_ARROW();
-
-   
-  };
-
   template<typename ContextT>
-  FullEdgeUndirectedOrRightContext* fullEdgeUndirectedOrRight(ContextT* ctx) {
-    FullEdgeUndirectedOrRightContext *_localctx = _tracker.createInstance<FullEdgeUndirectedOrRightContext>(_ctx, getState());
+  antlr4::ParserRuleContext* fullEdgeUndirectedOrRight(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 414, GQLParser::RuleFullEdgeUndirectedOrRight);
 
   #if __cplusplus > 201703L
@@ -16094,20 +13180,9 @@ public:
     return _localctx;
   }
 
-  class  FullEdgeLeftOrRightContext : public antlr4::ParserRuleContext {
-  public:
-    FullEdgeLeftOrRightContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_ARROW_BRACKET();
-    ElementPatternFillerContext *elementPatternFiller();
-    antlr4::tree::TerminalNode *BRACKET_RIGHT_ARROW();
-
-   
-  };
-
   template<typename ContextT>
-  FullEdgeLeftOrRightContext* fullEdgeLeftOrRight(ContextT* ctx) {
-    FullEdgeLeftOrRightContext *_localctx = _tracker.createInstance<FullEdgeLeftOrRightContext>(_ctx, getState());
+  antlr4::ParserRuleContext* fullEdgeLeftOrRight(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 416, GQLParser::RuleFullEdgeLeftOrRight);
 
   #if __cplusplus > 201703L
@@ -16152,20 +13227,9 @@ public:
     return _localctx;
   }
 
-  class  FullEdgeAnyDirectionContext : public antlr4::ParserRuleContext {
-  public:
-    FullEdgeAnyDirectionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *MINUS_LEFT_BRACKET();
-    ElementPatternFillerContext *elementPatternFiller();
-    antlr4::tree::TerminalNode *RIGHT_BRACKET_MINUS();
-
-   
-  };
-
   template<typename ContextT>
-  FullEdgeAnyDirectionContext* fullEdgeAnyDirection(ContextT* ctx) {
-    FullEdgeAnyDirectionContext *_localctx = _tracker.createInstance<FullEdgeAnyDirectionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* fullEdgeAnyDirection(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 418, GQLParser::RuleFullEdgeAnyDirection);
 
   #if __cplusplus > 201703L
@@ -16210,24 +13274,9 @@ public:
     return _localctx;
   }
 
-  class  AbbreviatedEdgePatternContext : public antlr4::ParserRuleContext {
-  public:
-    AbbreviatedEdgePatternContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_ARROW();
-    antlr4::tree::TerminalNode *TILDE();
-    antlr4::tree::TerminalNode *RIGHT_ARROW();
-    antlr4::tree::TerminalNode *LEFT_ARROW_TILDE();
-    antlr4::tree::TerminalNode *TILDE_RIGHT_ARROW();
-    antlr4::tree::TerminalNode *LEFT_MINUS_RIGHT();
-    antlr4::tree::TerminalNode *MINUS_SIGN();
-
-   
-  };
-
   template<typename ContextT>
-  AbbreviatedEdgePatternContext* abbreviatedEdgePattern(ContextT* ctx) {
-    AbbreviatedEdgePatternContext *_localctx = _tracker.createInstance<AbbreviatedEdgePatternContext>(_ctx, getState());
+  antlr4::ParserRuleContext* abbreviatedEdgePattern(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 420, GQLParser::RuleAbbreviatedEdgePattern);
     size_t _la = 0;
 
@@ -16247,7 +13296,7 @@ public:
       _la = _input->LA(1);
       if (!(((((_la - 336) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 336)) & 281612416714771) != 0))) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -16265,23 +13314,9 @@ public:
     return _localctx;
   }
 
-  class  ParenthesizedPathPatternExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    ParenthesizedPathPatternExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    PathPatternExpressionContext *pathPatternExpression();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    SubpathVariableDeclarationContext *subpathVariableDeclaration();
-    PathModePrefixContext *pathModePrefix();
-    ParenthesizedPathPatternWhereClauseContext *parenthesizedPathPatternWhereClause();
-
-   
-  };
-
   template<typename ContextT>
-  ParenthesizedPathPatternExpressionContext* parenthesizedPathPatternExpression(ContextT* ctx) {
-    ParenthesizedPathPatternExpressionContext *_localctx = _tracker.createInstance<ParenthesizedPathPatternExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* parenthesizedPathPatternExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 422, GQLParser::RuleParenthesizedPathPatternExpression);
     size_t _la = 0;
 
@@ -16366,19 +13401,9 @@ public:
     return _localctx;
   }
 
-  class  SubpathVariableDeclarationContext : public antlr4::ParserRuleContext {
-  public:
-    SubpathVariableDeclarationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SubpathVariableContext *subpathVariable();
-    antlr4::tree::TerminalNode *EQUALS_OPERATOR();
-
-   
-  };
-
   template<typename ContextT>
-  SubpathVariableDeclarationContext* subpathVariableDeclaration(ContextT* ctx) {
-    SubpathVariableDeclarationContext *_localctx = _tracker.createInstance<SubpathVariableDeclarationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* subpathVariableDeclaration(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 424, GQLParser::RuleSubpathVariableDeclaration);
 
   #if __cplusplus > 201703L
@@ -16416,19 +13441,9 @@ public:
     return _localctx;
   }
 
-  class  ParenthesizedPathPatternWhereClauseContext : public antlr4::ParserRuleContext {
-  public:
-    ParenthesizedPathPatternWhereClauseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *WHERE();
-    SearchConditionContext *searchCondition();
-
-   
-  };
-
   template<typename ContextT>
-  ParenthesizedPathPatternWhereClauseContext* parenthesizedPathPatternWhereClause(ContextT* ctx) {
-    ParenthesizedPathPatternWhereClauseContext *_localctx = _tracker.createInstance<ParenthesizedPathPatternWhereClauseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* parenthesizedPathPatternWhereClause(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 426, GQLParser::RuleParenthesizedPathPatternWhereClause);
 
   #if __cplusplus > 201703L
@@ -16466,80 +13481,18 @@ public:
     return _localctx;
   }
 
-  class  LabelExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    LabelExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-   
-    LabelExpressionContext() = default;
-    void copyFrom(LabelExpressionContext *context);
-    using antlr4::ParserRuleContext::copyFrom;
-
-    virtual size_t getRuleIndex() const override;
-
-   
-  };
-
-  class  LabelExpressionNegationContext : public LabelExpressionContext {
-  public:
-    LabelExpressionNegationContext(LabelExpressionContext *ctx);
-
-    antlr4::tree::TerminalNode *EXCLAMATION_MARK();
-    LabelExpressionContext *labelExpression();
-  };
-
-  class  LabelExpressionDisjunctionContext : public LabelExpressionContext {
-  public:
-    LabelExpressionDisjunctionContext(LabelExpressionContext *ctx);
-
-    std::vector<LabelExpressionContext *> labelExpression();
-    LabelExpressionContext* labelExpression(size_t i);
-    antlr4::tree::TerminalNode *VERTICAL_BAR();
-  };
-
-  class  LabelExpressionParenthesizedContext : public LabelExpressionContext {
-  public:
-    LabelExpressionParenthesizedContext(LabelExpressionContext *ctx);
-
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    LabelExpressionContext *labelExpression();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-  };
-
-  class  LabelExpressionWildcardContext : public LabelExpressionContext {
-  public:
-    LabelExpressionWildcardContext(LabelExpressionContext *ctx);
-
-    antlr4::tree::TerminalNode *PERCENT();
-  };
-
-  class  LabelExpressionConjunctionContext : public LabelExpressionContext {
-  public:
-    LabelExpressionConjunctionContext(LabelExpressionContext *ctx);
-
-    std::vector<LabelExpressionContext *> labelExpression();
-    LabelExpressionContext* labelExpression(size_t i);
-    antlr4::tree::TerminalNode *AMPERSAND();
-  };
-
-  class  LabelExpressionNameContext : public LabelExpressionContext {
-  public:
-    LabelExpressionNameContext(LabelExpressionContext *ctx);
-
-    LabelNameContext *labelName();
-  };
-
 
   template<typename ContextT>
-  LabelExpressionContext* labelExpression(ContextT* ctx) {
+  antlr4::ParserRuleContext* labelExpression(ContextT* ctx) {
      return labelExpression(0, ctx);
   }
 
   template<typename ContextT>
-  LabelExpressionContext* labelExpression(int precedence, ContextT* ctx) {
+  antlr4::ParserRuleContext* labelExpression(int precedence, ContextT* ctx) {
     antlr4::ParserRuleContext *parentContext = _ctx;
     size_t parentState = getState();
-    GQLParser::LabelExpressionContext *_localctx = _tracker.createInstance<LabelExpressionContext>(_ctx, parentState);
-    GQLParser::LabelExpressionContext *previousContext = _localctx;
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, parentState);
+    antlr4::ParserRuleContext *previousContext = _localctx;
     (void)previousContext; // Silence compiler, in case the context is not used by generated code.
     size_t startState = 428;
     enterRecursionRule(_localctx, 428, GQLParser::RuleLabelExpression, precedence);
@@ -16563,7 +13516,11 @@ public:
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::EXCLAMATION_MARK: {
-          _localctx = _tracker.createInstance<LabelExpressionNegationContext>(_localctx);
+          {
+            auto savedLocalCtx = _localctx;
+            _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+            _localctx->copyFrom(savedLocalCtx);
+          }
           _ctx = _localctx;
           previousContext = _localctx;
           auto ctxHolder = ctx->EnterLabelExpressionNegation();
@@ -16641,7 +13598,11 @@ public:
         case GQLParser::WRITE:
         case GQLParser::ZONE:
         case GQLParser::REGULAR_IDENTIFIER: {
-          _localctx = _tracker.createInstance<LabelExpressionNameContext>(_localctx);
+          {
+            auto savedLocalCtx = _localctx;
+            _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+            _localctx->copyFrom(savedLocalCtx);
+          }
           _ctx = _localctx;
           previousContext = _localctx;
           auto ctxHolder = ctx->EnterLabelExpressionName();
@@ -16662,7 +13623,11 @@ public:
         }
 
         case GQLParser::PERCENT: {
-          _localctx = _tracker.createInstance<LabelExpressionWildcardContext>(_localctx);
+          {
+            auto savedLocalCtx = _localctx;
+            _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+            _localctx->copyFrom(savedLocalCtx);
+          }
           _ctx = _localctx;
           previousContext = _localctx;
           auto ctxHolder = ctx->EnterLabelExpressionWildcard();
@@ -16685,7 +13650,11 @@ public:
         }
 
         case GQLParser::LEFT_PAREN: {
-          _localctx = _tracker.createInstance<LabelExpressionParenthesizedContext>(_localctx);
+          {
+            auto savedLocalCtx = _localctx;
+            _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+            _localctx->copyFrom(savedLocalCtx);
+          }
           _ctx = _localctx;
           previousContext = _localctx;
           auto ctxHolder = ctx->EnterLabelExpressionParenthesized();
@@ -16738,7 +13707,9 @@ public:
           _errHandler->sync(this);
           switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 209, _ctx)) {
           case 1: {
-            auto newContext = _tracker.createInstance<LabelExpressionConjunctionContext>(_tracker.createInstance<LabelExpressionContext>(parentContext, parentState));
+            auto newParentContext = _tracker.createInstance<antlr4::ParserRuleContext>(parentContext, parentState);
+            auto newContext = _tracker.createInstance<antlr4::ParserRuleContext>();
+            newContext->copyFrom(newParentContext);
             _localctx = newContext;
             pushNewRecursionContext(newContext, startState, RuleLabelExpression);
             auto ctxHolder = ctx->PushLabelExpressionConjunction_LabelExpression();
@@ -16769,7 +13740,9 @@ public:
           }
 
           case 2: {
-            auto newContext = _tracker.createInstance<LabelExpressionDisjunctionContext>(_tracker.createInstance<LabelExpressionContext>(parentContext, parentState));
+            auto newParentContext = _tracker.createInstance<antlr4::ParserRuleContext>(parentContext, parentState);
+            auto newContext = _tracker.createInstance<antlr4::ParserRuleContext>();
+            newContext->copyFrom(newParentContext);
             _localctx = newContext;
             pushNewRecursionContext(newContext, startState, RuleLabelExpression);
             auto ctxHolder = ctx->PushLabelExpressionDisjunction_LabelExpression();
@@ -16816,18 +13789,9 @@ public:
     return _localctx;
   }
 
-  class  PathVariableReferenceContext : public antlr4::ParserRuleContext {
-  public:
-    PathVariableReferenceContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    BindingVariableReferenceContext *bindingVariableReference();
-
-   
-  };
-
   template<typename ContextT>
-  PathVariableReferenceContext* pathVariableReference(ContextT* ctx) {
-    PathVariableReferenceContext *_localctx = _tracker.createInstance<PathVariableReferenceContext>(_ctx, getState());
+  antlr4::ParserRuleContext* pathVariableReference(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 430, GQLParser::RulePathVariableReference);
 
   #if __cplusplus > 201703L
@@ -16858,18 +13822,9 @@ public:
     return _localctx;
   }
 
-  class  ElementVariableReferenceContext : public antlr4::ParserRuleContext {
-  public:
-    ElementVariableReferenceContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    BindingVariableReferenceContext *bindingVariableReference();
-
-   
-  };
-
   template<typename ContextT>
-  ElementVariableReferenceContext* elementVariableReference(ContextT* ctx) {
-    ElementVariableReferenceContext *_localctx = _tracker.createInstance<ElementVariableReferenceContext>(_ctx, getState());
+  antlr4::ParserRuleContext* elementVariableReference(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 432, GQLParser::RuleElementVariableReference);
 
   #if __cplusplus > 201703L
@@ -16900,21 +13855,9 @@ public:
     return _localctx;
   }
 
-  class  GraphPatternQuantifierContext : public antlr4::ParserRuleContext {
-  public:
-    GraphPatternQuantifierContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *ASTERISK();
-    antlr4::tree::TerminalNode *PLUS_SIGN();
-    FixedQuantifierContext *fixedQuantifier();
-    GeneralQuantifierContext *generalQuantifier();
-
-   
-  };
-
   template<typename ContextT>
-  GraphPatternQuantifierContext* graphPatternQuantifier(ContextT* ctx) {
-    GraphPatternQuantifierContext *_localctx = _tracker.createInstance<GraphPatternQuantifierContext>(_ctx, getState());
+  antlr4::ParserRuleContext* graphPatternQuantifier(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 434, GQLParser::RuleGraphPatternQuantifier);
 
   #if __cplusplus > 201703L
@@ -16989,20 +13932,9 @@ public:
     return _localctx;
   }
 
-  class  FixedQuantifierContext : public antlr4::ParserRuleContext {
-  public:
-    FixedQuantifierContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_BRACE();
-    UnsignedIntegerContext *unsignedInteger();
-    antlr4::tree::TerminalNode *RIGHT_BRACE();
-
-   
-  };
-
   template<typename ContextT>
-  FixedQuantifierContext* fixedQuantifier(ContextT* ctx) {
-    FixedQuantifierContext *_localctx = _tracker.createInstance<FixedQuantifierContext>(_ctx, getState());
+  antlr4::ParserRuleContext* fixedQuantifier(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 436, GQLParser::RuleFixedQuantifier);
 
   #if __cplusplus > 201703L
@@ -17047,22 +13979,9 @@ public:
     return _localctx;
   }
 
-  class  GeneralQuantifierContext : public antlr4::ParserRuleContext {
-  public:
-    GeneralQuantifierContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_BRACE();
-    antlr4::tree::TerminalNode *COMMA();
-    antlr4::tree::TerminalNode *RIGHT_BRACE();
-    LowerBoundContext *lowerBound();
-    UpperBoundContext *upperBound();
-
-   
-  };
-
   template<typename ContextT>
-  GeneralQuantifierContext* generalQuantifier(ContextT* ctx) {
-    GeneralQuantifierContext *_localctx = _tracker.createInstance<GeneralQuantifierContext>(_ctx, getState());
+  antlr4::ParserRuleContext* generalQuantifier(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 438, GQLParser::RuleGeneralQuantifier);
     size_t _la = 0;
 
@@ -17134,18 +14053,9 @@ public:
     return _localctx;
   }
 
-  class  LowerBoundContext : public antlr4::ParserRuleContext {
-  public:
-    LowerBoundContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    UnsignedIntegerContext *unsignedInteger();
-
-   
-  };
-
   template<typename ContextT>
-  LowerBoundContext* lowerBound(ContextT* ctx) {
-    LowerBoundContext *_localctx = _tracker.createInstance<LowerBoundContext>(_ctx, getState());
+  antlr4::ParserRuleContext* lowerBound(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 440, GQLParser::RuleLowerBound);
 
   #if __cplusplus > 201703L
@@ -17176,18 +14086,9 @@ public:
     return _localctx;
   }
 
-  class  UpperBoundContext : public antlr4::ParserRuleContext {
-  public:
-    UpperBoundContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    UnsignedIntegerContext *unsignedInteger();
-
-   
-  };
-
   template<typename ContextT>
-  UpperBoundContext* upperBound(ContextT* ctx) {
-    UpperBoundContext *_localctx = _tracker.createInstance<UpperBoundContext>(_ctx, getState());
+  antlr4::ParserRuleContext* upperBound(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 442, GQLParser::RuleUpperBound);
 
   #if __cplusplus > 201703L
@@ -17218,24 +14119,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedPathPatternExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedPathPatternExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SimplifiedDefaultingLeftContext *simplifiedDefaultingLeft();
-    SimplifiedDefaultingUndirectedContext *simplifiedDefaultingUndirected();
-    SimplifiedDefaultingRightContext *simplifiedDefaultingRight();
-    SimplifiedDefaultingLeftOrUndirectedContext *simplifiedDefaultingLeftOrUndirected();
-    SimplifiedDefaultingUndirectedOrRightContext *simplifiedDefaultingUndirectedOrRight();
-    SimplifiedDefaultingLeftOrRightContext *simplifiedDefaultingLeftOrRight();
-    SimplifiedDefaultingAnyDirectionContext *simplifiedDefaultingAnyDirection();
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedPathPatternExpressionContext* simplifiedPathPatternExpression(ContextT* ctx) {
-    SimplifiedPathPatternExpressionContext *_localctx = _tracker.createInstance<SimplifiedPathPatternExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedPathPatternExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 444, GQLParser::RuleSimplifiedPathPatternExpression);
 
   #if __cplusplus > 201703L
@@ -17336,20 +14222,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedDefaultingLeftContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedDefaultingLeftContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_MINUS_SLASH();
-    SimplifiedContentsContext *simplifiedContents();
-    antlr4::tree::TerminalNode *SLASH_MINUS();
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedDefaultingLeftContext* simplifiedDefaultingLeft(ContextT* ctx) {
-    SimplifiedDefaultingLeftContext *_localctx = _tracker.createInstance<SimplifiedDefaultingLeftContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedDefaultingLeft(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 446, GQLParser::RuleSimplifiedDefaultingLeft);
 
   #if __cplusplus > 201703L
@@ -17394,20 +14269,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedDefaultingUndirectedContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedDefaultingUndirectedContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *TILDE_SLASH();
-    SimplifiedContentsContext *simplifiedContents();
-    antlr4::tree::TerminalNode *SLASH_TILDE();
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedDefaultingUndirectedContext* simplifiedDefaultingUndirected(ContextT* ctx) {
-    SimplifiedDefaultingUndirectedContext *_localctx = _tracker.createInstance<SimplifiedDefaultingUndirectedContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedDefaultingUndirected(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 448, GQLParser::RuleSimplifiedDefaultingUndirected);
 
   #if __cplusplus > 201703L
@@ -17452,20 +14316,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedDefaultingRightContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedDefaultingRightContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *MINUS_SLASH();
-    SimplifiedContentsContext *simplifiedContents();
-    antlr4::tree::TerminalNode *SLASH_MINUS_RIGHT();
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedDefaultingRightContext* simplifiedDefaultingRight(ContextT* ctx) {
-    SimplifiedDefaultingRightContext *_localctx = _tracker.createInstance<SimplifiedDefaultingRightContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedDefaultingRight(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 450, GQLParser::RuleSimplifiedDefaultingRight);
 
   #if __cplusplus > 201703L
@@ -17510,20 +14363,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedDefaultingLeftOrUndirectedContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedDefaultingLeftOrUndirectedContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_TILDE_SLASH();
-    SimplifiedContentsContext *simplifiedContents();
-    antlr4::tree::TerminalNode *SLASH_TILDE();
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedDefaultingLeftOrUndirectedContext* simplifiedDefaultingLeftOrUndirected(ContextT* ctx) {
-    SimplifiedDefaultingLeftOrUndirectedContext *_localctx = _tracker.createInstance<SimplifiedDefaultingLeftOrUndirectedContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedDefaultingLeftOrUndirected(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 452, GQLParser::RuleSimplifiedDefaultingLeftOrUndirected);
 
   #if __cplusplus > 201703L
@@ -17568,20 +14410,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedDefaultingUndirectedOrRightContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedDefaultingUndirectedOrRightContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *TILDE_SLASH();
-    SimplifiedContentsContext *simplifiedContents();
-    antlr4::tree::TerminalNode *SLASH_TILDE_RIGHT();
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedDefaultingUndirectedOrRightContext* simplifiedDefaultingUndirectedOrRight(ContextT* ctx) {
-    SimplifiedDefaultingUndirectedOrRightContext *_localctx = _tracker.createInstance<SimplifiedDefaultingUndirectedOrRightContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedDefaultingUndirectedOrRight(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 454, GQLParser::RuleSimplifiedDefaultingUndirectedOrRight);
 
   #if __cplusplus > 201703L
@@ -17626,20 +14457,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedDefaultingLeftOrRightContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedDefaultingLeftOrRightContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_MINUS_SLASH();
-    SimplifiedContentsContext *simplifiedContents();
-    antlr4::tree::TerminalNode *SLASH_MINUS_RIGHT();
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedDefaultingLeftOrRightContext* simplifiedDefaultingLeftOrRight(ContextT* ctx) {
-    SimplifiedDefaultingLeftOrRightContext *_localctx = _tracker.createInstance<SimplifiedDefaultingLeftOrRightContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedDefaultingLeftOrRight(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 456, GQLParser::RuleSimplifiedDefaultingLeftOrRight);
 
   #if __cplusplus > 201703L
@@ -17684,20 +14504,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedDefaultingAnyDirectionContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedDefaultingAnyDirectionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *MINUS_SLASH();
-    SimplifiedContentsContext *simplifiedContents();
-    antlr4::tree::TerminalNode *SLASH_MINUS();
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedDefaultingAnyDirectionContext* simplifiedDefaultingAnyDirection(ContextT* ctx) {
-    SimplifiedDefaultingAnyDirectionContext *_localctx = _tracker.createInstance<SimplifiedDefaultingAnyDirectionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedDefaultingAnyDirection(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 458, GQLParser::RuleSimplifiedDefaultingAnyDirection);
 
   #if __cplusplus > 201703L
@@ -17742,20 +14551,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedContentsContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedContentsContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SimplifiedTermContext *simplifiedTerm();
-    SimplifiedPathUnionContext *simplifiedPathUnion();
-    SimplifiedMultisetAlternationContext *simplifiedMultisetAlternation();
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedContentsContext* simplifiedContents(ContextT* ctx) {
-    SimplifiedContentsContext *_localctx = _tracker.createInstance<SimplifiedContentsContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedContents(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 460, GQLParser::RuleSimplifiedContents);
 
   #if __cplusplus > 201703L
@@ -17816,21 +14614,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedPathUnionContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedPathUnionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<SimplifiedTermContext *> simplifiedTerm();
-    SimplifiedTermContext* simplifiedTerm(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> VERTICAL_BAR();
-    antlr4::tree::TerminalNode* VERTICAL_BAR(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedPathUnionContext* simplifiedPathUnion(ContextT* ctx) {
-    SimplifiedPathUnionContext *_localctx = _tracker.createInstance<SimplifiedPathUnionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedPathUnion(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 462, GQLParser::RuleSimplifiedPathUnion);
     size_t _la = 0;
 
@@ -17894,21 +14680,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedMultisetAlternationContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedMultisetAlternationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<SimplifiedTermContext *> simplifiedTerm();
-    SimplifiedTermContext* simplifiedTerm(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> MULTISET_ALTERNATION_OPERATOR();
-    antlr4::tree::TerminalNode* MULTISET_ALTERNATION_OPERATOR(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedMultisetAlternationContext* simplifiedMultisetAlternation(ContextT* ctx) {
-    SimplifiedMultisetAlternationContext *_localctx = _tracker.createInstance<SimplifiedMultisetAlternationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedMultisetAlternation(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 464, GQLParser::RuleSimplifiedMultisetAlternation);
     size_t _la = 0;
 
@@ -17972,46 +14746,18 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedTermContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedTermContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-   
-    SimplifiedTermContext() = default;
-    void copyFrom(SimplifiedTermContext *context);
-    using antlr4::ParserRuleContext::copyFrom;
-
-    virtual size_t getRuleIndex() const override;
-
-   
-  };
-
-  class  SimplifiedFactorLowLabelContext : public SimplifiedTermContext {
-  public:
-    SimplifiedFactorLowLabelContext(SimplifiedTermContext *ctx);
-
-    SimplifiedFactorLowContext *simplifiedFactorLow();
-  };
-
-  class  SimplifiedConcatenationLabelContext : public SimplifiedTermContext {
-  public:
-    SimplifiedConcatenationLabelContext(SimplifiedTermContext *ctx);
-
-    SimplifiedTermContext *simplifiedTerm();
-    SimplifiedFactorLowContext *simplifiedFactorLow();
-  };
-
 
   template<typename ContextT>
-  SimplifiedTermContext* simplifiedTerm(ContextT* ctx) {
+  antlr4::ParserRuleContext* simplifiedTerm(ContextT* ctx) {
      return simplifiedTerm(0, ctx);
   }
 
   template<typename ContextT>
-  SimplifiedTermContext* simplifiedTerm(int precedence, ContextT* ctx) {
+  antlr4::ParserRuleContext* simplifiedTerm(int precedence, ContextT* ctx) {
     antlr4::ParserRuleContext *parentContext = _ctx;
     size_t parentState = getState();
-    GQLParser::SimplifiedTermContext *_localctx = _tracker.createInstance<SimplifiedTermContext>(_ctx, parentState);
-    GQLParser::SimplifiedTermContext *previousContext = _localctx;
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, parentState);
+    antlr4::ParserRuleContext *previousContext = _localctx;
     (void)previousContext; // Silence compiler, in case the context is not used by generated code.
     size_t startState = 466;
     enterRecursionRule(_localctx, 466, GQLParser::RuleSimplifiedTerm, precedence);
@@ -18031,7 +14777,11 @@ public:
     try {
       size_t alt;
       enterOuterAlt(_localctx, 1);
-      _localctx = _tracker.createInstance<SimplifiedFactorLowLabelContext>(_localctx);
+      {
+        auto savedLocalCtx = _localctx;
+        _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+        _localctx->copyFrom(savedLocalCtx);
+      }
       _ctx = _localctx;
       previousContext = _localctx;
       auto ctxHolder = ctx->EnterSimplifiedFactorLowLabel();
@@ -18061,7 +14811,9 @@ public:
             ctx->ExitRule(_ctx);
           }
           previousContext = _localctx;
-          auto newContext = _tracker.createInstance<SimplifiedConcatenationLabelContext>(_tracker.createInstance<SimplifiedTermContext>(parentContext, parentState));
+          auto newParentContext = _tracker.createInstance<antlr4::ParserRuleContext>(parentContext, parentState);
+          auto newContext = _tracker.createInstance<antlr4::ParserRuleContext>();
+          newContext->copyFrom(newParentContext);
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleSimplifiedTerm);
           auto ctxHolder = ctx->PushSimplifiedConcatenationLabel_SimplifiedTerm();
@@ -18095,47 +14847,18 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedFactorLowContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedFactorLowContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-   
-    SimplifiedFactorLowContext() = default;
-    void copyFrom(SimplifiedFactorLowContext *context);
-    using antlr4::ParserRuleContext::copyFrom;
-
-    virtual size_t getRuleIndex() const override;
-
-   
-  };
-
-  class  SimplifiedConjunctionLabelContext : public SimplifiedFactorLowContext {
-  public:
-    SimplifiedConjunctionLabelContext(SimplifiedFactorLowContext *ctx);
-
-    SimplifiedFactorLowContext *simplifiedFactorLow();
-    antlr4::tree::TerminalNode *AMPERSAND();
-    SimplifiedFactorHighContext *simplifiedFactorHigh();
-  };
-
-  class  SimplifiedFactorHighLabelContext : public SimplifiedFactorLowContext {
-  public:
-    SimplifiedFactorHighLabelContext(SimplifiedFactorLowContext *ctx);
-
-    SimplifiedFactorHighContext *simplifiedFactorHigh();
-  };
-
 
   template<typename ContextT>
-  SimplifiedFactorLowContext* simplifiedFactorLow(ContextT* ctx) {
+  antlr4::ParserRuleContext* simplifiedFactorLow(ContextT* ctx) {
      return simplifiedFactorLow(0, ctx);
   }
 
   template<typename ContextT>
-  SimplifiedFactorLowContext* simplifiedFactorLow(int precedence, ContextT* ctx) {
+  antlr4::ParserRuleContext* simplifiedFactorLow(int precedence, ContextT* ctx) {
     antlr4::ParserRuleContext *parentContext = _ctx;
     size_t parentState = getState();
-    GQLParser::SimplifiedFactorLowContext *_localctx = _tracker.createInstance<SimplifiedFactorLowContext>(_ctx, parentState);
-    GQLParser::SimplifiedFactorLowContext *previousContext = _localctx;
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, parentState);
+    antlr4::ParserRuleContext *previousContext = _localctx;
     (void)previousContext; // Silence compiler, in case the context is not used by generated code.
     size_t startState = 468;
     enterRecursionRule(_localctx, 468, GQLParser::RuleSimplifiedFactorLow, precedence);
@@ -18155,7 +14878,11 @@ public:
     try {
       size_t alt;
       enterOuterAlt(_localctx, 1);
-      _localctx = _tracker.createInstance<SimplifiedFactorHighLabelContext>(_localctx);
+      {
+        auto savedLocalCtx = _localctx;
+        _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+        _localctx->copyFrom(savedLocalCtx);
+      }
       _ctx = _localctx;
       previousContext = _localctx;
       auto ctxHolder = ctx->EnterSimplifiedFactorHighLabel();
@@ -18185,7 +14912,9 @@ public:
             ctx->ExitRule(_ctx);
           }
           previousContext = _localctx;
-          auto newContext = _tracker.createInstance<SimplifiedConjunctionLabelContext>(_tracker.createInstance<SimplifiedFactorLowContext>(parentContext, parentState));
+          auto newParentContext = _tracker.createInstance<antlr4::ParserRuleContext>(parentContext, parentState);
+          auto newContext = _tracker.createInstance<antlr4::ParserRuleContext>();
+          newContext->copyFrom(newParentContext);
           _localctx = newContext;
           pushNewRecursionContext(newContext, startState, RuleSimplifiedFactorLow);
           auto ctxHolder = ctx->PushSimplifiedConjunctionLabel_SimplifiedFactorLow();
@@ -18226,20 +14955,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedFactorHighContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedFactorHighContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SimplifiedTertiaryContext *simplifiedTertiary();
-    SimplifiedQuantifiedContext *simplifiedQuantified();
-    SimplifiedQuestionedContext *simplifiedQuestioned();
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedFactorHighContext* simplifiedFactorHigh(ContextT* ctx) {
-    SimplifiedFactorHighContext *_localctx = _tracker.createInstance<SimplifiedFactorHighContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedFactorHigh(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 470, GQLParser::RuleSimplifiedFactorHigh);
 
   #if __cplusplus > 201703L
@@ -18300,19 +15018,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedQuantifiedContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedQuantifiedContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SimplifiedTertiaryContext *simplifiedTertiary();
-    GraphPatternQuantifierContext *graphPatternQuantifier();
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedQuantifiedContext* simplifiedQuantified(ContextT* ctx) {
-    SimplifiedQuantifiedContext *_localctx = _tracker.createInstance<SimplifiedQuantifiedContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedQuantified(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 472, GQLParser::RuleSimplifiedQuantified);
 
   #if __cplusplus > 201703L
@@ -18348,19 +15056,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedQuestionedContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedQuestionedContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SimplifiedTertiaryContext *simplifiedTertiary();
-    antlr4::tree::TerminalNode *QUESTION_MARK();
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedQuestionedContext* simplifiedQuestioned(ContextT* ctx) {
-    SimplifiedQuestionedContext *_localctx = _tracker.createInstance<SimplifiedQuestionedContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedQuestioned(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 474, GQLParser::RuleSimplifiedQuestioned);
 
   #if __cplusplus > 201703L
@@ -18398,19 +15096,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedTertiaryContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedTertiaryContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SimplifiedDirectionOverrideContext *simplifiedDirectionOverride();
-    SimplifiedSecondaryContext *simplifiedSecondary();
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedTertiaryContext* simplifiedTertiary(ContextT* ctx) {
-    SimplifiedTertiaryContext *_localctx = _tracker.createInstance<SimplifiedTertiaryContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedTertiary(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 476, GQLParser::RuleSimplifiedTertiary);
 
   #if __cplusplus > 201703L
@@ -18461,24 +15149,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedDirectionOverrideContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedDirectionOverrideContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SimplifiedOverrideLeftContext *simplifiedOverrideLeft();
-    SimplifiedOverrideUndirectedContext *simplifiedOverrideUndirected();
-    SimplifiedOverrideRightContext *simplifiedOverrideRight();
-    SimplifiedOverrideLeftOrUndirectedContext *simplifiedOverrideLeftOrUndirected();
-    SimplifiedOverrideUndirectedOrRightContext *simplifiedOverrideUndirectedOrRight();
-    SimplifiedOverrideLeftOrRightContext *simplifiedOverrideLeftOrRight();
-    SimplifiedOverrideAnyDirectionContext *simplifiedOverrideAnyDirection();
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedDirectionOverrideContext* simplifiedDirectionOverride(ContextT* ctx) {
-    SimplifiedDirectionOverrideContext *_localctx = _tracker.createInstance<SimplifiedDirectionOverrideContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedDirectionOverride(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 478, GQLParser::RuleSimplifiedDirectionOverride);
 
   #if __cplusplus > 201703L
@@ -18579,19 +15252,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedOverrideLeftContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedOverrideLeftContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_ANGLE_BRACKET();
-    SimplifiedSecondaryContext *simplifiedSecondary();
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedOverrideLeftContext* simplifiedOverrideLeft(ContextT* ctx) {
-    SimplifiedOverrideLeftContext *_localctx = _tracker.createInstance<SimplifiedOverrideLeftContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedOverrideLeft(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 480, GQLParser::RuleSimplifiedOverrideLeft);
 
   #if __cplusplus > 201703L
@@ -18629,19 +15292,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedOverrideUndirectedContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedOverrideUndirectedContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *TILDE();
-    SimplifiedSecondaryContext *simplifiedSecondary();
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedOverrideUndirectedContext* simplifiedOverrideUndirected(ContextT* ctx) {
-    SimplifiedOverrideUndirectedContext *_localctx = _tracker.createInstance<SimplifiedOverrideUndirectedContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedOverrideUndirected(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 482, GQLParser::RuleSimplifiedOverrideUndirected);
 
   #if __cplusplus > 201703L
@@ -18679,19 +15332,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedOverrideRightContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedOverrideRightContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SimplifiedSecondaryContext *simplifiedSecondary();
-    antlr4::tree::TerminalNode *RIGHT_ANGLE_BRACKET();
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedOverrideRightContext* simplifiedOverrideRight(ContextT* ctx) {
-    SimplifiedOverrideRightContext *_localctx = _tracker.createInstance<SimplifiedOverrideRightContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedOverrideRight(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 484, GQLParser::RuleSimplifiedOverrideRight);
 
   #if __cplusplus > 201703L
@@ -18729,19 +15372,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedOverrideLeftOrUndirectedContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedOverrideLeftOrUndirectedContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_ARROW_TILDE();
-    SimplifiedSecondaryContext *simplifiedSecondary();
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedOverrideLeftOrUndirectedContext* simplifiedOverrideLeftOrUndirected(ContextT* ctx) {
-    SimplifiedOverrideLeftOrUndirectedContext *_localctx = _tracker.createInstance<SimplifiedOverrideLeftOrUndirectedContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedOverrideLeftOrUndirected(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 486, GQLParser::RuleSimplifiedOverrideLeftOrUndirected);
 
   #if __cplusplus > 201703L
@@ -18779,20 +15412,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedOverrideUndirectedOrRightContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedOverrideUndirectedOrRightContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *TILDE();
-    SimplifiedSecondaryContext *simplifiedSecondary();
-    antlr4::tree::TerminalNode *RIGHT_ANGLE_BRACKET();
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedOverrideUndirectedOrRightContext* simplifiedOverrideUndirectedOrRight(ContextT* ctx) {
-    SimplifiedOverrideUndirectedOrRightContext *_localctx = _tracker.createInstance<SimplifiedOverrideUndirectedOrRightContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedOverrideUndirectedOrRight(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 488, GQLParser::RuleSimplifiedOverrideUndirectedOrRight);
 
   #if __cplusplus > 201703L
@@ -18837,20 +15459,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedOverrideLeftOrRightContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedOverrideLeftOrRightContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_ANGLE_BRACKET();
-    SimplifiedSecondaryContext *simplifiedSecondary();
-    antlr4::tree::TerminalNode *RIGHT_ANGLE_BRACKET();
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedOverrideLeftOrRightContext* simplifiedOverrideLeftOrRight(ContextT* ctx) {
-    SimplifiedOverrideLeftOrRightContext *_localctx = _tracker.createInstance<SimplifiedOverrideLeftOrRightContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedOverrideLeftOrRight(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 490, GQLParser::RuleSimplifiedOverrideLeftOrRight);
 
   #if __cplusplus > 201703L
@@ -18895,19 +15506,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedOverrideAnyDirectionContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedOverrideAnyDirectionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *MINUS_SIGN();
-    SimplifiedSecondaryContext *simplifiedSecondary();
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedOverrideAnyDirectionContext* simplifiedOverrideAnyDirection(ContextT* ctx) {
-    SimplifiedOverrideAnyDirectionContext *_localctx = _tracker.createInstance<SimplifiedOverrideAnyDirectionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedOverrideAnyDirection(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 492, GQLParser::RuleSimplifiedOverrideAnyDirection);
 
   #if __cplusplus > 201703L
@@ -18945,19 +15546,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedSecondaryContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedSecondaryContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SimplifiedPrimaryContext *simplifiedPrimary();
-    SimplifiedNegationContext *simplifiedNegation();
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedSecondaryContext* simplifiedSecondary(ContextT* ctx) {
-    SimplifiedSecondaryContext *_localctx = _tracker.createInstance<SimplifiedSecondaryContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedSecondary(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 494, GQLParser::RuleSimplifiedSecondary);
 
   #if __cplusplus > 201703L
@@ -19058,19 +15649,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedNegationContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedNegationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *EXCLAMATION_MARK();
-    SimplifiedPrimaryContext *simplifiedPrimary();
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedNegationContext* simplifiedNegation(ContextT* ctx) {
-    SimplifiedNegationContext *_localctx = _tracker.createInstance<SimplifiedNegationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedNegation(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 496, GQLParser::RuleSimplifiedNegation);
 
   #if __cplusplus > 201703L
@@ -19108,21 +15689,9 @@ public:
     return _localctx;
   }
 
-  class  SimplifiedPrimaryContext : public antlr4::ParserRuleContext {
-  public:
-    SimplifiedPrimaryContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    LabelNameContext *labelName();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    SimplifiedContentsContext *simplifiedContents();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  SimplifiedPrimaryContext* simplifiedPrimary(ContextT* ctx) {
-    SimplifiedPrimaryContext *_localctx = _tracker.createInstance<SimplifiedPrimaryContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simplifiedPrimary(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 498, GQLParser::RuleSimplifiedPrimary);
 
   #if __cplusplus > 201703L
@@ -19236,19 +15805,9 @@ public:
     return _localctx;
   }
 
-  class  WhereClauseContext : public antlr4::ParserRuleContext {
-  public:
-    WhereClauseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *WHERE();
-    SearchConditionContext *searchCondition();
-
-   
-  };
-
   template<typename ContextT>
-  WhereClauseContext* whereClause(ContextT* ctx) {
-    WhereClauseContext *_localctx = _tracker.createInstance<WhereClauseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* whereClause(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 500, GQLParser::RuleWhereClause);
 
   #if __cplusplus > 201703L
@@ -19286,19 +15845,9 @@ public:
     return _localctx;
   }
 
-  class  YieldClauseContext : public antlr4::ParserRuleContext {
-  public:
-    YieldClauseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *YIELD();
-    YieldItemListContext *yieldItemList();
-
-   
-  };
-
   template<typename ContextT>
-  YieldClauseContext* yieldClause(ContextT* ctx) {
-    YieldClauseContext *_localctx = _tracker.createInstance<YieldClauseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* yieldClause(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 502, GQLParser::RuleYieldClause);
 
   #if __cplusplus > 201703L
@@ -19336,21 +15885,9 @@ public:
     return _localctx;
   }
 
-  class  YieldItemListContext : public antlr4::ParserRuleContext {
-  public:
-    YieldItemListContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<YieldItemContext *> yieldItem();
-    YieldItemContext* yieldItem(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  YieldItemListContext* yieldItemList(ContextT* ctx) {
-    YieldItemListContext *_localctx = _tracker.createInstance<YieldItemListContext>(_ctx, getState());
+  antlr4::ParserRuleContext* yieldItemList(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 504, GQLParser::RuleYieldItemList);
     size_t _la = 0;
 
@@ -19402,19 +15939,9 @@ public:
     return _localctx;
   }
 
-  class  YieldItemContext : public antlr4::ParserRuleContext {
-  public:
-    YieldItemContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    YieldItemNameContext *yieldItemName();
-    YieldItemAliasContext *yieldItemAlias();
-
-   
-  };
-
   template<typename ContextT>
-  YieldItemContext* yieldItem(ContextT* ctx) {
-    YieldItemContext *_localctx = _tracker.createInstance<YieldItemContext>(_ctx, getState());
+  antlr4::ParserRuleContext* yieldItem(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 506, GQLParser::RuleYieldItem);
     size_t _la = 0;
 
@@ -19457,18 +15984,9 @@ public:
     return _localctx;
   }
 
-  class  YieldItemNameContext : public antlr4::ParserRuleContext {
-  public:
-    YieldItemNameContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    FieldNameContext *fieldName();
-
-   
-  };
-
   template<typename ContextT>
-  YieldItemNameContext* yieldItemName(ContextT* ctx) {
-    YieldItemNameContext *_localctx = _tracker.createInstance<YieldItemNameContext>(_ctx, getState());
+  antlr4::ParserRuleContext* yieldItemName(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 508, GQLParser::RuleYieldItemName);
 
   #if __cplusplus > 201703L
@@ -19499,19 +16017,9 @@ public:
     return _localctx;
   }
 
-  class  YieldItemAliasContext : public antlr4::ParserRuleContext {
-  public:
-    YieldItemAliasContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *AS();
-    BindingVariableContext *bindingVariable();
-
-   
-  };
-
   template<typename ContextT>
-  YieldItemAliasContext* yieldItemAlias(ContextT* ctx) {
-    YieldItemAliasContext *_localctx = _tracker.createInstance<YieldItemAliasContext>(_ctx, getState());
+  antlr4::ParserRuleContext* yieldItemAlias(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 510, GQLParser::RuleYieldItemAlias);
 
   #if __cplusplus > 201703L
@@ -19549,20 +16057,9 @@ public:
     return _localctx;
   }
 
-  class  GroupByClauseContext : public antlr4::ParserRuleContext {
-  public:
-    GroupByClauseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *GROUP();
-    antlr4::tree::TerminalNode *BY();
-    GroupingElementListContext *groupingElementList();
-
-   
-  };
-
   template<typename ContextT>
-  GroupByClauseContext* groupByClause(ContextT* ctx) {
-    GroupByClauseContext *_localctx = _tracker.createInstance<GroupByClauseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* groupByClause(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 512, GQLParser::RuleGroupByClause);
 
   #if __cplusplus > 201703L
@@ -19607,22 +16104,9 @@ public:
     return _localctx;
   }
 
-  class  GroupingElementListContext : public antlr4::ParserRuleContext {
-  public:
-    GroupingElementListContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<GroupingElementContext *> groupingElement();
-    GroupingElementContext* groupingElement(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-    EmptyGroupingSetContext *emptyGroupingSet();
-
-   
-  };
-
   template<typename ContextT>
-  GroupingElementListContext* groupingElementList(ContextT* ctx) {
-    GroupingElementListContext *_localctx = _tracker.createInstance<GroupingElementListContext>(_ctx, getState());
+  antlr4::ParserRuleContext* groupingElementList(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 514, GQLParser::RuleGroupingElementList);
 
   #if __cplusplus > 201703L
@@ -19743,18 +16227,9 @@ public:
     return _localctx;
   }
 
-  class  GroupingElementContext : public antlr4::ParserRuleContext {
-  public:
-    GroupingElementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    BindingVariableReferenceContext *bindingVariableReference();
-
-   
-  };
-
   template<typename ContextT>
-  GroupingElementContext* groupingElement(ContextT* ctx) {
-    GroupingElementContext *_localctx = _tracker.createInstance<GroupingElementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* groupingElement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 516, GQLParser::RuleGroupingElement);
 
   #if __cplusplus > 201703L
@@ -19785,19 +16260,9 @@ public:
     return _localctx;
   }
 
-  class  EmptyGroupingSetContext : public antlr4::ParserRuleContext {
-  public:
-    EmptyGroupingSetContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  EmptyGroupingSetContext* emptyGroupingSet(ContextT* ctx) {
-    EmptyGroupingSetContext *_localctx = _tracker.createInstance<EmptyGroupingSetContext>(_ctx, getState());
+  antlr4::ParserRuleContext* emptyGroupingSet(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 518, GQLParser::RuleEmptyGroupingSet);
 
   #if __cplusplus > 201703L
@@ -19837,20 +16302,9 @@ public:
     return _localctx;
   }
 
-  class  OrderByClauseContext : public antlr4::ParserRuleContext {
-  public:
-    OrderByClauseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *ORDER();
-    antlr4::tree::TerminalNode *BY();
-    SortSpecificationListContext *sortSpecificationList();
-
-   
-  };
-
   template<typename ContextT>
-  OrderByClauseContext* orderByClause(ContextT* ctx) {
-    OrderByClauseContext *_localctx = _tracker.createInstance<OrderByClauseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* orderByClause(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 520, GQLParser::RuleOrderByClause);
 
   #if __cplusplus > 201703L
@@ -19895,21 +16349,9 @@ public:
     return _localctx;
   }
 
-  class  SortSpecificationListContext : public antlr4::ParserRuleContext {
-  public:
-    SortSpecificationListContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<SortSpecificationContext *> sortSpecification();
-    SortSpecificationContext* sortSpecification(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  SortSpecificationListContext* sortSpecificationList(ContextT* ctx) {
-    SortSpecificationListContext *_localctx = _tracker.createInstance<SortSpecificationListContext>(_ctx, getState());
+  antlr4::ParserRuleContext* sortSpecificationList(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 522, GQLParser::RuleSortSpecificationList);
 
   #if __cplusplus > 201703L
@@ -19963,20 +16405,9 @@ public:
     return _localctx;
   }
 
-  class  SortSpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    SortSpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SortKeyContext *sortKey();
-    OrderingSpecificationContext *orderingSpecification();
-    NullOrderingContext *nullOrdering();
-
-   
-  };
-
   template<typename ContextT>
-  SortSpecificationContext* sortSpecification(ContextT* ctx) {
-    SortSpecificationContext *_localctx = _tracker.createInstance<SortSpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* sortSpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 524, GQLParser::RuleSortSpecification);
 
   #if __cplusplus > 201703L
@@ -20039,18 +16470,9 @@ public:
     return _localctx;
   }
 
-  class  SortKeyContext : public antlr4::ParserRuleContext {
-  public:
-    SortKeyContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    AggregatingValueExpressionContext *aggregatingValueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  SortKeyContext* sortKey(ContextT* ctx) {
-    SortKeyContext *_localctx = _tracker.createInstance<SortKeyContext>(_ctx, getState());
+  antlr4::ParserRuleContext* sortKey(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 526, GQLParser::RuleSortKey);
 
   #if __cplusplus > 201703L
@@ -20081,21 +16503,9 @@ public:
     return _localctx;
   }
 
-  class  OrderingSpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    OrderingSpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *ASC();
-    antlr4::tree::TerminalNode *ASCENDING();
-    antlr4::tree::TerminalNode *DESC();
-    antlr4::tree::TerminalNode *DESCENDING();
-
-   
-  };
-
   template<typename ContextT>
-  OrderingSpecificationContext* orderingSpecification(ContextT* ctx) {
-    OrderingSpecificationContext *_localctx = _tracker.createInstance<OrderingSpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* orderingSpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 528, GQLParser::RuleOrderingSpecification);
     size_t _la = 0;
 
@@ -20115,7 +16525,7 @@ public:
       _la = _input->LA(1);
       if (!(((((_la - 28) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 28)) & 1688849860263939) != 0))) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -20133,20 +16543,9 @@ public:
     return _localctx;
   }
 
-  class  NullOrderingContext : public antlr4::ParserRuleContext {
-  public:
-    NullOrderingContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *NULLS();
-    antlr4::tree::TerminalNode *FIRST();
-    antlr4::tree::TerminalNode *LAST();
-
-   
-  };
-
   template<typename ContextT>
-  NullOrderingContext* nullOrdering(ContextT* ctx) {
-    NullOrderingContext *_localctx = _tracker.createInstance<NullOrderingContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nullOrdering(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 530, GQLParser::RuleNullOrdering);
 
   #if __cplusplus > 201703L
@@ -20215,19 +16614,9 @@ public:
     return _localctx;
   }
 
-  class  LimitClauseContext : public antlr4::ParserRuleContext {
-  public:
-    LimitClauseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LIMIT();
-    NonNegativeIntegerSpecificationContext *nonNegativeIntegerSpecification();
-
-   
-  };
-
   template<typename ContextT>
-  LimitClauseContext* limitClause(ContextT* ctx) {
-    LimitClauseContext *_localctx = _tracker.createInstance<LimitClauseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* limitClause(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 532, GQLParser::RuleLimitClause);
 
   #if __cplusplus > 201703L
@@ -20265,19 +16654,9 @@ public:
     return _localctx;
   }
 
-  class  OffsetClauseContext : public antlr4::ParserRuleContext {
-  public:
-    OffsetClauseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    OffsetSynonymContext *offsetSynonym();
-    NonNegativeIntegerSpecificationContext *nonNegativeIntegerSpecification();
-
-   
-  };
-
   template<typename ContextT>
-  OffsetClauseContext* offsetClause(ContextT* ctx) {
-    OffsetClauseContext *_localctx = _tracker.createInstance<OffsetClauseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* offsetClause(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 534, GQLParser::RuleOffsetClause);
 
   #if __cplusplus > 201703L
@@ -20313,19 +16692,9 @@ public:
     return _localctx;
   }
 
-  class  OffsetSynonymContext : public antlr4::ParserRuleContext {
-  public:
-    OffsetSynonymContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *OFFSET();
-    antlr4::tree::TerminalNode *SKIP_RESERVED_WORD();
-
-   
-  };
-
   template<typename ContextT>
-  OffsetSynonymContext* offsetSynonym(ContextT* ctx) {
-    OffsetSynonymContext *_localctx = _tracker.createInstance<OffsetSynonymContext>(_ctx, getState());
+  antlr4::ParserRuleContext* offsetSynonym(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 536, GQLParser::RuleOffsetSynonym);
     size_t _la = 0;
 
@@ -20346,7 +16715,7 @@ public:
       if (!(_la == GQLParser::OFFSET
 
       || _la == GQLParser::SKIP_RESERVED_WORD)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -20364,20 +16733,9 @@ public:
     return _localctx;
   }
 
-  class  SchemaReferenceContext : public antlr4::ParserRuleContext {
-  public:
-    SchemaReferenceContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    AbsoluteCatalogSchemaReferenceContext *absoluteCatalogSchemaReference();
-    RelativeCatalogSchemaReferenceContext *relativeCatalogSchemaReference();
-    ReferenceParameterSpecificationContext *referenceParameterSpecification();
-
-   
-  };
-
   template<typename ContextT>
-  SchemaReferenceContext* schemaReference(ContextT* ctx) {
-    SchemaReferenceContext *_localctx = _tracker.createInstance<SchemaReferenceContext>(_ctx, getState());
+  antlr4::ParserRuleContext* schemaReference(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 538, GQLParser::RuleSchemaReference);
 
   #if __cplusplus > 201703L
@@ -20441,20 +16799,9 @@ public:
     return _localctx;
   }
 
-  class  AbsoluteCatalogSchemaReferenceContext : public antlr4::ParserRuleContext {
-  public:
-    AbsoluteCatalogSchemaReferenceContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *SOLIDUS();
-    AbsoluteDirectoryPathContext *absoluteDirectoryPath();
-    SchemaNameContext *schemaName();
-
-   
-  };
-
   template<typename ContextT>
-  AbsoluteCatalogSchemaReferenceContext* absoluteCatalogSchemaReference(ContextT* ctx) {
-    AbsoluteCatalogSchemaReferenceContext *_localctx = _tracker.createInstance<AbsoluteCatalogSchemaReferenceContext>(_ctx, getState());
+  antlr4::ParserRuleContext* absoluteCatalogSchemaReference(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 540, GQLParser::RuleAbsoluteCatalogSchemaReference);
 
   #if __cplusplus > 201703L
@@ -20512,19 +16859,9 @@ public:
     return _localctx;
   }
 
-  class  CatalogSchemaParentAndNameContext : public antlr4::ParserRuleContext {
-  public:
-    CatalogSchemaParentAndNameContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    AbsoluteDirectoryPathContext *absoluteDirectoryPath();
-    SchemaNameContext *schemaName();
-
-   
-  };
-
   template<typename ContextT>
-  CatalogSchemaParentAndNameContext* catalogSchemaParentAndName(ContextT* ctx) {
-    CatalogSchemaParentAndNameContext *_localctx = _tracker.createInstance<CatalogSchemaParentAndNameContext>(_ctx, getState());
+  antlr4::ParserRuleContext* catalogSchemaParentAndName(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 542, GQLParser::RuleCatalogSchemaParentAndName);
 
   #if __cplusplus > 201703L
@@ -20560,20 +16897,9 @@ public:
     return _localctx;
   }
 
-  class  RelativeCatalogSchemaReferenceContext : public antlr4::ParserRuleContext {
-  public:
-    RelativeCatalogSchemaReferenceContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    PredefinedSchemaReferenceContext *predefinedSchemaReference();
-    RelativeDirectoryPathContext *relativeDirectoryPath();
-    SchemaNameContext *schemaName();
-
-   
-  };
-
   template<typename ContextT>
-  RelativeCatalogSchemaReferenceContext* relativeCatalogSchemaReference(ContextT* ctx) {
-    RelativeCatalogSchemaReferenceContext *_localctx = _tracker.createInstance<RelativeCatalogSchemaReferenceContext>(_ctx, getState());
+  antlr4::ParserRuleContext* relativeCatalogSchemaReference(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 544, GQLParser::RuleRelativeCatalogSchemaReference);
 
   #if __cplusplus > 201703L
@@ -20631,20 +16957,9 @@ public:
     return _localctx;
   }
 
-  class  PredefinedSchemaReferenceContext : public antlr4::ParserRuleContext {
-  public:
-    PredefinedSchemaReferenceContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *HOME_SCHEMA();
-    antlr4::tree::TerminalNode *CURRENT_SCHEMA();
-    antlr4::tree::TerminalNode *PERIOD();
-
-   
-  };
-
   template<typename ContextT>
-  PredefinedSchemaReferenceContext* predefinedSchemaReference(ContextT* ctx) {
-    PredefinedSchemaReferenceContext *_localctx = _tracker.createInstance<PredefinedSchemaReferenceContext>(_ctx, getState());
+  antlr4::ParserRuleContext* predefinedSchemaReference(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 546, GQLParser::RulePredefinedSchemaReference);
     size_t _la = 0;
 
@@ -20665,7 +16980,7 @@ public:
       if (!(_la == GQLParser::CURRENT_SCHEMA
 
       || _la == GQLParser::HOME_SCHEMA || _la == GQLParser::PERIOD)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -20683,19 +16998,9 @@ public:
     return _localctx;
   }
 
-  class  AbsoluteDirectoryPathContext : public antlr4::ParserRuleContext {
-  public:
-    AbsoluteDirectoryPathContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *SOLIDUS();
-    SimpleDirectoryPathContext *simpleDirectoryPath();
-
-   
-  };
-
   template<typename ContextT>
-  AbsoluteDirectoryPathContext* absoluteDirectoryPath(ContextT* ctx) {
-    AbsoluteDirectoryPathContext *_localctx = _tracker.createInstance<AbsoluteDirectoryPathContext>(_ctx, getState());
+  antlr4::ParserRuleContext* absoluteDirectoryPath(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 548, GQLParser::RuleAbsoluteDirectoryPath);
 
   #if __cplusplus > 201703L
@@ -20744,22 +17049,9 @@ public:
     return _localctx;
   }
 
-  class  RelativeDirectoryPathContext : public antlr4::ParserRuleContext {
-  public:
-    RelativeDirectoryPathContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<antlr4::tree::TerminalNode *> DOUBLE_PERIOD();
-    antlr4::tree::TerminalNode* DOUBLE_PERIOD(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> SOLIDUS();
-    antlr4::tree::TerminalNode* SOLIDUS(size_t i);
-    SimpleDirectoryPathContext *simpleDirectoryPath();
-
-   
-  };
-
   template<typename ContextT>
-  RelativeDirectoryPathContext* relativeDirectoryPath(ContextT* ctx) {
-    RelativeDirectoryPathContext *_localctx = _tracker.createInstance<RelativeDirectoryPathContext>(_ctx, getState());
+  antlr4::ParserRuleContext* relativeDirectoryPath(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 550, GQLParser::RuleRelativeDirectoryPath);
 
   #if __cplusplus > 201703L
@@ -20840,21 +17132,9 @@ public:
     return _localctx;
   }
 
-  class  SimpleDirectoryPathContext : public antlr4::ParserRuleContext {
-  public:
-    SimpleDirectoryPathContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<DirectoryNameContext *> directoryName();
-    DirectoryNameContext* directoryName(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> SOLIDUS();
-    antlr4::tree::TerminalNode* SOLIDUS(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  SimpleDirectoryPathContext* simpleDirectoryPath(ContextT* ctx) {
-    SimpleDirectoryPathContext *_localctx = _tracker.createInstance<SimpleDirectoryPathContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simpleDirectoryPath(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 552, GQLParser::RuleSimpleDirectoryPath);
 
   #if __cplusplus > 201703L
@@ -20909,22 +17189,9 @@ public:
     return _localctx;
   }
 
-  class  GraphReferenceContext : public antlr4::ParserRuleContext {
-  public:
-    GraphReferenceContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    CatalogObjectParentReferenceContext *catalogObjectParentReference();
-    GraphNameContext *graphName();
-    DelimitedGraphNameContext *delimitedGraphName();
-    HomeGraphContext *homeGraph();
-    ReferenceParameterSpecificationContext *referenceParameterSpecification();
-
-   
-  };
-
   template<typename ContextT>
-  GraphReferenceContext* graphReference(ContextT* ctx) {
-    GraphReferenceContext *_localctx = _tracker.createInstance<GraphReferenceContext>(_ctx, getState());
+  antlr4::ParserRuleContext* graphReference(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 554, GQLParser::RuleGraphReference);
 
   #if __cplusplus > 201703L
@@ -21000,19 +17267,9 @@ public:
     return _localctx;
   }
 
-  class  CatalogGraphParentAndNameContext : public antlr4::ParserRuleContext {
-  public:
-    CatalogGraphParentAndNameContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    GraphNameContext *graphName();
-    CatalogObjectParentReferenceContext *catalogObjectParentReference();
-
-   
-  };
-
   template<typename ContextT>
-  CatalogGraphParentAndNameContext* catalogGraphParentAndName(ContextT* ctx) {
-    CatalogGraphParentAndNameContext *_localctx = _tracker.createInstance<CatalogGraphParentAndNameContext>(_ctx, getState());
+  antlr4::ParserRuleContext* catalogGraphParentAndName(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 556, GQLParser::RuleCatalogGraphParentAndName);
 
   #if __cplusplus > 201703L
@@ -21059,19 +17316,9 @@ public:
     return _localctx;
   }
 
-  class  HomeGraphContext : public antlr4::ParserRuleContext {
-  public:
-    HomeGraphContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *HOME_PROPERTY_GRAPH();
-    antlr4::tree::TerminalNode *HOME_GRAPH();
-
-   
-  };
-
   template<typename ContextT>
-  HomeGraphContext* homeGraph(ContextT* ctx) {
-    HomeGraphContext *_localctx = _tracker.createInstance<HomeGraphContext>(_ctx, getState());
+  antlr4::ParserRuleContext* homeGraph(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 558, GQLParser::RuleHomeGraph);
     size_t _la = 0;
 
@@ -21092,7 +17339,7 @@ public:
       if (!(_la == GQLParser::HOME_GRAPH
 
       || _la == GQLParser::HOME_PROPERTY_GRAPH)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -21110,19 +17357,9 @@ public:
     return _localctx;
   }
 
-  class  GraphTypeReferenceContext : public antlr4::ParserRuleContext {
-  public:
-    GraphTypeReferenceContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    CatalogGraphTypeParentAndNameContext *catalogGraphTypeParentAndName();
-    ReferenceParameterSpecificationContext *referenceParameterSpecification();
-
-   
-  };
-
   template<typename ContextT>
-  GraphTypeReferenceContext* graphTypeReference(ContextT* ctx) {
-    GraphTypeReferenceContext *_localctx = _tracker.createInstance<GraphTypeReferenceContext>(_ctx, getState());
+  antlr4::ParserRuleContext* graphTypeReference(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 560, GQLParser::RuleGraphTypeReference);
 
   #if __cplusplus > 201703L
@@ -21173,19 +17410,9 @@ public:
     return _localctx;
   }
 
-  class  CatalogGraphTypeParentAndNameContext : public antlr4::ParserRuleContext {
-  public:
-    CatalogGraphTypeParentAndNameContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    GraphTypeNameContext *graphTypeName();
-    CatalogObjectParentReferenceContext *catalogObjectParentReference();
-
-   
-  };
-
   template<typename ContextT>
-  CatalogGraphTypeParentAndNameContext* catalogGraphTypeParentAndName(ContextT* ctx) {
-    CatalogGraphTypeParentAndNameContext *_localctx = _tracker.createInstance<CatalogGraphTypeParentAndNameContext>(_ctx, getState());
+  antlr4::ParserRuleContext* catalogGraphTypeParentAndName(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 562, GQLParser::RuleCatalogGraphTypeParentAndName);
 
   #if __cplusplus > 201703L
@@ -21232,21 +17459,9 @@ public:
     return _localctx;
   }
 
-  class  BindingTableReferenceContext : public antlr4::ParserRuleContext {
-  public:
-    BindingTableReferenceContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    CatalogObjectParentReferenceContext *catalogObjectParentReference();
-    BindingTableNameContext *bindingTableName();
-    DelimitedBindingTableNameContext *delimitedBindingTableName();
-    ReferenceParameterSpecificationContext *referenceParameterSpecification();
-
-   
-  };
-
   template<typename ContextT>
-  BindingTableReferenceContext* bindingTableReference(ContextT* ctx) {
-    BindingTableReferenceContext *_localctx = _tracker.createInstance<BindingTableReferenceContext>(_ctx, getState());
+  antlr4::ParserRuleContext* bindingTableReference(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 564, GQLParser::RuleBindingTableReference);
 
   #if __cplusplus > 201703L
@@ -21312,19 +17527,9 @@ public:
     return _localctx;
   }
 
-  class  ProcedureReferenceContext : public antlr4::ParserRuleContext {
-  public:
-    ProcedureReferenceContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    CatalogProcedureParentAndNameContext *catalogProcedureParentAndName();
-    ReferenceParameterSpecificationContext *referenceParameterSpecification();
-
-   
-  };
-
   template<typename ContextT>
-  ProcedureReferenceContext* procedureReference(ContextT* ctx) {
-    ProcedureReferenceContext *_localctx = _tracker.createInstance<ProcedureReferenceContext>(_ctx, getState());
+  antlr4::ParserRuleContext* procedureReference(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 566, GQLParser::RuleProcedureReference);
 
   #if __cplusplus > 201703L
@@ -21375,19 +17580,9 @@ public:
     return _localctx;
   }
 
-  class  CatalogProcedureParentAndNameContext : public antlr4::ParserRuleContext {
-  public:
-    CatalogProcedureParentAndNameContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ProcedureNameContext *procedureName();
-    CatalogObjectParentReferenceContext *catalogObjectParentReference();
-
-   
-  };
-
   template<typename ContextT>
-  CatalogProcedureParentAndNameContext* catalogProcedureParentAndName(ContextT* ctx) {
-    CatalogProcedureParentAndNameContext *_localctx = _tracker.createInstance<CatalogProcedureParentAndNameContext>(_ctx, getState());
+  antlr4::ParserRuleContext* catalogProcedureParentAndName(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 568, GQLParser::RuleCatalogProcedureParentAndName);
 
   #if __cplusplus > 201703L
@@ -21434,23 +17629,9 @@ public:
     return _localctx;
   }
 
-  class  CatalogObjectParentReferenceContext : public antlr4::ParserRuleContext {
-  public:
-    CatalogObjectParentReferenceContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SchemaReferenceContext *schemaReference();
-    antlr4::tree::TerminalNode *SOLIDUS();
-    std::vector<ObjectNameContext *> objectName();
-    ObjectNameContext* objectName(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> PERIOD();
-    antlr4::tree::TerminalNode* PERIOD(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  CatalogObjectParentReferenceContext* catalogObjectParentReference(ContextT* ctx) {
-    CatalogObjectParentReferenceContext *_localctx = _tracker.createInstance<CatalogObjectParentReferenceContext>(_ctx, getState());
+  antlr4::ParserRuleContext* catalogObjectParentReference(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 570, GQLParser::RuleCatalogObjectParentReference);
     size_t _la = 0;
 
@@ -21615,18 +17796,9 @@ public:
     return _localctx;
   }
 
-  class  ReferenceParameterSpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    ReferenceParameterSpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *SUBSTITUTED_PARAMETER_REFERENCE();
-
-   
-  };
-
   template<typename ContextT>
-  ReferenceParameterSpecificationContext* referenceParameterSpecification(ContextT* ctx) {
-    ReferenceParameterSpecificationContext *_localctx = _tracker.createInstance<ReferenceParameterSpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* referenceParameterSpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 572, GQLParser::RuleReferenceParameterSpecification);
 
   #if __cplusplus > 201703L
@@ -21659,20 +17831,9 @@ public:
     return _localctx;
   }
 
-  class  NestedGraphTypeSpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    NestedGraphTypeSpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_BRACE();
-    GraphTypeSpecificationBodyContext *graphTypeSpecificationBody();
-    antlr4::tree::TerminalNode *RIGHT_BRACE();
-
-   
-  };
-
   template<typename ContextT>
-  NestedGraphTypeSpecificationContext* nestedGraphTypeSpecification(ContextT* ctx) {
-    NestedGraphTypeSpecificationContext *_localctx = _tracker.createInstance<NestedGraphTypeSpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nestedGraphTypeSpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 574, GQLParser::RuleNestedGraphTypeSpecification);
 
   #if __cplusplus > 201703L
@@ -21717,18 +17878,9 @@ public:
     return _localctx;
   }
 
-  class  GraphTypeSpecificationBodyContext : public antlr4::ParserRuleContext {
-  public:
-    GraphTypeSpecificationBodyContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ElementTypeListContext *elementTypeList();
-
-   
-  };
-
   template<typename ContextT>
-  GraphTypeSpecificationBodyContext* graphTypeSpecificationBody(ContextT* ctx) {
-    GraphTypeSpecificationBodyContext *_localctx = _tracker.createInstance<GraphTypeSpecificationBodyContext>(_ctx, getState());
+  antlr4::ParserRuleContext* graphTypeSpecificationBody(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 576, GQLParser::RuleGraphTypeSpecificationBody);
 
   #if __cplusplus > 201703L
@@ -21759,21 +17911,9 @@ public:
     return _localctx;
   }
 
-  class  ElementTypeListContext : public antlr4::ParserRuleContext {
-  public:
-    ElementTypeListContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<ElementTypeSpecificationContext *> elementTypeSpecification();
-    ElementTypeSpecificationContext* elementTypeSpecification(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  ElementTypeListContext* elementTypeList(ContextT* ctx) {
-    ElementTypeListContext *_localctx = _tracker.createInstance<ElementTypeListContext>(_ctx, getState());
+  antlr4::ParserRuleContext* elementTypeList(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 578, GQLParser::RuleElementTypeList);
     size_t _la = 0;
 
@@ -21825,19 +17965,9 @@ public:
     return _localctx;
   }
 
-  class  ElementTypeSpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    ElementTypeSpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NodeTypeSpecificationContext *nodeTypeSpecification();
-    EdgeTypeSpecificationContext *edgeTypeSpecification();
-
-   
-  };
-
   template<typename ContextT>
-  ElementTypeSpecificationContext* elementTypeSpecification(ContextT* ctx) {
-    ElementTypeSpecificationContext *_localctx = _tracker.createInstance<ElementTypeSpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* elementTypeSpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 580, GQLParser::RuleElementTypeSpecification);
 
   #if __cplusplus > 201703L
@@ -21888,19 +18018,9 @@ public:
     return _localctx;
   }
 
-  class  NodeTypeSpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    NodeTypeSpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NodeTypePatternContext *nodeTypePattern();
-    NodeTypePhraseContext *nodeTypePhrase();
-
-   
-  };
-
   template<typename ContextT>
-  NodeTypeSpecificationContext* nodeTypeSpecification(ContextT* ctx) {
-    NodeTypeSpecificationContext *_localctx = _tracker.createInstance<NodeTypeSpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nodeTypeSpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 582, GQLParser::RuleNodeTypeSpecification);
 
   #if __cplusplus > 201703L
@@ -21951,24 +18071,9 @@ public:
     return _localctx;
   }
 
-  class  NodeTypePatternContext : public antlr4::ParserRuleContext {
-  public:
-    NodeTypePatternContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    NodeSynonymContext *nodeSynonym();
-    NodeTypeNameContext *nodeTypeName();
-    LocalNodeTypeAliasContext *localNodeTypeAlias();
-    NodeTypeFillerContext *nodeTypeFiller();
-    antlr4::tree::TerminalNode *TYPE();
-
-   
-  };
-
   template<typename ContextT>
-  NodeTypePatternContext* nodeTypePattern(ContextT* ctx) {
-    NodeTypePatternContext *_localctx = _tracker.createInstance<NodeTypePatternContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nodeTypePattern(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 584, GQLParser::RuleNodeTypePattern);
     size_t _la = 0;
 
@@ -22071,22 +18176,9 @@ public:
     return _localctx;
   }
 
-  class  NodeTypePhraseContext : public antlr4::ParserRuleContext {
-  public:
-    NodeTypePhraseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NodeSynonymContext *nodeSynonym();
-    NodeTypePhraseFillerContext *nodeTypePhraseFiller();
-    antlr4::tree::TerminalNode *TYPE();
-    antlr4::tree::TerminalNode *AS();
-    LocalNodeTypeAliasContext *localNodeTypeAlias();
-
-   
-  };
-
   template<typename ContextT>
-  NodeTypePhraseContext* nodeTypePhrase(ContextT* ctx) {
-    NodeTypePhraseContext *_localctx = _tracker.createInstance<NodeTypePhraseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nodeTypePhrase(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 586, GQLParser::RuleNodeTypePhrase);
     size_t _la = 0;
 
@@ -22159,19 +18251,9 @@ public:
     return _localctx;
   }
 
-  class  NodeTypePhraseFillerContext : public antlr4::ParserRuleContext {
-  public:
-    NodeTypePhraseFillerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NodeTypeNameContext *nodeTypeName();
-    NodeTypeFillerContext *nodeTypeFiller();
-
-   
-  };
-
   template<typename ContextT>
-  NodeTypePhraseFillerContext* nodeTypePhraseFiller(ContextT* ctx) {
-    NodeTypePhraseFillerContext *_localctx = _tracker.createInstance<NodeTypePhraseFillerContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nodeTypePhraseFiller(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 588, GQLParser::RuleNodeTypePhraseFiller);
 
   #if __cplusplus > 201703L
@@ -22238,19 +18320,9 @@ public:
     return _localctx;
   }
 
-  class  NodeTypeFillerContext : public antlr4::ParserRuleContext {
-  public:
-    NodeTypeFillerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NodeTypeKeyLabelSetContext *nodeTypeKeyLabelSet();
-    NodeTypeImpliedContentContext *nodeTypeImpliedContent();
-
-   
-  };
-
   template<typename ContextT>
-  NodeTypeFillerContext* nodeTypeFiller(ContextT* ctx) {
-    NodeTypeFillerContext *_localctx = _tracker.createInstance<NodeTypeFillerContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nodeTypeFiller(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 590, GQLParser::RuleNodeTypeFiller);
 
   #if __cplusplus > 201703L
@@ -22317,18 +18389,9 @@ public:
     return _localctx;
   }
 
-  class  LocalNodeTypeAliasContext : public antlr4::ParserRuleContext {
-  public:
-    LocalNodeTypeAliasContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    RegularIdentifierContext *regularIdentifier();
-
-   
-  };
-
   template<typename ContextT>
-  LocalNodeTypeAliasContext* localNodeTypeAlias(ContextT* ctx) {
-    LocalNodeTypeAliasContext *_localctx = _tracker.createInstance<LocalNodeTypeAliasContext>(_ctx, getState());
+  antlr4::ParserRuleContext* localNodeTypeAlias(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 592, GQLParser::RuleLocalNodeTypeAlias);
 
   #if __cplusplus > 201703L
@@ -22359,19 +18422,9 @@ public:
     return _localctx;
   }
 
-  class  NodeTypeImpliedContentContext : public antlr4::ParserRuleContext {
-  public:
-    NodeTypeImpliedContentContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NodeTypeLabelSetContext *nodeTypeLabelSet();
-    NodeTypePropertyTypesContext *nodeTypePropertyTypes();
-
-   
-  };
-
   template<typename ContextT>
-  NodeTypeImpliedContentContext* nodeTypeImpliedContent(ContextT* ctx) {
-    NodeTypeImpliedContentContext *_localctx = _tracker.createInstance<NodeTypeImpliedContentContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nodeTypeImpliedContent(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 594, GQLParser::RuleNodeTypeImpliedContent);
 
   #if __cplusplus > 201703L
@@ -22437,19 +18490,9 @@ public:
     return _localctx;
   }
 
-  class  NodeTypeKeyLabelSetContext : public antlr4::ParserRuleContext {
-  public:
-    NodeTypeKeyLabelSetContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *IMPLIES();
-    LabelSetPhraseContext *labelSetPhrase();
-
-   
-  };
-
   template<typename ContextT>
-  NodeTypeKeyLabelSetContext* nodeTypeKeyLabelSet(ContextT* ctx) {
-    NodeTypeKeyLabelSetContext *_localctx = _tracker.createInstance<NodeTypeKeyLabelSetContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nodeTypeKeyLabelSet(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 596, GQLParser::RuleNodeTypeKeyLabelSet);
     size_t _la = 0;
 
@@ -22496,18 +18539,9 @@ public:
     return _localctx;
   }
 
-  class  NodeTypeLabelSetContext : public antlr4::ParserRuleContext {
-  public:
-    NodeTypeLabelSetContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    LabelSetPhraseContext *labelSetPhrase();
-
-   
-  };
-
   template<typename ContextT>
-  NodeTypeLabelSetContext* nodeTypeLabelSet(ContextT* ctx) {
-    NodeTypeLabelSetContext *_localctx = _tracker.createInstance<NodeTypeLabelSetContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nodeTypeLabelSet(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 598, GQLParser::RuleNodeTypeLabelSet);
 
   #if __cplusplus > 201703L
@@ -22538,18 +18572,9 @@ public:
     return _localctx;
   }
 
-  class  NodeTypePropertyTypesContext : public antlr4::ParserRuleContext {
-  public:
-    NodeTypePropertyTypesContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    PropertyTypesSpecificationContext *propertyTypesSpecification();
-
-   
-  };
-
   template<typename ContextT>
-  NodeTypePropertyTypesContext* nodeTypePropertyTypes(ContextT* ctx) {
-    NodeTypePropertyTypesContext *_localctx = _tracker.createInstance<NodeTypePropertyTypesContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nodeTypePropertyTypes(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 600, GQLParser::RuleNodeTypePropertyTypes);
 
   #if __cplusplus > 201703L
@@ -22580,19 +18605,9 @@ public:
     return _localctx;
   }
 
-  class  EdgeTypeSpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    EdgeTypeSpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    EdgeTypePatternContext *edgeTypePattern();
-    EdgeTypePhraseContext *edgeTypePhrase();
-
-   
-  };
-
   template<typename ContextT>
-  EdgeTypeSpecificationContext* edgeTypeSpecification(ContextT* ctx) {
-    EdgeTypeSpecificationContext *_localctx = _tracker.createInstance<EdgeTypeSpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* edgeTypeSpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 602, GQLParser::RuleEdgeTypeSpecification);
 
   #if __cplusplus > 201703L
@@ -22643,23 +18658,9 @@ public:
     return _localctx;
   }
 
-  class  EdgeTypePatternContext : public antlr4::ParserRuleContext {
-  public:
-    EdgeTypePatternContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    EdgeTypePatternDirectedContext *edgeTypePatternDirected();
-    EdgeTypePatternUndirectedContext *edgeTypePatternUndirected();
-    EdgeSynonymContext *edgeSynonym();
-    EdgeTypeNameContext *edgeTypeName();
-    EdgeKindContext *edgeKind();
-    antlr4::tree::TerminalNode *TYPE();
-
-   
-  };
-
   template<typename ContextT>
-  EdgeTypePatternContext* edgeTypePattern(ContextT* ctx) {
-    EdgeTypePatternContext *_localctx = _tracker.createInstance<EdgeTypePatternContext>(_ctx, getState());
+  antlr4::ParserRuleContext* edgeTypePattern(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 604, GQLParser::RuleEdgeTypePattern);
     size_t _la = 0;
 
@@ -22753,22 +18754,9 @@ public:
     return _localctx;
   }
 
-  class  EdgeTypePhraseContext : public antlr4::ParserRuleContext {
-  public:
-    EdgeTypePhraseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    EdgeKindContext *edgeKind();
-    EdgeSynonymContext *edgeSynonym();
-    EdgeTypePhraseFillerContext *edgeTypePhraseFiller();
-    EndpointPairPhraseContext *endpointPairPhrase();
-    antlr4::tree::TerminalNode *TYPE();
-
-   
-  };
-
   template<typename ContextT>
-  EdgeTypePhraseContext* edgeTypePhrase(ContextT* ctx) {
-    EdgeTypePhraseContext *_localctx = _tracker.createInstance<EdgeTypePhraseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* edgeTypePhrase(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 606, GQLParser::RuleEdgeTypePhrase);
     size_t _la = 0;
 
@@ -22828,19 +18816,9 @@ public:
     return _localctx;
   }
 
-  class  EdgeTypePhraseFillerContext : public antlr4::ParserRuleContext {
-  public:
-    EdgeTypePhraseFillerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    EdgeTypeNameContext *edgeTypeName();
-    EdgeTypeFillerContext *edgeTypeFiller();
-
-   
-  };
-
   template<typename ContextT>
-  EdgeTypePhraseFillerContext* edgeTypePhraseFiller(ContextT* ctx) {
-    EdgeTypePhraseFillerContext *_localctx = _tracker.createInstance<EdgeTypePhraseFillerContext>(_ctx, getState());
+  antlr4::ParserRuleContext* edgeTypePhraseFiller(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 608, GQLParser::RuleEdgeTypePhraseFiller);
     size_t _la = 0;
 
@@ -22907,19 +18885,9 @@ public:
     return _localctx;
   }
 
-  class  EdgeTypeFillerContext : public antlr4::ParserRuleContext {
-  public:
-    EdgeTypeFillerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    EdgeTypeKeyLabelSetContext *edgeTypeKeyLabelSet();
-    EdgeTypeImpliedContentContext *edgeTypeImpliedContent();
-
-   
-  };
-
   template<typename ContextT>
-  EdgeTypeFillerContext* edgeTypeFiller(ContextT* ctx) {
-    EdgeTypeFillerContext *_localctx = _tracker.createInstance<EdgeTypeFillerContext>(_ctx, getState());
+  antlr4::ParserRuleContext* edgeTypeFiller(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 610, GQLParser::RuleEdgeTypeFiller);
     size_t _la = 0;
 
@@ -22986,19 +18954,9 @@ public:
     return _localctx;
   }
 
-  class  EdgeTypeImpliedContentContext : public antlr4::ParserRuleContext {
-  public:
-    EdgeTypeImpliedContentContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    EdgeTypeLabelSetContext *edgeTypeLabelSet();
-    EdgeTypePropertyTypesContext *edgeTypePropertyTypes();
-
-   
-  };
-
   template<typename ContextT>
-  EdgeTypeImpliedContentContext* edgeTypeImpliedContent(ContextT* ctx) {
-    EdgeTypeImpliedContentContext *_localctx = _tracker.createInstance<EdgeTypeImpliedContentContext>(_ctx, getState());
+  antlr4::ParserRuleContext* edgeTypeImpliedContent(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 612, GQLParser::RuleEdgeTypeImpliedContent);
 
   #if __cplusplus > 201703L
@@ -23064,19 +19022,9 @@ public:
     return _localctx;
   }
 
-  class  EdgeTypeKeyLabelSetContext : public antlr4::ParserRuleContext {
-  public:
-    EdgeTypeKeyLabelSetContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *IMPLIES();
-    LabelSetPhraseContext *labelSetPhrase();
-
-   
-  };
-
   template<typename ContextT>
-  EdgeTypeKeyLabelSetContext* edgeTypeKeyLabelSet(ContextT* ctx) {
-    EdgeTypeKeyLabelSetContext *_localctx = _tracker.createInstance<EdgeTypeKeyLabelSetContext>(_ctx, getState());
+  antlr4::ParserRuleContext* edgeTypeKeyLabelSet(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 614, GQLParser::RuleEdgeTypeKeyLabelSet);
     size_t _la = 0;
 
@@ -23123,18 +19071,9 @@ public:
     return _localctx;
   }
 
-  class  EdgeTypeLabelSetContext : public antlr4::ParserRuleContext {
-  public:
-    EdgeTypeLabelSetContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    LabelSetPhraseContext *labelSetPhrase();
-
-   
-  };
-
   template<typename ContextT>
-  EdgeTypeLabelSetContext* edgeTypeLabelSet(ContextT* ctx) {
-    EdgeTypeLabelSetContext *_localctx = _tracker.createInstance<EdgeTypeLabelSetContext>(_ctx, getState());
+  antlr4::ParserRuleContext* edgeTypeLabelSet(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 616, GQLParser::RuleEdgeTypeLabelSet);
 
   #if __cplusplus > 201703L
@@ -23165,18 +19104,9 @@ public:
     return _localctx;
   }
 
-  class  EdgeTypePropertyTypesContext : public antlr4::ParserRuleContext {
-  public:
-    EdgeTypePropertyTypesContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    PropertyTypesSpecificationContext *propertyTypesSpecification();
-
-   
-  };
-
   template<typename ContextT>
-  EdgeTypePropertyTypesContext* edgeTypePropertyTypes(ContextT* ctx) {
-    EdgeTypePropertyTypesContext *_localctx = _tracker.createInstance<EdgeTypePropertyTypesContext>(_ctx, getState());
+  antlr4::ParserRuleContext* edgeTypePropertyTypes(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 618, GQLParser::RuleEdgeTypePropertyTypes);
 
   #if __cplusplus > 201703L
@@ -23207,19 +19137,9 @@ public:
     return _localctx;
   }
 
-  class  EdgeTypePatternDirectedContext : public antlr4::ParserRuleContext {
-  public:
-    EdgeTypePatternDirectedContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    EdgeTypePatternPointingRightContext *edgeTypePatternPointingRight();
-    EdgeTypePatternPointingLeftContext *edgeTypePatternPointingLeft();
-
-   
-  };
-
   template<typename ContextT>
-  EdgeTypePatternDirectedContext* edgeTypePatternDirected(ContextT* ctx) {
-    EdgeTypePatternDirectedContext *_localctx = _tracker.createInstance<EdgeTypePatternDirectedContext>(_ctx, getState());
+  antlr4::ParserRuleContext* edgeTypePatternDirected(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 620, GQLParser::RuleEdgeTypePatternDirected);
 
   #if __cplusplus > 201703L
@@ -23270,20 +19190,9 @@ public:
     return _localctx;
   }
 
-  class  EdgeTypePatternPointingRightContext : public antlr4::ParserRuleContext {
-  public:
-    EdgeTypePatternPointingRightContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SourceNodeTypeReferenceContext *sourceNodeTypeReference();
-    ArcTypePointingRightContext *arcTypePointingRight();
-    DestinationNodeTypeReferenceContext *destinationNodeTypeReference();
-
-   
-  };
-
   template<typename ContextT>
-  EdgeTypePatternPointingRightContext* edgeTypePatternPointingRight(ContextT* ctx) {
-    EdgeTypePatternPointingRightContext *_localctx = _tracker.createInstance<EdgeTypePatternPointingRightContext>(_ctx, getState());
+  antlr4::ParserRuleContext* edgeTypePatternPointingRight(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 622, GQLParser::RuleEdgeTypePatternPointingRight);
 
   #if __cplusplus > 201703L
@@ -23324,20 +19233,9 @@ public:
     return _localctx;
   }
 
-  class  EdgeTypePatternPointingLeftContext : public antlr4::ParserRuleContext {
-  public:
-    EdgeTypePatternPointingLeftContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    DestinationNodeTypeReferenceContext *destinationNodeTypeReference();
-    ArcTypePointingLeftContext *arcTypePointingLeft();
-    SourceNodeTypeReferenceContext *sourceNodeTypeReference();
-
-   
-  };
-
   template<typename ContextT>
-  EdgeTypePatternPointingLeftContext* edgeTypePatternPointingLeft(ContextT* ctx) {
-    EdgeTypePatternPointingLeftContext *_localctx = _tracker.createInstance<EdgeTypePatternPointingLeftContext>(_ctx, getState());
+  antlr4::ParserRuleContext* edgeTypePatternPointingLeft(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 624, GQLParser::RuleEdgeTypePatternPointingLeft);
 
   #if __cplusplus > 201703L
@@ -23378,20 +19276,9 @@ public:
     return _localctx;
   }
 
-  class  EdgeTypePatternUndirectedContext : public antlr4::ParserRuleContext {
-  public:
-    EdgeTypePatternUndirectedContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SourceNodeTypeReferenceContext *sourceNodeTypeReference();
-    ArcTypeUndirectedContext *arcTypeUndirected();
-    DestinationNodeTypeReferenceContext *destinationNodeTypeReference();
-
-   
-  };
-
   template<typename ContextT>
-  EdgeTypePatternUndirectedContext* edgeTypePatternUndirected(ContextT* ctx) {
-    EdgeTypePatternUndirectedContext *_localctx = _tracker.createInstance<EdgeTypePatternUndirectedContext>(_ctx, getState());
+  antlr4::ParserRuleContext* edgeTypePatternUndirected(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 626, GQLParser::RuleEdgeTypePatternUndirected);
 
   #if __cplusplus > 201703L
@@ -23432,20 +19319,9 @@ public:
     return _localctx;
   }
 
-  class  ArcTypePointingRightContext : public antlr4::ParserRuleContext {
-  public:
-    ArcTypePointingRightContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *MINUS_LEFT_BRACKET();
-    EdgeTypeFillerContext *edgeTypeFiller();
-    antlr4::tree::TerminalNode *BRACKET_RIGHT_ARROW();
-
-   
-  };
-
   template<typename ContextT>
-  ArcTypePointingRightContext* arcTypePointingRight(ContextT* ctx) {
-    ArcTypePointingRightContext *_localctx = _tracker.createInstance<ArcTypePointingRightContext>(_ctx, getState());
+  antlr4::ParserRuleContext* arcTypePointingRight(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 628, GQLParser::RuleArcTypePointingRight);
 
   #if __cplusplus > 201703L
@@ -23490,20 +19366,9 @@ public:
     return _localctx;
   }
 
-  class  ArcTypePointingLeftContext : public antlr4::ParserRuleContext {
-  public:
-    ArcTypePointingLeftContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_ARROW_BRACKET();
-    EdgeTypeFillerContext *edgeTypeFiller();
-    antlr4::tree::TerminalNode *RIGHT_BRACKET_MINUS();
-
-   
-  };
-
   template<typename ContextT>
-  ArcTypePointingLeftContext* arcTypePointingLeft(ContextT* ctx) {
-    ArcTypePointingLeftContext *_localctx = _tracker.createInstance<ArcTypePointingLeftContext>(_ctx, getState());
+  antlr4::ParserRuleContext* arcTypePointingLeft(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 630, GQLParser::RuleArcTypePointingLeft);
 
   #if __cplusplus > 201703L
@@ -23548,20 +19413,9 @@ public:
     return _localctx;
   }
 
-  class  ArcTypeUndirectedContext : public antlr4::ParserRuleContext {
-  public:
-    ArcTypeUndirectedContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *TILDE_LEFT_BRACKET();
-    EdgeTypeFillerContext *edgeTypeFiller();
-    antlr4::tree::TerminalNode *RIGHT_BRACKET_TILDE();
-
-   
-  };
-
   template<typename ContextT>
-  ArcTypeUndirectedContext* arcTypeUndirected(ContextT* ctx) {
-    ArcTypeUndirectedContext *_localctx = _tracker.createInstance<ArcTypeUndirectedContext>(_ctx, getState());
+  antlr4::ParserRuleContext* arcTypeUndirected(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 632, GQLParser::RuleArcTypeUndirected);
 
   #if __cplusplus > 201703L
@@ -23606,21 +19460,9 @@ public:
     return _localctx;
   }
 
-  class  SourceNodeTypeReferenceContext : public antlr4::ParserRuleContext {
-  public:
-    SourceNodeTypeReferenceContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    SourceNodeTypeAliasContext *sourceNodeTypeAlias();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    NodeTypeFillerContext *nodeTypeFiller();
-
-   
-  };
-
   template<typename ContextT>
-  SourceNodeTypeReferenceContext* sourceNodeTypeReference(ContextT* ctx) {
-    SourceNodeTypeReferenceContext *_localctx = _tracker.createInstance<SourceNodeTypeReferenceContext>(_ctx, getState());
+  antlr4::ParserRuleContext* sourceNodeTypeReference(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 634, GQLParser::RuleSourceNodeTypeReference);
     size_t _la = 0;
 
@@ -23710,21 +19552,9 @@ public:
     return _localctx;
   }
 
-  class  DestinationNodeTypeReferenceContext : public antlr4::ParserRuleContext {
-  public:
-    DestinationNodeTypeReferenceContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    DestinationNodeTypeAliasContext *destinationNodeTypeAlias();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    NodeTypeFillerContext *nodeTypeFiller();
-
-   
-  };
-
   template<typename ContextT>
-  DestinationNodeTypeReferenceContext* destinationNodeTypeReference(ContextT* ctx) {
-    DestinationNodeTypeReferenceContext *_localctx = _tracker.createInstance<DestinationNodeTypeReferenceContext>(_ctx, getState());
+  antlr4::ParserRuleContext* destinationNodeTypeReference(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 636, GQLParser::RuleDestinationNodeTypeReference);
     size_t _la = 0;
 
@@ -23814,19 +19644,9 @@ public:
     return _localctx;
   }
 
-  class  EdgeKindContext : public antlr4::ParserRuleContext {
-  public:
-    EdgeKindContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *DIRECTED();
-    antlr4::tree::TerminalNode *UNDIRECTED();
-
-   
-  };
-
   template<typename ContextT>
-  EdgeKindContext* edgeKind(ContextT* ctx) {
-    EdgeKindContext *_localctx = _tracker.createInstance<EdgeKindContext>(_ctx, getState());
+  antlr4::ParserRuleContext* edgeKind(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 638, GQLParser::RuleEdgeKind);
     size_t _la = 0;
 
@@ -23847,7 +19667,7 @@ public:
       if (!(_la == GQLParser::DIRECTED
 
       || _la == GQLParser::UNDIRECTED)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -23865,19 +19685,9 @@ public:
     return _localctx;
   }
 
-  class  EndpointPairPhraseContext : public antlr4::ParserRuleContext {
-  public:
-    EndpointPairPhraseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *CONNECTING();
-    EndpointPairContext *endpointPair();
-
-   
-  };
-
   template<typename ContextT>
-  EndpointPairPhraseContext* endpointPairPhrase(ContextT* ctx) {
-    EndpointPairPhraseContext *_localctx = _tracker.createInstance<EndpointPairPhraseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* endpointPairPhrase(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 640, GQLParser::RuleEndpointPairPhrase);
 
   #if __cplusplus > 201703L
@@ -23915,19 +19725,9 @@ public:
     return _localctx;
   }
 
-  class  EndpointPairContext : public antlr4::ParserRuleContext {
-  public:
-    EndpointPairContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    EndpointPairDirectedContext *endpointPairDirected();
-    EndpointPairUndirectedContext *endpointPairUndirected();
-
-   
-  };
-
   template<typename ContextT>
-  EndpointPairContext* endpointPair(ContextT* ctx) {
-    EndpointPairContext *_localctx = _tracker.createInstance<EndpointPairContext>(_ctx, getState());
+  antlr4::ParserRuleContext* endpointPair(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 642, GQLParser::RuleEndpointPair);
 
   #if __cplusplus > 201703L
@@ -23978,19 +19778,9 @@ public:
     return _localctx;
   }
 
-  class  EndpointPairDirectedContext : public antlr4::ParserRuleContext {
-  public:
-    EndpointPairDirectedContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    EndpointPairPointingRightContext *endpointPairPointingRight();
-    EndpointPairPointingLeftContext *endpointPairPointingLeft();
-
-   
-  };
-
   template<typename ContextT>
-  EndpointPairDirectedContext* endpointPairDirected(ContextT* ctx) {
-    EndpointPairDirectedContext *_localctx = _tracker.createInstance<EndpointPairDirectedContext>(_ctx, getState());
+  antlr4::ParserRuleContext* endpointPairDirected(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 644, GQLParser::RuleEndpointPairDirected);
 
   #if __cplusplus > 201703L
@@ -24041,22 +19831,9 @@ public:
     return _localctx;
   }
 
-  class  EndpointPairPointingRightContext : public antlr4::ParserRuleContext {
-  public:
-    EndpointPairPointingRightContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    SourceNodeTypeAliasContext *sourceNodeTypeAlias();
-    ConnectorPointingRightContext *connectorPointingRight();
-    DestinationNodeTypeAliasContext *destinationNodeTypeAlias();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  EndpointPairPointingRightContext* endpointPairPointingRight(ContextT* ctx) {
-    EndpointPairPointingRightContext *_localctx = _tracker.createInstance<EndpointPairPointingRightContext>(_ctx, getState());
+  antlr4::ParserRuleContext* endpointPairPointingRight(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 646, GQLParser::RuleEndpointPairPointingRight);
 
   #if __cplusplus > 201703L
@@ -24111,22 +19888,9 @@ public:
     return _localctx;
   }
 
-  class  EndpointPairPointingLeftContext : public antlr4::ParserRuleContext {
-  public:
-    EndpointPairPointingLeftContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    DestinationNodeTypeAliasContext *destinationNodeTypeAlias();
-    antlr4::tree::TerminalNode *LEFT_ARROW();
-    SourceNodeTypeAliasContext *sourceNodeTypeAlias();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  EndpointPairPointingLeftContext* endpointPairPointingLeft(ContextT* ctx) {
-    EndpointPairPointingLeftContext *_localctx = _tracker.createInstance<EndpointPairPointingLeftContext>(_ctx, getState());
+  antlr4::ParserRuleContext* endpointPairPointingLeft(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 648, GQLParser::RuleEndpointPairPointingLeft);
 
   #if __cplusplus > 201703L
@@ -24183,22 +19947,9 @@ public:
     return _localctx;
   }
 
-  class  EndpointPairUndirectedContext : public antlr4::ParserRuleContext {
-  public:
-    EndpointPairUndirectedContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    SourceNodeTypeAliasContext *sourceNodeTypeAlias();
-    ConnectorUndirectedContext *connectorUndirected();
-    DestinationNodeTypeAliasContext *destinationNodeTypeAlias();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  EndpointPairUndirectedContext* endpointPairUndirected(ContextT* ctx) {
-    EndpointPairUndirectedContext *_localctx = _tracker.createInstance<EndpointPairUndirectedContext>(_ctx, getState());
+  antlr4::ParserRuleContext* endpointPairUndirected(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 650, GQLParser::RuleEndpointPairUndirected);
 
   #if __cplusplus > 201703L
@@ -24253,19 +20004,9 @@ public:
     return _localctx;
   }
 
-  class  ConnectorPointingRightContext : public antlr4::ParserRuleContext {
-  public:
-    ConnectorPointingRightContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *TO();
-    antlr4::tree::TerminalNode *RIGHT_ARROW();
-
-   
-  };
-
   template<typename ContextT>
-  ConnectorPointingRightContext* connectorPointingRight(ContextT* ctx) {
-    ConnectorPointingRightContext *_localctx = _tracker.createInstance<ConnectorPointingRightContext>(_ctx, getState());
+  antlr4::ParserRuleContext* connectorPointingRight(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 652, GQLParser::RuleConnectorPointingRight);
     size_t _la = 0;
 
@@ -24286,7 +20027,7 @@ public:
       if (!(_la == GQLParser::TO
 
       || _la == GQLParser::RIGHT_ARROW)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -24304,19 +20045,9 @@ public:
     return _localctx;
   }
 
-  class  ConnectorUndirectedContext : public antlr4::ParserRuleContext {
-  public:
-    ConnectorUndirectedContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *TO();
-    antlr4::tree::TerminalNode *TILDE();
-
-   
-  };
-
   template<typename ContextT>
-  ConnectorUndirectedContext* connectorUndirected(ContextT* ctx) {
-    ConnectorUndirectedContext *_localctx = _tracker.createInstance<ConnectorUndirectedContext>(_ctx, getState());
+  antlr4::ParserRuleContext* connectorUndirected(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 654, GQLParser::RuleConnectorUndirected);
     size_t _la = 0;
 
@@ -24335,7 +20066,7 @@ public:
       setState(3017);
       _la = _input->LA(1);
       if (!(_la == GQLParser::TO || _la == GQLParser::TILDE)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -24353,18 +20084,9 @@ public:
     return _localctx;
   }
 
-  class  SourceNodeTypeAliasContext : public antlr4::ParserRuleContext {
-  public:
-    SourceNodeTypeAliasContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    RegularIdentifierContext *regularIdentifier();
-
-   
-  };
-
   template<typename ContextT>
-  SourceNodeTypeAliasContext* sourceNodeTypeAlias(ContextT* ctx) {
-    SourceNodeTypeAliasContext *_localctx = _tracker.createInstance<SourceNodeTypeAliasContext>(_ctx, getState());
+  antlr4::ParserRuleContext* sourceNodeTypeAlias(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 656, GQLParser::RuleSourceNodeTypeAlias);
 
   #if __cplusplus > 201703L
@@ -24395,18 +20117,9 @@ public:
     return _localctx;
   }
 
-  class  DestinationNodeTypeAliasContext : public antlr4::ParserRuleContext {
-  public:
-    DestinationNodeTypeAliasContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    RegularIdentifierContext *regularIdentifier();
-
-   
-  };
-
   template<typename ContextT>
-  DestinationNodeTypeAliasContext* destinationNodeTypeAlias(ContextT* ctx) {
-    DestinationNodeTypeAliasContext *_localctx = _tracker.createInstance<DestinationNodeTypeAliasContext>(_ctx, getState());
+  antlr4::ParserRuleContext* destinationNodeTypeAlias(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 658, GQLParser::RuleDestinationNodeTypeAlias);
 
   #if __cplusplus > 201703L
@@ -24437,22 +20150,9 @@ public:
     return _localctx;
   }
 
-  class  LabelSetPhraseContext : public antlr4::ParserRuleContext {
-  public:
-    LabelSetPhraseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LABEL();
-    LabelNameContext *labelName();
-    antlr4::tree::TerminalNode *LABELS();
-    LabelSetSpecificationContext *labelSetSpecification();
-    IsOrColonContext *isOrColon();
-
-   
-  };
-
   template<typename ContextT>
-  LabelSetPhraseContext* labelSetPhrase(ContextT* ctx) {
-    LabelSetPhraseContext *_localctx = _tracker.createInstance<LabelSetPhraseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* labelSetPhrase(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 660, GQLParser::RuleLabelSetPhrase);
 
   #if __cplusplus > 201703L
@@ -24533,21 +20233,9 @@ public:
     return _localctx;
   }
 
-  class  LabelSetSpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    LabelSetSpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<LabelNameContext *> labelName();
-    LabelNameContext* labelName(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> AMPERSAND();
-    antlr4::tree::TerminalNode* AMPERSAND(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  LabelSetSpecificationContext* labelSetSpecification(ContextT* ctx) {
-    LabelSetSpecificationContext *_localctx = _tracker.createInstance<LabelSetSpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* labelSetSpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 662, GQLParser::RuleLabelSetSpecification);
 
   #if __cplusplus > 201703L
@@ -24601,20 +20289,9 @@ public:
     return _localctx;
   }
 
-  class  PropertyTypesSpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    PropertyTypesSpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_BRACE();
-    antlr4::tree::TerminalNode *RIGHT_BRACE();
-    PropertyTypeListContext *propertyTypeList();
-
-   
-  };
-
   template<typename ContextT>
-  PropertyTypesSpecificationContext* propertyTypesSpecification(ContextT* ctx) {
-    PropertyTypesSpecificationContext *_localctx = _tracker.createInstance<PropertyTypesSpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* propertyTypesSpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 664, GQLParser::RulePropertyTypesSpecification);
     size_t _la = 0;
 
@@ -24669,21 +20346,9 @@ public:
     return _localctx;
   }
 
-  class  PropertyTypeListContext : public antlr4::ParserRuleContext {
-  public:
-    PropertyTypeListContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<PropertyTypeContext *> propertyType();
-    PropertyTypeContext* propertyType(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  PropertyTypeListContext* propertyTypeList(ContextT* ctx) {
-    PropertyTypeListContext *_localctx = _tracker.createInstance<PropertyTypeListContext>(_ctx, getState());
+  antlr4::ParserRuleContext* propertyTypeList(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 666, GQLParser::RulePropertyTypeList);
     size_t _la = 0;
 
@@ -24735,20 +20400,9 @@ public:
     return _localctx;
   }
 
-  class  PropertyTypeContext : public antlr4::ParserRuleContext {
-  public:
-    PropertyTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    PropertyNameContext *propertyName();
-    PropertyValueTypeContext *propertyValueType();
-    TypedContext *typed();
-
-   
-  };
-
   template<typename ContextT>
-  PropertyTypeContext* propertyType(ContextT* ctx) {
-    PropertyTypeContext *_localctx = _tracker.createInstance<PropertyTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* propertyType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 668, GQLParser::RulePropertyType);
     size_t _la = 0;
 
@@ -24796,18 +20450,9 @@ public:
     return _localctx;
   }
 
-  class  PropertyValueTypeContext : public antlr4::ParserRuleContext {
-  public:
-    PropertyValueTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ValueTypeContext *valueType();
-
-   
-  };
-
   template<typename ContextT>
-  PropertyValueTypeContext* propertyValueType(ContextT* ctx) {
-    PropertyValueTypeContext *_localctx = _tracker.createInstance<PropertyValueTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* propertyValueType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 670, GQLParser::RulePropertyValueType);
 
   #if __cplusplus > 201703L
@@ -24838,20 +20483,9 @@ public:
     return _localctx;
   }
 
-  class  BindingTableTypeContext : public antlr4::ParserRuleContext {
-  public:
-    BindingTableTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *TABLE();
-    FieldTypesSpecificationContext *fieldTypesSpecification();
-    antlr4::tree::TerminalNode *BINDING();
-
-   
-  };
-
   template<typename ContextT>
-  BindingTableTypeContext* bindingTableType(ContextT* ctx) {
-    BindingTableTypeContext *_localctx = _tracker.createInstance<BindingTableTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* bindingTableType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 672, GQLParser::RuleBindingTableType);
     size_t _la = 0;
 
@@ -24903,131 +20537,18 @@ public:
     return _localctx;
   }
 
-  class  ValueTypeContext : public antlr4::ParserRuleContext {
-  public:
-    ValueTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-   
-    ValueTypeContext() = default;
-    void copyFrom(ValueTypeContext *context);
-    using antlr4::ParserRuleContext::copyFrom;
-
-    virtual size_t getRuleIndex() const override;
-
-   
-  };
-
-  class  DynamicPropertyValueTypeLabelContext : public ValueTypeContext {
-  public:
-    DynamicPropertyValueTypeLabelContext(ValueTypeContext *ctx);
-
-    antlr4::tree::TerminalNode *PROPERTY();
-    antlr4::tree::TerminalNode *VALUE();
-    antlr4::tree::TerminalNode *ANY();
-    NotNullContext *notNull();
-  };
-
-  class  ClosedDynamicUnionTypeAtl1Context : public ValueTypeContext {
-  public:
-    ClosedDynamicUnionTypeAtl1Context(ValueTypeContext *ctx);
-
-    antlr4::tree::TerminalNode *ANY();
-    antlr4::tree::TerminalNode *LEFT_ANGLE_BRACKET();
-    std::vector<ValueTypeContext *> valueType();
-    ValueTypeContext* valueType(size_t i);
-    antlr4::tree::TerminalNode *RIGHT_ANGLE_BRACKET();
-    antlr4::tree::TerminalNode *VALUE();
-    std::vector<antlr4::tree::TerminalNode *> VERTICAL_BAR();
-    antlr4::tree::TerminalNode* VERTICAL_BAR(size_t i);
-  };
-
-  class  ClosedDynamicUnionTypeAtl2Context : public ValueTypeContext {
-  public:
-    ClosedDynamicUnionTypeAtl2Context(ValueTypeContext *ctx);
-
-    std::vector<ValueTypeContext *> valueType();
-    ValueTypeContext* valueType(size_t i);
-    antlr4::tree::TerminalNode *VERTICAL_BAR();
-  };
-
-  class  PathValueTypeLabelContext : public ValueTypeContext {
-  public:
-    PathValueTypeLabelContext(ValueTypeContext *ctx);
-
-    PathValueTypeContext *pathValueType();
-  };
-
-  class  ListValueTypeAlt3Context : public ValueTypeContext {
-  public:
-    ListValueTypeAlt3Context(ValueTypeContext *ctx);
-
-    ListValueTypeNameContext *listValueTypeName();
-    antlr4::tree::TerminalNode *LEFT_BRACKET();
-    MaxLengthContext *maxLength();
-    antlr4::tree::TerminalNode *RIGHT_BRACKET();
-    NotNullContext *notNull();
-  };
-
-  class  ListValueTypeAlt2Context : public ValueTypeContext {
-  public:
-    ListValueTypeAlt2Context(ValueTypeContext *ctx);
-
-    ValueTypeContext *valueType();
-    ListValueTypeNameContext *listValueTypeName();
-    antlr4::tree::TerminalNode *LEFT_BRACKET();
-    MaxLengthContext *maxLength();
-    antlr4::tree::TerminalNode *RIGHT_BRACKET();
-    NotNullContext *notNull();
-  };
-
-  class  ListValueTypeAlt1Context : public ValueTypeContext {
-  public:
-    ListValueTypeAlt1Context(ValueTypeContext *ctx);
-
-    ListValueTypeNameContext *listValueTypeName();
-    antlr4::tree::TerminalNode *LEFT_ANGLE_BRACKET();
-    ValueTypeContext *valueType();
-    antlr4::tree::TerminalNode *RIGHT_ANGLE_BRACKET();
-    antlr4::tree::TerminalNode *LEFT_BRACKET();
-    MaxLengthContext *maxLength();
-    antlr4::tree::TerminalNode *RIGHT_BRACKET();
-    NotNullContext *notNull();
-  };
-
-  class  PredefinedTypeLabelContext : public ValueTypeContext {
-  public:
-    PredefinedTypeLabelContext(ValueTypeContext *ctx);
-
-    PredefinedTypeContext *predefinedType();
-  };
-
-  class  RecordTypeLabelContext : public ValueTypeContext {
-  public:
-    RecordTypeLabelContext(ValueTypeContext *ctx);
-
-    RecordTypeContext *recordType();
-  };
-
-  class  OpenDynamicUnionTypeLabelContext : public ValueTypeContext {
-  public:
-    OpenDynamicUnionTypeLabelContext(ValueTypeContext *ctx);
-
-    antlr4::tree::TerminalNode *ANY();
-    antlr4::tree::TerminalNode *VALUE();
-    NotNullContext *notNull();
-  };
-
 
   template<typename ContextT>
-  ValueTypeContext* valueType(ContextT* ctx) {
+  antlr4::ParserRuleContext* valueType(ContextT* ctx) {
      return valueType(0, ctx);
   }
 
   template<typename ContextT>
-  ValueTypeContext* valueType(int precedence, ContextT* ctx) {
+  antlr4::ParserRuleContext* valueType(int precedence, ContextT* ctx) {
     antlr4::ParserRuleContext *parentContext = _ctx;
     size_t parentState = getState();
-    GQLParser::ValueTypeContext *_localctx = _tracker.createInstance<ValueTypeContext>(_ctx, parentState);
-    GQLParser::ValueTypeContext *previousContext = _localctx;
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, parentState);
+    antlr4::ParserRuleContext *previousContext = _localctx;
     (void)previousContext; // Silence compiler, in case the context is not used by generated code.
     size_t startState = 674;
     enterRecursionRule(_localctx, 674, GQLParser::RuleValueType, precedence);
@@ -25051,7 +20572,11 @@ public:
       _errHandler->sync(this);
       switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 301, _ctx)) {
       case 1: {
-        _localctx = _tracker.createInstance<PredefinedTypeLabelContext>(_localctx);
+        {
+          auto savedLocalCtx = _localctx;
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+          _localctx->copyFrom(savedLocalCtx);
+        }
         _ctx = _localctx;
         previousContext = _localctx;
         auto ctxHolder = ctx->EnterPredefinedTypeLabel();
@@ -25073,7 +20598,11 @@ public:
       }
 
       case 2: {
-        _localctx = _tracker.createInstance<PathValueTypeLabelContext>(_localctx);
+        {
+          auto savedLocalCtx = _localctx;
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+          _localctx->copyFrom(savedLocalCtx);
+        }
         _ctx = _localctx;
         previousContext = _localctx;
         auto ctxHolder = ctx->EnterPathValueTypeLabel();
@@ -25094,7 +20623,11 @@ public:
       }
 
       case 3: {
-        _localctx = _tracker.createInstance<ListValueTypeAlt1Context>(_localctx);
+        {
+          auto savedLocalCtx = _localctx;
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+          _localctx->copyFrom(savedLocalCtx);
+        }
         _ctx = _localctx;
         previousContext = _localctx;
         auto ctxHolder = ctx->EnterListValueTypeAlt1();
@@ -25180,7 +20713,11 @@ public:
       }
 
       case 4: {
-        _localctx = _tracker.createInstance<ListValueTypeAlt3Context>(_localctx);
+        {
+          auto savedLocalCtx = _localctx;
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+          _localctx->copyFrom(savedLocalCtx);
+        }
         _ctx = _localctx;
         previousContext = _localctx;
         auto ctxHolder = ctx->EnterListValueTypeAlt3();
@@ -25247,7 +20784,11 @@ public:
       }
 
       case 5: {
-        _localctx = _tracker.createInstance<RecordTypeLabelContext>(_localctx);
+        {
+          auto savedLocalCtx = _localctx;
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+          _localctx->copyFrom(savedLocalCtx);
+        }
         _ctx = _localctx;
         previousContext = _localctx;
         auto ctxHolder = ctx->EnterRecordTypeLabel();
@@ -25268,7 +20809,11 @@ public:
       }
 
       case 6: {
-        _localctx = _tracker.createInstance<OpenDynamicUnionTypeLabelContext>(_localctx);
+        {
+          auto savedLocalCtx = _localctx;
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+          _localctx->copyFrom(savedLocalCtx);
+        }
         _ctx = _localctx;
         previousContext = _localctx;
         auto ctxHolder = ctx->EnterOpenDynamicUnionTypeLabel();
@@ -25325,7 +20870,11 @@ public:
       }
 
       case 7: {
-        _localctx = _tracker.createInstance<DynamicPropertyValueTypeLabelContext>(_localctx);
+        {
+          auto savedLocalCtx = _localctx;
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+          _localctx->copyFrom(savedLocalCtx);
+        }
         _ctx = _localctx;
         previousContext = _localctx;
         auto ctxHolder = ctx->EnterDynamicPropertyValueTypeLabel();
@@ -25384,7 +20933,11 @@ public:
       }
 
       case 8: {
-        _localctx = _tracker.createInstance<ClosedDynamicUnionTypeAtl1Context>(_localctx);
+        {
+          auto savedLocalCtx = _localctx;
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+          _localctx->copyFrom(savedLocalCtx);
+        }
         _ctx = _localctx;
         previousContext = _localctx;
         auto ctxHolder = ctx->EnterClosedDynamicUnionTypeAtl1();
@@ -25477,7 +21030,9 @@ public:
           _errHandler->sync(this);
           switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 304, _ctx)) {
           case 1: {
-            auto newContext = _tracker.createInstance<ClosedDynamicUnionTypeAtl2Context>(_tracker.createInstance<ValueTypeContext>(parentContext, parentState));
+            auto newParentContext = _tracker.createInstance<antlr4::ParserRuleContext>(parentContext, parentState);
+            auto newContext = _tracker.createInstance<antlr4::ParserRuleContext>();
+            newContext->copyFrom(newParentContext);
             _localctx = newContext;
             pushNewRecursionContext(newContext, startState, RuleValueType);
             auto ctxHolder = ctx->PushClosedDynamicUnionTypeAtl2_ValueType();
@@ -25508,7 +21063,9 @@ public:
           }
 
           case 2: {
-            auto newContext = _tracker.createInstance<ListValueTypeAlt2Context>(_tracker.createInstance<ValueTypeContext>(parentContext, parentState));
+            auto newParentContext = _tracker.createInstance<antlr4::ParserRuleContext>(parentContext, parentState);
+            auto newContext = _tracker.createInstance<antlr4::ParserRuleContext>();
+            newContext->copyFrom(newParentContext);
             _localctx = newContext;
             pushNewRecursionContext(newContext, startState, RuleValueType);
             auto ctxHolder = ctx->PushListValueTypeAlt2_ValueType();
@@ -25594,19 +21151,9 @@ public:
     return _localctx;
   }
 
-  class  TypedContext : public antlr4::ParserRuleContext {
-  public:
-    TypedContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *DOUBLE_COLON();
-    antlr4::tree::TerminalNode *TYPED();
-
-   
-  };
-
   template<typename ContextT>
-  TypedContext* typed(ContextT* ctx) {
-    TypedContext *_localctx = _tracker.createInstance<TypedContext>(_ctx, getState());
+  antlr4::ParserRuleContext* typed(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 676, GQLParser::RuleTyped);
     size_t _la = 0;
 
@@ -25625,7 +21172,7 @@ public:
       setState(3146);
       _la = _input->LA(1);
       if (!(_la == GQLParser::TYPED || _la == GQLParser::DOUBLE_COLON)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -25643,24 +21190,9 @@ public:
     return _localctx;
   }
 
-  class  PredefinedTypeContext : public antlr4::ParserRuleContext {
-  public:
-    PredefinedTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    BooleanTypeContext *booleanType();
-    CharacterStringTypeContext *characterStringType();
-    ByteStringTypeContext *byteStringType();
-    NumericTypeContext *numericType();
-    TemporalTypeContext *temporalType();
-    ReferenceValueTypeContext *referenceValueType();
-    ImmaterialValueTypeContext *immaterialValueType();
-
-   
-  };
-
   template<typename ContextT>
-  PredefinedTypeContext* predefinedType(ContextT* ctx) {
-    PredefinedTypeContext *_localctx = _tracker.createInstance<PredefinedTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* predefinedType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 678, GQLParser::RulePredefinedType);
 
   #if __cplusplus > 201703L
@@ -25821,20 +21353,9 @@ public:
     return _localctx;
   }
 
-  class  BooleanTypeContext : public antlr4::ParserRuleContext {
-  public:
-    BooleanTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *BOOL();
-    antlr4::tree::TerminalNode *BOOLEAN();
-    NotNullContext *notNull();
-
-   
-  };
-
   template<typename ContextT>
-  BooleanTypeContext* booleanType(ContextT* ctx) {
-    BooleanTypeContext *_localctx = _tracker.createInstance<BooleanTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* booleanType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 680, GQLParser::RuleBooleanType);
     size_t _la = 0;
 
@@ -25855,7 +21376,7 @@ public:
       if (!(_la == GQLParser::BOOL
 
       || _la == GQLParser::BOOLEAN)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -25889,27 +21410,9 @@ public:
     return _localctx;
   }
 
-  class  CharacterStringTypeContext : public antlr4::ParserRuleContext {
-  public:
-    CharacterStringTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *STRING();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    MaxLengthContext *maxLength();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    NotNullContext *notNull();
-    MinLengthContext *minLength();
-    antlr4::tree::TerminalNode *COMMA();
-    antlr4::tree::TerminalNode *CHAR();
-    FixedLengthContext *fixedLength();
-    antlr4::tree::TerminalNode *VARCHAR();
-
-   
-  };
-
   template<typename ContextT>
-  CharacterStringTypeContext* characterStringType(ContextT* ctx) {
-    CharacterStringTypeContext *_localctx = _tracker.createInstance<CharacterStringTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* characterStringType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 682, GQLParser::RuleCharacterStringType);
 
   #if __cplusplus > 201703L
@@ -26137,27 +21640,9 @@ public:
     return _localctx;
   }
 
-  class  ByteStringTypeContext : public antlr4::ParserRuleContext {
-  public:
-    ByteStringTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *BYTES();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    MaxLengthContext *maxLength();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    NotNullContext *notNull();
-    MinLengthContext *minLength();
-    antlr4::tree::TerminalNode *COMMA();
-    antlr4::tree::TerminalNode *BINARY();
-    FixedLengthContext *fixedLength();
-    antlr4::tree::TerminalNode *VARBINARY();
-
-   
-  };
-
   template<typename ContextT>
-  ByteStringTypeContext* byteStringType(ContextT* ctx) {
-    ByteStringTypeContext *_localctx = _tracker.createInstance<ByteStringTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* byteStringType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 684, GQLParser::RuleByteStringType);
 
   #if __cplusplus > 201703L
@@ -26385,18 +21870,9 @@ public:
     return _localctx;
   }
 
-  class  MinLengthContext : public antlr4::ParserRuleContext {
-  public:
-    MinLengthContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    UnsignedIntegerContext *unsignedInteger();
-
-   
-  };
-
   template<typename ContextT>
-  MinLengthContext* minLength(ContextT* ctx) {
-    MinLengthContext *_localctx = _tracker.createInstance<MinLengthContext>(_ctx, getState());
+  antlr4::ParserRuleContext* minLength(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 686, GQLParser::RuleMinLength);
 
   #if __cplusplus > 201703L
@@ -26427,18 +21903,9 @@ public:
     return _localctx;
   }
 
-  class  MaxLengthContext : public antlr4::ParserRuleContext {
-  public:
-    MaxLengthContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    UnsignedIntegerContext *unsignedInteger();
-
-   
-  };
-
   template<typename ContextT>
-  MaxLengthContext* maxLength(ContextT* ctx) {
-    MaxLengthContext *_localctx = _tracker.createInstance<MaxLengthContext>(_ctx, getState());
+  antlr4::ParserRuleContext* maxLength(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 688, GQLParser::RuleMaxLength);
 
   #if __cplusplus > 201703L
@@ -26469,18 +21936,9 @@ public:
     return _localctx;
   }
 
-  class  FixedLengthContext : public antlr4::ParserRuleContext {
-  public:
-    FixedLengthContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    UnsignedIntegerContext *unsignedInteger();
-
-   
-  };
-
   template<typename ContextT>
-  FixedLengthContext* fixedLength(ContextT* ctx) {
-    FixedLengthContext *_localctx = _tracker.createInstance<FixedLengthContext>(_ctx, getState());
+  antlr4::ParserRuleContext* fixedLength(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 690, GQLParser::RuleFixedLength);
 
   #if __cplusplus > 201703L
@@ -26511,19 +21969,9 @@ public:
     return _localctx;
   }
 
-  class  NumericTypeContext : public antlr4::ParserRuleContext {
-  public:
-    NumericTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ExactNumericTypeContext *exactNumericType();
-    ApproximateNumericTypeContext *approximateNumericType();
-
-   
-  };
-
   template<typename ContextT>
-  NumericTypeContext* numericType(ContextT* ctx) {
-    NumericTypeContext *_localctx = _tracker.createInstance<NumericTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* numericType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 692, GQLParser::RuleNumericType);
 
   #if __cplusplus > 201703L
@@ -26611,19 +22059,9 @@ public:
     return _localctx;
   }
 
-  class  ExactNumericTypeContext : public antlr4::ParserRuleContext {
-  public:
-    ExactNumericTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    BinaryExactNumericTypeContext *binaryExactNumericType();
-    DecimalExactNumericTypeContext *decimalExactNumericType();
-
-   
-  };
-
   template<typename ContextT>
-  ExactNumericTypeContext* exactNumericType(ContextT* ctx) {
-    ExactNumericTypeContext *_localctx = _tracker.createInstance<ExactNumericTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* exactNumericType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 694, GQLParser::RuleExactNumericType);
 
   #if __cplusplus > 201703L
@@ -26703,19 +22141,9 @@ public:
     return _localctx;
   }
 
-  class  BinaryExactNumericTypeContext : public antlr4::ParserRuleContext {
-  public:
-    BinaryExactNumericTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SignedBinaryExactNumericTypeContext *signedBinaryExactNumericType();
-    UnsignedBinaryExactNumericTypeContext *unsignedBinaryExactNumericType();
-
-   
-  };
-
   template<typename ContextT>
-  BinaryExactNumericTypeContext* binaryExactNumericType(ContextT* ctx) {
-    BinaryExactNumericTypeContext *_localctx = _tracker.createInstance<BinaryExactNumericTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* binaryExactNumericType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 696, GQLParser::RuleBinaryExactNumericType);
 
   #if __cplusplus > 201703L
@@ -26793,32 +22221,9 @@ public:
     return _localctx;
   }
 
-  class  SignedBinaryExactNumericTypeContext : public antlr4::ParserRuleContext {
-  public:
-    SignedBinaryExactNumericTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *INT8();
-    NotNullContext *notNull();
-    antlr4::tree::TerminalNode *INT16();
-    antlr4::tree::TerminalNode *INT32();
-    antlr4::tree::TerminalNode *INT64();
-    antlr4::tree::TerminalNode *INT128();
-    antlr4::tree::TerminalNode *INT256();
-    antlr4::tree::TerminalNode *SMALLINT();
-    antlr4::tree::TerminalNode *INT();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    PrecisionContext *precision();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    antlr4::tree::TerminalNode *BIGINT();
-    VerboseBinaryExactNumericTypeContext *verboseBinaryExactNumericType();
-    antlr4::tree::TerminalNode *SIGNED();
-
-   
-  };
-
   template<typename ContextT>
-  SignedBinaryExactNumericTypeContext* signedBinaryExactNumericType(ContextT* ctx) {
-    SignedBinaryExactNumericTypeContext *_localctx = _tracker.createInstance<SignedBinaryExactNumericTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* signedBinaryExactNumericType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 698, GQLParser::RuleSignedBinaryExactNumericType);
     size_t _la = 0;
 
@@ -27164,32 +22569,9 @@ public:
     return _localctx;
   }
 
-  class  UnsignedBinaryExactNumericTypeContext : public antlr4::ParserRuleContext {
-  public:
-    UnsignedBinaryExactNumericTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *UINT8();
-    NotNullContext *notNull();
-    antlr4::tree::TerminalNode *UINT16();
-    antlr4::tree::TerminalNode *UINT32();
-    antlr4::tree::TerminalNode *UINT64();
-    antlr4::tree::TerminalNode *UINT128();
-    antlr4::tree::TerminalNode *UINT256();
-    antlr4::tree::TerminalNode *USMALLINT();
-    antlr4::tree::TerminalNode *UINT();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    PrecisionContext *precision();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    antlr4::tree::TerminalNode *UBIGINT();
-    antlr4::tree::TerminalNode *UNSIGNED();
-    VerboseBinaryExactNumericTypeContext *verboseBinaryExactNumericType();
-
-   
-  };
-
   template<typename ContextT>
-  UnsignedBinaryExactNumericTypeContext* unsignedBinaryExactNumericType(ContextT* ctx) {
-    UnsignedBinaryExactNumericTypeContext *_localctx = _tracker.createInstance<UnsignedBinaryExactNumericTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* unsignedBinaryExactNumericType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 700, GQLParser::RuleUnsignedBinaryExactNumericType);
 
   #if __cplusplus > 201703L
@@ -27519,30 +22901,9 @@ public:
     return _localctx;
   }
 
-  class  VerboseBinaryExactNumericTypeContext : public antlr4::ParserRuleContext {
-  public:
-    VerboseBinaryExactNumericTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *INTEGER8();
-    NotNullContext *notNull();
-    antlr4::tree::TerminalNode *INTEGER16();
-    antlr4::tree::TerminalNode *INTEGER32();
-    antlr4::tree::TerminalNode *INTEGER64();
-    antlr4::tree::TerminalNode *INTEGER128();
-    antlr4::tree::TerminalNode *INTEGER256();
-    antlr4::tree::TerminalNode *SMALL();
-    antlr4::tree::TerminalNode *INTEGER();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    PrecisionContext *precision();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    antlr4::tree::TerminalNode *BIG();
-
-   
-  };
-
   template<typename ContextT>
-  VerboseBinaryExactNumericTypeContext* verboseBinaryExactNumericType(ContextT* ctx) {
-    VerboseBinaryExactNumericTypeContext *_localctx = _tracker.createInstance<VerboseBinaryExactNumericTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* verboseBinaryExactNumericType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 702, GQLParser::RuleVerboseBinaryExactNumericType);
 
   #if __cplusplus > 201703L
@@ -27869,25 +23230,9 @@ public:
     return _localctx;
   }
 
-  class  DecimalExactNumericTypeContext : public antlr4::ParserRuleContext {
-  public:
-    DecimalExactNumericTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *DECIMAL();
-    antlr4::tree::TerminalNode *DEC();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    PrecisionContext *precision();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    antlr4::tree::TerminalNode *COMMA();
-    ScaleContext *scale();
-    NotNullContext *notNull();
-
-   
-  };
-
   template<typename ContextT>
-  DecimalExactNumericTypeContext* decimalExactNumericType(ContextT* ctx) {
-    DecimalExactNumericTypeContext *_localctx = _tracker.createInstance<DecimalExactNumericTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* decimalExactNumericType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 704, GQLParser::RuleDecimalExactNumericType);
     size_t _la = 0;
 
@@ -27908,7 +23253,7 @@ public:
       if (!(_la == GQLParser::DEC
 
       || _la == GQLParser::DECIMAL)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -27990,18 +23335,9 @@ public:
     return _localctx;
   }
 
-  class  PrecisionContext : public antlr4::ParserRuleContext {
-  public:
-    PrecisionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    UnsignedDecimalIntegerContext *unsignedDecimalInteger();
-
-   
-  };
-
   template<typename ContextT>
-  PrecisionContext* precision(ContextT* ctx) {
-    PrecisionContext *_localctx = _tracker.createInstance<PrecisionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* precision(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 706, GQLParser::RulePrecision);
 
   #if __cplusplus > 201703L
@@ -28032,18 +23368,9 @@ public:
     return _localctx;
   }
 
-  class  ScaleContext : public antlr4::ParserRuleContext {
-  public:
-    ScaleContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    UnsignedDecimalIntegerContext *unsignedDecimalInteger();
-
-   
-  };
-
   template<typename ContextT>
-  ScaleContext* scale(ContextT* ctx) {
-    ScaleContext *_localctx = _tracker.createInstance<ScaleContext>(_ctx, getState());
+  antlr4::ParserRuleContext* scale(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 708, GQLParser::RuleScale);
 
   #if __cplusplus > 201703L
@@ -28074,32 +23401,9 @@ public:
     return _localctx;
   }
 
-  class  ApproximateNumericTypeContext : public antlr4::ParserRuleContext {
-  public:
-    ApproximateNumericTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *FLOAT16();
-    NotNullContext *notNull();
-    antlr4::tree::TerminalNode *FLOAT32();
-    antlr4::tree::TerminalNode *FLOAT64();
-    antlr4::tree::TerminalNode *FLOAT128();
-    antlr4::tree::TerminalNode *FLOAT256();
-    antlr4::tree::TerminalNode *FLOAT();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    PrecisionContext *precision();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    antlr4::tree::TerminalNode *COMMA();
-    ScaleContext *scale();
-    antlr4::tree::TerminalNode *REAL();
-    antlr4::tree::TerminalNode *DOUBLE();
-    antlr4::tree::TerminalNode *PRECISION();
-
-   
-  };
-
   template<typename ContextT>
-  ApproximateNumericTypeContext* approximateNumericType(ContextT* ctx) {
-    ApproximateNumericTypeContext *_localctx = _tracker.createInstance<ApproximateNumericTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* approximateNumericType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 710, GQLParser::RuleApproximateNumericType);
     size_t _la = 0;
 
@@ -28421,19 +23725,9 @@ public:
     return _localctx;
   }
 
-  class  TemporalTypeContext : public antlr4::ParserRuleContext {
-  public:
-    TemporalTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    TemporalInstantTypeContext *temporalInstantType();
-    TemporalDurationTypeContext *temporalDurationType();
-
-   
-  };
-
   template<typename ContextT>
-  TemporalTypeContext* temporalType(ContextT* ctx) {
-    TemporalTypeContext *_localctx = _tracker.createInstance<TemporalTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* temporalType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 712, GQLParser::RuleTemporalType);
 
   #if __cplusplus > 201703L
@@ -28488,22 +23782,9 @@ public:
     return _localctx;
   }
 
-  class  TemporalInstantTypeContext : public antlr4::ParserRuleContext {
-  public:
-    TemporalInstantTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    DatetimeTypeContext *datetimeType();
-    LocaldatetimeTypeContext *localdatetimeType();
-    DateTypeContext *dateType();
-    TimeTypeContext *timeType();
-    LocaltimeTypeContext *localtimeType();
-
-   
-  };
-
   template<typename ContextT>
-  TemporalInstantTypeContext* temporalInstantType(ContextT* ctx) {
-    TemporalInstantTypeContext *_localctx = _tracker.createInstance<TemporalInstantTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* temporalInstantType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 714, GQLParser::RuleTemporalInstantType);
 
   #if __cplusplus > 201703L
@@ -28584,24 +23865,9 @@ public:
     return _localctx;
   }
 
-  class  DatetimeTypeContext : public antlr4::ParserRuleContext {
-  public:
-    DatetimeTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *ZONED();
-    antlr4::tree::TerminalNode *DATETIME();
-    NotNullContext *notNull();
-    antlr4::tree::TerminalNode *TIMESTAMP();
-    antlr4::tree::TerminalNode *WITH();
-    antlr4::tree::TerminalNode *TIME();
-    antlr4::tree::TerminalNode *ZONE();
-
-   
-  };
-
   template<typename ContextT>
-  DatetimeTypeContext* datetimeType(ContextT* ctx) {
-    DatetimeTypeContext *_localctx = _tracker.createInstance<DatetimeTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* datetimeType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 716, GQLParser::RuleDatetimeType);
 
   #if __cplusplus > 201703L
@@ -28716,24 +23982,9 @@ public:
     return _localctx;
   }
 
-  class  LocaldatetimeTypeContext : public antlr4::ParserRuleContext {
-  public:
-    LocaldatetimeTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LOCAL();
-    antlr4::tree::TerminalNode *DATETIME();
-    NotNullContext *notNull();
-    antlr4::tree::TerminalNode *TIMESTAMP();
-    antlr4::tree::TerminalNode *WITHOUT();
-    antlr4::tree::TerminalNode *TIME();
-    antlr4::tree::TerminalNode *ZONE();
-
-   
-  };
-
   template<typename ContextT>
-  LocaldatetimeTypeContext* localdatetimeType(ContextT* ctx) {
-    LocaldatetimeTypeContext *_localctx = _tracker.createInstance<LocaldatetimeTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* localdatetimeType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 718, GQLParser::RuleLocaldatetimeType);
 
   #if __cplusplus > 201703L
@@ -28859,19 +24110,9 @@ public:
     return _localctx;
   }
 
-  class  DateTypeContext : public antlr4::ParserRuleContext {
-  public:
-    DateTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *DATE();
-    NotNullContext *notNull();
-
-   
-  };
-
   template<typename ContextT>
-  DateTypeContext* dateType(ContextT* ctx) {
-    DateTypeContext *_localctx = _tracker.createInstance<DateTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* dateType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 720, GQLParser::RuleDateType);
 
   #if __cplusplus > 201703L
@@ -28920,23 +24161,9 @@ public:
     return _localctx;
   }
 
-  class  TimeTypeContext : public antlr4::ParserRuleContext {
-  public:
-    TimeTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *ZONED();
-    std::vector<antlr4::tree::TerminalNode *> TIME();
-    antlr4::tree::TerminalNode* TIME(size_t i);
-    NotNullContext *notNull();
-    antlr4::tree::TerminalNode *WITH();
-    antlr4::tree::TerminalNode *ZONE();
-
-   
-  };
-
   template<typename ContextT>
-  TimeTypeContext* timeType(ContextT* ctx) {
-    TimeTypeContext *_localctx = _tracker.createInstance<TimeTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* timeType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 722, GQLParser::RuleTimeType);
 
   #if __cplusplus > 201703L
@@ -29051,23 +24278,9 @@ public:
     return _localctx;
   }
 
-  class  LocaltimeTypeContext : public antlr4::ParserRuleContext {
-  public:
-    LocaltimeTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LOCAL();
-    std::vector<antlr4::tree::TerminalNode *> TIME();
-    antlr4::tree::TerminalNode* TIME(size_t i);
-    NotNullContext *notNull();
-    antlr4::tree::TerminalNode *WITHOUT();
-    antlr4::tree::TerminalNode *ZONE();
-
-   
-  };
-
   template<typename ContextT>
-  LocaltimeTypeContext* localtimeType(ContextT* ctx) {
-    LocaltimeTypeContext *_localctx = _tracker.createInstance<LocaltimeTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* localtimeType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 724, GQLParser::RuleLocaltimeType);
 
   #if __cplusplus > 201703L
@@ -29182,22 +24395,9 @@ public:
     return _localctx;
   }
 
-  class  TemporalDurationTypeContext : public antlr4::ParserRuleContext {
-  public:
-    TemporalDurationTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *DURATION();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    TemporalDurationQualifierContext *temporalDurationQualifier();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    NotNullContext *notNull();
-
-   
-  };
-
   template<typename ContextT>
-  TemporalDurationTypeContext* temporalDurationType(ContextT* ctx) {
-    TemporalDurationTypeContext *_localctx = _tracker.createInstance<TemporalDurationTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* temporalDurationType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 726, GQLParser::RuleTemporalDurationType);
 
   #if __cplusplus > 201703L
@@ -29265,22 +24465,9 @@ public:
     return _localctx;
   }
 
-  class  TemporalDurationQualifierContext : public antlr4::ParserRuleContext {
-  public:
-    TemporalDurationQualifierContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *YEAR();
-    antlr4::tree::TerminalNode *TO();
-    antlr4::tree::TerminalNode *MONTH();
-    antlr4::tree::TerminalNode *DAY();
-    antlr4::tree::TerminalNode *SECOND();
-
-   
-  };
-
   template<typename ContextT>
-  TemporalDurationQualifierContext* temporalDurationQualifier(ContextT* ctx) {
-    TemporalDurationQualifierContext *_localctx = _tracker.createInstance<TemporalDurationQualifierContext>(_ctx, getState());
+  antlr4::ParserRuleContext* temporalDurationQualifier(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 728, GQLParser::RuleTemporalDurationQualifier);
 
   #if __cplusplus > 201703L
@@ -29363,21 +24550,9 @@ public:
     return _localctx;
   }
 
-  class  ReferenceValueTypeContext : public antlr4::ParserRuleContext {
-  public:
-    ReferenceValueTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    GraphReferenceValueTypeContext *graphReferenceValueType();
-    BindingTableReferenceValueTypeContext *bindingTableReferenceValueType();
-    NodeReferenceValueTypeContext *nodeReferenceValueType();
-    EdgeReferenceValueTypeContext *edgeReferenceValueType();
-
-   
-  };
-
   template<typename ContextT>
-  ReferenceValueTypeContext* referenceValueType(ContextT* ctx) {
-    ReferenceValueTypeContext *_localctx = _tracker.createInstance<ReferenceValueTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* referenceValueType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 730, GQLParser::RuleReferenceValueType);
 
   #if __cplusplus > 201703L
@@ -29448,19 +24623,9 @@ public:
     return _localctx;
   }
 
-  class  ImmaterialValueTypeContext : public antlr4::ParserRuleContext {
-  public:
-    ImmaterialValueTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NullTypeContext *nullType();
-    EmptyTypeContext *emptyType();
-
-   
-  };
-
   template<typename ContextT>
-  ImmaterialValueTypeContext* immaterialValueType(ContextT* ctx) {
-    ImmaterialValueTypeContext *_localctx = _tracker.createInstance<ImmaterialValueTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* immaterialValueType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 732, GQLParser::RuleImmaterialValueType);
 
   #if __cplusplus > 201703L
@@ -29511,18 +24676,9 @@ public:
     return _localctx;
   }
 
-  class  NullTypeContext : public antlr4::ParserRuleContext {
-  public:
-    NullTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *NULL_KW();
-
-   
-  };
-
   template<typename ContextT>
-  NullTypeContext* nullType(ContextT* ctx) {
-    NullTypeContext *_localctx = _tracker.createInstance<NullTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nullType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 734, GQLParser::RuleNullType);
 
   #if __cplusplus > 201703L
@@ -29555,20 +24711,9 @@ public:
     return _localctx;
   }
 
-  class  EmptyTypeContext : public antlr4::ParserRuleContext {
-  public:
-    EmptyTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *NULL_KW();
-    NotNullContext *notNull();
-    antlr4::tree::TerminalNode *NOTHING();
-
-   
-  };
-
   template<typename ContextT>
-  EmptyTypeContext* emptyType(ContextT* ctx) {
-    EmptyTypeContext *_localctx = _tracker.createInstance<EmptyTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* emptyType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 736, GQLParser::RuleEmptyType);
 
   #if __cplusplus > 201703L
@@ -29628,19 +24773,9 @@ public:
     return _localctx;
   }
 
-  class  GraphReferenceValueTypeContext : public antlr4::ParserRuleContext {
-  public:
-    GraphReferenceValueTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    OpenGraphReferenceValueTypeContext *openGraphReferenceValueType();
-    ClosedGraphReferenceValueTypeContext *closedGraphReferenceValueType();
-
-   
-  };
-
   template<typename ContextT>
-  GraphReferenceValueTypeContext* graphReferenceValueType(ContextT* ctx) {
-    GraphReferenceValueTypeContext *_localctx = _tracker.createInstance<GraphReferenceValueTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* graphReferenceValueType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 738, GQLParser::RuleGraphReferenceValueType);
 
   #if __cplusplus > 201703L
@@ -29692,21 +24827,9 @@ public:
     return _localctx;
   }
 
-  class  ClosedGraphReferenceValueTypeContext : public antlr4::ParserRuleContext {
-  public:
-    ClosedGraphReferenceValueTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *GRAPH();
-    NestedGraphTypeSpecificationContext *nestedGraphTypeSpecification();
-    antlr4::tree::TerminalNode *PROPERTY();
-    NotNullContext *notNull();
-
-   
-  };
-
   template<typename ContextT>
-  ClosedGraphReferenceValueTypeContext* closedGraphReferenceValueType(ContextT* ctx) {
-    ClosedGraphReferenceValueTypeContext *_localctx = _tracker.createInstance<ClosedGraphReferenceValueTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* closedGraphReferenceValueType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 740, GQLParser::RuleClosedGraphReferenceValueType);
     size_t _la = 0;
 
@@ -29774,21 +24897,9 @@ public:
     return _localctx;
   }
 
-  class  OpenGraphReferenceValueTypeContext : public antlr4::ParserRuleContext {
-  public:
-    OpenGraphReferenceValueTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *ANY();
-    antlr4::tree::TerminalNode *GRAPH();
-    antlr4::tree::TerminalNode *PROPERTY();
-    NotNullContext *notNull();
-
-   
-  };
-
   template<typename ContextT>
-  OpenGraphReferenceValueTypeContext* openGraphReferenceValueType(ContextT* ctx) {
-    OpenGraphReferenceValueTypeContext *_localctx = _tracker.createInstance<OpenGraphReferenceValueTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* openGraphReferenceValueType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 742, GQLParser::RuleOpenGraphReferenceValueType);
     size_t _la = 0;
 
@@ -29858,19 +24969,9 @@ public:
     return _localctx;
   }
 
-  class  BindingTableReferenceValueTypeContext : public antlr4::ParserRuleContext {
-  public:
-    BindingTableReferenceValueTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    BindingTableTypeContext *bindingTableType();
-    NotNullContext *notNull();
-
-   
-  };
-
   template<typename ContextT>
-  BindingTableReferenceValueTypeContext* bindingTableReferenceValueType(ContextT* ctx) {
-    BindingTableReferenceValueTypeContext *_localctx = _tracker.createInstance<BindingTableReferenceValueTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* bindingTableReferenceValueType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 744, GQLParser::RuleBindingTableReferenceValueType);
 
   #if __cplusplus > 201703L
@@ -29917,19 +25018,9 @@ public:
     return _localctx;
   }
 
-  class  NodeReferenceValueTypeContext : public antlr4::ParserRuleContext {
-  public:
-    NodeReferenceValueTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    OpenNodeReferenceValueTypeContext *openNodeReferenceValueType();
-    ClosedNodeReferenceValueTypeContext *closedNodeReferenceValueType();
-
-   
-  };
-
   template<typename ContextT>
-  NodeReferenceValueTypeContext* nodeReferenceValueType(ContextT* ctx) {
-    NodeReferenceValueTypeContext *_localctx = _tracker.createInstance<NodeReferenceValueTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nodeReferenceValueType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 746, GQLParser::RuleNodeReferenceValueType);
 
   #if __cplusplus > 201703L
@@ -29980,19 +25071,9 @@ public:
     return _localctx;
   }
 
-  class  ClosedNodeReferenceValueTypeContext : public antlr4::ParserRuleContext {
-  public:
-    ClosedNodeReferenceValueTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NodeTypeSpecificationContext *nodeTypeSpecification();
-    NotNullContext *notNull();
-
-   
-  };
-
   template<typename ContextT>
-  ClosedNodeReferenceValueTypeContext* closedNodeReferenceValueType(ContextT* ctx) {
-    ClosedNodeReferenceValueTypeContext *_localctx = _tracker.createInstance<ClosedNodeReferenceValueTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* closedNodeReferenceValueType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 748, GQLParser::RuleClosedNodeReferenceValueType);
 
   #if __cplusplus > 201703L
@@ -30039,20 +25120,9 @@ public:
     return _localctx;
   }
 
-  class  OpenNodeReferenceValueTypeContext : public antlr4::ParserRuleContext {
-  public:
-    OpenNodeReferenceValueTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NodeSynonymContext *nodeSynonym();
-    antlr4::tree::TerminalNode *ANY();
-    NotNullContext *notNull();
-
-   
-  };
-
   template<typename ContextT>
-  OpenNodeReferenceValueTypeContext* openNodeReferenceValueType(ContextT* ctx) {
-    OpenNodeReferenceValueTypeContext *_localctx = _tracker.createInstance<OpenNodeReferenceValueTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* openNodeReferenceValueType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 750, GQLParser::RuleOpenNodeReferenceValueType);
     size_t _la = 0;
 
@@ -30113,19 +25183,9 @@ public:
     return _localctx;
   }
 
-  class  EdgeReferenceValueTypeContext : public antlr4::ParserRuleContext {
-  public:
-    EdgeReferenceValueTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    OpenEdgeReferenceValueTypeContext *openEdgeReferenceValueType();
-    ClosedEdgeReferenceValueTypeContext *closedEdgeReferenceValueType();
-
-   
-  };
-
   template<typename ContextT>
-  EdgeReferenceValueTypeContext* edgeReferenceValueType(ContextT* ctx) {
-    EdgeReferenceValueTypeContext *_localctx = _tracker.createInstance<EdgeReferenceValueTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* edgeReferenceValueType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 752, GQLParser::RuleEdgeReferenceValueType);
 
   #if __cplusplus > 201703L
@@ -30176,19 +25236,9 @@ public:
     return _localctx;
   }
 
-  class  ClosedEdgeReferenceValueTypeContext : public antlr4::ParserRuleContext {
-  public:
-    ClosedEdgeReferenceValueTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    EdgeTypeSpecificationContext *edgeTypeSpecification();
-    NotNullContext *notNull();
-
-   
-  };
-
   template<typename ContextT>
-  ClosedEdgeReferenceValueTypeContext* closedEdgeReferenceValueType(ContextT* ctx) {
-    ClosedEdgeReferenceValueTypeContext *_localctx = _tracker.createInstance<ClosedEdgeReferenceValueTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* closedEdgeReferenceValueType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 754, GQLParser::RuleClosedEdgeReferenceValueType);
 
   #if __cplusplus > 201703L
@@ -30235,20 +25285,9 @@ public:
     return _localctx;
   }
 
-  class  OpenEdgeReferenceValueTypeContext : public antlr4::ParserRuleContext {
-  public:
-    OpenEdgeReferenceValueTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    EdgeSynonymContext *edgeSynonym();
-    antlr4::tree::TerminalNode *ANY();
-    NotNullContext *notNull();
-
-   
-  };
-
   template<typename ContextT>
-  OpenEdgeReferenceValueTypeContext* openEdgeReferenceValueType(ContextT* ctx) {
-    OpenEdgeReferenceValueTypeContext *_localctx = _tracker.createInstance<OpenEdgeReferenceValueTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* openEdgeReferenceValueType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 756, GQLParser::RuleOpenEdgeReferenceValueType);
     size_t _la = 0;
 
@@ -30309,19 +25348,9 @@ public:
     return _localctx;
   }
 
-  class  PathValueTypeContext : public antlr4::ParserRuleContext {
-  public:
-    PathValueTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *PATH();
-    NotNullContext *notNull();
-
-   
-  };
-
   template<typename ContextT>
-  PathValueTypeContext* pathValueType(ContextT* ctx) {
-    PathValueTypeContext *_localctx = _tracker.createInstance<PathValueTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* pathValueType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 758, GQLParser::RulePathValueType);
 
   #if __cplusplus > 201703L
@@ -30370,19 +25399,9 @@ public:
     return _localctx;
   }
 
-  class  ListValueTypeNameContext : public antlr4::ParserRuleContext {
-  public:
-    ListValueTypeNameContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ListValueTypeNameSynonymContext *listValueTypeNameSynonym();
-    antlr4::tree::TerminalNode *GROUP();
-
-   
-  };
-
   template<typename ContextT>
-  ListValueTypeNameContext* listValueTypeName(ContextT* ctx) {
-    ListValueTypeNameContext *_localctx = _tracker.createInstance<ListValueTypeNameContext>(_ctx, getState());
+  antlr4::ParserRuleContext* listValueTypeName(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 760, GQLParser::RuleListValueTypeName);
     size_t _la = 0;
 
@@ -30427,19 +25446,9 @@ public:
     return _localctx;
   }
 
-  class  ListValueTypeNameSynonymContext : public antlr4::ParserRuleContext {
-  public:
-    ListValueTypeNameSynonymContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LIST();
-    antlr4::tree::TerminalNode *ARRAY();
-
-   
-  };
-
   template<typename ContextT>
-  ListValueTypeNameSynonymContext* listValueTypeNameSynonym(ContextT* ctx) {
-    ListValueTypeNameSynonymContext *_localctx = _tracker.createInstance<ListValueTypeNameSynonymContext>(_ctx, getState());
+  antlr4::ParserRuleContext* listValueTypeNameSynonym(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 762, GQLParser::RuleListValueTypeNameSynonym);
     size_t _la = 0;
 
@@ -30458,7 +25467,7 @@ public:
       setState(3625);
       _la = _input->LA(1);
       if (!(_la == GQLParser::ARRAY || _la == GQLParser::LIST)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -30476,21 +25485,9 @@ public:
     return _localctx;
   }
 
-  class  RecordTypeContext : public antlr4::ParserRuleContext {
-  public:
-    RecordTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *RECORD();
-    antlr4::tree::TerminalNode *ANY();
-    NotNullContext *notNull();
-    FieldTypesSpecificationContext *fieldTypesSpecification();
-
-   
-  };
-
   template<typename ContextT>
-  RecordTypeContext* recordType(ContextT* ctx) {
-    RecordTypeContext *_localctx = _tracker.createInstance<RecordTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* recordType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 764, GQLParser::RuleRecordType);
     size_t _la = 0;
 
@@ -30602,20 +25599,9 @@ public:
     return _localctx;
   }
 
-  class  FieldTypesSpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    FieldTypesSpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_BRACE();
-    antlr4::tree::TerminalNode *RIGHT_BRACE();
-    FieldTypeListContext *fieldTypeList();
-
-   
-  };
-
   template<typename ContextT>
-  FieldTypesSpecificationContext* fieldTypesSpecification(ContextT* ctx) {
-    FieldTypesSpecificationContext *_localctx = _tracker.createInstance<FieldTypesSpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* fieldTypesSpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 766, GQLParser::RuleFieldTypesSpecification);
     size_t _la = 0;
 
@@ -30670,21 +25656,9 @@ public:
     return _localctx;
   }
 
-  class  FieldTypeListContext : public antlr4::ParserRuleContext {
-  public:
-    FieldTypeListContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<FieldTypeContext *> fieldType();
-    FieldTypeContext* fieldType(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  FieldTypeListContext* fieldTypeList(ContextT* ctx) {
-    FieldTypeListContext *_localctx = _tracker.createInstance<FieldTypeListContext>(_ctx, getState());
+  antlr4::ParserRuleContext* fieldTypeList(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 768, GQLParser::RuleFieldTypeList);
     size_t _la = 0;
 
@@ -30736,19 +25710,9 @@ public:
     return _localctx;
   }
 
-  class  NotNullContext : public antlr4::ParserRuleContext {
-  public:
-    NotNullContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *NOT();
-    antlr4::tree::TerminalNode *NULL_KW();
-
-   
-  };
-
   template<typename ContextT>
-  NotNullContext* notNull(ContextT* ctx) {
-    NotNullContext *_localctx = _tracker.createInstance<NotNullContext>(_ctx, getState());
+  antlr4::ParserRuleContext* notNull(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 770, GQLParser::RuleNotNull);
 
   #if __cplusplus > 201703L
@@ -30788,20 +25752,9 @@ public:
     return _localctx;
   }
 
-  class  FieldTypeContext : public antlr4::ParserRuleContext {
-  public:
-    FieldTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    FieldNameContext *fieldName();
-    ValueTypeContext *valueType();
-    TypedContext *typed();
-
-   
-  };
-
   template<typename ContextT>
-  FieldTypeContext* fieldType(ContextT* ctx) {
-    FieldTypeContext *_localctx = _tracker.createInstance<FieldTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* fieldType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 772, GQLParser::RuleFieldType);
     size_t _la = 0;
 
@@ -30849,18 +25802,9 @@ public:
     return _localctx;
   }
 
-  class  SearchConditionContext : public antlr4::ParserRuleContext {
-  public:
-    SearchConditionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    BooleanValueExpressionContext *booleanValueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  SearchConditionContext* searchCondition(ContextT* ctx) {
-    SearchConditionContext *_localctx = _tracker.createInstance<SearchConditionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* searchCondition(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 774, GQLParser::RuleSearchCondition);
 
   #if __cplusplus > 201703L
@@ -30891,26 +25835,9 @@ public:
     return _localctx;
   }
 
-  class  PredicateContext : public antlr4::ParserRuleContext {
-  public:
-    PredicateContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ExistsPredicateContext *existsPredicate();
-    NullPredicateContext *nullPredicate();
-    ValueTypePredicateContext *valueTypePredicate();
-    DirectedPredicateContext *directedPredicate();
-    LabeledPredicateContext *labeledPredicate();
-    SourceDestinationPredicateContext *sourceDestinationPredicate();
-    All_differentPredicateContext *all_differentPredicate();
-    SamePredicateContext *samePredicate();
-    Property_existsPredicateContext *property_existsPredicate();
-
-   
-  };
-
   template<typename ContextT>
-  PredicateContext* predicate(ContextT* ctx) {
-    PredicateContext *_localctx = _tracker.createInstance<PredicateContext>(_ctx, getState());
+  antlr4::ParserRuleContext* predicate(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 776, GQLParser::RulePredicate);
 
   #if __cplusplus > 201703L
@@ -31031,23 +25958,9 @@ public:
     return _localctx;
   }
 
-  class  CompOpContext : public antlr4::ParserRuleContext {
-  public:
-    CompOpContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *EQUALS_OPERATOR();
-    antlr4::tree::TerminalNode *NOT_EQUALS_OPERATOR();
-    antlr4::tree::TerminalNode *LEFT_ANGLE_BRACKET();
-    antlr4::tree::TerminalNode *RIGHT_ANGLE_BRACKET();
-    antlr4::tree::TerminalNode *LESS_THAN_OR_EQUALS_OPERATOR();
-    antlr4::tree::TerminalNode *GREATER_THAN_OR_EQUALS_OPERATOR();
-
-   
-  };
-
   template<typename ContextT>
-  CompOpContext* compOp(ContextT* ctx) {
-    CompOpContext *_localctx = _tracker.createInstance<CompOpContext>(_ctx, getState());
+  antlr4::ParserRuleContext* compOp(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 778, GQLParser::RuleCompOp);
     size_t _la = 0;
 
@@ -31067,7 +25980,7 @@ public:
       _la = _input->LA(1);
       if (!(((((_la - 335) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 335)) & 142807664897) != 0))) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -31085,25 +25998,9 @@ public:
     return _localctx;
   }
 
-  class  ExistsPredicateContext : public antlr4::ParserRuleContext {
-  public:
-    ExistsPredicateContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *EXISTS();
-    antlr4::tree::TerminalNode *LEFT_BRACE();
-    GraphPatternContext *graphPattern();
-    antlr4::tree::TerminalNode *RIGHT_BRACE();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    MatchStatementBlockContext *matchStatementBlock();
-    NestedQuerySpecificationContext *nestedQuerySpecification();
-
-   
-  };
-
   template<typename ContextT>
-  ExistsPredicateContext* existsPredicate(ContextT* ctx) {
-    ExistsPredicateContext *_localctx = _tracker.createInstance<ExistsPredicateContext>(_ctx, getState());
+  antlr4::ParserRuleContext* existsPredicate(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 780, GQLParser::RuleExistsPredicate);
 
   #if __cplusplus > 201703L
@@ -31243,19 +26140,9 @@ public:
     return _localctx;
   }
 
-  class  NullPredicateContext : public antlr4::ParserRuleContext {
-  public:
-    NullPredicateContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ValueExpressionPrimaryContext *valueExpressionPrimary();
-    NullPredicatePart2Context *nullPredicatePart2();
-
-   
-  };
-
   template<typename ContextT>
-  NullPredicateContext* nullPredicate(ContextT* ctx) {
-    NullPredicateContext *_localctx = _tracker.createInstance<NullPredicateContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nullPredicate(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 782, GQLParser::RuleNullPredicate);
 
   #if __cplusplus > 201703L
@@ -31291,20 +26178,9 @@ public:
     return _localctx;
   }
 
-  class  NullPredicatePart2Context : public antlr4::ParserRuleContext {
-  public:
-    NullPredicatePart2Context(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *IS();
-    antlr4::tree::TerminalNode *NULL_KW();
-    antlr4::tree::TerminalNode *NOT();
-
-   
-  };
-
   template<typename ContextT>
-  NullPredicatePart2Context* nullPredicatePart2(ContextT* ctx) {
-    NullPredicatePart2Context *_localctx = _tracker.createInstance<NullPredicatePart2Context>(_ctx, getState());
+  antlr4::ParserRuleContext* nullPredicatePart2(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 784, GQLParser::RuleNullPredicatePart2);
     size_t _la = 0;
 
@@ -31358,19 +26234,9 @@ public:
     return _localctx;
   }
 
-  class  ValueTypePredicateContext : public antlr4::ParserRuleContext {
-  public:
-    ValueTypePredicateContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ValueExpressionPrimaryContext *valueExpressionPrimary();
-    ValueTypePredicatePart2Context *valueTypePredicatePart2();
-
-   
-  };
-
   template<typename ContextT>
-  ValueTypePredicateContext* valueTypePredicate(ContextT* ctx) {
-    ValueTypePredicateContext *_localctx = _tracker.createInstance<ValueTypePredicateContext>(_ctx, getState());
+  antlr4::ParserRuleContext* valueTypePredicate(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 786, GQLParser::RuleValueTypePredicate);
 
   #if __cplusplus > 201703L
@@ -31406,21 +26272,9 @@ public:
     return _localctx;
   }
 
-  class  ValueTypePredicatePart2Context : public antlr4::ParserRuleContext {
-  public:
-    ValueTypePredicatePart2Context(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *IS();
-    TypedContext *typed();
-    ValueTypeContext *valueType();
-    antlr4::tree::TerminalNode *NOT();
-
-   
-  };
-
   template<typename ContextT>
-  ValueTypePredicatePart2Context* valueTypePredicatePart2(ContextT* ctx) {
-    ValueTypePredicatePart2Context *_localctx = _tracker.createInstance<ValueTypePredicatePart2Context>(_ctx, getState());
+  antlr4::ParserRuleContext* valueTypePredicatePart2(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 788, GQLParser::RuleValueTypePredicatePart2);
     size_t _la = 0;
 
@@ -31477,21 +26331,9 @@ public:
     return _localctx;
   }
 
-  class  NormalizedPredicatePart2Context : public antlr4::ParserRuleContext {
-  public:
-    NormalizedPredicatePart2Context(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *IS();
-    antlr4::tree::TerminalNode *NORMALIZED();
-    antlr4::tree::TerminalNode *NOT();
-    NormalFormContext *normalForm();
-
-   
-  };
-
   template<typename ContextT>
-  NormalizedPredicatePart2Context* normalizedPredicatePart2(ContextT* ctx) {
-    NormalizedPredicatePart2Context *_localctx = _tracker.createInstance<NormalizedPredicatePart2Context>(_ctx, getState());
+  antlr4::ParserRuleContext* normalizedPredicatePart2(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 790, GQLParser::RuleNormalizedPredicatePart2);
     size_t _la = 0;
 
@@ -31557,19 +26399,9 @@ public:
     return _localctx;
   }
 
-  class  DirectedPredicateContext : public antlr4::ParserRuleContext {
-  public:
-    DirectedPredicateContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ElementVariableReferenceContext *elementVariableReference();
-    DirectedPredicatePart2Context *directedPredicatePart2();
-
-   
-  };
-
   template<typename ContextT>
-  DirectedPredicateContext* directedPredicate(ContextT* ctx) {
-    DirectedPredicateContext *_localctx = _tracker.createInstance<DirectedPredicateContext>(_ctx, getState());
+  antlr4::ParserRuleContext* directedPredicate(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 792, GQLParser::RuleDirectedPredicate);
 
   #if __cplusplus > 201703L
@@ -31605,20 +26437,9 @@ public:
     return _localctx;
   }
 
-  class  DirectedPredicatePart2Context : public antlr4::ParserRuleContext {
-  public:
-    DirectedPredicatePart2Context(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *IS();
-    antlr4::tree::TerminalNode *DIRECTED();
-    antlr4::tree::TerminalNode *NOT();
-
-   
-  };
-
   template<typename ContextT>
-  DirectedPredicatePart2Context* directedPredicatePart2(ContextT* ctx) {
-    DirectedPredicatePart2Context *_localctx = _tracker.createInstance<DirectedPredicatePart2Context>(_ctx, getState());
+  antlr4::ParserRuleContext* directedPredicatePart2(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 794, GQLParser::RuleDirectedPredicatePart2);
     size_t _la = 0;
 
@@ -31672,19 +26493,9 @@ public:
     return _localctx;
   }
 
-  class  LabeledPredicateContext : public antlr4::ParserRuleContext {
-  public:
-    LabeledPredicateContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ElementVariableReferenceContext *elementVariableReference();
-    LabeledPredicatePart2Context *labeledPredicatePart2();
-
-   
-  };
-
   template<typename ContextT>
-  LabeledPredicateContext* labeledPredicate(ContextT* ctx) {
-    LabeledPredicateContext *_localctx = _tracker.createInstance<LabeledPredicateContext>(_ctx, getState());
+  antlr4::ParserRuleContext* labeledPredicate(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 796, GQLParser::RuleLabeledPredicate);
 
   #if __cplusplus > 201703L
@@ -31720,19 +26531,9 @@ public:
     return _localctx;
   }
 
-  class  LabeledPredicatePart2Context : public antlr4::ParserRuleContext {
-  public:
-    LabeledPredicatePart2Context(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    IsLabeledOrColonContext *isLabeledOrColon();
-    LabelExpressionContext *labelExpression();
-
-   
-  };
-
   template<typename ContextT>
-  LabeledPredicatePart2Context* labeledPredicatePart2(ContextT* ctx) {
-    LabeledPredicatePart2Context *_localctx = _tracker.createInstance<LabeledPredicatePart2Context>(_ctx, getState());
+  antlr4::ParserRuleContext* labeledPredicatePart2(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 798, GQLParser::RuleLabeledPredicatePart2);
 
   #if __cplusplus > 201703L
@@ -31768,21 +26569,9 @@ public:
     return _localctx;
   }
 
-  class  IsLabeledOrColonContext : public antlr4::ParserRuleContext {
-  public:
-    IsLabeledOrColonContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *IS();
-    antlr4::tree::TerminalNode *LABELED();
-    antlr4::tree::TerminalNode *NOT();
-    antlr4::tree::TerminalNode *COLON();
-
-   
-  };
-
   template<typename ContextT>
-  IsLabeledOrColonContext* isLabeledOrColon(ContextT* ctx) {
-    IsLabeledOrColonContext *_localctx = _tracker.createInstance<IsLabeledOrColonContext>(_ctx, getState());
+  antlr4::ParserRuleContext* isLabeledOrColon(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 800, GQLParser::RuleIsLabeledOrColon);
     size_t _la = 0;
 
@@ -31858,20 +26647,9 @@ public:
     return _localctx;
   }
 
-  class  SourceDestinationPredicateContext : public antlr4::ParserRuleContext {
-  public:
-    SourceDestinationPredicateContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NodeReferenceContext *nodeReference();
-    SourcePredicatePart2Context *sourcePredicatePart2();
-    DestinationPredicatePart2Context *destinationPredicatePart2();
-
-   
-  };
-
   template<typename ContextT>
-  SourceDestinationPredicateContext* sourceDestinationPredicate(ContextT* ctx) {
-    SourceDestinationPredicateContext *_localctx = _tracker.createInstance<SourceDestinationPredicateContext>(_ctx, getState());
+  antlr4::ParserRuleContext* sourceDestinationPredicate(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 802, GQLParser::RuleSourceDestinationPredicate);
 
   #if __cplusplus > 201703L
@@ -31932,18 +26710,9 @@ public:
     return _localctx;
   }
 
-  class  NodeReferenceContext : public antlr4::ParserRuleContext {
-  public:
-    NodeReferenceContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ElementVariableReferenceContext *elementVariableReference();
-
-   
-  };
-
   template<typename ContextT>
-  NodeReferenceContext* nodeReference(ContextT* ctx) {
-    NodeReferenceContext *_localctx = _tracker.createInstance<NodeReferenceContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nodeReference(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 804, GQLParser::RuleNodeReference);
 
   #if __cplusplus > 201703L
@@ -31974,22 +26743,9 @@ public:
     return _localctx;
   }
 
-  class  SourcePredicatePart2Context : public antlr4::ParserRuleContext {
-  public:
-    SourcePredicatePart2Context(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *IS();
-    antlr4::tree::TerminalNode *SOURCE();
-    antlr4::tree::TerminalNode *OF();
-    EdgeReferenceContext *edgeReference();
-    antlr4::tree::TerminalNode *NOT();
-
-   
-  };
-
   template<typename ContextT>
-  SourcePredicatePart2Context* sourcePredicatePart2(ContextT* ctx) {
-    SourcePredicatePart2Context *_localctx = _tracker.createInstance<SourcePredicatePart2Context>(_ctx, getState());
+  antlr4::ParserRuleContext* sourcePredicatePart2(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 806, GQLParser::RuleSourcePredicatePart2);
     size_t _la = 0;
 
@@ -32055,22 +26811,9 @@ public:
     return _localctx;
   }
 
-  class  DestinationPredicatePart2Context : public antlr4::ParserRuleContext {
-  public:
-    DestinationPredicatePart2Context(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *IS();
-    antlr4::tree::TerminalNode *DESTINATION();
-    antlr4::tree::TerminalNode *OF();
-    EdgeReferenceContext *edgeReference();
-    antlr4::tree::TerminalNode *NOT();
-
-   
-  };
-
   template<typename ContextT>
-  DestinationPredicatePart2Context* destinationPredicatePart2(ContextT* ctx) {
-    DestinationPredicatePart2Context *_localctx = _tracker.createInstance<DestinationPredicatePart2Context>(_ctx, getState());
+  antlr4::ParserRuleContext* destinationPredicatePart2(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 808, GQLParser::RuleDestinationPredicatePart2);
     size_t _la = 0;
 
@@ -32136,18 +26879,9 @@ public:
     return _localctx;
   }
 
-  class  EdgeReferenceContext : public antlr4::ParserRuleContext {
-  public:
-    EdgeReferenceContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ElementVariableReferenceContext *elementVariableReference();
-
-   
-  };
-
   template<typename ContextT>
-  EdgeReferenceContext* edgeReference(ContextT* ctx) {
-    EdgeReferenceContext *_localctx = _tracker.createInstance<EdgeReferenceContext>(_ctx, getState());
+  antlr4::ParserRuleContext* edgeReference(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 810, GQLParser::RuleEdgeReference);
 
   #if __cplusplus > 201703L
@@ -32178,24 +26912,9 @@ public:
     return _localctx;
   }
 
-  class  All_differentPredicateContext : public antlr4::ParserRuleContext {
-  public:
-    All_differentPredicateContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *ALL_DIFFERENT();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    std::vector<ElementVariableReferenceContext *> elementVariableReference();
-    ElementVariableReferenceContext* elementVariableReference(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  All_differentPredicateContext* all_differentPredicate(ContextT* ctx) {
-    All_differentPredicateContext *_localctx = _tracker.createInstance<All_differentPredicateContext>(_ctx, getState());
+  antlr4::ParserRuleContext* all_differentPredicate(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 812, GQLParser::RuleAll_differentPredicate);
     size_t _la = 0;
 
@@ -32280,24 +26999,9 @@ public:
     return _localctx;
   }
 
-  class  SamePredicateContext : public antlr4::ParserRuleContext {
-  public:
-    SamePredicateContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *SAME();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    std::vector<ElementVariableReferenceContext *> elementVariableReference();
-    ElementVariableReferenceContext* elementVariableReference(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  SamePredicateContext* samePredicate(ContextT* ctx) {
-    SamePredicateContext *_localctx = _tracker.createInstance<SamePredicateContext>(_ctx, getState());
+  antlr4::ParserRuleContext* samePredicate(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 814, GQLParser::RuleSamePredicate);
     size_t _la = 0;
 
@@ -32382,23 +27086,9 @@ public:
     return _localctx;
   }
 
-  class  Property_existsPredicateContext : public antlr4::ParserRuleContext {
-  public:
-    Property_existsPredicateContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *PROPERTY_EXISTS();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    ElementVariableReferenceContext *elementVariableReference();
-    antlr4::tree::TerminalNode *COMMA();
-    PropertyNameContext *propertyName();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  Property_existsPredicateContext* property_existsPredicate(ContextT* ctx) {
-    Property_existsPredicateContext *_localctx = _tracker.createInstance<Property_existsPredicateContext>(_ctx, getState());
+  antlr4::ParserRuleContext* property_existsPredicate(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 816, GQLParser::RuleProperty_existsPredicate);
 
   #if __cplusplus > 201703L
@@ -32462,166 +27152,18 @@ public:
     return _localctx;
   }
 
-  class  ValueExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    ValueExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-   
-    ValueExpressionContext() = default;
-    void copyFrom(ValueExpressionContext *context);
-    using antlr4::ParserRuleContext::copyFrom;
-
-    virtual size_t getRuleIndex() const override;
-
-   
-  };
-
-  class  ConjunctiveExprAltContext : public ValueExpressionContext {
-  public:
-    ConjunctiveExprAltContext(ValueExpressionContext *ctx);
-
-    std::vector<ValueExpressionContext *> valueExpression();
-    ValueExpressionContext* valueExpression(size_t i);
-    antlr4::tree::TerminalNode *AND();
-  };
-
-  class  PropertyGraphExprAltContext : public ValueExpressionContext {
-  public:
-    PropertyGraphExprAltContext(ValueExpressionContext *ctx);
-
-    antlr4::tree::TerminalNode *GRAPH();
-    GraphExpressionContext *graphExpression();
-    antlr4::tree::TerminalNode *PROPERTY();
-  };
-
-  class  MultDivExprAltContext : public ValueExpressionContext {
-  public:
-    MultDivExprAltContext(ValueExpressionContext *ctx);
-
-    antlr4::Token *operator_ = nullptr;
-    std::vector<ValueExpressionContext *> valueExpression();
-    ValueExpressionContext* valueExpression(size_t i);
-    antlr4::tree::TerminalNode *ASTERISK();
-    antlr4::tree::TerminalNode *SOLIDUS();
-  };
-
-  class  BindingTableExprAltContext : public ValueExpressionContext {
-  public:
-    BindingTableExprAltContext(ValueExpressionContext *ctx);
-
-    antlr4::tree::TerminalNode *TABLE();
-    BindingTableExpressionContext *bindingTableExpression();
-    antlr4::tree::TerminalNode *BINDING();
-  };
-
-  class  SignedExprAltContext : public ValueExpressionContext {
-  public:
-    SignedExprAltContext(ValueExpressionContext *ctx);
-
-    antlr4::Token *sign = nullptr;
-    ValueExpressionContext *valueExpression();
-    antlr4::tree::TerminalNode *PLUS_SIGN();
-    antlr4::tree::TerminalNode *MINUS_SIGN();
-  };
-
-  class  IsNotExprAltContext : public ValueExpressionContext {
-  public:
-    IsNotExprAltContext(ValueExpressionContext *ctx);
-
-    ValueExpressionContext *valueExpression();
-    antlr4::tree::TerminalNode *IS();
-    TruthValueContext *truthValue();
-    antlr4::tree::TerminalNode *NOT();
-  };
-
-  class  NormalizedPredicateExprAltContext : public ValueExpressionContext {
-  public:
-    NormalizedPredicateExprAltContext(ValueExpressionContext *ctx);
-
-    ValueExpressionContext *valueExpression();
-    NormalizedPredicatePart2Context *normalizedPredicatePart2();
-  };
-
-  class  NotExprAltContext : public ValueExpressionContext {
-  public:
-    NotExprAltContext(ValueExpressionContext *ctx);
-
-    antlr4::tree::TerminalNode *NOT();
-    ValueExpressionContext *valueExpression();
-  };
-
-  class  ValueFunctionExprAltContext : public ValueExpressionContext {
-  public:
-    ValueFunctionExprAltContext(ValueExpressionContext *ctx);
-
-    ValueFunctionContext *valueFunction();
-  };
-
-  class  ConcatenationExprAltContext : public ValueExpressionContext {
-  public:
-    ConcatenationExprAltContext(ValueExpressionContext *ctx);
-
-    std::vector<ValueExpressionContext *> valueExpression();
-    ValueExpressionContext* valueExpression(size_t i);
-    antlr4::tree::TerminalNode *CONCATENATION_OPERATOR();
-  };
-
-  class  DisjunctiveExprAltContext : public ValueExpressionContext {
-  public:
-    DisjunctiveExprAltContext(ValueExpressionContext *ctx);
-
-    antlr4::Token *operator_ = nullptr;
-    std::vector<ValueExpressionContext *> valueExpression();
-    ValueExpressionContext* valueExpression(size_t i);
-    antlr4::tree::TerminalNode *OR();
-    antlr4::tree::TerminalNode *XOR();
-  };
-
-  class  ComparisonExprAltContext : public ValueExpressionContext {
-  public:
-    ComparisonExprAltContext(ValueExpressionContext *ctx);
-
-    std::vector<ValueExpressionContext *> valueExpression();
-    ValueExpressionContext* valueExpression(size_t i);
-    CompOpContext *compOp();
-  };
-
-  class  PrimaryExprAltContext : public ValueExpressionContext {
-  public:
-    PrimaryExprAltContext(ValueExpressionContext *ctx);
-
-    ValueExpressionPrimaryContext *valueExpressionPrimary();
-  };
-
-  class  AddSubtractExprAltContext : public ValueExpressionContext {
-  public:
-    AddSubtractExprAltContext(ValueExpressionContext *ctx);
-
-    antlr4::Token *operator_ = nullptr;
-    std::vector<ValueExpressionContext *> valueExpression();
-    ValueExpressionContext* valueExpression(size_t i);
-    antlr4::tree::TerminalNode *PLUS_SIGN();
-    antlr4::tree::TerminalNode *MINUS_SIGN();
-  };
-
-  class  PredicateExprAltContext : public ValueExpressionContext {
-  public:
-    PredicateExprAltContext(ValueExpressionContext *ctx);
-
-    PredicateContext *predicate();
-  };
-
 
   template<typename ContextT>
-  ValueExpressionContext* valueExpression(ContextT* ctx) {
+  antlr4::ParserRuleContext* valueExpression(ContextT* ctx) {
      return valueExpression(0, ctx);
   }
 
   template<typename ContextT>
-  ValueExpressionContext* valueExpression(int precedence, ContextT* ctx) {
+  antlr4::ParserRuleContext* valueExpression(int precedence, ContextT* ctx) {
     antlr4::ParserRuleContext *parentContext = _ctx;
     size_t parentState = getState();
-    GQLParser::ValueExpressionContext *_localctx = _tracker.createInstance<ValueExpressionContext>(_ctx, parentState);
-    GQLParser::ValueExpressionContext *previousContext = _localctx;
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, parentState);
+    antlr4::ParserRuleContext *previousContext = _localctx;
     (void)previousContext; // Silence compiler, in case the context is not used by generated code.
     size_t startState = 818;
     enterRecursionRule(_localctx, 818, GQLParser::RuleValueExpression, precedence);
@@ -32645,7 +27187,11 @@ public:
       _errHandler->sync(this);
       switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 437, _ctx)) {
       case 1: {
-        _localctx = _tracker.createInstance<SignedExprAltContext>(_localctx);
+        {
+          auto savedLocalCtx = _localctx;
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+          _localctx->copyFrom(savedLocalCtx);
+        }
         _ctx = _localctx;
         previousContext = _localctx;
         auto ctxHolder = ctx->EnterSignedExprAlt();
@@ -32659,12 +27205,11 @@ public:
         });
 
         setState(3816);
-        antlrcpp::downCast<SignedExprAltContext *>(_localctx)->sign = _input->LT(1);
         _la = _input->LA(1);
         if (!(_la == GQLParser::MINUS_SIGN
 
         || _la == GQLParser::PLUS_SIGN)) {
-          antlrcpp::downCast<SignedExprAltContext *>(_localctx)->sign = _errHandler->recoverInline(this);
+          _errHandler->recoverInline(this);
         }
         else {
           _errHandler->reportMatch(this);
@@ -32680,7 +27225,11 @@ public:
       }
 
       case 2: {
-        _localctx = _tracker.createInstance<PredicateExprAltContext>(_localctx);
+        {
+          auto savedLocalCtx = _localctx;
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+          _localctx->copyFrom(savedLocalCtx);
+        }
         _ctx = _localctx;
         previousContext = _localctx;
         auto ctxHolder = ctx->EnterPredicateExprAlt();
@@ -32701,7 +27250,11 @@ public:
       }
 
       case 3: {
-        _localctx = _tracker.createInstance<NotExprAltContext>(_localctx);
+        {
+          auto savedLocalCtx = _localctx;
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+          _localctx->copyFrom(savedLocalCtx);
+        }
         _ctx = _localctx;
         previousContext = _localctx;
         auto ctxHolder = ctx->EnterNotExprAlt();
@@ -32729,7 +27282,11 @@ public:
       }
 
       case 4: {
-        _localctx = _tracker.createInstance<PropertyGraphExprAltContext>(_localctx);
+        {
+          auto savedLocalCtx = _localctx;
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+          _localctx->copyFrom(savedLocalCtx);
+        }
         _ctx = _localctx;
         previousContext = _localctx;
         auto ctxHolder = ctx->EnterPropertyGraphExprAlt();
@@ -32770,7 +27327,11 @@ public:
       }
 
       case 5: {
-        _localctx = _tracker.createInstance<BindingTableExprAltContext>(_localctx);
+        {
+          auto savedLocalCtx = _localctx;
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+          _localctx->copyFrom(savedLocalCtx);
+        }
         _ctx = _localctx;
         previousContext = _localctx;
         auto ctxHolder = ctx->EnterBindingTableExprAlt();
@@ -32811,7 +27372,11 @@ public:
       }
 
       case 6: {
-        _localctx = _tracker.createInstance<ValueFunctionExprAltContext>(_localctx);
+        {
+          auto savedLocalCtx = _localctx;
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+          _localctx->copyFrom(savedLocalCtx);
+        }
         _ctx = _localctx;
         previousContext = _localctx;
         auto ctxHolder = ctx->EnterValueFunctionExprAlt();
@@ -32832,7 +27397,11 @@ public:
       }
 
       case 7: {
-        _localctx = _tracker.createInstance<PrimaryExprAltContext>(_localctx);
+        {
+          auto savedLocalCtx = _localctx;
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+          _localctx->copyFrom(savedLocalCtx);
+        }
         _ctx = _localctx;
         previousContext = _localctx;
         auto ctxHolder = ctx->EnterPrimaryExprAlt();
@@ -32871,7 +27440,9 @@ public:
           _errHandler->sync(this);
           switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 439, _ctx)) {
           case 1: {
-            auto newContext = _tracker.createInstance<MultDivExprAltContext>(_tracker.createInstance<ValueExpressionContext>(parentContext, parentState));
+            auto newParentContext = _tracker.createInstance<antlr4::ParserRuleContext>(parentContext, parentState);
+            auto newContext = _tracker.createInstance<antlr4::ParserRuleContext>();
+            newContext->copyFrom(newParentContext);
             _localctx = newContext;
             pushNewRecursionContext(newContext, startState, RuleValueExpression);
             auto ctxHolder = ctx->PushMultDivExprAlt_ValueExpression();
@@ -32887,12 +27458,11 @@ public:
 
             if (!(precpred(_ctx, 14))) throw antlr4::FailedPredicateException(this, "precpred(_ctx, 14)");
             setState(3836);
-            antlrcpp::downCast<MultDivExprAltContext *>(_localctx)->operator_ = _input->LT(1);
             _la = _input->LA(1);
             if (!(_la == GQLParser::ASTERISK
 
             || _la == GQLParser::SOLIDUS)) {
-              antlrcpp::downCast<MultDivExprAltContext *>(_localctx)->operator_ = _errHandler->recoverInline(this);
+              _errHandler->recoverInline(this);
             }
             else {
               _errHandler->reportMatch(this);
@@ -32908,7 +27478,9 @@ public:
           }
 
           case 2: {
-            auto newContext = _tracker.createInstance<AddSubtractExprAltContext>(_tracker.createInstance<ValueExpressionContext>(parentContext, parentState));
+            auto newParentContext = _tracker.createInstance<antlr4::ParserRuleContext>(parentContext, parentState);
+            auto newContext = _tracker.createInstance<antlr4::ParserRuleContext>();
+            newContext->copyFrom(newParentContext);
             _localctx = newContext;
             pushNewRecursionContext(newContext, startState, RuleValueExpression);
             auto ctxHolder = ctx->PushAddSubtractExprAlt_ValueExpression();
@@ -32924,12 +27496,11 @@ public:
 
             if (!(precpred(_ctx, 13))) throw antlr4::FailedPredicateException(this, "precpred(_ctx, 13)");
             setState(3839);
-            antlrcpp::downCast<AddSubtractExprAltContext *>(_localctx)->operator_ = _input->LT(1);
             _la = _input->LA(1);
             if (!(_la == GQLParser::MINUS_SIGN
 
             || _la == GQLParser::PLUS_SIGN)) {
-              antlrcpp::downCast<AddSubtractExprAltContext *>(_localctx)->operator_ = _errHandler->recoverInline(this);
+              _errHandler->recoverInline(this);
             }
             else {
               _errHandler->reportMatch(this);
@@ -32945,7 +27516,9 @@ public:
           }
 
           case 3: {
-            auto newContext = _tracker.createInstance<ConcatenationExprAltContext>(_tracker.createInstance<ValueExpressionContext>(parentContext, parentState));
+            auto newParentContext = _tracker.createInstance<antlr4::ParserRuleContext>(parentContext, parentState);
+            auto newContext = _tracker.createInstance<antlr4::ParserRuleContext>();
+            newContext->copyFrom(newParentContext);
             _localctx = newContext;
             pushNewRecursionContext(newContext, startState, RuleValueExpression);
             auto ctxHolder = ctx->PushConcatenationExprAlt_ValueExpression();
@@ -32976,7 +27549,9 @@ public:
           }
 
           case 4: {
-            auto newContext = _tracker.createInstance<ComparisonExprAltContext>(_tracker.createInstance<ValueExpressionContext>(parentContext, parentState));
+            auto newParentContext = _tracker.createInstance<antlr4::ParserRuleContext>(parentContext, parentState);
+            auto newContext = _tracker.createInstance<antlr4::ParserRuleContext>();
+            newContext->copyFrom(newParentContext);
             _localctx = newContext;
             pushNewRecursionContext(newContext, startState, RuleValueExpression);
             auto ctxHolder = ctx->PushComparisonExprAlt_ValueExpression();
@@ -33005,7 +27580,9 @@ public:
           }
 
           case 5: {
-            auto newContext = _tracker.createInstance<ConjunctiveExprAltContext>(_tracker.createInstance<ValueExpressionContext>(parentContext, parentState));
+            auto newParentContext = _tracker.createInstance<antlr4::ParserRuleContext>(parentContext, parentState);
+            auto newContext = _tracker.createInstance<antlr4::ParserRuleContext>();
+            newContext->copyFrom(newParentContext);
             _localctx = newContext;
             pushNewRecursionContext(newContext, startState, RuleValueExpression);
             auto ctxHolder = ctx->PushConjunctiveExprAlt_ValueExpression();
@@ -33036,7 +27613,9 @@ public:
           }
 
           case 6: {
-            auto newContext = _tracker.createInstance<DisjunctiveExprAltContext>(_tracker.createInstance<ValueExpressionContext>(parentContext, parentState));
+            auto newParentContext = _tracker.createInstance<antlr4::ParserRuleContext>(parentContext, parentState);
+            auto newContext = _tracker.createInstance<antlr4::ParserRuleContext>();
+            newContext->copyFrom(newParentContext);
             _localctx = newContext;
             pushNewRecursionContext(newContext, startState, RuleValueExpression);
             auto ctxHolder = ctx->PushDisjunctiveExprAlt_ValueExpression();
@@ -33052,10 +27631,9 @@ public:
 
             if (!(precpred(_ctx, 5))) throw antlr4::FailedPredicateException(this, "precpred(_ctx, 5)");
             setState(3852);
-            antlrcpp::downCast<DisjunctiveExprAltContext *>(_localctx)->operator_ = _input->LT(1);
             _la = _input->LA(1);
             if (!(_la == GQLParser::OR || _la == GQLParser::XOR)) {
-              antlrcpp::downCast<DisjunctiveExprAltContext *>(_localctx)->operator_ = _errHandler->recoverInline(this);
+              _errHandler->recoverInline(this);
             }
             else {
               _errHandler->reportMatch(this);
@@ -33071,7 +27649,9 @@ public:
           }
 
           case 7: {
-            auto newContext = _tracker.createInstance<NormalizedPredicateExprAltContext>(_tracker.createInstance<ValueExpressionContext>(parentContext, parentState));
+            auto newParentContext = _tracker.createInstance<antlr4::ParserRuleContext>(parentContext, parentState);
+            auto newContext = _tracker.createInstance<antlr4::ParserRuleContext>();
+            newContext->copyFrom(newParentContext);
             _localctx = newContext;
             pushNewRecursionContext(newContext, startState, RuleValueExpression);
             auto ctxHolder = ctx->PushNormalizedPredicateExprAlt_ValueExpression();
@@ -33095,7 +27675,9 @@ public:
           }
 
           case 8: {
-            auto newContext = _tracker.createInstance<IsNotExprAltContext>(_tracker.createInstance<ValueExpressionContext>(parentContext, parentState));
+            auto newParentContext = _tracker.createInstance<antlr4::ParserRuleContext>(parentContext, parentState);
+            auto newContext = _tracker.createInstance<antlr4::ParserRuleContext>();
+            newContext->copyFrom(newParentContext);
             _localctx = newContext;
             pushNewRecursionContext(newContext, startState, RuleValueExpression);
             auto ctxHolder = ctx->PushIsNotExprAlt_ValueExpression();
@@ -33155,23 +27737,9 @@ public:
     return _localctx;
   }
 
-  class  ValueFunctionContext : public antlr4::ParserRuleContext {
-  public:
-    ValueFunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NumericValueFunctionContext *numericValueFunction();
-    DatetimeSubtractionContext *datetimeSubtraction();
-    DatetimeValueFunctionContext *datetimeValueFunction();
-    DurationValueFunctionContext *durationValueFunction();
-    CharacterOrByteStringFunctionContext *characterOrByteStringFunction();
-    ListValueFunctionContext *listValueFunction();
-
-   
-  };
-
   template<typename ContextT>
-  ValueFunctionContext* valueFunction(ContextT* ctx) {
-    ValueFunctionContext *_localctx = _tracker.createInstance<ValueFunctionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* valueFunction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 820, GQLParser::RuleValueFunction);
 
   #if __cplusplus > 201703L
@@ -33262,18 +27830,9 @@ public:
     return _localctx;
   }
 
-  class  BooleanValueExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    BooleanValueExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ValueExpressionContext *valueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  BooleanValueExpressionContext* booleanValueExpression(ContextT* ctx) {
-    BooleanValueExpressionContext *_localctx = _tracker.createInstance<BooleanValueExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* booleanValueExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 822, GQLParser::RuleBooleanValueExpression);
 
   #if __cplusplus > 201703L
@@ -33304,22 +27863,9 @@ public:
     return _localctx;
   }
 
-  class  CharacterOrByteStringFunctionContext : public antlr4::ParserRuleContext {
-  public:
-    CharacterOrByteStringFunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SubCharacterOrByteStringContext *subCharacterOrByteString();
-    TrimSingleCharacterOrByteStringContext *trimSingleCharacterOrByteString();
-    FoldCharacterStringContext *foldCharacterString();
-    TrimMultiCharacterCharacterStringContext *trimMultiCharacterCharacterString();
-    NormalizeCharacterStringContext *normalizeCharacterString();
-
-   
-  };
-
   template<typename ContextT>
-  CharacterOrByteStringFunctionContext* characterOrByteStringFunction(ContextT* ctx) {
-    CharacterOrByteStringFunctionContext *_localctx = _tracker.createInstance<CharacterOrByteStringFunctionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* characterOrByteStringFunction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 824, GQLParser::RuleCharacterOrByteStringFunction);
 
   #if __cplusplus > 201703L
@@ -33404,24 +27950,9 @@ public:
     return _localctx;
   }
 
-  class  SubCharacterOrByteStringContext : public antlr4::ParserRuleContext {
-  public:
-    SubCharacterOrByteStringContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    ValueExpressionContext *valueExpression();
-    antlr4::tree::TerminalNode *COMMA();
-    StringLengthContext *stringLength();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    antlr4::tree::TerminalNode *LEFT();
-    antlr4::tree::TerminalNode *RIGHT();
-
-   
-  };
-
   template<typename ContextT>
-  SubCharacterOrByteStringContext* subCharacterOrByteString(ContextT* ctx) {
-    SubCharacterOrByteStringContext *_localctx = _tracker.createInstance<SubCharacterOrByteStringContext>(_ctx, getState());
+  antlr4::ParserRuleContext* subCharacterOrByteString(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 826, GQLParser::RuleSubCharacterOrByteString);
     size_t _la = 0;
 
@@ -33442,7 +27973,7 @@ public:
       if (!(_la == GQLParser::LEFT
 
       || _la == GQLParser::RIGHT)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -33491,21 +28022,9 @@ public:
     return _localctx;
   }
 
-  class  TrimSingleCharacterOrByteStringContext : public antlr4::ParserRuleContext {
-  public:
-    TrimSingleCharacterOrByteStringContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *TRIM();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    TrimOperandsContext *trimOperands();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  TrimSingleCharacterOrByteStringContext* trimSingleCharacterOrByteString(ContextT* ctx) {
-    TrimSingleCharacterOrByteStringContext *_localctx = _tracker.createInstance<TrimSingleCharacterOrByteStringContext>(_ctx, getState());
+  antlr4::ParserRuleContext* trimSingleCharacterOrByteString(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 828, GQLParser::RuleTrimSingleCharacterOrByteString);
 
   #if __cplusplus > 201703L
@@ -33557,22 +28076,9 @@ public:
     return _localctx;
   }
 
-  class  FoldCharacterStringContext : public antlr4::ParserRuleContext {
-  public:
-    FoldCharacterStringContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    ValueExpressionContext *valueExpression();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    antlr4::tree::TerminalNode *UPPER();
-    antlr4::tree::TerminalNode *LOWER();
-
-   
-  };
-
   template<typename ContextT>
-  FoldCharacterStringContext* foldCharacterString(ContextT* ctx) {
-    FoldCharacterStringContext *_localctx = _tracker.createInstance<FoldCharacterStringContext>(_ctx, getState());
+  antlr4::ParserRuleContext* foldCharacterString(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 830, GQLParser::RuleFoldCharacterString);
     size_t _la = 0;
 
@@ -33591,7 +28097,7 @@ public:
       setState(3896);
       _la = _input->LA(1);
       if (!(_la == GQLParser::LOWER || _la == GQLParser::UPPER)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -33628,25 +28134,9 @@ public:
     return _localctx;
   }
 
-  class  TrimMultiCharacterCharacterStringContext : public antlr4::ParserRuleContext {
-  public:
-    TrimMultiCharacterCharacterStringContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    std::vector<ValueExpressionContext *> valueExpression();
-    ValueExpressionContext* valueExpression(size_t i);
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    antlr4::tree::TerminalNode *BTRIM();
-    antlr4::tree::TerminalNode *LTRIM();
-    antlr4::tree::TerminalNode *RTRIM();
-    antlr4::tree::TerminalNode *COMMA();
-
-   
-  };
-
   template<typename ContextT>
-  TrimMultiCharacterCharacterStringContext* trimMultiCharacterCharacterString(ContextT* ctx) {
-    TrimMultiCharacterCharacterStringContext *_localctx = _tracker.createInstance<TrimMultiCharacterCharacterStringContext>(_ctx, getState());
+  antlr4::ParserRuleContext* trimMultiCharacterCharacterString(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 832, GQLParser::RuleTrimMultiCharacterCharacterString);
     size_t _la = 0;
 
@@ -33667,7 +28157,7 @@ public:
       if (!(_la == GQLParser::BTRIM || _la == GQLParser::LTRIM
 
       || _la == GQLParser::RTRIM)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -33722,23 +28212,9 @@ public:
     return _localctx;
   }
 
-  class  NormalizeCharacterStringContext : public antlr4::ParserRuleContext {
-  public:
-    NormalizeCharacterStringContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *NORMALIZE();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    ValueExpressionContext *valueExpression();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    antlr4::tree::TerminalNode *COMMA();
-    NormalFormContext *normalForm();
-
-   
-  };
-
   template<typename ContextT>
-  NormalizeCharacterStringContext* normalizeCharacterString(ContextT* ctx) {
-    NormalizeCharacterStringContext *_localctx = _tracker.createInstance<NormalizeCharacterStringContext>(_ctx, getState());
+  antlr4::ParserRuleContext* normalizeCharacterString(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 834, GQLParser::RuleNormalizeCharacterString);
     size_t _la = 0;
 
@@ -33809,18 +28285,9 @@ public:
     return _localctx;
   }
 
-  class  NodeReferenceValueExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    NodeReferenceValueExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ValueExpressionPrimaryContext *valueExpressionPrimary();
-
-   
-  };
-
   template<typename ContextT>
-  NodeReferenceValueExpressionContext* nodeReferenceValueExpression(ContextT* ctx) {
-    NodeReferenceValueExpressionContext *_localctx = _tracker.createInstance<NodeReferenceValueExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nodeReferenceValueExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 836, GQLParser::RuleNodeReferenceValueExpression);
 
   #if __cplusplus > 201703L
@@ -33851,18 +28318,9 @@ public:
     return _localctx;
   }
 
-  class  EdgeReferenceValueExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    EdgeReferenceValueExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ValueExpressionPrimaryContext *valueExpressionPrimary();
-
-   
-  };
-
   template<typename ContextT>
-  EdgeReferenceValueExpressionContext* edgeReferenceValueExpression(ContextT* ctx) {
-    EdgeReferenceValueExpressionContext *_localctx = _tracker.createInstance<EdgeReferenceValueExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* edgeReferenceValueExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 838, GQLParser::RuleEdgeReferenceValueExpression);
 
   #if __cplusplus > 201703L
@@ -33893,18 +28351,9 @@ public:
     return _localctx;
   }
 
-  class  AggregatingValueExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    AggregatingValueExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ValueExpressionContext *valueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  AggregatingValueExpressionContext* aggregatingValueExpression(ContextT* ctx) {
-    AggregatingValueExpressionContext *_localctx = _tracker.createInstance<AggregatingValueExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* aggregatingValueExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 840, GQLParser::RuleAggregatingValueExpression);
 
   #if __cplusplus > 201703L
@@ -33935,39 +28384,18 @@ public:
     return _localctx;
   }
 
-  class  ValueExpressionPrimaryContext : public antlr4::ParserRuleContext {
-  public:
-    ValueExpressionPrimaryContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ParenthesizedValueExpressionContext *parenthesizedValueExpression();
-    AggregateFunctionContext *aggregateFunction();
-    UnsignedValueSpecificationContext *unsignedValueSpecification();
-    PathValueConstructorContext *pathValueConstructor();
-    ValueQueryExpressionContext *valueQueryExpression();
-    CaseExpressionContext *caseExpression();
-    CastSpecificationContext *castSpecification();
-    Element_idFunctionContext *element_idFunction();
-    LetValueExpressionContext *letValueExpression();
-    BindingVariableReferenceContext *bindingVariableReference();
-    ValueExpressionPrimaryContext *valueExpressionPrimary();
-    antlr4::tree::TerminalNode *PERIOD();
-    PropertyNameContext *propertyName();
-
-   
-  };
-
 
   template<typename ContextT>
-  ValueExpressionPrimaryContext* valueExpressionPrimary(ContextT* ctx) {
+  antlr4::ParserRuleContext* valueExpressionPrimary(ContextT* ctx) {
      return valueExpressionPrimary(0, ctx);
   }
 
   template<typename ContextT>
-  ValueExpressionPrimaryContext* valueExpressionPrimary(int precedence, ContextT* ctx) {
+  antlr4::ParserRuleContext* valueExpressionPrimary(int precedence, ContextT* ctx) {
     antlr4::ParserRuleContext *parentContext = _ctx;
     size_t parentState = getState();
-    GQLParser::ValueExpressionPrimaryContext *_localctx = _tracker.createInstance<ValueExpressionPrimaryContext>(_ctx, parentState);
-    GQLParser::ValueExpressionPrimaryContext *previousContext = _localctx;
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, parentState);
+    antlr4::ParserRuleContext *previousContext = _localctx;
     (void)previousContext; // Silence compiler, in case the context is not used by generated code.
     size_t startState = 842;
     enterRecursionRule(_localctx, 842, GQLParser::RuleValueExpressionPrimary, precedence);
@@ -34182,7 +28610,7 @@ public:
             ctx->ExitRule(_ctx);
           }
           previousContext = _localctx;
-          _localctx = _tracker.createInstance<ValueExpressionPrimaryContext>(parentContext, parentState);
+          _localctx = _tracker.createInstance<antlr4::ParserRuleContext>(parentContext, parentState);
           pushNewRecursionContext(_localctx, startState, RuleValueExpressionPrimary);
           ctx->PushValueExpressionPrimary();
           setState(3938);
@@ -34214,20 +28642,9 @@ public:
     return _localctx;
   }
 
-  class  ParenthesizedValueExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    ParenthesizedValueExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    ValueExpressionContext *valueExpression();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  ParenthesizedValueExpressionContext* parenthesizedValueExpression(ContextT* ctx) {
-    ParenthesizedValueExpressionContext *_localctx = _tracker.createInstance<ParenthesizedValueExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* parenthesizedValueExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 844, GQLParser::RuleParenthesizedValueExpression);
 
   #if __cplusplus > 201703L
@@ -34272,19 +28689,9 @@ public:
     return _localctx;
   }
 
-  class  NonParenthesizedValueExpressionPrimaryContext : public antlr4::ParserRuleContext {
-  public:
-    NonParenthesizedValueExpressionPrimaryContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NonParenthesizedValueExpressionPrimarySpecialCaseContext *nonParenthesizedValueExpressionPrimarySpecialCase();
-    BindingVariableReferenceContext *bindingVariableReference();
-
-   
-  };
-
   template<typename ContextT>
-  NonParenthesizedValueExpressionPrimaryContext* nonParenthesizedValueExpressionPrimary(ContextT* ctx) {
-    NonParenthesizedValueExpressionPrimaryContext *_localctx = _tracker.createInstance<NonParenthesizedValueExpressionPrimaryContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nonParenthesizedValueExpressionPrimary(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 846, GQLParser::RuleNonParenthesizedValueExpressionPrimary);
 
   #if __cplusplus > 201703L
@@ -34335,28 +28742,9 @@ public:
     return _localctx;
   }
 
-  class  NonParenthesizedValueExpressionPrimarySpecialCaseContext : public antlr4::ParserRuleContext {
-  public:
-    NonParenthesizedValueExpressionPrimarySpecialCaseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    AggregateFunctionContext *aggregateFunction();
-    UnsignedValueSpecificationContext *unsignedValueSpecification();
-    PathValueConstructorContext *pathValueConstructor();
-    ValueExpressionPrimaryContext *valueExpressionPrimary();
-    antlr4::tree::TerminalNode *PERIOD();
-    PropertyNameContext *propertyName();
-    ValueQueryExpressionContext *valueQueryExpression();
-    CaseExpressionContext *caseExpression();
-    CastSpecificationContext *castSpecification();
-    Element_idFunctionContext *element_idFunction();
-    LetValueExpressionContext *letValueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  NonParenthesizedValueExpressionPrimarySpecialCaseContext* nonParenthesizedValueExpressionPrimarySpecialCase(ContextT* ctx) {
-    NonParenthesizedValueExpressionPrimarySpecialCaseContext *_localctx = _tracker.createInstance<NonParenthesizedValueExpressionPrimarySpecialCaseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nonParenthesizedValueExpressionPrimarySpecialCase(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 848, GQLParser::RuleNonParenthesizedValueExpressionPrimarySpecialCase);
 
   #if __cplusplus > 201703L
@@ -34489,19 +28877,9 @@ public:
     return _localctx;
   }
 
-  class  UnsignedValueSpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    UnsignedValueSpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    UnsignedLiteralContext *unsignedLiteral();
-    GeneralValueSpecificationContext *generalValueSpecification();
-
-   
-  };
-
   template<typename ContextT>
-  UnsignedValueSpecificationContext* unsignedValueSpecification(ContextT* ctx) {
-    UnsignedValueSpecificationContext *_localctx = _tracker.createInstance<UnsignedValueSpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* unsignedValueSpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 850, GQLParser::RuleUnsignedValueSpecification);
 
   #if __cplusplus > 201703L
@@ -34580,19 +28958,9 @@ public:
     return _localctx;
   }
 
-  class  NonNegativeIntegerSpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    NonNegativeIntegerSpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    UnsignedIntegerContext *unsignedInteger();
-    DynamicParameterSpecificationContext *dynamicParameterSpecification();
-
-   
-  };
-
   template<typename ContextT>
-  NonNegativeIntegerSpecificationContext* nonNegativeIntegerSpecification(ContextT* ctx) {
-    NonNegativeIntegerSpecificationContext *_localctx = _tracker.createInstance<NonNegativeIntegerSpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nonNegativeIntegerSpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 852, GQLParser::RuleNonNegativeIntegerSpecification);
 
   #if __cplusplus > 201703L
@@ -34646,19 +29014,9 @@ public:
     return _localctx;
   }
 
-  class  GeneralValueSpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    GeneralValueSpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    DynamicParameterSpecificationContext *dynamicParameterSpecification();
-    antlr4::tree::TerminalNode *SESSION_USER();
-
-   
-  };
-
   template<typename ContextT>
-  GeneralValueSpecificationContext* generalValueSpecification(ContextT* ctx) {
-    GeneralValueSpecificationContext *_localctx = _tracker.createInstance<GeneralValueSpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* generalValueSpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 854, GQLParser::RuleGeneralValueSpecification);
 
   #if __cplusplus > 201703L
@@ -34711,18 +29069,9 @@ public:
     return _localctx;
   }
 
-  class  DynamicParameterSpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    DynamicParameterSpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *GENERAL_PARAMETER_REFERENCE();
-
-   
-  };
-
   template<typename ContextT>
-  DynamicParameterSpecificationContext* dynamicParameterSpecification(ContextT* ctx) {
-    DynamicParameterSpecificationContext *_localctx = _tracker.createInstance<DynamicParameterSpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* dynamicParameterSpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 856, GQLParser::RuleDynamicParameterSpecification);
 
   #if __cplusplus > 201703L
@@ -34755,22 +29104,9 @@ public:
     return _localctx;
   }
 
-  class  LetValueExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    LetValueExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LET();
-    LetVariableDefinitionListContext *letVariableDefinitionList();
-    antlr4::tree::TerminalNode *IN();
-    ValueExpressionContext *valueExpression();
-    antlr4::tree::TerminalNode *END();
-
-   
-  };
-
   template<typename ContextT>
-  LetValueExpressionContext* letValueExpression(ContextT* ctx) {
-    LetValueExpressionContext *_localctx = _tracker.createInstance<LetValueExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* letValueExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 858, GQLParser::RuleLetValueExpression);
 
   #if __cplusplus > 201703L
@@ -34827,19 +29163,9 @@ public:
     return _localctx;
   }
 
-  class  ValueQueryExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    ValueQueryExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *VALUE();
-    NestedQuerySpecificationContext *nestedQuerySpecification();
-
-   
-  };
-
   template<typename ContextT>
-  ValueQueryExpressionContext* valueQueryExpression(ContextT* ctx) {
-    ValueQueryExpressionContext *_localctx = _tracker.createInstance<ValueQueryExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* valueQueryExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 860, GQLParser::RuleValueQueryExpression);
 
   #if __cplusplus > 201703L
@@ -34877,19 +29203,9 @@ public:
     return _localctx;
   }
 
-  class  CaseExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    CaseExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    CaseAbbreviationContext *caseAbbreviation();
-    CaseSpecificationContext *caseSpecification();
-
-   
-  };
-
   template<typename ContextT>
-  CaseExpressionContext* caseExpression(ContextT* ctx) {
-    CaseExpressionContext *_localctx = _tracker.createInstance<CaseExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* caseExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 862, GQLParser::RuleCaseExpression);
 
   #if __cplusplus > 201703L
@@ -34941,47 +29257,9 @@ public:
     return _localctx;
   }
 
-  class  CaseAbbreviationContext : public antlr4::ParserRuleContext {
-  public:
-    CaseAbbreviationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-   
-    CaseAbbreviationContext() = default;
-    void copyFrom(CaseAbbreviationContext *context);
-    using antlr4::ParserRuleContext::copyFrom;
-
-    virtual size_t getRuleIndex() const override;
-
-   
-  };
-
-  class  NullIfExprAltContext : public CaseAbbreviationContext {
-  public:
-    NullIfExprAltContext(CaseAbbreviationContext *ctx);
-
-    antlr4::tree::TerminalNode *NULLIF();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    std::vector<ValueExpressionContext *> valueExpression();
-    ValueExpressionContext* valueExpression(size_t i);
-    antlr4::tree::TerminalNode *COMMA();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-  };
-
-  class  CoalesceExprAltContext : public CaseAbbreviationContext {
-  public:
-    CoalesceExprAltContext(CaseAbbreviationContext *ctx);
-
-    antlr4::tree::TerminalNode *COALESCE();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    std::vector<ValueExpressionContext *> valueExpression();
-    ValueExpressionContext* valueExpression(size_t i);
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-  };
-
   template<typename ContextT>
-  CaseAbbreviationContext* caseAbbreviation(ContextT* ctx) {
-    CaseAbbreviationContext *_localctx = _tracker.createInstance<CaseAbbreviationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* caseAbbreviation(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 864, GQLParser::RuleCaseAbbreviation);
     size_t _la = 0;
 
@@ -35000,7 +29278,11 @@ public:
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::NULLIF: {
-          _localctx = _tracker.createInstance<GQLParser::NullIfExprAltContext>(_localctx);
+          {
+            auto savedLocalCtx = _localctx;
+            _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+            _localctx->copyFrom(savedLocalCtx);
+          }
           auto ctxHolder = ctx->EnterNullIfExprAlt();
           auto ctx = get_raw_pointer(ctxHolder);
           auto onExit = antlrcpp::finally([ctx, _localctx] {
@@ -35053,7 +29335,11 @@ public:
         }
 
         case GQLParser::COALESCE: {
-          _localctx = _tracker.createInstance<GQLParser::CoalesceExprAltContext>(_localctx);
+          {
+            auto savedLocalCtx = _localctx;
+            _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+            _localctx->copyFrom(savedLocalCtx);
+          }
           auto ctxHolder = ctx->EnterCoalesceExprAlt();
           auto ctx = get_raw_pointer(ctxHolder);
           auto onExit = antlrcpp::finally([ctx, _localctx] {
@@ -35127,19 +29413,9 @@ public:
     return _localctx;
   }
 
-  class  CaseSpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    CaseSpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    SimpleCaseContext *simpleCase();
-    SearchedCaseContext *searchedCase();
-
-   
-  };
-
   template<typename ContextT>
-  CaseSpecificationContext* caseSpecification(ContextT* ctx) {
-    CaseSpecificationContext *_localctx = _tracker.createInstance<CaseSpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* caseSpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 866, GQLParser::RuleCaseSpecification);
 
   #if __cplusplus > 201703L
@@ -35190,23 +29466,9 @@ public:
     return _localctx;
   }
 
-  class  SimpleCaseContext : public antlr4::ParserRuleContext {
-  public:
-    SimpleCaseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *CASE();
-    CaseOperandContext *caseOperand();
-    antlr4::tree::TerminalNode *END();
-    std::vector<SimpleWhenClauseContext *> simpleWhenClause();
-    SimpleWhenClauseContext* simpleWhenClause(size_t i);
-    ElseClauseContext *elseClause();
-
-   
-  };
-
   template<typename ContextT>
-  SimpleCaseContext* simpleCase(ContextT* ctx) {
-    SimpleCaseContext *_localctx = _tracker.createInstance<SimpleCaseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simpleCase(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 868, GQLParser::RuleSimpleCase);
     size_t _la = 0;
 
@@ -35276,22 +29538,9 @@ public:
     return _localctx;
   }
 
-  class  SearchedCaseContext : public antlr4::ParserRuleContext {
-  public:
-    SearchedCaseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *CASE();
-    antlr4::tree::TerminalNode *END();
-    std::vector<SearchedWhenClauseContext *> searchedWhenClause();
-    SearchedWhenClauseContext* searchedWhenClause(size_t i);
-    ElseClauseContext *elseClause();
-
-   
-  };
-
   template<typename ContextT>
-  SearchedCaseContext* searchedCase(ContextT* ctx) {
-    SearchedCaseContext *_localctx = _tracker.createInstance<SearchedCaseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* searchedCase(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 870, GQLParser::RuleSearchedCase);
     size_t _la = 0;
 
@@ -35356,21 +29605,9 @@ public:
     return _localctx;
   }
 
-  class  SimpleWhenClauseContext : public antlr4::ParserRuleContext {
-  public:
-    SimpleWhenClauseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *WHEN();
-    WhenOperandListContext *whenOperandList();
-    antlr4::tree::TerminalNode *THEN();
-    ResultContext *result();
-
-   
-  };
-
   template<typename ContextT>
-  SimpleWhenClauseContext* simpleWhenClause(ContextT* ctx) {
-    SimpleWhenClauseContext *_localctx = _tracker.createInstance<SimpleWhenClauseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* simpleWhenClause(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 872, GQLParser::RuleSimpleWhenClause);
 
   #if __cplusplus > 201703L
@@ -35420,21 +29657,9 @@ public:
     return _localctx;
   }
 
-  class  SearchedWhenClauseContext : public antlr4::ParserRuleContext {
-  public:
-    SearchedWhenClauseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *WHEN();
-    SearchConditionContext *searchCondition();
-    antlr4::tree::TerminalNode *THEN();
-    ResultContext *result();
-
-   
-  };
-
   template<typename ContextT>
-  SearchedWhenClauseContext* searchedWhenClause(ContextT* ctx) {
-    SearchedWhenClauseContext *_localctx = _tracker.createInstance<SearchedWhenClauseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* searchedWhenClause(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 874, GQLParser::RuleSearchedWhenClause);
 
   #if __cplusplus > 201703L
@@ -35484,19 +29709,9 @@ public:
     return _localctx;
   }
 
-  class  ElseClauseContext : public antlr4::ParserRuleContext {
-  public:
-    ElseClauseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *ELSE();
-    ResultContext *result();
-
-   
-  };
-
   template<typename ContextT>
-  ElseClauseContext* elseClause(ContextT* ctx) {
-    ElseClauseContext *_localctx = _tracker.createInstance<ElseClauseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* elseClause(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 876, GQLParser::RuleElseClause);
 
   #if __cplusplus > 201703L
@@ -35534,19 +29749,9 @@ public:
     return _localctx;
   }
 
-  class  CaseOperandContext : public antlr4::ParserRuleContext {
-  public:
-    CaseOperandContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NonParenthesizedValueExpressionPrimaryContext *nonParenthesizedValueExpressionPrimary();
-    ElementVariableReferenceContext *elementVariableReference();
-
-   
-  };
-
   template<typename ContextT>
-  CaseOperandContext* caseOperand(ContextT* ctx) {
-    CaseOperandContext *_localctx = _tracker.createInstance<CaseOperandContext>(_ctx, getState());
+  antlr4::ParserRuleContext* caseOperand(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 878, GQLParser::RuleCaseOperand);
 
   #if __cplusplus > 201703L
@@ -35597,21 +29802,9 @@ public:
     return _localctx;
   }
 
-  class  WhenOperandListContext : public antlr4::ParserRuleContext {
-  public:
-    WhenOperandListContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<WhenOperandContext *> whenOperand();
-    WhenOperandContext* whenOperand(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  WhenOperandListContext* whenOperandList(ContextT* ctx) {
-    WhenOperandListContext *_localctx = _tracker.createInstance<WhenOperandListContext>(_ctx, getState());
+  antlr4::ParserRuleContext* whenOperandList(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 880, GQLParser::RuleWhenOperandList);
     size_t _la = 0;
 
@@ -35663,27 +29856,9 @@ public:
     return _localctx;
   }
 
-  class  WhenOperandContext : public antlr4::ParserRuleContext {
-  public:
-    WhenOperandContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NonParenthesizedValueExpressionPrimaryContext *nonParenthesizedValueExpressionPrimary();
-    CompOpContext *compOp();
-    ValueExpressionContext *valueExpression();
-    NullPredicatePart2Context *nullPredicatePart2();
-    ValueTypePredicatePart2Context *valueTypePredicatePart2();
-    NormalizedPredicatePart2Context *normalizedPredicatePart2();
-    DirectedPredicatePart2Context *directedPredicatePart2();
-    LabeledPredicatePart2Context *labeledPredicatePart2();
-    SourcePredicatePart2Context *sourcePredicatePart2();
-    DestinationPredicatePart2Context *destinationPredicatePart2();
-
-   
-  };
-
   template<typename ContextT>
-  WhenOperandContext* whenOperand(ContextT* ctx) {
-    WhenOperandContext *_localctx = _tracker.createInstance<WhenOperandContext>(_ctx, getState());
+  antlr4::ParserRuleContext* whenOperand(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 882, GQLParser::RuleWhenOperand);
 
   #if __cplusplus > 201703L
@@ -35809,19 +29984,9 @@ public:
     return _localctx;
   }
 
-  class  ResultContext : public antlr4::ParserRuleContext {
-  public:
-    ResultContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ResultExpressionContext *resultExpression();
-    NullLiteralContext *nullLiteral();
-
-   
-  };
-
   template<typename ContextT>
-  ResultContext* result(ContextT* ctx) {
-    ResultContext *_localctx = _tracker.createInstance<ResultContext>(_ctx, getState());
+  antlr4::ParserRuleContext* result(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 884, GQLParser::RuleResult);
 
   #if __cplusplus > 201703L
@@ -35872,18 +30037,9 @@ public:
     return _localctx;
   }
 
-  class  ResultExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    ResultExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ValueExpressionContext *valueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  ResultExpressionContext* resultExpression(ContextT* ctx) {
-    ResultExpressionContext *_localctx = _tracker.createInstance<ResultExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* resultExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 886, GQLParser::RuleResultExpression);
 
   #if __cplusplus > 201703L
@@ -35914,23 +30070,9 @@ public:
     return _localctx;
   }
 
-  class  CastSpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    CastSpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *CAST();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    CastOperandContext *castOperand();
-    antlr4::tree::TerminalNode *AS();
-    CastTargetContext *castTarget();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  CastSpecificationContext* castSpecification(ContextT* ctx) {
-    CastSpecificationContext *_localctx = _tracker.createInstance<CastSpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* castSpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 888, GQLParser::RuleCastSpecification);
 
   #if __cplusplus > 201703L
@@ -35994,19 +30136,9 @@ public:
     return _localctx;
   }
 
-  class  CastOperandContext : public antlr4::ParserRuleContext {
-  public:
-    CastOperandContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ValueExpressionContext *valueExpression();
-    NullLiteralContext *nullLiteral();
-
-   
-  };
-
   template<typename ContextT>
-  CastOperandContext* castOperand(ContextT* ctx) {
-    CastOperandContext *_localctx = _tracker.createInstance<CastOperandContext>(_ctx, getState());
+  antlr4::ParserRuleContext* castOperand(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 890, GQLParser::RuleCastOperand);
 
   #if __cplusplus > 201703L
@@ -36057,18 +30189,9 @@ public:
     return _localctx;
   }
 
-  class  CastTargetContext : public antlr4::ParserRuleContext {
-  public:
-    CastTargetContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ValueTypeContext *valueType();
-
-   
-  };
-
   template<typename ContextT>
-  CastTargetContext* castTarget(ContextT* ctx) {
-    CastTargetContext *_localctx = _tracker.createInstance<CastTargetContext>(_ctx, getState());
+  antlr4::ParserRuleContext* castTarget(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 892, GQLParser::RuleCastTarget);
 
   #if __cplusplus > 201703L
@@ -36099,23 +30222,9 @@ public:
     return _localctx;
   }
 
-  class  AggregateFunctionContext : public antlr4::ParserRuleContext {
-  public:
-    AggregateFunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *COUNT();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    antlr4::tree::TerminalNode *ASTERISK();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    GeneralSetFunctionContext *generalSetFunction();
-    BinarySetFunctionContext *binarySetFunction();
-
-   
-  };
-
   template<typename ContextT>
-  AggregateFunctionContext* aggregateFunction(ContextT* ctx) {
-    AggregateFunctionContext *_localctx = _tracker.createInstance<AggregateFunctionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* aggregateFunction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 894, GQLParser::RuleAggregateFunction);
 
   #if __cplusplus > 201703L
@@ -36199,22 +30308,9 @@ public:
     return _localctx;
   }
 
-  class  GeneralSetFunctionContext : public antlr4::ParserRuleContext {
-  public:
-    GeneralSetFunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    GeneralSetFunctionTypeContext *generalSetFunctionType();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    ValueExpressionContext *valueExpression();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    SetQuantifierContext *setQuantifier();
-
-   
-  };
-
   template<typename ContextT>
-  GeneralSetFunctionContext* generalSetFunction(ContextT* ctx) {
-    GeneralSetFunctionContext *_localctx = _tracker.createInstance<GeneralSetFunctionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* generalSetFunction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 896, GQLParser::RuleGeneralSetFunction);
     size_t _la = 0;
 
@@ -36278,23 +30374,9 @@ public:
     return _localctx;
   }
 
-  class  BinarySetFunctionContext : public antlr4::ParserRuleContext {
-  public:
-    BinarySetFunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    BinarySetFunctionTypeContext *binarySetFunctionType();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    DependentValueExpressionContext *dependentValueExpression();
-    antlr4::tree::TerminalNode *COMMA();
-    IndependentValueExpressionContext *independentValueExpression();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  BinarySetFunctionContext* binarySetFunction(ContextT* ctx) {
-    BinarySetFunctionContext *_localctx = _tracker.createInstance<BinarySetFunctionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* binarySetFunction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 898, GQLParser::RuleBinarySetFunction);
 
   #if __cplusplus > 201703L
@@ -36356,25 +30438,9 @@ public:
     return _localctx;
   }
 
-  class  GeneralSetFunctionTypeContext : public antlr4::ParserRuleContext {
-  public:
-    GeneralSetFunctionTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *AVG();
-    antlr4::tree::TerminalNode *COUNT();
-    antlr4::tree::TerminalNode *MAX();
-    antlr4::tree::TerminalNode *MIN();
-    antlr4::tree::TerminalNode *SUM();
-    antlr4::tree::TerminalNode *COLLECT_LIST();
-    antlr4::tree::TerminalNode *STDDEV_SAMP();
-    antlr4::tree::TerminalNode *STDDEV_POP();
-
-   
-  };
-
   template<typename ContextT>
-  GeneralSetFunctionTypeContext* generalSetFunctionType(ContextT* ctx) {
-    GeneralSetFunctionTypeContext *_localctx = _tracker.createInstance<GeneralSetFunctionTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* generalSetFunctionType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 900, GQLParser::RuleGeneralSetFunctionType);
     size_t _la = 0;
 
@@ -36395,7 +30461,7 @@ public:
       if (!((((_la & ~ 0x3fULL) == 0) &&
         ((1ULL << _la) & 4683743621055250432) != 0) || ((((_la - 144) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 144)) & 792633534417207299) != 0))) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -36413,19 +30479,9 @@ public:
     return _localctx;
   }
 
-  class  SetQuantifierContext : public antlr4::ParserRuleContext {
-  public:
-    SetQuantifierContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *DISTINCT();
-    antlr4::tree::TerminalNode *ALL();
-
-   
-  };
-
   template<typename ContextT>
-  SetQuantifierContext* setQuantifier(ContextT* ctx) {
-    SetQuantifierContext *_localctx = _tracker.createInstance<SetQuantifierContext>(_ctx, getState());
+  antlr4::ParserRuleContext* setQuantifier(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 902, GQLParser::RuleSetQuantifier);
     size_t _la = 0;
 
@@ -36446,7 +30502,7 @@ public:
       if (!(_la == GQLParser::ALL
 
       || _la == GQLParser::DISTINCT)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -36464,19 +30520,9 @@ public:
     return _localctx;
   }
 
-  class  BinarySetFunctionTypeContext : public antlr4::ParserRuleContext {
-  public:
-    BinarySetFunctionTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *PERCENTILE_CONT();
-    antlr4::tree::TerminalNode *PERCENTILE_DISC();
-
-   
-  };
-
   template<typename ContextT>
-  BinarySetFunctionTypeContext* binarySetFunctionType(ContextT* ctx) {
-    BinarySetFunctionTypeContext *_localctx = _tracker.createInstance<BinarySetFunctionTypeContext>(_ctx, getState());
+  antlr4::ParserRuleContext* binarySetFunctionType(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 904, GQLParser::RuleBinarySetFunctionType);
     size_t _la = 0;
 
@@ -36497,7 +30543,7 @@ public:
       if (!(_la == GQLParser::PERCENTILE_CONT
 
       || _la == GQLParser::PERCENTILE_DISC)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -36515,19 +30561,9 @@ public:
     return _localctx;
   }
 
-  class  DependentValueExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    DependentValueExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NumericValueExpressionContext *numericValueExpression();
-    SetQuantifierContext *setQuantifier();
-
-   
-  };
-
   template<typename ContextT>
-  DependentValueExpressionContext* dependentValueExpression(ContextT* ctx) {
-    DependentValueExpressionContext *_localctx = _tracker.createInstance<DependentValueExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* dependentValueExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 906, GQLParser::RuleDependentValueExpression);
     size_t _la = 0;
 
@@ -36572,18 +30608,9 @@ public:
     return _localctx;
   }
 
-  class  IndependentValueExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    IndependentValueExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NumericValueExpressionContext *numericValueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  IndependentValueExpressionContext* independentValueExpression(ContextT* ctx) {
-    IndependentValueExpressionContext *_localctx = _tracker.createInstance<IndependentValueExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* independentValueExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 908, GQLParser::RuleIndependentValueExpression);
 
   #if __cplusplus > 201703L
@@ -36614,21 +30641,9 @@ public:
     return _localctx;
   }
 
-  class  Element_idFunctionContext : public antlr4::ParserRuleContext {
-  public:
-    Element_idFunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *ELEMENT_ID();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    ElementVariableReferenceContext *elementVariableReference();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  Element_idFunctionContext* element_idFunction(ContextT* ctx) {
-    Element_idFunctionContext *_localctx = _tracker.createInstance<Element_idFunctionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* element_idFunction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 910, GQLParser::RuleElement_idFunction);
 
   #if __cplusplus > 201703L
@@ -36680,18 +30695,9 @@ public:
     return _localctx;
   }
 
-  class  BindingVariableReferenceContext : public antlr4::ParserRuleContext {
-  public:
-    BindingVariableReferenceContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    BindingVariableContext *bindingVariable();
-
-   
-  };
-
   template<typename ContextT>
-  BindingVariableReferenceContext* bindingVariableReference(ContextT* ctx) {
-    BindingVariableReferenceContext *_localctx = _tracker.createInstance<BindingVariableReferenceContext>(_ctx, getState());
+  antlr4::ParserRuleContext* bindingVariableReference(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 912, GQLParser::RuleBindingVariableReference);
 
   #if __cplusplus > 201703L
@@ -36722,18 +30728,9 @@ public:
     return _localctx;
   }
 
-  class  PathValueExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    PathValueExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ValueExpressionContext *valueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  PathValueExpressionContext* pathValueExpression(ContextT* ctx) {
-    PathValueExpressionContext *_localctx = _tracker.createInstance<PathValueExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* pathValueExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 914, GQLParser::RulePathValueExpression);
 
   #if __cplusplus > 201703L
@@ -36764,18 +30761,9 @@ public:
     return _localctx;
   }
 
-  class  PathValueConstructorContext : public antlr4::ParserRuleContext {
-  public:
-    PathValueConstructorContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    PathValueConstructorByEnumerationContext *pathValueConstructorByEnumeration();
-
-   
-  };
-
   template<typename ContextT>
-  PathValueConstructorContext* pathValueConstructor(ContextT* ctx) {
-    PathValueConstructorContext *_localctx = _tracker.createInstance<PathValueConstructorContext>(_ctx, getState());
+  antlr4::ParserRuleContext* pathValueConstructor(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 916, GQLParser::RulePathValueConstructor);
 
   #if __cplusplus > 201703L
@@ -36806,21 +30794,9 @@ public:
     return _localctx;
   }
 
-  class  PathValueConstructorByEnumerationContext : public antlr4::ParserRuleContext {
-  public:
-    PathValueConstructorByEnumerationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *PATH();
-    antlr4::tree::TerminalNode *LEFT_BRACKET();
-    PathElementListContext *pathElementList();
-    antlr4::tree::TerminalNode *RIGHT_BRACKET();
-
-   
-  };
-
   template<typename ContextT>
-  PathValueConstructorByEnumerationContext* pathValueConstructorByEnumeration(ContextT* ctx) {
-    PathValueConstructorByEnumerationContext *_localctx = _tracker.createInstance<PathValueConstructorByEnumerationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* pathValueConstructorByEnumeration(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 918, GQLParser::RulePathValueConstructorByEnumeration);
 
   #if __cplusplus > 201703L
@@ -36872,20 +30848,9 @@ public:
     return _localctx;
   }
 
-  class  PathElementListContext : public antlr4::ParserRuleContext {
-  public:
-    PathElementListContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    PathElementListStartContext *pathElementListStart();
-    std::vector<PathElementListStepContext *> pathElementListStep();
-    PathElementListStepContext* pathElementListStep(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  PathElementListContext* pathElementList(ContextT* ctx) {
-    PathElementListContext *_localctx = _tracker.createInstance<PathElementListContext>(_ctx, getState());
+  antlr4::ParserRuleContext* pathElementList(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 920, GQLParser::RulePathElementList);
     size_t _la = 0;
 
@@ -36930,18 +30895,9 @@ public:
     return _localctx;
   }
 
-  class  PathElementListStartContext : public antlr4::ParserRuleContext {
-  public:
-    PathElementListStartContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NodeReferenceValueExpressionContext *nodeReferenceValueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  PathElementListStartContext* pathElementListStart(ContextT* ctx) {
-    PathElementListStartContext *_localctx = _tracker.createInstance<PathElementListStartContext>(_ctx, getState());
+  antlr4::ParserRuleContext* pathElementListStart(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 922, GQLParser::RulePathElementListStart);
 
   #if __cplusplus > 201703L
@@ -36972,21 +30928,9 @@ public:
     return _localctx;
   }
 
-  class  PathElementListStepContext : public antlr4::ParserRuleContext {
-  public:
-    PathElementListStepContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-    EdgeReferenceValueExpressionContext *edgeReferenceValueExpression();
-    NodeReferenceValueExpressionContext *nodeReferenceValueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  PathElementListStepContext* pathElementListStep(ContextT* ctx) {
-    PathElementListStepContext *_localctx = _tracker.createInstance<PathElementListStepContext>(_ctx, getState());
+  antlr4::ParserRuleContext* pathElementListStep(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 924, GQLParser::RulePathElementListStep);
 
   #if __cplusplus > 201703L
@@ -37036,18 +30980,9 @@ public:
     return _localctx;
   }
 
-  class  ListValueExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    ListValueExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ValueExpressionContext *valueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  ListValueExpressionContext* listValueExpression(ContextT* ctx) {
-    ListValueExpressionContext *_localctx = _tracker.createInstance<ListValueExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* listValueExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 926, GQLParser::RuleListValueExpression);
 
   #if __cplusplus > 201703L
@@ -37078,19 +31013,9 @@ public:
     return _localctx;
   }
 
-  class  ListValueFunctionContext : public antlr4::ParserRuleContext {
-  public:
-    ListValueFunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    TrimListFunctionContext *trimListFunction();
-    ElementsFunctionContext *elementsFunction();
-
-   
-  };
-
   template<typename ContextT>
-  ListValueFunctionContext* listValueFunction(ContextT* ctx) {
-    ListValueFunctionContext *_localctx = _tracker.createInstance<ListValueFunctionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* listValueFunction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 928, GQLParser::RuleListValueFunction);
 
   #if __cplusplus > 201703L
@@ -37141,23 +31066,9 @@ public:
     return _localctx;
   }
 
-  class  TrimListFunctionContext : public antlr4::ParserRuleContext {
-  public:
-    TrimListFunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *TRIM();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    ListValueExpressionContext *listValueExpression();
-    antlr4::tree::TerminalNode *COMMA();
-    NumericValueExpressionContext *numericValueExpression();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  TrimListFunctionContext* trimListFunction(ContextT* ctx) {
-    TrimListFunctionContext *_localctx = _tracker.createInstance<TrimListFunctionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* trimListFunction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 930, GQLParser::RuleTrimListFunction);
 
   #if __cplusplus > 201703L
@@ -37221,21 +31132,9 @@ public:
     return _localctx;
   }
 
-  class  ElementsFunctionContext : public antlr4::ParserRuleContext {
-  public:
-    ElementsFunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *ELEMENTS();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    PathValueExpressionContext *pathValueExpression();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  ElementsFunctionContext* elementsFunction(ContextT* ctx) {
-    ElementsFunctionContext *_localctx = _tracker.createInstance<ElementsFunctionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* elementsFunction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 932, GQLParser::RuleElementsFunction);
 
   #if __cplusplus > 201703L
@@ -37287,18 +31186,9 @@ public:
     return _localctx;
   }
 
-  class  ListValueConstructorContext : public antlr4::ParserRuleContext {
-  public:
-    ListValueConstructorContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ListValueConstructorByEnumerationContext *listValueConstructorByEnumeration();
-
-   
-  };
-
   template<typename ContextT>
-  ListValueConstructorContext* listValueConstructor(ContextT* ctx) {
-    ListValueConstructorContext *_localctx = _tracker.createInstance<ListValueConstructorContext>(_ctx, getState());
+  antlr4::ParserRuleContext* listValueConstructor(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 934, GQLParser::RuleListValueConstructor);
 
   #if __cplusplus > 201703L
@@ -37329,21 +31219,9 @@ public:
     return _localctx;
   }
 
-  class  ListValueConstructorByEnumerationContext : public antlr4::ParserRuleContext {
-  public:
-    ListValueConstructorByEnumerationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_BRACKET();
-    antlr4::tree::TerminalNode *RIGHT_BRACKET();
-    ListValueTypeNameContext *listValueTypeName();
-    ListElementListContext *listElementList();
-
-   
-  };
-
   template<typename ContextT>
-  ListValueConstructorByEnumerationContext* listValueConstructorByEnumeration(ContextT* ctx) {
-    ListValueConstructorByEnumerationContext *_localctx = _tracker.createInstance<ListValueConstructorByEnumerationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* listValueConstructorByEnumeration(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 936, GQLParser::RuleListValueConstructorByEnumeration);
     size_t _la = 0;
 
@@ -37414,21 +31292,9 @@ public:
     return _localctx;
   }
 
-  class  ListElementListContext : public antlr4::ParserRuleContext {
-  public:
-    ListElementListContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<ListElementContext *> listElement();
-    ListElementContext* listElement(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  ListElementListContext* listElementList(ContextT* ctx) {
-    ListElementListContext *_localctx = _tracker.createInstance<ListElementListContext>(_ctx, getState());
+  antlr4::ParserRuleContext* listElementList(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 938, GQLParser::RuleListElementList);
     size_t _la = 0;
 
@@ -37480,18 +31346,9 @@ public:
     return _localctx;
   }
 
-  class  ListElementContext : public antlr4::ParserRuleContext {
-  public:
-    ListElementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ValueExpressionContext *valueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  ListElementContext* listElement(ContextT* ctx) {
-    ListElementContext *_localctx = _tracker.createInstance<ListElementContext>(_ctx, getState());
+  antlr4::ParserRuleContext* listElement(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 940, GQLParser::RuleListElement);
 
   #if __cplusplus > 201703L
@@ -37522,19 +31379,9 @@ public:
     return _localctx;
   }
 
-  class  RecordConstructorContext : public antlr4::ParserRuleContext {
-  public:
-    RecordConstructorContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    FieldsSpecificationContext *fieldsSpecification();
-    antlr4::tree::TerminalNode *RECORD();
-
-   
-  };
-
   template<typename ContextT>
-  RecordConstructorContext* recordConstructor(ContextT* ctx) {
-    RecordConstructorContext *_localctx = _tracker.createInstance<RecordConstructorContext>(_ctx, getState());
+  antlr4::ParserRuleContext* recordConstructor(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 942, GQLParser::RuleRecordConstructor);
     size_t _la = 0;
 
@@ -37579,20 +31426,9 @@ public:
     return _localctx;
   }
 
-  class  FieldsSpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    FieldsSpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_BRACE();
-    antlr4::tree::TerminalNode *RIGHT_BRACE();
-    FieldListContext *fieldList();
-
-   
-  };
-
   template<typename ContextT>
-  FieldsSpecificationContext* fieldsSpecification(ContextT* ctx) {
-    FieldsSpecificationContext *_localctx = _tracker.createInstance<FieldsSpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* fieldsSpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 944, GQLParser::RuleFieldsSpecification);
     size_t _la = 0;
 
@@ -37647,21 +31483,9 @@ public:
     return _localctx;
   }
 
-  class  FieldListContext : public antlr4::ParserRuleContext {
-  public:
-    FieldListContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<FieldContext *> field();
-    FieldContext* field(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> COMMA();
-    antlr4::tree::TerminalNode* COMMA(size_t i);
-
-   
-  };
-
   template<typename ContextT>
-  FieldListContext* fieldList(ContextT* ctx) {
-    FieldListContext *_localctx = _tracker.createInstance<FieldListContext>(_ctx, getState());
+  antlr4::ParserRuleContext* fieldList(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 946, GQLParser::RuleFieldList);
     size_t _la = 0;
 
@@ -37713,20 +31537,9 @@ public:
     return _localctx;
   }
 
-  class  FieldContext : public antlr4::ParserRuleContext {
-  public:
-    FieldContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    FieldNameContext *fieldName();
-    antlr4::tree::TerminalNode *COLON();
-    ValueExpressionContext *valueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  FieldContext* field(ContextT* ctx) {
-    FieldContext *_localctx = _tracker.createInstance<FieldContext>(_ctx, getState());
+  antlr4::ParserRuleContext* field(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 948, GQLParser::RuleField);
 
   #if __cplusplus > 201703L
@@ -37769,18 +31582,9 @@ public:
     return _localctx;
   }
 
-  class  TruthValueContext : public antlr4::ParserRuleContext {
-  public:
-    TruthValueContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *BOOLEAN_LITERAL();
-
-   
-  };
-
   template<typename ContextT>
-  TruthValueContext* truthValue(ContextT* ctx) {
-    TruthValueContext *_localctx = _tracker.createInstance<TruthValueContext>(_ctx, getState());
+  antlr4::ParserRuleContext* truthValue(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 950, GQLParser::RuleTruthValue);
 
   #if __cplusplus > 201703L
@@ -37813,77 +31617,18 @@ public:
     return _localctx;
   }
 
-  class  NumericValueExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    NumericValueExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-   
-    NumericValueExpressionContext() = default;
-    void copyFrom(NumericValueExpressionContext *context);
-    using antlr4::ParserRuleContext::copyFrom;
-
-    virtual size_t getRuleIndex() const override;
-
-   
-  };
-
-  class  MultDivExprAlt2Context : public NumericValueExpressionContext {
-  public:
-    MultDivExprAlt2Context(NumericValueExpressionContext *ctx);
-
-    antlr4::Token *operator_ = nullptr;
-    std::vector<NumericValueExpressionContext *> numericValueExpression();
-    NumericValueExpressionContext* numericValueExpression(size_t i);
-    antlr4::tree::TerminalNode *ASTERISK();
-    antlr4::tree::TerminalNode *SOLIDUS();
-  };
-
-  class  NumericValueFunctionExprAltContext : public NumericValueExpressionContext {
-  public:
-    NumericValueFunctionExprAltContext(NumericValueExpressionContext *ctx);
-
-    NumericValueFunctionContext *numericValueFunction();
-  };
-
-  class  SignedExprAlt2Context : public NumericValueExpressionContext {
-  public:
-    SignedExprAlt2Context(NumericValueExpressionContext *ctx);
-
-    antlr4::Token *sign = nullptr;
-    NumericValueExpressionContext *numericValueExpression();
-    antlr4::tree::TerminalNode *PLUS_SIGN();
-    antlr4::tree::TerminalNode *MINUS_SIGN();
-  };
-
-  class  PrimaryExprAlt2Context : public NumericValueExpressionContext {
-  public:
-    PrimaryExprAlt2Context(NumericValueExpressionContext *ctx);
-
-    ValueExpressionPrimaryContext *valueExpressionPrimary();
-  };
-
-  class  AddSubtractExprAlt2Context : public NumericValueExpressionContext {
-  public:
-    AddSubtractExprAlt2Context(NumericValueExpressionContext *ctx);
-
-    antlr4::Token *operator_ = nullptr;
-    std::vector<NumericValueExpressionContext *> numericValueExpression();
-    NumericValueExpressionContext* numericValueExpression(size_t i);
-    antlr4::tree::TerminalNode *PLUS_SIGN();
-    antlr4::tree::TerminalNode *MINUS_SIGN();
-  };
-
 
   template<typename ContextT>
-  NumericValueExpressionContext* numericValueExpression(ContextT* ctx) {
+  antlr4::ParserRuleContext* numericValueExpression(ContextT* ctx) {
      return numericValueExpression(0, ctx);
   }
 
   template<typename ContextT>
-  NumericValueExpressionContext* numericValueExpression(int precedence, ContextT* ctx) {
+  antlr4::ParserRuleContext* numericValueExpression(int precedence, ContextT* ctx) {
     antlr4::ParserRuleContext *parentContext = _ctx;
     size_t parentState = getState();
-    GQLParser::NumericValueExpressionContext *_localctx = _tracker.createInstance<NumericValueExpressionContext>(_ctx, parentState);
-    GQLParser::NumericValueExpressionContext *previousContext = _localctx;
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, parentState);
+    antlr4::ParserRuleContext *previousContext = _localctx;
     (void)previousContext; // Silence compiler, in case the context is not used by generated code.
     size_t startState = 952;
     enterRecursionRule(_localctx, 952, GQLParser::RuleNumericValueExpression, precedence);
@@ -37908,7 +31653,11 @@ public:
       switch (_input->LA(1)) {
         case GQLParser::MINUS_SIGN:
         case GQLParser::PLUS_SIGN: {
-          _localctx = _tracker.createInstance<SignedExprAlt2Context>(_localctx);
+          {
+            auto savedLocalCtx = _localctx;
+            _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+            _localctx->copyFrom(savedLocalCtx);
+          }
           _ctx = _localctx;
           previousContext = _localctx;
           auto ctxHolder = ctx->EnterSignedExprAlt2();
@@ -37922,12 +31671,11 @@ public:
           });
 
           setState(4230);
-          antlrcpp::downCast<SignedExprAlt2Context *>(_localctx)->sign = _input->LT(1);
           _la = _input->LA(1);
           if (!(_la == GQLParser::MINUS_SIGN
 
           || _la == GQLParser::PLUS_SIGN)) {
-            antlrcpp::downCast<SignedExprAlt2Context *>(_localctx)->sign = _errHandler->recoverInline(this);
+            _errHandler->recoverInline(this);
           }
           else {
             _errHandler->reportMatch(this);
@@ -38039,7 +31787,11 @@ public:
         case GQLParser::LEFT_BRACE:
         case GQLParser::LEFT_BRACKET:
         case GQLParser::LEFT_PAREN: {
-          _localctx = _tracker.createInstance<PrimaryExprAlt2Context>(_localctx);
+          {
+            auto savedLocalCtx = _localctx;
+            _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+            _localctx->copyFrom(savedLocalCtx);
+          }
           _ctx = _localctx;
           previousContext = _localctx;
           auto ctxHolder = ctx->EnterPrimaryExprAlt2();
@@ -38089,7 +31841,11 @@ public:
         case GQLParser::SQRT:
         case GQLParser::TAN:
         case GQLParser::TANH: {
-          _localctx = _tracker.createInstance<NumericValueFunctionExprAltContext>(_localctx);
+          {
+            auto savedLocalCtx = _localctx;
+            _localctx = _tracker.createInstance<antlr4::ParserRuleContext>();
+            _localctx->copyFrom(savedLocalCtx);
+          }
           _ctx = _localctx;
           previousContext = _localctx;
           auto ctxHolder = ctx->EnterNumericValueFunctionExprAlt();
@@ -38128,7 +31884,9 @@ public:
           _errHandler->sync(this);
           switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 477, _ctx)) {
           case 1: {
-            auto newContext = _tracker.createInstance<MultDivExprAlt2Context>(_tracker.createInstance<NumericValueExpressionContext>(parentContext, parentState));
+            auto newParentContext = _tracker.createInstance<antlr4::ParserRuleContext>(parentContext, parentState);
+            auto newContext = _tracker.createInstance<antlr4::ParserRuleContext>();
+            newContext->copyFrom(newParentContext);
             _localctx = newContext;
             pushNewRecursionContext(newContext, startState, RuleNumericValueExpression);
             auto ctxHolder = ctx->PushMultDivExprAlt2_NumericValueExpression();
@@ -38144,12 +31902,11 @@ public:
 
             if (!(precpred(_ctx, 4))) throw antlr4::FailedPredicateException(this, "precpred(_ctx, 4)");
             setState(4237);
-            antlrcpp::downCast<MultDivExprAlt2Context *>(_localctx)->operator_ = _input->LT(1);
             _la = _input->LA(1);
             if (!(_la == GQLParser::ASTERISK
 
             || _la == GQLParser::SOLIDUS)) {
-              antlrcpp::downCast<MultDivExprAlt2Context *>(_localctx)->operator_ = _errHandler->recoverInline(this);
+              _errHandler->recoverInline(this);
             }
             else {
               _errHandler->reportMatch(this);
@@ -38165,7 +31922,9 @@ public:
           }
 
           case 2: {
-            auto newContext = _tracker.createInstance<AddSubtractExprAlt2Context>(_tracker.createInstance<NumericValueExpressionContext>(parentContext, parentState));
+            auto newParentContext = _tracker.createInstance<antlr4::ParserRuleContext>(parentContext, parentState);
+            auto newContext = _tracker.createInstance<antlr4::ParserRuleContext>();
+            newContext->copyFrom(newParentContext);
             _localctx = newContext;
             pushNewRecursionContext(newContext, startState, RuleNumericValueExpression);
             auto ctxHolder = ctx->PushAddSubtractExprAlt2_NumericValueExpression();
@@ -38181,12 +31940,11 @@ public:
 
             if (!(precpred(_ctx, 3))) throw antlr4::FailedPredicateException(this, "precpred(_ctx, 3)");
             setState(4240);
-            antlrcpp::downCast<AddSubtractExprAlt2Context *>(_localctx)->operator_ = _input->LT(1);
             _la = _input->LA(1);
             if (!(_la == GQLParser::MINUS_SIGN
 
             || _la == GQLParser::PLUS_SIGN)) {
-              antlrcpp::downCast<AddSubtractExprAlt2Context *>(_localctx)->operator_ = _errHandler->recoverInline(this);
+              _errHandler->recoverInline(this);
             }
             else {
               _errHandler->reportMatch(this);
@@ -38218,30 +31976,9 @@ public:
     return _localctx;
   }
 
-  class  NumericValueFunctionContext : public antlr4::ParserRuleContext {
-  public:
-    NumericValueFunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    LengthExpressionContext *lengthExpression();
-    CardinalityExpressionContext *cardinalityExpression();
-    AbsoluteValueExpressionContext *absoluteValueExpression();
-    ModulusExpressionContext *modulusExpression();
-    TrigonometricFunctionContext *trigonometricFunction();
-    GeneralLogarithmFunctionContext *generalLogarithmFunction();
-    CommonLogarithmContext *commonLogarithm();
-    NaturalLogarithmContext *naturalLogarithm();
-    ExponentialFunctionContext *exponentialFunction();
-    PowerFunctionContext *powerFunction();
-    SquareRootContext *squareRoot();
-    FloorFunctionContext *floorFunction();
-    CeilingFunctionContext *ceilingFunction();
-
-   
-  };
-
   template<typename ContextT>
-  NumericValueFunctionContext* numericValueFunction(ContextT* ctx) {
-    NumericValueFunctionContext *_localctx = _tracker.createInstance<NumericValueFunctionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* numericValueFunction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 954, GQLParser::RuleNumericValueFunction);
 
   #if __cplusplus > 201703L
@@ -38419,20 +32156,9 @@ public:
     return _localctx;
   }
 
-  class  LengthExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    LengthExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    CharLengthExpressionContext *charLengthExpression();
-    ByteLengthExpressionContext *byteLengthExpression();
-    PathLengthExpressionContext *pathLengthExpression();
-
-   
-  };
-
   template<typename ContextT>
-  LengthExpressionContext* lengthExpression(ContextT* ctx) {
-    LengthExpressionContext *_localctx = _tracker.createInstance<LengthExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* lengthExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 956, GQLParser::RuleLengthExpression);
 
   #if __cplusplus > 201703L
@@ -38495,23 +32221,9 @@ public:
     return _localctx;
   }
 
-  class  CardinalityExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    CardinalityExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *CARDINALITY();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    CardinalityExpressionArgumentContext *cardinalityExpressionArgument();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    antlr4::tree::TerminalNode *SIZE();
-    ListValueExpressionContext *listValueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  CardinalityExpressionContext* cardinalityExpression(ContextT* ctx) {
-    CardinalityExpressionContext *_localctx = _tracker.createInstance<CardinalityExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* cardinalityExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 958, GQLParser::RuleCardinalityExpression);
 
   #if __cplusplus > 201703L
@@ -38604,18 +32316,9 @@ public:
     return _localctx;
   }
 
-  class  CardinalityExpressionArgumentContext : public antlr4::ParserRuleContext {
-  public:
-    CardinalityExpressionArgumentContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ValueExpressionContext *valueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  CardinalityExpressionArgumentContext* cardinalityExpressionArgument(ContextT* ctx) {
-    CardinalityExpressionArgumentContext *_localctx = _tracker.createInstance<CardinalityExpressionArgumentContext>(_ctx, getState());
+  antlr4::ParserRuleContext* cardinalityExpressionArgument(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 960, GQLParser::RuleCardinalityExpressionArgument);
 
   #if __cplusplus > 201703L
@@ -38646,22 +32349,9 @@ public:
     return _localctx;
   }
 
-  class  CharLengthExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    CharLengthExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    CharacterStringValueExpressionContext *characterStringValueExpression();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    antlr4::tree::TerminalNode *CHAR_LENGTH();
-    antlr4::tree::TerminalNode *CHARACTER_LENGTH();
-
-   
-  };
-
   template<typename ContextT>
-  CharLengthExpressionContext* charLengthExpression(ContextT* ctx) {
-    CharLengthExpressionContext *_localctx = _tracker.createInstance<CharLengthExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* charLengthExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 962, GQLParser::RuleCharLengthExpression);
     size_t _la = 0;
 
@@ -38682,7 +32372,7 @@ public:
       if (!(_la == GQLParser::CHAR_LENGTH
 
       || _la == GQLParser::CHARACTER_LENGTH)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -38719,22 +32409,9 @@ public:
     return _localctx;
   }
 
-  class  ByteLengthExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    ByteLengthExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    ByteStringValueExpressionContext *byteStringValueExpression();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    antlr4::tree::TerminalNode *BYTE_LENGTH();
-    antlr4::tree::TerminalNode *OCTET_LENGTH();
-
-   
-  };
-
   template<typename ContextT>
-  ByteLengthExpressionContext* byteLengthExpression(ContextT* ctx) {
-    ByteLengthExpressionContext *_localctx = _tracker.createInstance<ByteLengthExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* byteLengthExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 964, GQLParser::RuleByteLengthExpression);
     size_t _la = 0;
 
@@ -38753,7 +32430,7 @@ public:
       setState(4286);
       _la = _input->LA(1);
       if (!(_la == GQLParser::BYTE_LENGTH || _la == GQLParser::OCTET_LENGTH)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -38790,21 +32467,9 @@ public:
     return _localctx;
   }
 
-  class  PathLengthExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    PathLengthExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *PATH_LENGTH();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    PathValueExpressionContext *pathValueExpression();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  PathLengthExpressionContext* pathLengthExpression(ContextT* ctx) {
-    PathLengthExpressionContext *_localctx = _tracker.createInstance<PathLengthExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* pathLengthExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 966, GQLParser::RulePathLengthExpression);
 
   #if __cplusplus > 201703L
@@ -38856,21 +32521,9 @@ public:
     return _localctx;
   }
 
-  class  AbsoluteValueExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    AbsoluteValueExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *ABS();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    ValueExpressionContext *valueExpression();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  AbsoluteValueExpressionContext* absoluteValueExpression(ContextT* ctx) {
-    AbsoluteValueExpressionContext *_localctx = _tracker.createInstance<AbsoluteValueExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* absoluteValueExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 968, GQLParser::RuleAbsoluteValueExpression);
 
   #if __cplusplus > 201703L
@@ -38922,23 +32575,9 @@ public:
     return _localctx;
   }
 
-  class  ModulusExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    ModulusExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *MOD();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    NumericValueExpressionDividendContext *numericValueExpressionDividend();
-    antlr4::tree::TerminalNode *COMMA();
-    NumericValueExpressionDivisorContext *numericValueExpressionDivisor();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  ModulusExpressionContext* modulusExpression(ContextT* ctx) {
-    ModulusExpressionContext *_localctx = _tracker.createInstance<ModulusExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* modulusExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 970, GQLParser::RuleModulusExpression);
 
   #if __cplusplus > 201703L
@@ -39002,18 +32641,9 @@ public:
     return _localctx;
   }
 
-  class  NumericValueExpressionDividendContext : public antlr4::ParserRuleContext {
-  public:
-    NumericValueExpressionDividendContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NumericValueExpressionContext *numericValueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  NumericValueExpressionDividendContext* numericValueExpressionDividend(ContextT* ctx) {
-    NumericValueExpressionDividendContext *_localctx = _tracker.createInstance<NumericValueExpressionDividendContext>(_ctx, getState());
+  antlr4::ParserRuleContext* numericValueExpressionDividend(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 972, GQLParser::RuleNumericValueExpressionDividend);
 
   #if __cplusplus > 201703L
@@ -39044,18 +32674,9 @@ public:
     return _localctx;
   }
 
-  class  NumericValueExpressionDivisorContext : public antlr4::ParserRuleContext {
-  public:
-    NumericValueExpressionDivisorContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NumericValueExpressionContext *numericValueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  NumericValueExpressionDivisorContext* numericValueExpressionDivisor(ContextT* ctx) {
-    NumericValueExpressionDivisorContext *_localctx = _tracker.createInstance<NumericValueExpressionDivisorContext>(_ctx, getState());
+  antlr4::ParserRuleContext* numericValueExpressionDivisor(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 974, GQLParser::RuleNumericValueExpressionDivisor);
 
   #if __cplusplus > 201703L
@@ -39086,21 +32707,9 @@ public:
     return _localctx;
   }
 
-  class  TrigonometricFunctionContext : public antlr4::ParserRuleContext {
-  public:
-    TrigonometricFunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    TrigonometricFunctionNameContext *trigonometricFunctionName();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    NumericValueExpressionContext *numericValueExpression();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  TrigonometricFunctionContext* trigonometricFunction(ContextT* ctx) {
-    TrigonometricFunctionContext *_localctx = _tracker.createInstance<TrigonometricFunctionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* trigonometricFunction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 976, GQLParser::RuleTrigonometricFunction);
 
   #if __cplusplus > 201703L
@@ -39150,29 +32759,9 @@ public:
     return _localctx;
   }
 
-  class  TrigonometricFunctionNameContext : public antlr4::ParserRuleContext {
-  public:
-    TrigonometricFunctionNameContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *SIN();
-    antlr4::tree::TerminalNode *COS();
-    antlr4::tree::TerminalNode *TAN();
-    antlr4::tree::TerminalNode *COT();
-    antlr4::tree::TerminalNode *SINH();
-    antlr4::tree::TerminalNode *COSH();
-    antlr4::tree::TerminalNode *TANH();
-    antlr4::tree::TerminalNode *ASIN();
-    antlr4::tree::TerminalNode *ACOS();
-    antlr4::tree::TerminalNode *ATAN();
-    antlr4::tree::TerminalNode *DEGREES();
-    antlr4::tree::TerminalNode *RADIANS();
-
-   
-  };
-
   template<typename ContextT>
-  TrigonometricFunctionNameContext* trigonometricFunctionName(ContextT* ctx) {
-    TrigonometricFunctionNameContext *_localctx = _tracker.createInstance<TrigonometricFunctionNameContext>(_ctx, getState());
+  antlr4::ParserRuleContext* trigonometricFunctionName(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 978, GQLParser::RuleTrigonometricFunctionName);
     size_t _la = 0;
 
@@ -39193,7 +32782,7 @@ public:
       if (!(((((_la - 21) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 21)) & 18016322654833153) != 0) || ((((_la - 174) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 174)) & 3222011905) != 0))) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -39211,23 +32800,9 @@ public:
     return _localctx;
   }
 
-  class  GeneralLogarithmFunctionContext : public antlr4::ParserRuleContext {
-  public:
-    GeneralLogarithmFunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LOG_KW();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    GeneralLogarithmBaseContext *generalLogarithmBase();
-    antlr4::tree::TerminalNode *COMMA();
-    GeneralLogarithmArgumentContext *generalLogarithmArgument();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  GeneralLogarithmFunctionContext* generalLogarithmFunction(ContextT* ctx) {
-    GeneralLogarithmFunctionContext *_localctx = _tracker.createInstance<GeneralLogarithmFunctionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* generalLogarithmFunction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 980, GQLParser::RuleGeneralLogarithmFunction);
 
   #if __cplusplus > 201703L
@@ -39291,18 +32866,9 @@ public:
     return _localctx;
   }
 
-  class  GeneralLogarithmBaseContext : public antlr4::ParserRuleContext {
-  public:
-    GeneralLogarithmBaseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NumericValueExpressionContext *numericValueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  GeneralLogarithmBaseContext* generalLogarithmBase(ContextT* ctx) {
-    GeneralLogarithmBaseContext *_localctx = _tracker.createInstance<GeneralLogarithmBaseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* generalLogarithmBase(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 982, GQLParser::RuleGeneralLogarithmBase);
 
   #if __cplusplus > 201703L
@@ -39333,18 +32899,9 @@ public:
     return _localctx;
   }
 
-  class  GeneralLogarithmArgumentContext : public antlr4::ParserRuleContext {
-  public:
-    GeneralLogarithmArgumentContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NumericValueExpressionContext *numericValueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  GeneralLogarithmArgumentContext* generalLogarithmArgument(ContextT* ctx) {
-    GeneralLogarithmArgumentContext *_localctx = _tracker.createInstance<GeneralLogarithmArgumentContext>(_ctx, getState());
+  antlr4::ParserRuleContext* generalLogarithmArgument(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 984, GQLParser::RuleGeneralLogarithmArgument);
 
   #if __cplusplus > 201703L
@@ -39375,21 +32932,9 @@ public:
     return _localctx;
   }
 
-  class  CommonLogarithmContext : public antlr4::ParserRuleContext {
-  public:
-    CommonLogarithmContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LOG10();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    NumericValueExpressionContext *numericValueExpression();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  CommonLogarithmContext* commonLogarithm(ContextT* ctx) {
-    CommonLogarithmContext *_localctx = _tracker.createInstance<CommonLogarithmContext>(_ctx, getState());
+  antlr4::ParserRuleContext* commonLogarithm(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 986, GQLParser::RuleCommonLogarithm);
 
   #if __cplusplus > 201703L
@@ -39441,21 +32986,9 @@ public:
     return _localctx;
   }
 
-  class  NaturalLogarithmContext : public antlr4::ParserRuleContext {
-  public:
-    NaturalLogarithmContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LN();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    NumericValueExpressionContext *numericValueExpression();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  NaturalLogarithmContext* naturalLogarithm(ContextT* ctx) {
-    NaturalLogarithmContext *_localctx = _tracker.createInstance<NaturalLogarithmContext>(_ctx, getState());
+  antlr4::ParserRuleContext* naturalLogarithm(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 988, GQLParser::RuleNaturalLogarithm);
 
   #if __cplusplus > 201703L
@@ -39507,21 +33040,9 @@ public:
     return _localctx;
   }
 
-  class  ExponentialFunctionContext : public antlr4::ParserRuleContext {
-  public:
-    ExponentialFunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *EXP();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    NumericValueExpressionContext *numericValueExpression();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  ExponentialFunctionContext* exponentialFunction(ContextT* ctx) {
-    ExponentialFunctionContext *_localctx = _tracker.createInstance<ExponentialFunctionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* exponentialFunction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 990, GQLParser::RuleExponentialFunction);
 
   #if __cplusplus > 201703L
@@ -39573,23 +33094,9 @@ public:
     return _localctx;
   }
 
-  class  PowerFunctionContext : public antlr4::ParserRuleContext {
-  public:
-    PowerFunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *POWER();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    NumericValueExpressionBaseContext *numericValueExpressionBase();
-    antlr4::tree::TerminalNode *COMMA();
-    NumericValueExpressionExponentContext *numericValueExpressionExponent();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  PowerFunctionContext* powerFunction(ContextT* ctx) {
-    PowerFunctionContext *_localctx = _tracker.createInstance<PowerFunctionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* powerFunction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 992, GQLParser::RulePowerFunction);
 
   #if __cplusplus > 201703L
@@ -39653,18 +33160,9 @@ public:
     return _localctx;
   }
 
-  class  NumericValueExpressionBaseContext : public antlr4::ParserRuleContext {
-  public:
-    NumericValueExpressionBaseContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NumericValueExpressionContext *numericValueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  NumericValueExpressionBaseContext* numericValueExpressionBase(ContextT* ctx) {
-    NumericValueExpressionBaseContext *_localctx = _tracker.createInstance<NumericValueExpressionBaseContext>(_ctx, getState());
+  antlr4::ParserRuleContext* numericValueExpressionBase(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 994, GQLParser::RuleNumericValueExpressionBase);
 
   #if __cplusplus > 201703L
@@ -39695,18 +33193,9 @@ public:
     return _localctx;
   }
 
-  class  NumericValueExpressionExponentContext : public antlr4::ParserRuleContext {
-  public:
-    NumericValueExpressionExponentContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NumericValueExpressionContext *numericValueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  NumericValueExpressionExponentContext* numericValueExpressionExponent(ContextT* ctx) {
-    NumericValueExpressionExponentContext *_localctx = _tracker.createInstance<NumericValueExpressionExponentContext>(_ctx, getState());
+  antlr4::ParserRuleContext* numericValueExpressionExponent(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 996, GQLParser::RuleNumericValueExpressionExponent);
 
   #if __cplusplus > 201703L
@@ -39737,21 +33226,9 @@ public:
     return _localctx;
   }
 
-  class  SquareRootContext : public antlr4::ParserRuleContext {
-  public:
-    SquareRootContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *SQRT();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    NumericValueExpressionContext *numericValueExpression();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  SquareRootContext* squareRoot(ContextT* ctx) {
-    SquareRootContext *_localctx = _tracker.createInstance<SquareRootContext>(_ctx, getState());
+  antlr4::ParserRuleContext* squareRoot(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 998, GQLParser::RuleSquareRoot);
 
   #if __cplusplus > 201703L
@@ -39803,21 +33280,9 @@ public:
     return _localctx;
   }
 
-  class  FloorFunctionContext : public antlr4::ParserRuleContext {
-  public:
-    FloorFunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *FLOOR();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    NumericValueExpressionContext *numericValueExpression();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  FloorFunctionContext* floorFunction(ContextT* ctx) {
-    FloorFunctionContext *_localctx = _tracker.createInstance<FloorFunctionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* floorFunction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1000, GQLParser::RuleFloorFunction);
 
   #if __cplusplus > 201703L
@@ -39869,22 +33334,9 @@ public:
     return _localctx;
   }
 
-  class  CeilingFunctionContext : public antlr4::ParserRuleContext {
-  public:
-    CeilingFunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    NumericValueExpressionContext *numericValueExpression();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    antlr4::tree::TerminalNode *CEIL();
-    antlr4::tree::TerminalNode *CEILING();
-
-   
-  };
-
   template<typename ContextT>
-  CeilingFunctionContext* ceilingFunction(ContextT* ctx) {
-    CeilingFunctionContext *_localctx = _tracker.createInstance<CeilingFunctionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* ceilingFunction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1002, GQLParser::RuleCeilingFunction);
     size_t _la = 0;
 
@@ -39905,7 +33357,7 @@ public:
       if (!(_la == GQLParser::CEIL
 
       || _la == GQLParser::CEILING)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -39942,18 +33394,9 @@ public:
     return _localctx;
   }
 
-  class  CharacterStringValueExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    CharacterStringValueExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ValueExpressionContext *valueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  CharacterStringValueExpressionContext* characterStringValueExpression(ContextT* ctx) {
-    CharacterStringValueExpressionContext *_localctx = _tracker.createInstance<CharacterStringValueExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* characterStringValueExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1004, GQLParser::RuleCharacterStringValueExpression);
 
   #if __cplusplus > 201703L
@@ -39984,18 +33427,9 @@ public:
     return _localctx;
   }
 
-  class  ByteStringValueExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    ByteStringValueExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ValueExpressionContext *valueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  ByteStringValueExpressionContext* byteStringValueExpression(ContextT* ctx) {
-    ByteStringValueExpressionContext *_localctx = _tracker.createInstance<ByteStringValueExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* byteStringValueExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1006, GQLParser::RuleByteStringValueExpression);
 
   #if __cplusplus > 201703L
@@ -40026,21 +33460,9 @@ public:
     return _localctx;
   }
 
-  class  TrimOperandsContext : public antlr4::ParserRuleContext {
-  public:
-    TrimOperandsContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    TrimCharacterOrByteStringSourceContext *trimCharacterOrByteStringSource();
-    antlr4::tree::TerminalNode *FROM();
-    TrimSpecificationContext *trimSpecification();
-    TrimCharacterOrByteStringContext *trimCharacterOrByteString();
-
-   
-  };
-
   template<typename ContextT>
-  TrimOperandsContext* trimOperands(ContextT* ctx) {
-    TrimOperandsContext *_localctx = _tracker.createInstance<TrimOperandsContext>(_ctx, getState());
+  antlr4::ParserRuleContext* trimOperands(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1008, GQLParser::RuleTrimOperands);
     size_t _la = 0;
 
@@ -40118,18 +33540,9 @@ public:
     return _localctx;
   }
 
-  class  TrimCharacterOrByteStringSourceContext : public antlr4::ParserRuleContext {
-  public:
-    TrimCharacterOrByteStringSourceContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ValueExpressionContext *valueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  TrimCharacterOrByteStringSourceContext* trimCharacterOrByteStringSource(ContextT* ctx) {
-    TrimCharacterOrByteStringSourceContext *_localctx = _tracker.createInstance<TrimCharacterOrByteStringSourceContext>(_ctx, getState());
+  antlr4::ParserRuleContext* trimCharacterOrByteStringSource(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1010, GQLParser::RuleTrimCharacterOrByteStringSource);
 
   #if __cplusplus > 201703L
@@ -40160,20 +33573,9 @@ public:
     return _localctx;
   }
 
-  class  TrimSpecificationContext : public antlr4::ParserRuleContext {
-  public:
-    TrimSpecificationContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LEADING();
-    antlr4::tree::TerminalNode *TRAILING();
-    antlr4::tree::TerminalNode *BOTH();
-
-   
-  };
-
   template<typename ContextT>
-  TrimSpecificationContext* trimSpecification(ContextT* ctx) {
-    TrimSpecificationContext *_localctx = _tracker.createInstance<TrimSpecificationContext>(_ctx, getState());
+  antlr4::ParserRuleContext* trimSpecification(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1012, GQLParser::RuleTrimSpecification);
     size_t _la = 0;
 
@@ -40192,7 +33594,7 @@ public:
       setState(4388);
       _la = _input->LA(1);
       if (!(_la == GQLParser::BOTH || _la == GQLParser::LEADING || _la == GQLParser::TRAILING)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -40210,18 +33612,9 @@ public:
     return _localctx;
   }
 
-  class  TrimCharacterOrByteStringContext : public antlr4::ParserRuleContext {
-  public:
-    TrimCharacterOrByteStringContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ValueExpressionContext *valueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  TrimCharacterOrByteStringContext* trimCharacterOrByteString(ContextT* ctx) {
-    TrimCharacterOrByteStringContext *_localctx = _tracker.createInstance<TrimCharacterOrByteStringContext>(_ctx, getState());
+  antlr4::ParserRuleContext* trimCharacterOrByteString(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1014, GQLParser::RuleTrimCharacterOrByteString);
 
   #if __cplusplus > 201703L
@@ -40252,21 +33645,9 @@ public:
     return _localctx;
   }
 
-  class  NormalFormContext : public antlr4::ParserRuleContext {
-  public:
-    NormalFormContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *NFC();
-    antlr4::tree::TerminalNode *NFD();
-    antlr4::tree::TerminalNode *NFKC();
-    antlr4::tree::TerminalNode *NFKD();
-
-   
-  };
-
   template<typename ContextT>
-  NormalFormContext* normalForm(ContextT* ctx) {
-    NormalFormContext *_localctx = _tracker.createInstance<NormalFormContext>(_ctx, getState());
+  antlr4::ParserRuleContext* normalForm(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1016, GQLParser::RuleNormalForm);
     size_t _la = 0;
 
@@ -40286,7 +33667,7 @@ public:
       _la = _input->LA(1);
       if (!(((((_la - 296) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 296)) & 15) != 0))) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -40304,18 +33685,9 @@ public:
     return _localctx;
   }
 
-  class  StringLengthContext : public antlr4::ParserRuleContext {
-  public:
-    StringLengthContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    NumericValueExpressionContext *numericValueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  StringLengthContext* stringLength(ContextT* ctx) {
-    StringLengthContext *_localctx = _tracker.createInstance<StringLengthContext>(_ctx, getState());
+  antlr4::ParserRuleContext* stringLength(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1018, GQLParser::RuleStringLength);
 
   #if __cplusplus > 201703L
@@ -40346,18 +33718,9 @@ public:
     return _localctx;
   }
 
-  class  DatetimeValueExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    DatetimeValueExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ValueExpressionContext *valueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  DatetimeValueExpressionContext* datetimeValueExpression(ContextT* ctx) {
-    DatetimeValueExpressionContext *_localctx = _tracker.createInstance<DatetimeValueExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* datetimeValueExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1020, GQLParser::RuleDatetimeValueExpression);
 
   #if __cplusplus > 201703L
@@ -40388,22 +33751,9 @@ public:
     return _localctx;
   }
 
-  class  DatetimeValueFunctionContext : public antlr4::ParserRuleContext {
-  public:
-    DatetimeValueFunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    DateFunctionContext *dateFunction();
-    TimeFunctionContext *timeFunction();
-    DatetimeFunctionContext *datetimeFunction();
-    LocaltimeFunctionContext *localtimeFunction();
-    LocaldatetimeFunctionContext *localdatetimeFunction();
-
-   
-  };
-
   template<typename ContextT>
-  DatetimeValueFunctionContext* datetimeValueFunction(ContextT* ctx) {
-    DatetimeValueFunctionContext *_localctx = _tracker.createInstance<DatetimeValueFunctionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* datetimeValueFunction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1022, GQLParser::RuleDatetimeValueFunction);
 
   #if __cplusplus > 201703L
@@ -40488,22 +33838,9 @@ public:
     return _localctx;
   }
 
-  class  DateFunctionContext : public antlr4::ParserRuleContext {
-  public:
-    DateFunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *CURRENT_DATE();
-    antlr4::tree::TerminalNode *DATE();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    DateFunctionParametersContext *dateFunctionParameters();
-
-   
-  };
-
   template<typename ContextT>
-  DateFunctionContext* dateFunction(ContextT* ctx) {
-    DateFunctionContext *_localctx = _tracker.createInstance<DateFunctionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* dateFunction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1024, GQLParser::RuleDateFunction);
     size_t _la = 0;
 
@@ -40586,22 +33923,9 @@ public:
     return _localctx;
   }
 
-  class  TimeFunctionContext : public antlr4::ParserRuleContext {
-  public:
-    TimeFunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *CURRENT_TIME();
-    antlr4::tree::TerminalNode *ZONED_TIME();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    TimeFunctionParametersContext *timeFunctionParameters();
-
-   
-  };
-
   template<typename ContextT>
-  TimeFunctionContext* timeFunction(ContextT* ctx) {
-    TimeFunctionContext *_localctx = _tracker.createInstance<TimeFunctionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* timeFunction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1026, GQLParser::RuleTimeFunction);
     size_t _la = 0;
 
@@ -40684,21 +34008,9 @@ public:
     return _localctx;
   }
 
-  class  LocaltimeFunctionContext : public antlr4::ParserRuleContext {
-  public:
-    LocaltimeFunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LOCAL_TIME();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    TimeFunctionParametersContext *timeFunctionParameters();
-
-   
-  };
-
   template<typename ContextT>
-  LocaltimeFunctionContext* localtimeFunction(ContextT* ctx) {
-    LocaltimeFunctionContext *_localctx = _tracker.createInstance<LocaltimeFunctionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* localtimeFunction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1028, GQLParser::RuleLocaltimeFunction);
     size_t _la = 0;
 
@@ -40770,22 +34082,9 @@ public:
     return _localctx;
   }
 
-  class  DatetimeFunctionContext : public antlr4::ParserRuleContext {
-  public:
-    DatetimeFunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *CURRENT_TIMESTAMP();
-    antlr4::tree::TerminalNode *ZONED_DATETIME();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    DatetimeFunctionParametersContext *datetimeFunctionParameters();
-
-   
-  };
-
   template<typename ContextT>
-  DatetimeFunctionContext* datetimeFunction(ContextT* ctx) {
-    DatetimeFunctionContext *_localctx = _tracker.createInstance<DatetimeFunctionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* datetimeFunction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1030, GQLParser::RuleDatetimeFunction);
     size_t _la = 0;
 
@@ -40868,22 +34167,9 @@ public:
     return _localctx;
   }
 
-  class  LocaldatetimeFunctionContext : public antlr4::ParserRuleContext {
-  public:
-    LocaldatetimeFunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LOCAL_TIMESTAMP();
-    antlr4::tree::TerminalNode *LOCAL_DATETIME();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    DatetimeFunctionParametersContext *datetimeFunctionParameters();
-
-   
-  };
-
   template<typename ContextT>
-  LocaldatetimeFunctionContext* localdatetimeFunction(ContextT* ctx) {
-    LocaldatetimeFunctionContext *_localctx = _tracker.createInstance<LocaldatetimeFunctionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* localdatetimeFunction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1032, GQLParser::RuleLocaldatetimeFunction);
     size_t _la = 0;
 
@@ -40966,19 +34252,9 @@ public:
     return _localctx;
   }
 
-  class  DateFunctionParametersContext : public antlr4::ParserRuleContext {
-  public:
-    DateFunctionParametersContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    DateStringContext *dateString();
-    RecordConstructorContext *recordConstructor();
-
-   
-  };
-
   template<typename ContextT>
-  DateFunctionParametersContext* dateFunctionParameters(ContextT* ctx) {
-    DateFunctionParametersContext *_localctx = _tracker.createInstance<DateFunctionParametersContext>(_ctx, getState());
+  antlr4::ParserRuleContext* dateFunctionParameters(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1034, GQLParser::RuleDateFunctionParameters);
 
   #if __cplusplus > 201703L
@@ -41031,19 +34307,9 @@ public:
     return _localctx;
   }
 
-  class  TimeFunctionParametersContext : public antlr4::ParserRuleContext {
-  public:
-    TimeFunctionParametersContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    TimeStringContext *timeString();
-    RecordConstructorContext *recordConstructor();
-
-   
-  };
-
   template<typename ContextT>
-  TimeFunctionParametersContext* timeFunctionParameters(ContextT* ctx) {
-    TimeFunctionParametersContext *_localctx = _tracker.createInstance<TimeFunctionParametersContext>(_ctx, getState());
+  antlr4::ParserRuleContext* timeFunctionParameters(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1036, GQLParser::RuleTimeFunctionParameters);
 
   #if __cplusplus > 201703L
@@ -41096,19 +34362,9 @@ public:
     return _localctx;
   }
 
-  class  DatetimeFunctionParametersContext : public antlr4::ParserRuleContext {
-  public:
-    DatetimeFunctionParametersContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    DatetimeStringContext *datetimeString();
-    RecordConstructorContext *recordConstructor();
-
-   
-  };
-
   template<typename ContextT>
-  DatetimeFunctionParametersContext* datetimeFunctionParameters(ContextT* ctx) {
-    DatetimeFunctionParametersContext *_localctx = _tracker.createInstance<DatetimeFunctionParametersContext>(_ctx, getState());
+  antlr4::ParserRuleContext* datetimeFunctionParameters(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1038, GQLParser::RuleDatetimeFunctionParameters);
 
   #if __cplusplus > 201703L
@@ -41161,18 +34417,9 @@ public:
     return _localctx;
   }
 
-  class  DurationValueExpressionContext : public antlr4::ParserRuleContext {
-  public:
-    DurationValueExpressionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ValueExpressionContext *valueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  DurationValueExpressionContext* durationValueExpression(ContextT* ctx) {
-    DurationValueExpressionContext *_localctx = _tracker.createInstance<DurationValueExpressionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* durationValueExpression(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1040, GQLParser::RuleDurationValueExpression);
 
   #if __cplusplus > 201703L
@@ -41203,22 +34450,9 @@ public:
     return _localctx;
   }
 
-  class  DatetimeSubtractionContext : public antlr4::ParserRuleContext {
-  public:
-    DatetimeSubtractionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *DURATION_BETWEEN();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    DatetimeSubtractionParametersContext *datetimeSubtractionParameters();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-    TemporalDurationQualifierContext *temporalDurationQualifier();
-
-   
-  };
-
   template<typename ContextT>
-  DatetimeSubtractionContext* datetimeSubtraction(ContextT* ctx) {
-    DatetimeSubtractionContext *_localctx = _tracker.createInstance<DatetimeSubtractionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* datetimeSubtraction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1042, GQLParser::RuleDatetimeSubtraction);
 
   #if __cplusplus > 201703L
@@ -41286,20 +34520,9 @@ public:
     return _localctx;
   }
 
-  class  DatetimeSubtractionParametersContext : public antlr4::ParserRuleContext {
-  public:
-    DatetimeSubtractionParametersContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    DatetimeValueExpression1Context *datetimeValueExpression1();
-    antlr4::tree::TerminalNode *COMMA();
-    DatetimeValueExpression2Context *datetimeValueExpression2();
-
-   
-  };
-
   template<typename ContextT>
-  DatetimeSubtractionParametersContext* datetimeSubtractionParameters(ContextT* ctx) {
-    DatetimeSubtractionParametersContext *_localctx = _tracker.createInstance<DatetimeSubtractionParametersContext>(_ctx, getState());
+  antlr4::ParserRuleContext* datetimeSubtractionParameters(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1044, GQLParser::RuleDatetimeSubtractionParameters);
 
   #if __cplusplus > 201703L
@@ -41342,18 +34565,9 @@ public:
     return _localctx;
   }
 
-  class  DatetimeValueExpression1Context : public antlr4::ParserRuleContext {
-  public:
-    DatetimeValueExpression1Context(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    DatetimeValueExpressionContext *datetimeValueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  DatetimeValueExpression1Context* datetimeValueExpression1(ContextT* ctx) {
-    DatetimeValueExpression1Context *_localctx = _tracker.createInstance<DatetimeValueExpression1Context>(_ctx, getState());
+  antlr4::ParserRuleContext* datetimeValueExpression1(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1046, GQLParser::RuleDatetimeValueExpression1);
 
   #if __cplusplus > 201703L
@@ -41384,18 +34598,9 @@ public:
     return _localctx;
   }
 
-  class  DatetimeValueExpression2Context : public antlr4::ParserRuleContext {
-  public:
-    DatetimeValueExpression2Context(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    DatetimeValueExpressionContext *datetimeValueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  DatetimeValueExpression2Context* datetimeValueExpression2(ContextT* ctx) {
-    DatetimeValueExpression2Context *_localctx = _tracker.createInstance<DatetimeValueExpression2Context>(_ctx, getState());
+  antlr4::ParserRuleContext* datetimeValueExpression2(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1048, GQLParser::RuleDatetimeValueExpression2);
 
   #if __cplusplus > 201703L
@@ -41426,19 +34631,9 @@ public:
     return _localctx;
   }
 
-  class  DurationValueFunctionContext : public antlr4::ParserRuleContext {
-  public:
-    DurationValueFunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    DurationFunctionContext *durationFunction();
-    AbsoluteValueExpressionContext *absoluteValueExpression();
-
-   
-  };
-
   template<typename ContextT>
-  DurationValueFunctionContext* durationValueFunction(ContextT* ctx) {
-    DurationValueFunctionContext *_localctx = _tracker.createInstance<DurationValueFunctionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* durationValueFunction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1050, GQLParser::RuleDurationValueFunction);
 
   #if __cplusplus > 201703L
@@ -41489,21 +34684,9 @@ public:
     return _localctx;
   }
 
-  class  DurationFunctionContext : public antlr4::ParserRuleContext {
-  public:
-    DurationFunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *DURATION();
-    antlr4::tree::TerminalNode *LEFT_PAREN();
-    DurationFunctionParametersContext *durationFunctionParameters();
-    antlr4::tree::TerminalNode *RIGHT_PAREN();
-
-   
-  };
-
   template<typename ContextT>
-  DurationFunctionContext* durationFunction(ContextT* ctx) {
-    DurationFunctionContext *_localctx = _tracker.createInstance<DurationFunctionContext>(_ctx, getState());
+  antlr4::ParserRuleContext* durationFunction(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1052, GQLParser::RuleDurationFunction);
 
   #if __cplusplus > 201703L
@@ -41555,19 +34738,9 @@ public:
     return _localctx;
   }
 
-  class  DurationFunctionParametersContext : public antlr4::ParserRuleContext {
-  public:
-    DurationFunctionParametersContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    DurationStringContext *durationString();
-    RecordConstructorContext *recordConstructor();
-
-   
-  };
-
   template<typename ContextT>
-  DurationFunctionParametersContext* durationFunctionParameters(ContextT* ctx) {
-    DurationFunctionParametersContext *_localctx = _tracker.createInstance<DurationFunctionParametersContext>(_ctx, getState());
+  antlr4::ParserRuleContext* durationFunctionParameters(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1054, GQLParser::RuleDurationFunctionParameters);
 
   #if __cplusplus > 201703L
@@ -41620,18 +34793,9 @@ public:
     return _localctx;
   }
 
-  class  ObjectNameContext : public antlr4::ParserRuleContext {
-  public:
-    ObjectNameContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    IdentifierContext *identifier();
-
-   
-  };
-
   template<typename ContextT>
-  ObjectNameContext* objectName(ContextT* ctx) {
-    ObjectNameContext *_localctx = _tracker.createInstance<ObjectNameContext>(_ctx, getState());
+  antlr4::ParserRuleContext* objectName(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1056, GQLParser::RuleObjectName);
 
   #if __cplusplus > 201703L
@@ -41662,18 +34826,9 @@ public:
     return _localctx;
   }
 
-  class  ObjectNameOrBindingVariableContext : public antlr4::ParserRuleContext {
-  public:
-    ObjectNameOrBindingVariableContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    RegularIdentifierContext *regularIdentifier();
-
-   
-  };
-
   template<typename ContextT>
-  ObjectNameOrBindingVariableContext* objectNameOrBindingVariable(ContextT* ctx) {
-    ObjectNameOrBindingVariableContext *_localctx = _tracker.createInstance<ObjectNameOrBindingVariableContext>(_ctx, getState());
+  antlr4::ParserRuleContext* objectNameOrBindingVariable(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1058, GQLParser::RuleObjectNameOrBindingVariable);
 
   #if __cplusplus > 201703L
@@ -41704,18 +34859,9 @@ public:
     return _localctx;
   }
 
-  class  DirectoryNameContext : public antlr4::ParserRuleContext {
-  public:
-    DirectoryNameContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    IdentifierContext *identifier();
-
-   
-  };
-
   template<typename ContextT>
-  DirectoryNameContext* directoryName(ContextT* ctx) {
-    DirectoryNameContext *_localctx = _tracker.createInstance<DirectoryNameContext>(_ctx, getState());
+  antlr4::ParserRuleContext* directoryName(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1060, GQLParser::RuleDirectoryName);
 
   #if __cplusplus > 201703L
@@ -41746,18 +34892,9 @@ public:
     return _localctx;
   }
 
-  class  SchemaNameContext : public antlr4::ParserRuleContext {
-  public:
-    SchemaNameContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    IdentifierContext *identifier();
-
-   
-  };
-
   template<typename ContextT>
-  SchemaNameContext* schemaName(ContextT* ctx) {
-    SchemaNameContext *_localctx = _tracker.createInstance<SchemaNameContext>(_ctx, getState());
+  antlr4::ParserRuleContext* schemaName(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1062, GQLParser::RuleSchemaName);
 
   #if __cplusplus > 201703L
@@ -41788,19 +34925,9 @@ public:
     return _localctx;
   }
 
-  class  GraphNameContext : public antlr4::ParserRuleContext {
-  public:
-    GraphNameContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    RegularIdentifierContext *regularIdentifier();
-    DelimitedGraphNameContext *delimitedGraphName();
-
-   
-  };
-
   template<typename ContextT>
-  GraphNameContext* graphName(ContextT* ctx) {
-    GraphNameContext *_localctx = _tracker.createInstance<GraphNameContext>(_ctx, getState());
+  antlr4::ParserRuleContext* graphName(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1064, GQLParser::RuleGraphName);
 
   #if __cplusplus > 201703L
@@ -41899,19 +35026,9 @@ public:
     return _localctx;
   }
 
-  class  DelimitedGraphNameContext : public antlr4::ParserRuleContext {
-  public:
-    DelimitedGraphNameContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *DOUBLE_QUOTED_CHARACTER_SEQUENCE();
-    antlr4::tree::TerminalNode *ACCENT_QUOTED_CHARACTER_SEQUENCE();
-
-   
-  };
-
   template<typename ContextT>
-  DelimitedGraphNameContext* delimitedGraphName(ContextT* ctx) {
-    DelimitedGraphNameContext *_localctx = _tracker.createInstance<DelimitedGraphNameContext>(_ctx, getState());
+  antlr4::ParserRuleContext* delimitedGraphName(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1066, GQLParser::RuleDelimitedGraphName);
     size_t _la = 0;
 
@@ -41932,7 +35049,7 @@ public:
       if (!(_la == GQLParser::DOUBLE_QUOTED_CHARACTER_SEQUENCE
 
       || _la == GQLParser::ACCENT_QUOTED_CHARACTER_SEQUENCE)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -41950,18 +35067,9 @@ public:
     return _localctx;
   }
 
-  class  GraphTypeNameContext : public antlr4::ParserRuleContext {
-  public:
-    GraphTypeNameContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    IdentifierContext *identifier();
-
-   
-  };
-
   template<typename ContextT>
-  GraphTypeNameContext* graphTypeName(ContextT* ctx) {
-    GraphTypeNameContext *_localctx = _tracker.createInstance<GraphTypeNameContext>(_ctx, getState());
+  antlr4::ParserRuleContext* graphTypeName(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1068, GQLParser::RuleGraphTypeName);
 
   #if __cplusplus > 201703L
@@ -41992,18 +35100,9 @@ public:
     return _localctx;
   }
 
-  class  NodeTypeNameContext : public antlr4::ParserRuleContext {
-  public:
-    NodeTypeNameContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    IdentifierContext *identifier();
-
-   
-  };
-
   template<typename ContextT>
-  NodeTypeNameContext* nodeTypeName(ContextT* ctx) {
-    NodeTypeNameContext *_localctx = _tracker.createInstance<NodeTypeNameContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nodeTypeName(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1070, GQLParser::RuleNodeTypeName);
 
   #if __cplusplus > 201703L
@@ -42034,18 +35133,9 @@ public:
     return _localctx;
   }
 
-  class  EdgeTypeNameContext : public antlr4::ParserRuleContext {
-  public:
-    EdgeTypeNameContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    IdentifierContext *identifier();
-
-   
-  };
-
   template<typename ContextT>
-  EdgeTypeNameContext* edgeTypeName(ContextT* ctx) {
-    EdgeTypeNameContext *_localctx = _tracker.createInstance<EdgeTypeNameContext>(_ctx, getState());
+  antlr4::ParserRuleContext* edgeTypeName(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1072, GQLParser::RuleEdgeTypeName);
 
   #if __cplusplus > 201703L
@@ -42076,19 +35166,9 @@ public:
     return _localctx;
   }
 
-  class  BindingTableNameContext : public antlr4::ParserRuleContext {
-  public:
-    BindingTableNameContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    RegularIdentifierContext *regularIdentifier();
-    DelimitedBindingTableNameContext *delimitedBindingTableName();
-
-   
-  };
-
   template<typename ContextT>
-  BindingTableNameContext* bindingTableName(ContextT* ctx) {
-    BindingTableNameContext *_localctx = _tracker.createInstance<BindingTableNameContext>(_ctx, getState());
+  antlr4::ParserRuleContext* bindingTableName(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1074, GQLParser::RuleBindingTableName);
 
   #if __cplusplus > 201703L
@@ -42187,19 +35267,9 @@ public:
     return _localctx;
   }
 
-  class  DelimitedBindingTableNameContext : public antlr4::ParserRuleContext {
-  public:
-    DelimitedBindingTableNameContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *DOUBLE_QUOTED_CHARACTER_SEQUENCE();
-    antlr4::tree::TerminalNode *ACCENT_QUOTED_CHARACTER_SEQUENCE();
-
-   
-  };
-
   template<typename ContextT>
-  DelimitedBindingTableNameContext* delimitedBindingTableName(ContextT* ctx) {
-    DelimitedBindingTableNameContext *_localctx = _tracker.createInstance<DelimitedBindingTableNameContext>(_ctx, getState());
+  antlr4::ParserRuleContext* delimitedBindingTableName(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1076, GQLParser::RuleDelimitedBindingTableName);
     size_t _la = 0;
 
@@ -42220,7 +35290,7 @@ public:
       if (!(_la == GQLParser::DOUBLE_QUOTED_CHARACTER_SEQUENCE
 
       || _la == GQLParser::ACCENT_QUOTED_CHARACTER_SEQUENCE)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -42238,18 +35308,9 @@ public:
     return _localctx;
   }
 
-  class  ProcedureNameContext : public antlr4::ParserRuleContext {
-  public:
-    ProcedureNameContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    IdentifierContext *identifier();
-
-   
-  };
-
   template<typename ContextT>
-  ProcedureNameContext* procedureName(ContextT* ctx) {
-    ProcedureNameContext *_localctx = _tracker.createInstance<ProcedureNameContext>(_ctx, getState());
+  antlr4::ParserRuleContext* procedureName(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1078, GQLParser::RuleProcedureName);
 
   #if __cplusplus > 201703L
@@ -42280,18 +35341,9 @@ public:
     return _localctx;
   }
 
-  class  LabelNameContext : public antlr4::ParserRuleContext {
-  public:
-    LabelNameContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    IdentifierContext *identifier();
-
-   
-  };
-
   template<typename ContextT>
-  LabelNameContext* labelName(ContextT* ctx) {
-    LabelNameContext *_localctx = _tracker.createInstance<LabelNameContext>(_ctx, getState());
+  antlr4::ParserRuleContext* labelName(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1080, GQLParser::RuleLabelName);
 
   #if __cplusplus > 201703L
@@ -42322,18 +35374,9 @@ public:
     return _localctx;
   }
 
-  class  PropertyNameContext : public antlr4::ParserRuleContext {
-  public:
-    PropertyNameContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    IdentifierContext *identifier();
-
-   
-  };
-
   template<typename ContextT>
-  PropertyNameContext* propertyName(ContextT* ctx) {
-    PropertyNameContext *_localctx = _tracker.createInstance<PropertyNameContext>(_ctx, getState());
+  antlr4::ParserRuleContext* propertyName(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1082, GQLParser::RulePropertyName);
 
   #if __cplusplus > 201703L
@@ -42364,18 +35407,9 @@ public:
     return _localctx;
   }
 
-  class  FieldNameContext : public antlr4::ParserRuleContext {
-  public:
-    FieldNameContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    IdentifierContext *identifier();
-
-   
-  };
-
   template<typename ContextT>
-  FieldNameContext* fieldName(ContextT* ctx) {
-    FieldNameContext *_localctx = _tracker.createInstance<FieldNameContext>(_ctx, getState());
+  antlr4::ParserRuleContext* fieldName(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1084, GQLParser::RuleFieldName);
 
   #if __cplusplus > 201703L
@@ -42406,18 +35440,9 @@ public:
     return _localctx;
   }
 
-  class  ElementVariableContext : public antlr4::ParserRuleContext {
-  public:
-    ElementVariableContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    BindingVariableContext *bindingVariable();
-
-   
-  };
-
   template<typename ContextT>
-  ElementVariableContext* elementVariable(ContextT* ctx) {
-    ElementVariableContext *_localctx = _tracker.createInstance<ElementVariableContext>(_ctx, getState());
+  antlr4::ParserRuleContext* elementVariable(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1086, GQLParser::RuleElementVariable);
 
   #if __cplusplus > 201703L
@@ -42448,18 +35473,9 @@ public:
     return _localctx;
   }
 
-  class  PathVariableContext : public antlr4::ParserRuleContext {
-  public:
-    PathVariableContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    BindingVariableContext *bindingVariable();
-
-   
-  };
-
   template<typename ContextT>
-  PathVariableContext* pathVariable(ContextT* ctx) {
-    PathVariableContext *_localctx = _tracker.createInstance<PathVariableContext>(_ctx, getState());
+  antlr4::ParserRuleContext* pathVariable(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1088, GQLParser::RulePathVariable);
 
   #if __cplusplus > 201703L
@@ -42490,18 +35506,9 @@ public:
     return _localctx;
   }
 
-  class  SubpathVariableContext : public antlr4::ParserRuleContext {
-  public:
-    SubpathVariableContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    RegularIdentifierContext *regularIdentifier();
-
-   
-  };
-
   template<typename ContextT>
-  SubpathVariableContext* subpathVariable(ContextT* ctx) {
-    SubpathVariableContext *_localctx = _tracker.createInstance<SubpathVariableContext>(_ctx, getState());
+  antlr4::ParserRuleContext* subpathVariable(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1090, GQLParser::RuleSubpathVariable);
 
   #if __cplusplus > 201703L
@@ -42532,18 +35539,9 @@ public:
     return _localctx;
   }
 
-  class  BindingVariableContext : public antlr4::ParserRuleContext {
-  public:
-    BindingVariableContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    RegularIdentifierContext *regularIdentifier();
-
-   
-  };
-
   template<typename ContextT>
-  BindingVariableContext* bindingVariable(ContextT* ctx) {
-    BindingVariableContext *_localctx = _tracker.createInstance<BindingVariableContext>(_ctx, getState());
+  antlr4::ParserRuleContext* bindingVariable(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1092, GQLParser::RuleBindingVariable);
 
   #if __cplusplus > 201703L
@@ -42574,19 +35572,9 @@ public:
     return _localctx;
   }
 
-  class  UnsignedLiteralContext : public antlr4::ParserRuleContext {
-  public:
-    UnsignedLiteralContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    UnsignedNumericLiteralContext *unsignedNumericLiteral();
-    GeneralLiteralContext *generalLiteral();
-
-   
-  };
-
   template<typename ContextT>
-  UnsignedLiteralContext* unsignedLiteral(ContextT* ctx) {
-    UnsignedLiteralContext *_localctx = _tracker.createInstance<UnsignedLiteralContext>(_ctx, getState());
+  antlr4::ParserRuleContext* unsignedLiteral(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1094, GQLParser::RuleUnsignedLiteral);
 
   #if __cplusplus > 201703L
@@ -42663,25 +35651,9 @@ public:
     return _localctx;
   }
 
-  class  GeneralLiteralContext : public antlr4::ParserRuleContext {
-  public:
-    GeneralLiteralContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *BOOLEAN_LITERAL();
-    CharacterStringLiteralContext *characterStringLiteral();
-    antlr4::tree::TerminalNode *BYTE_STRING_LITERAL();
-    TemporalLiteralContext *temporalLiteral();
-    DurationLiteralContext *durationLiteral();
-    NullLiteralContext *nullLiteral();
-    ListLiteralContext *listLiteral();
-    RecordLiteralContext *recordLiteral();
-
-   
-  };
-
   template<typename ContextT>
-  GeneralLiteralContext* generalLiteral(ContextT* ctx) {
-    GeneralLiteralContext *_localctx = _tracker.createInstance<GeneralLiteralContext>(_ctx, getState());
+  antlr4::ParserRuleContext* generalLiteral(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1096, GQLParser::RuleGeneralLiteral);
 
   #if __cplusplus > 201703L
@@ -42804,20 +35776,9 @@ public:
     return _localctx;
   }
 
-  class  TemporalLiteralContext : public antlr4::ParserRuleContext {
-  public:
-    TemporalLiteralContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    DateLiteralContext *dateLiteral();
-    TimeLiteralContext *timeLiteral();
-    DatetimeLiteralContext *datetimeLiteral();
-
-   
-  };
-
   template<typename ContextT>
-  TemporalLiteralContext* temporalLiteral(ContextT* ctx) {
-    TemporalLiteralContext *_localctx = _tracker.createInstance<TemporalLiteralContext>(_ctx, getState());
+  antlr4::ParserRuleContext* temporalLiteral(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1098, GQLParser::RuleTemporalLiteral);
 
   #if __cplusplus > 201703L
@@ -42879,19 +35840,9 @@ public:
     return _localctx;
   }
 
-  class  DateLiteralContext : public antlr4::ParserRuleContext {
-  public:
-    DateLiteralContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *DATE();
-    DateStringContext *dateString();
-
-   
-  };
-
   template<typename ContextT>
-  DateLiteralContext* dateLiteral(ContextT* ctx) {
-    DateLiteralContext *_localctx = _tracker.createInstance<DateLiteralContext>(_ctx, getState());
+  antlr4::ParserRuleContext* dateLiteral(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1100, GQLParser::RuleDateLiteral);
 
   #if __cplusplus > 201703L
@@ -42929,19 +35880,9 @@ public:
     return _localctx;
   }
 
-  class  TimeLiteralContext : public antlr4::ParserRuleContext {
-  public:
-    TimeLiteralContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *TIME();
-    TimeStringContext *timeString();
-
-   
-  };
-
   template<typename ContextT>
-  TimeLiteralContext* timeLiteral(ContextT* ctx) {
-    TimeLiteralContext *_localctx = _tracker.createInstance<TimeLiteralContext>(_ctx, getState());
+  antlr4::ParserRuleContext* timeLiteral(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1102, GQLParser::RuleTimeLiteral);
 
   #if __cplusplus > 201703L
@@ -42979,20 +35920,9 @@ public:
     return _localctx;
   }
 
-  class  DatetimeLiteralContext : public antlr4::ParserRuleContext {
-  public:
-    DatetimeLiteralContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    DatetimeStringContext *datetimeString();
-    antlr4::tree::TerminalNode *DATETIME();
-    antlr4::tree::TerminalNode *TIMESTAMP();
-
-   
-  };
-
   template<typename ContextT>
-  DatetimeLiteralContext* datetimeLiteral(ContextT* ctx) {
-    DatetimeLiteralContext *_localctx = _tracker.createInstance<DatetimeLiteralContext>(_ctx, getState());
+  antlr4::ParserRuleContext* datetimeLiteral(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1104, GQLParser::RuleDatetimeLiteral);
     size_t _la = 0;
 
@@ -43011,7 +35941,7 @@ public:
       setState(4558);
       _la = _input->LA(1);
       if (!(_la == GQLParser::DATETIME || _la == GQLParser::TIMESTAMP)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -43034,18 +35964,9 @@ public:
     return _localctx;
   }
 
-  class  ListLiteralContext : public antlr4::ParserRuleContext {
-  public:
-    ListLiteralContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ListValueConstructorByEnumerationContext *listValueConstructorByEnumeration();
-
-   
-  };
-
   template<typename ContextT>
-  ListLiteralContext* listLiteral(ContextT* ctx) {
-    ListLiteralContext *_localctx = _tracker.createInstance<ListLiteralContext>(_ctx, getState());
+  antlr4::ParserRuleContext* listLiteral(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1106, GQLParser::RuleListLiteral);
 
   #if __cplusplus > 201703L
@@ -43076,18 +35997,9 @@ public:
     return _localctx;
   }
 
-  class  RecordLiteralContext : public antlr4::ParserRuleContext {
-  public:
-    RecordLiteralContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    RecordConstructorContext *recordConstructor();
-
-   
-  };
-
   template<typename ContextT>
-  RecordLiteralContext* recordLiteral(ContextT* ctx) {
-    RecordLiteralContext *_localctx = _tracker.createInstance<RecordLiteralContext>(_ctx, getState());
+  antlr4::ParserRuleContext* recordLiteral(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1108, GQLParser::RuleRecordLiteral);
 
   #if __cplusplus > 201703L
@@ -43118,20 +36030,9 @@ public:
     return _localctx;
   }
 
-  class  IdentifierContext : public antlr4::ParserRuleContext {
-  public:
-    IdentifierContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    RegularIdentifierContext *regularIdentifier();
-    antlr4::tree::TerminalNode *DOUBLE_QUOTED_CHARACTER_SEQUENCE();
-    antlr4::tree::TerminalNode *ACCENT_QUOTED_CHARACTER_SEQUENCE();
-
-   
-  };
-
   template<typename ContextT>
-  IdentifierContext* identifier(ContextT* ctx) {
-    IdentifierContext *_localctx = _tracker.createInstance<IdentifierContext>(_ctx, getState());
+  antlr4::ParserRuleContext* identifier(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1110, GQLParser::RuleIdentifier);
 
   #if __cplusplus > 201703L
@@ -43243,19 +36144,9 @@ public:
     return _localctx;
   }
 
-  class  RegularIdentifierContext : public antlr4::ParserRuleContext {
-  public:
-    RegularIdentifierContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *REGULAR_IDENTIFIER();
-    NonReservedWordsContext *nonReservedWords();
-
-   
-  };
-
   template<typename ContextT>
-  RegularIdentifierContext* regularIdentifier(ContextT* ctx) {
-    RegularIdentifierContext *_localctx = _tracker.createInstance<RegularIdentifierContext>(_ctx, getState());
+  antlr4::ParserRuleContext* regularIdentifier(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1112, GQLParser::RuleRegularIdentifier);
 
   #if __cplusplus > 201703L
@@ -43354,18 +36245,9 @@ public:
     return _localctx;
   }
 
-  class  TimeZoneStringContext : public antlr4::ParserRuleContext {
-  public:
-    TimeZoneStringContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    CharacterStringLiteralContext *characterStringLiteral();
-
-   
-  };
-
   template<typename ContextT>
-  TimeZoneStringContext* timeZoneString(ContextT* ctx) {
-    TimeZoneStringContext *_localctx = _tracker.createInstance<TimeZoneStringContext>(_ctx, getState());
+  antlr4::ParserRuleContext* timeZoneString(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1114, GQLParser::RuleTimeZoneString);
 
   #if __cplusplus > 201703L
@@ -43396,19 +36278,9 @@ public:
     return _localctx;
   }
 
-  class  CharacterStringLiteralContext : public antlr4::ParserRuleContext {
-  public:
-    CharacterStringLiteralContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *SINGLE_QUOTED_CHARACTER_SEQUENCE();
-    antlr4::tree::TerminalNode *DOUBLE_QUOTED_CHARACTER_SEQUENCE();
-
-   
-  };
-
   template<typename ContextT>
-  CharacterStringLiteralContext* characterStringLiteral(ContextT* ctx) {
-    CharacterStringLiteralContext *_localctx = _tracker.createInstance<CharacterStringLiteralContext>(_ctx, getState());
+  antlr4::ParserRuleContext* characterStringLiteral(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1116, GQLParser::RuleCharacterStringLiteral);
     size_t _la = 0;
 
@@ -43429,7 +36301,7 @@ public:
       if (!(_la == GQLParser::SINGLE_QUOTED_CHARACTER_SEQUENCE
 
       || _la == GQLParser::DOUBLE_QUOTED_CHARACTER_SEQUENCE)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -43447,19 +36319,9 @@ public:
     return _localctx;
   }
 
-  class  UnsignedNumericLiteralContext : public antlr4::ParserRuleContext {
-  public:
-    UnsignedNumericLiteralContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    ExactNumericLiteralContext *exactNumericLiteral();
-    ApproximateNumericLiteralContext *approximateNumericLiteral();
-
-   
-  };
-
   template<typename ContextT>
-  UnsignedNumericLiteralContext* unsignedNumericLiteral(ContextT* ctx) {
-    UnsignedNumericLiteralContext *_localctx = _tracker.createInstance<UnsignedNumericLiteralContext>(_ctx, getState());
+  antlr4::ParserRuleContext* unsignedNumericLiteral(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1118, GQLParser::RuleUnsignedNumericLiteral);
 
   #if __cplusplus > 201703L
@@ -43520,22 +36382,9 @@ public:
     return _localctx;
   }
 
-  class  ExactNumericLiteralContext : public antlr4::ParserRuleContext {
-  public:
-    ExactNumericLiteralContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *UNSIGNED_DECIMAL_IN_SCIENTIFIC_NOTATION_WITH_EXACT_NUMBER_SUFFIX();
-    antlr4::tree::TerminalNode *UNSIGNED_DECIMAL_IN_COMMON_NOTATION_WITH_EXACT_NUMBER_SUFFIX();
-    antlr4::tree::TerminalNode *UNSIGNED_DECIMAL_IN_COMMON_NOTATION_WITHOUT_SUFFIX();
-    antlr4::tree::TerminalNode *UNSIGNED_DECIMAL_INTEGER_WITH_EXACT_NUMBER_SUFFIX();
-    UnsignedIntegerContext *unsignedInteger();
-
-   
-  };
-
   template<typename ContextT>
-  ExactNumericLiteralContext* exactNumericLiteral(ContextT* ctx) {
-    ExactNumericLiteralContext *_localctx = _tracker.createInstance<ExactNumericLiteralContext>(_ctx, getState());
+  antlr4::ParserRuleContext* exactNumericLiteral(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1120, GQLParser::RuleExactNumericLiteral);
 
   #if __cplusplus > 201703L
@@ -43627,21 +36476,9 @@ public:
     return _localctx;
   }
 
-  class  ApproximateNumericLiteralContext : public antlr4::ParserRuleContext {
-  public:
-    ApproximateNumericLiteralContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *UNSIGNED_DECIMAL_IN_SCIENTIFIC_NOTATION_WITH_APPROXIMATE_NUMBER_SUFFIX();
-    antlr4::tree::TerminalNode *UNSIGNED_DECIMAL_IN_SCIENTIFIC_NOTATION_WITHOUT_SUFFIX();
-    antlr4::tree::TerminalNode *UNSIGNED_DECIMAL_IN_COMMON_NOTATION_WITH_APPROXIMATE_NUMBER_SUFFIX();
-    antlr4::tree::TerminalNode *UNSIGNED_DECIMAL_INTEGER_WITH_APPROXIMATE_NUMBER_SUFFIX();
-
-   
-  };
-
   template<typename ContextT>
-  ApproximateNumericLiteralContext* approximateNumericLiteral(ContextT* ctx) {
-    ApproximateNumericLiteralContext *_localctx = _tracker.createInstance<ApproximateNumericLiteralContext>(_ctx, getState());
+  antlr4::ParserRuleContext* approximateNumericLiteral(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1122, GQLParser::RuleApproximateNumericLiteral);
     size_t _la = 0;
 
@@ -43661,7 +36498,7 @@ public:
       _la = _input->LA(1);
       if (!((((_la & ~ 0x3fULL) == 0) &&
         ((1ULL << _la) & 42496) != 0))) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -43679,21 +36516,9 @@ public:
     return _localctx;
   }
 
-  class  UnsignedIntegerContext : public antlr4::ParserRuleContext {
-  public:
-    UnsignedIntegerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *UNSIGNED_DECIMAL_INTEGER();
-    antlr4::tree::TerminalNode *UNSIGNED_HEXADECIMAL_INTEGER();
-    antlr4::tree::TerminalNode *UNSIGNED_OCTAL_INTEGER();
-    antlr4::tree::TerminalNode *UNSIGNED_BINARY_INTEGER();
-
-   
-  };
-
   template<typename ContextT>
-  UnsignedIntegerContext* unsignedInteger(ContextT* ctx) {
-    UnsignedIntegerContext *_localctx = _tracker.createInstance<UnsignedIntegerContext>(_ctx, getState());
+  antlr4::ParserRuleContext* unsignedInteger(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1124, GQLParser::RuleUnsignedInteger);
     size_t _la = 0;
 
@@ -43713,7 +36538,7 @@ public:
       _la = _input->LA(1);
       if (!((((_la & ~ 0x3fULL) == 0) &&
         ((1ULL << _la) & 983040) != 0))) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -43731,18 +36556,9 @@ public:
     return _localctx;
   }
 
-  class  UnsignedDecimalIntegerContext : public antlr4::ParserRuleContext {
-  public:
-    UnsignedDecimalIntegerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *UNSIGNED_DECIMAL_INTEGER();
-
-   
-  };
-
   template<typename ContextT>
-  UnsignedDecimalIntegerContext* unsignedDecimalInteger(ContextT* ctx) {
-    UnsignedDecimalIntegerContext *_localctx = _tracker.createInstance<UnsignedDecimalIntegerContext>(_ctx, getState());
+  antlr4::ParserRuleContext* unsignedDecimalInteger(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1126, GQLParser::RuleUnsignedDecimalInteger);
 
   #if __cplusplus > 201703L
@@ -43775,18 +36591,9 @@ public:
     return _localctx;
   }
 
-  class  NullLiteralContext : public antlr4::ParserRuleContext {
-  public:
-    NullLiteralContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *NULL_KW();
-
-   
-  };
-
   template<typename ContextT>
-  NullLiteralContext* nullLiteral(ContextT* ctx) {
-    NullLiteralContext *_localctx = _tracker.createInstance<NullLiteralContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nullLiteral(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1128, GQLParser::RuleNullLiteral);
 
   #if __cplusplus > 201703L
@@ -43819,18 +36626,9 @@ public:
     return _localctx;
   }
 
-  class  DateStringContext : public antlr4::ParserRuleContext {
-  public:
-    DateStringContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    CharacterStringLiteralContext *characterStringLiteral();
-
-   
-  };
-
   template<typename ContextT>
-  DateStringContext* dateString(ContextT* ctx) {
-    DateStringContext *_localctx = _tracker.createInstance<DateStringContext>(_ctx, getState());
+  antlr4::ParserRuleContext* dateString(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1130, GQLParser::RuleDateString);
 
   #if __cplusplus > 201703L
@@ -43861,18 +36659,9 @@ public:
     return _localctx;
   }
 
-  class  TimeStringContext : public antlr4::ParserRuleContext {
-  public:
-    TimeStringContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    CharacterStringLiteralContext *characterStringLiteral();
-
-   
-  };
-
   template<typename ContextT>
-  TimeStringContext* timeString(ContextT* ctx) {
-    TimeStringContext *_localctx = _tracker.createInstance<TimeStringContext>(_ctx, getState());
+  antlr4::ParserRuleContext* timeString(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1132, GQLParser::RuleTimeString);
 
   #if __cplusplus > 201703L
@@ -43903,18 +36692,9 @@ public:
     return _localctx;
   }
 
-  class  DatetimeStringContext : public antlr4::ParserRuleContext {
-  public:
-    DatetimeStringContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    CharacterStringLiteralContext *characterStringLiteral();
-
-   
-  };
-
   template<typename ContextT>
-  DatetimeStringContext* datetimeString(ContextT* ctx) {
-    DatetimeStringContext *_localctx = _tracker.createInstance<DatetimeStringContext>(_ctx, getState());
+  antlr4::ParserRuleContext* datetimeString(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1134, GQLParser::RuleDatetimeString);
 
   #if __cplusplus > 201703L
@@ -43945,19 +36725,9 @@ public:
     return _localctx;
   }
 
-  class  DurationLiteralContext : public antlr4::ParserRuleContext {
-  public:
-    DurationLiteralContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *DURATION();
-    DurationStringContext *durationString();
-
-   
-  };
-
   template<typename ContextT>
-  DurationLiteralContext* durationLiteral(ContextT* ctx) {
-    DurationLiteralContext *_localctx = _tracker.createInstance<DurationLiteralContext>(_ctx, getState());
+  antlr4::ParserRuleContext* durationLiteral(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1136, GQLParser::RuleDurationLiteral);
 
   #if __cplusplus > 201703L
@@ -43995,18 +36765,9 @@ public:
     return _localctx;
   }
 
-  class  DurationStringContext : public antlr4::ParserRuleContext {
-  public:
-    DurationStringContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    CharacterStringLiteralContext *characterStringLiteral();
-
-   
-  };
-
   template<typename ContextT>
-  DurationStringContext* durationString(ContextT* ctx) {
-    DurationStringContext *_localctx = _tracker.createInstance<DurationStringContext>(_ctx, getState());
+  antlr4::ParserRuleContext* durationString(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1138, GQLParser::RuleDurationString);
 
   #if __cplusplus > 201703L
@@ -44037,19 +36798,9 @@ public:
     return _localctx;
   }
 
-  class  NodeSynonymContext : public antlr4::ParserRuleContext {
-  public:
-    NodeSynonymContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *NODE();
-    antlr4::tree::TerminalNode *VERTEX();
-
-   
-  };
-
   template<typename ContextT>
-  NodeSynonymContext* nodeSynonym(ContextT* ctx) {
-    NodeSynonymContext *_localctx = _tracker.createInstance<NodeSynonymContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nodeSynonym(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1140, GQLParser::RuleNodeSynonym);
     size_t _la = 0;
 
@@ -44070,7 +36821,7 @@ public:
       if (!(_la == GQLParser::NODE
 
       || _la == GQLParser::VERTEX)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -44088,19 +36839,9 @@ public:
     return _localctx;
   }
 
-  class  EdgesSynonymContext : public antlr4::ParserRuleContext {
-  public:
-    EdgesSynonymContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *EDGES();
-    antlr4::tree::TerminalNode *RELATIONSHIPS();
-
-   
-  };
-
   template<typename ContextT>
-  EdgesSynonymContext* edgesSynonym(ContextT* ctx) {
-    EdgesSynonymContext *_localctx = _tracker.createInstance<EdgesSynonymContext>(_ctx, getState());
+  antlr4::ParserRuleContext* edgesSynonym(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1142, GQLParser::RuleEdgesSynonym);
     size_t _la = 0;
 
@@ -44121,7 +36862,7 @@ public:
       if (!(_la == GQLParser::EDGES
 
       || _la == GQLParser::RELATIONSHIPS)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -44139,19 +36880,9 @@ public:
     return _localctx;
   }
 
-  class  EdgeSynonymContext : public antlr4::ParserRuleContext {
-  public:
-    EdgeSynonymContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *EDGE();
-    antlr4::tree::TerminalNode *RELATIONSHIP();
-
-   
-  };
-
   template<typename ContextT>
-  EdgeSynonymContext* edgeSynonym(ContextT* ctx) {
-    EdgeSynonymContext *_localctx = _tracker.createInstance<EdgeSynonymContext>(_ctx, getState());
+  antlr4::ParserRuleContext* edgeSynonym(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1144, GQLParser::RuleEdgeSynonym);
     size_t _la = 0;
 
@@ -44172,7 +36903,7 @@ public:
       if (!(_la == GQLParser::EDGE
 
       || _la == GQLParser::RELATIONSHIP)) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -44190,64 +36921,9 @@ public:
     return _localctx;
   }
 
-  class  NonReservedWordsContext : public antlr4::ParserRuleContext {
-  public:
-    NonReservedWordsContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *ACYCLIC();
-    antlr4::tree::TerminalNode *BINDING();
-    antlr4::tree::TerminalNode *BINDINGS();
-    antlr4::tree::TerminalNode *CONNECTING();
-    antlr4::tree::TerminalNode *DESTINATION();
-    antlr4::tree::TerminalNode *DIFFERENT();
-    antlr4::tree::TerminalNode *DIRECTED();
-    antlr4::tree::TerminalNode *EDGE();
-    antlr4::tree::TerminalNode *EDGES();
-    antlr4::tree::TerminalNode *ELEMENT();
-    antlr4::tree::TerminalNode *ELEMENTS();
-    antlr4::tree::TerminalNode *FIRST();
-    antlr4::tree::TerminalNode *GRAPH();
-    antlr4::tree::TerminalNode *GROUPS();
-    antlr4::tree::TerminalNode *KEEP();
-    antlr4::tree::TerminalNode *LABEL();
-    antlr4::tree::TerminalNode *LABELED();
-    antlr4::tree::TerminalNode *LABELS();
-    antlr4::tree::TerminalNode *LAST();
-    antlr4::tree::TerminalNode *NFC();
-    antlr4::tree::TerminalNode *NFD();
-    antlr4::tree::TerminalNode *NFKC();
-    antlr4::tree::TerminalNode *NFKD();
-    antlr4::tree::TerminalNode *NO();
-    antlr4::tree::TerminalNode *NODE();
-    antlr4::tree::TerminalNode *NORMALIZED();
-    antlr4::tree::TerminalNode *ONLY();
-    antlr4::tree::TerminalNode *ORDINALITY();
-    antlr4::tree::TerminalNode *PROPERTY();
-    antlr4::tree::TerminalNode *READ();
-    antlr4::tree::TerminalNode *RELATIONSHIP();
-    antlr4::tree::TerminalNode *RELATIONSHIPS();
-    antlr4::tree::TerminalNode *REPEATABLE();
-    antlr4::tree::TerminalNode *SHORTEST();
-    antlr4::tree::TerminalNode *SIMPLE();
-    antlr4::tree::TerminalNode *SOURCE();
-    antlr4::tree::TerminalNode *TABLE();
-    antlr4::tree::TerminalNode *TEMP();
-    antlr4::tree::TerminalNode *TO();
-    antlr4::tree::TerminalNode *TRAIL();
-    antlr4::tree::TerminalNode *TRANSACTION();
-    antlr4::tree::TerminalNode *UNDIRECTED();
-    antlr4::tree::TerminalNode *VERTEX();
-    antlr4::tree::TerminalNode *WALK();
-    antlr4::tree::TerminalNode *WITHOUT();
-    antlr4::tree::TerminalNode *WRITE();
-    antlr4::tree::TerminalNode *ZONE();
-
-   
-  };
-
   template<typename ContextT>
-  NonReservedWordsContext* nonReservedWords(ContextT* ctx) {
-    NonReservedWordsContext *_localctx = _tracker.createInstance<NonReservedWordsContext>(_ctx, getState());
+  antlr4::ParserRuleContext* nonReservedWords(ContextT* ctx) {
+    antlr4::ParserRuleContext *_localctx = _tracker.createInstance<antlr4::ParserRuleContext>(_ctx, getState());
     enterRule(_localctx, 1146, GQLParser::RuleNonReservedWords);
     size_t _la = 0;
 
@@ -44267,7 +36943,7 @@ public:
       _la = _input->LA(1);
       if (!(((((_la - 277) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 277)) & 279275953455103) != 0))) {
-      _errHandler->recoverInline(this);
+        _errHandler->recoverInline(this);
       }
       else {
         _errHandler->reportMatch(this);
@@ -44288,14 +36964,14 @@ public:
 
   bool sempred(antlr4::RuleContext *_localctx, size_t ruleIndex, size_t predicateIndex) override;
 
-  bool compositeQueryExpressionSempred(CompositeQueryExpressionContext *_localctx, size_t predicateIndex);
-  bool labelExpressionSempred(LabelExpressionContext *_localctx, size_t predicateIndex);
-  bool simplifiedTermSempred(SimplifiedTermContext *_localctx, size_t predicateIndex);
-  bool simplifiedFactorLowSempred(SimplifiedFactorLowContext *_localctx, size_t predicateIndex);
-  bool valueTypeSempred(ValueTypeContext *_localctx, size_t predicateIndex);
-  bool valueExpressionSempred(ValueExpressionContext *_localctx, size_t predicateIndex);
-  bool valueExpressionPrimarySempred(ValueExpressionPrimaryContext *_localctx, size_t predicateIndex);
-  bool numericValueExpressionSempred(NumericValueExpressionContext *_localctx, size_t predicateIndex);
+  bool compositeQueryExpressionSempred(antlr4::ParserRuleContext *_localctx, size_t predicateIndex);
+  bool labelExpressionSempred(antlr4::ParserRuleContext *_localctx, size_t predicateIndex);
+  bool simplifiedTermSempred(antlr4::ParserRuleContext *_localctx, size_t predicateIndex);
+  bool simplifiedFactorLowSempred(antlr4::ParserRuleContext *_localctx, size_t predicateIndex);
+  bool valueTypeSempred(antlr4::ParserRuleContext *_localctx, size_t predicateIndex);
+  bool valueExpressionSempred(antlr4::ParserRuleContext *_localctx, size_t predicateIndex);
+  bool valueExpressionPrimarySempred(antlr4::ParserRuleContext *_localctx, size_t predicateIndex);
+  bool numericValueExpressionSempred(antlr4::ParserRuleContext *_localctx, size_t predicateIndex);
 
   // By default the static state used to implement the parser is lazily initialized during the first
   // call to the constructor. You can call this function if you wish to initialize the static state

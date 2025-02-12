@@ -33,6 +33,7 @@ ast::LabelExpressionPtr RewriteAsLabelExpression(
     const ast::SimplifiedPrimary& primary) {
   if (auto* label_name = std::get_if<ast::LabelName>(&primary)) {
     ast::LabelExpressionPtr expr{new ast::LabelExpression};
+    expr->SetInputPosition(label_name->inputPosition());
     expr->option = *label_name;
     return expr;
   }
@@ -47,6 +48,7 @@ ast::LabelExpressionPtr RewriteAsLabelExpression(
   }
 
   ast::LabelExpressionPtr result{new ast::LabelExpression};
+  result->SetInputPosition(tertiary.inputPosition());
   auto& logical = result->option.emplace<ast::LabelExpression::Negation>();
   logical.expr = std::move(inner);
   return result;
@@ -73,6 +75,7 @@ ast::LabelExpressionPtr RewriteAsLabelExpression(
   }
 
   ast::LabelExpressionPtr result{new ast::LabelExpression};
+  result->SetInputPosition(conjunction.inputPosition());
   auto& logical = result->option.emplace<ast::LabelExpression::Logical>();
   logical.op = ast::LabelExpression::Logical::Op::And;
   logical.terms.reserve(conjunction.factors.size());
@@ -102,6 +105,7 @@ ast::LabelExpressionPtr RewriteAsLabelExpression(
   }
 
   ast::LabelExpressionPtr result{new ast::LabelExpression};
+  result->SetInputPosition(contents.inputPosition());
   auto& logical = result->option.emplace<ast::LabelExpression::Logical>();
   logical.op = ast::LabelExpression::Logical::Op::Or;
   logical.terms.reserve(contents.terms.size());
@@ -115,8 +119,10 @@ ast::ElementPattern CreateEdgePattern(ast::EdgeDirectionPattern direction,
                                       ast::LabelExpressionPtr label_expr) {
   ast::ElementPattern result;
   auto& edge = result.emplace<ast::EdgePattern>();
+  edge.SetInputPosition(label_expr->inputPosition());
   edge.direction = direction;
   ast::ElementPatternFiller filler;
+  filler.SetInputPosition(label_expr->inputPosition());
   filler.labelExpr = std::move(*label_expr);
   edge.filler = std::move(filler);
   return result;
@@ -149,6 +155,7 @@ ast::PathPrimary Rewrite(const ast::SimplifiedTertiary& tertiary,
 ast::PathFactor Rewrite(const ast::SimplifiedFactorHigh& factor,
                         ast::EdgeDirectionPattern direction) {
   ast::PathFactor result;
+  result.SetInputPosition(factor.inputPosition());
   result.quantifier = factor.quantifier;
   result.path = Rewrite(*factor.tertiary, direction);
   return result;
@@ -161,6 +168,7 @@ ast::PathFactor Rewrite(const ast::SimplifiedFactorLow& factor,
   }
 
   ast::PathFactor result;
+  result.SetInputPosition(factor.inputPosition());
   result.path = CreateEdgePattern(direction, RewriteAsLabelExpression(factor));
   return result;
 }
@@ -180,6 +188,8 @@ ast::ParenthesizedPathPatternExpressionPtr Rewrite(
     ast::EdgeDirectionPattern direction) {
   auto result =
       gql::ast::make_copyable<ast::ParenthesizedPathPatternExpression>();
+  result->SetInputPosition(contents.inputPosition());
+  result->pattern.SetInputPosition(contents.inputPosition());
   result->pattern.op = contents.op;
   result->pattern.terms.reserve(contents.terms.size());
   for (const auto& term : contents.terms) {

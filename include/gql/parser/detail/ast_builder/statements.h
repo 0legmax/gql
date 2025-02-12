@@ -172,19 +172,24 @@ struct SimpleMatchStatement : NodeBaseBuilder {
   ast::SimpleMatchStatement* value;
 };
 
+struct MatchStatementBlock;
+
 struct OptionalMatchStatement : NodeBaseBuilder {
   OptionalMatchStatement(ast::OptionalMatchStatement* node)
-      : NodeBaseBuilder(node), value(node) {}
+      : NodeBaseBuilder(node), value(node) {
+    value->statements = ast::make_copyable<ast::MatchStatementBlock>();
+  }
 
   auto EnterOptionalOperand() { return this; }
   auto EnterOptionalMatchStatement() { return this; }
+  auto EnterMatchStatement() { return this; }
 
   SimpleMatchStatement EnterSimpleMatchStatement() {
-    return {&value->statements.emplace_back()};
+    return {&value->statements->statements.emplace_back()
+                 .emplace<ast::SimpleMatchStatement>()};
   }
 
-  auto EnterMatchStatement() { return this; }
-  auto EnterMatchStatementBlock() { return this; }
+  MatchStatementBlock EnterMatchStatementBlock();
 
  private:
   ast::OptionalMatchStatement* value;
@@ -828,7 +833,7 @@ struct ReturnStatement : NodeBaseBuilder {
 
   auto EnterReturnStatementBody() { return this; }
 
-  SetQuantifier EnterSetQuantifier() { return {&value->quantifier.emplace()}; }
+  SetQuantifier EnterSetQuantifier() { return {&value->quantifier}; }
 
   ReturnItemList EnterReturnItemList() { return {&value->items.emplace()}; }
 
@@ -953,7 +958,7 @@ struct SelectStatement : NodeBaseBuilder {
   SelectStatement(ast::SelectStatement* node)
       : NodeBaseBuilder(node), value(node) {}
 
-  SetQuantifier EnterSetQuantifier() { return {&value->quantifier.emplace()}; }
+  SetQuantifier EnterSetQuantifier() { return {&value->quantifier}; }
 
   SelectItemList EnterSelectItemList() {
     return {&value->items.emplace<ast::SelectItemList>()};
@@ -1141,7 +1146,7 @@ struct LinearQueryStatement : NodeBaseBuilder {
 struct SetOperator : NodeBaseBuilder {
   SetOperator(ast::SetOperator* node) : NodeBaseBuilder(node), value(node) {}
 
-  SetQuantifier EnterSetQuantifier() { return {&value->quantifier.emplace()}; }
+  SetQuantifier EnterSetQuantifier() { return {&value->quantifier}; }
 
   void OnToken(antlr4::Token* token) {
     switch (token->getType()) {
@@ -1682,10 +1687,6 @@ struct SessionSetValueParameterClause : NodeBaseBuilder {
   ast::SessionSetValueParameterClause* value;
 };
 
-// sessionSetParameterClause
-//    : sessionSetGraphParameterClause
-//    | sessionSetBindingTableParameterClause
-//    | sessionSetValueParameterClause
 struct SessionSetParameterClause {
   SessionSetGraphParameterClause EnterSessionSetGraphParameterClause() {
     return {&value->emplace<ast::SessionSetGraphParameterClause>()};
@@ -1723,26 +1724,10 @@ struct SessionSetCommand {
   ast::SessionSetCommand* value;
 };
 
-// sessionResetArguments
-//    : ALL? (PARAMETERS | CHARACTERISTICS)
-//    | SCHEMA
-//    | PROPERTY? GRAPH
-//    | TIME ZONE
-//    | PARAMETER? sessionParameterSpecification
-enum class SessionResetArguments {
-  None,
-  Parameters,
-  Characteristics,
-  Schema,
-  Graph,
-  TimeZone,
-};
-
 struct SessionResetCommand : NodeBaseBuilder {
   SessionResetCommand(ast::SessionResetCommand* node)
       : NodeBaseBuilder(node), value(node) {
-    value->arguments.emplace<ast::SessionResetArguments>(
-        ast::SessionResetArguments::None);
+    value->arguments = ast::SessionResetArguments::Parameters;
   }
 
   auto EnterSessionResetArguments() { return this; }
@@ -1824,7 +1809,8 @@ struct StartTransactionCommand : NodeBaseBuilder {
   auto EnterTransactionMode() { return this; }
 
   TransactionAccessMode EnterTransactionAccessMode() {
-    return {&value->accessModes.emplace_back()};
+    // TODO: check 8.2 "TC shall contain exactly one <transaction access mode>"
+    return {&value->accessMode.emplace()};
   }
 
  private:
@@ -1899,6 +1885,10 @@ inline Statement StatementBlock::EnterStatement() {
     return {value->nextStatements.back().statement.get_or_create()};
   }
   return {value->firstStatement.get_or_create()};
+}
+
+inline MatchStatementBlock OptionalMatchStatement::EnterMatchStatementBlock() {
+  return {value->statements.get()};
 }
 
 }  // namespace gql::parser::ast_builder

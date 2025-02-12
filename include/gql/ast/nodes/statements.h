@@ -88,7 +88,7 @@ using ProcedureCall = std::variant<InlineProcedureCall, NamedProcedureCall>;
 // callProcedureStatement
 //    : OPTIONAL? CALL procedureCall
 struct CallProcedureStatement : NodeBase<CallProcedureStatement> {
-  bool isOptional;
+  bool isOptional = false;
   ProcedureCall call;
 };
 GQL_AST_STRUCT(CallProcedureStatement, isOptional, call)
@@ -117,7 +117,7 @@ GQL_AST_STRUCT(SessionSetTimeZoneClause, timeZoneString)
 // sessionSetParameterName
 //    : (IF NOT EXISTS)? sessionParameterSpecification
 struct SessionSetParameterName : NodeBase<SessionSetParameterName> {
-  bool ifNotExists;
+  bool ifNotExists = false;
   GeneralParameterReference param;
 };
 GQL_AST_STRUCT(SessionSetParameterName, ifNotExists, param)
@@ -198,7 +198,6 @@ using SessionSetCommand = std::variant<SessionSetSchemaClause,
 //    | TIME ZONE
 //    | PARAMETER? sessionParameterSpecification
 enum class SessionResetArguments {
-  None,
   Parameters,
   Characteristics,
   Schema,
@@ -237,9 +236,9 @@ enum class TransactionAccessMode { ReadOnly, ReadWrite };
 // startTransactionCommand
 //    : START TRANSACTION transactionCharacteristics?
 struct StartTransactionCommand : NodeBase<StartTransactionCommand> {
-  std::vector<TransactionAccessMode> accessModes;
+  std::optional<TransactionAccessMode> accessMode;
 };
-GQL_AST_STRUCT(StartTransactionCommand, accessModes)
+GQL_AST_STRUCT(StartTransactionCommand, accessMode)
 
 // rollbackCommand
 //    : ROLLBACK
@@ -335,7 +334,7 @@ GQL_AST_STRUCT(ProcedureBody, schema, vars, statements)
 // createSchemaStatement
 //    : CREATE SCHEMA (IF NOT EXISTS)? catalogSchemaParentAndName
 struct CreateSchemaStatement : NodeBase<CreateSchemaStatement> {
-  bool ifNotExists;
+  bool ifNotExists = false;
   CatalogSchemaParentAndName schema;
 };
 GQL_AST_STRUCT(CreateSchemaStatement, ifNotExists, schema)
@@ -343,7 +342,7 @@ GQL_AST_STRUCT(CreateSchemaStatement, ifNotExists, schema)
 // dropSchemaStatement
 //    : DROP SCHEMA (IF EXISTS)? catalogSchemaParentAndName
 struct DropSchemaStatement : NodeBase<DropSchemaStatement> {
-  bool ifExists;
+  bool ifExists = false;
   CatalogSchemaParentAndName schema;
 };
 GQL_AST_STRUCT(DropSchemaStatement, ifExists, schema)
@@ -372,7 +371,7 @@ struct CreateGraphStatement : NodeBase<CreateGraphStatement> {
     Default,  // Shall not identify an existing graph.
     IfNotExists,
     OrReplace,
-  } createType;
+  } createType = CreateType::Default;
 
   CatalogGraphParentAndName graph;
   std::optional<OfGraphType> graphType;
@@ -383,7 +382,7 @@ GQL_AST_STRUCT(CreateGraphStatement, createType, graph, graphType, source)
 // dropGraphStatement
 //    : DROP PROPERTY? GRAPH (IF EXISTS)? catalogGraphParentAndName
 struct DropGraphStatement : NodeBase<DropGraphStatement> {
-  bool ifExists;
+  bool ifExists = false;
   CatalogGraphParentAndName graph;
 };
 GQL_AST_STRUCT(DropGraphStatement, ifExists, graph)
@@ -407,7 +406,7 @@ struct CreateGraphTypeStatement : NodeBase<CreateGraphTypeStatement> {
     Default,  // Shall not identify an existing graph type.
     IfNotExists,
     OrReplace,
-  } createType;
+  } createType = CreateType::Default;
 
   CatalogGraphTypeParentAndName graphType;
   GraphTypeSource source;
@@ -417,7 +416,7 @@ GQL_AST_STRUCT(CreateGraphTypeStatement, createType, graphType, source)
 // dropGraphTypeStatement
 //    : DROP PROPERTY? GRAPH TYPE (IF EXISTS)? catalogGraphTypeParentAndName
 struct DropGraphTypeStatement : NodeBase<DropGraphTypeStatement> {
-  bool ifExists;
+  bool ifExists = false;
   CatalogGraphTypeParentAndName graphType;
 };
 GQL_AST_STRUCT(DropGraphTypeStatement, ifExists, graphType)
@@ -494,7 +493,7 @@ GQL_AST_STRUCT(InsertNodePattern, filler)
 struct InsertEdgePattern : NodeBase<InsertEdgePattern> {
   enum class Direction { Left, Right, Undirected };
 
-  Direction direction;
+  Direction direction = Direction::Left;
   InsertElementPatternFiller filler;
 };
 GQL_AST_STRUCT(InsertEdgePattern, direction, filler)
@@ -606,7 +605,7 @@ using DeleteItem = ValueExpression;
 // deleteStatement
 //    : (DETACH | NODETACH)? DELETE deleteItemList
 struct DeleteStatement : NodeBase<DeleteStatement> {
-  std::optional<bool> detach;  // true=DETACH, false=NODETACH
+  bool detach = false;  // NODETACH is implicit value if omitted.
   std::vector<DeleteItem> items;
 };
 GQL_AST_STRUCT(DeleteStatement, detach, items)
@@ -629,8 +628,9 @@ GQL_AST_VALUE(OtherwiseConjunctionValue)
 struct SetOperator : NodeBase<SetOperator> {
   enum class Kind { UNION, EXCEPT, INTERSECT };
 
-  Kind kind;
-  std::optional<SetQuantifier> quantifier;
+  Kind kind = Kind::UNION;
+  SetQuantifier quantifier =
+      SetQuantifier::DISTINCT;  // DISTINCT is implicit value.
 };
 GQL_AST_STRUCT(SetOperator, kind, quantifier)
 
@@ -711,7 +711,7 @@ struct PathPatternPrefix : NodeBase<PathPatternPrefix> {
     CountedShortestGroup,
   };
 
-  Search search;
+  Search search = Search::No;
   std::optional<NumberOfGroups> number;  // Paths or Groups
   std::optional<PathMode> mode;
 };
@@ -773,6 +773,9 @@ struct SimpleMatchStatement : NodeBase<SimpleMatchStatement> {
 };
 GQL_AST_STRUCT(SimpleMatchStatement, pattern, yield)
 
+struct MatchStatementBlock;
+using MatchStatementBlockPtr = copyable_ptr<MatchStatementBlock>;
+
 // optionalOperand
 //    : simpleMatchStatement
 //    | LEFT_BRACE matchStatementBlock RIGHT_BRACE
@@ -781,7 +784,7 @@ GQL_AST_STRUCT(SimpleMatchStatement, pattern, yield)
 // optionalMatchStatement
 //    : OPTIONAL optionalOperand
 struct OptionalMatchStatement : NodeBase<OptionalMatchStatement> {
-  std::vector<SimpleMatchStatement> statements;
+  MatchStatementBlockPtr statements;
 };
 GQL_AST_STRUCT(OptionalMatchStatement, statements)
 
@@ -795,6 +798,11 @@ using MatchStatement =
 //    : matchStatement+
 struct MatchStatementBlock : NodeBase<MatchStatementBlock> {
   std::vector<MatchStatement> statements;
+
+  bool MaybeNotSet() const {
+    return statements.size() == 1 &&
+           std::holds_alternative<SimpleMatchStatement>(statements[0]);
+  }
 };
 GQL_AST_STRUCT(MatchStatementBlock, statements)
 
@@ -822,7 +830,7 @@ using ForItemSource = ValueExpression;
 // forOrdinalityOrOffset
 //    : WITH (ORDINALITY | OFFSET) bindingVariable
 struct ForOrdinalityOrOffset : NodeBase<ForOrdinalityOrOffset> {
-  bool isOrdinality;  // true=ORDINALITY, false=OFFSET
+  bool isOrdinality = false;  // true=ORDINALITY, false=OFFSET
   BindingVariable var;
 };
 GQL_AST_STRUCT(ForOrdinalityOrOffset, isOrdinality, var)
@@ -929,7 +937,7 @@ GQL_AST_VALUE(AsteriskValue)
 //    : setQuantifier? (ASTERISK | returnItemList) groupByClause?
 //    | NO BINDINGS
 struct ReturnStatementBody : NodeBase<ReturnStatementBody> {
-  std::optional<SetQuantifier> quantifier;
+  SetQuantifier quantifier = SetQuantifier::ALL;  // ALL is implicit value.
   std::optional<ReturnItemList>
       items;  // Not set means ASTERISK; empty list means NO BINDINGS
   GroupingElementList groupBy;
@@ -1019,7 +1027,7 @@ using WhereClause = SearchCondition;
 //    whereClause? groupByClause? havingClause? orderByClause? offsetClause?
 //    limitClause?)?
 struct SelectStatement : NodeBase<SelectStatement> {
-  std::optional<SetQuantifier> quantifier;
+  SetQuantifier quantifier = SetQuantifier::ALL;  // ALL is implicit value.
   std::variant<AsteriskValue, SelectItemList> items;
   std::optional<SelectStatementBody> body;
   std::optional<WhereClause> where;
