@@ -28,12 +28,6 @@ struct ElementVariableDeclaration : NodeBaseBuilder {
 
   BindingVariable EnterElementVariable() { return {&value->name}; }
 
-  void OnToken(antlr4::Token* token) {
-    if (token->getType() == GQLParser::TEMP) {
-      value->isTemp = true;
-    }
-  }
-
  private:
   ast::ElementVariableDeclaration* value;
 };
@@ -234,16 +228,16 @@ struct PathMode {
 };
 
 struct GeneralQuantifier {
-  UnsignedInteger EnterLowerBound() { return {&value->lower.emplace()}; }
+  UnsignedInteger EnterLowerBound() { return {&value->lower}; }
   UnsignedInteger EnterUpperBound() { return {&value->upper.emplace()}; }
 
   ast::GeneralQuantifier* value;
 };
 
 struct FixedQuantifier {
-  UnsignedInteger EnterUnsignedInteger() { return {&value->lower.emplace()}; }
+  UnsignedInteger EnterUnsignedInteger() { return {&value->lower}; }
 
-  void ExitRule(antlr4::ParserRuleContext*) { value->upper = *value->lower; }
+  void ExitRule(antlr4::ParserRuleContext*) { value->upper = value->lower; }
 
   ast::GraphPatternQuantifier* value;
 };

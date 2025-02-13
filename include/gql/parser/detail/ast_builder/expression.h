@@ -263,7 +263,7 @@ struct SetQuantifier {
 };
 
 struct DependentValueExpression {
-  SetQuantifier EnterSetQuantifier() { return {&value->quantifier.emplace()}; }
+  SetQuantifier EnterSetQuantifier() { return {&value->quantifier}; }
   ValueExpression EnterNumericValueExpression();
 
   ast::BinarySetFunction* value;
@@ -322,7 +322,7 @@ struct GeneralSetFunction : NodeBaseBuilder {
 
   auto EnterGeneralSetFunctionType() { return this; }
 
-  SetQuantifier EnterSetQuantifier() { return {&value->quantifier.emplace()}; }
+  SetQuantifier EnterSetQuantifier() { return {&value->quantifier}; }
   ValueExpression EnterValueExpression();
 
  private:
@@ -492,23 +492,24 @@ struct WhenOperand : NodeBaseBuilder {
     void OnToken(antlr4::Token* token) {
       switch (token->getType()) {
         case GQLParser::NOT:
-          value->notNull = true;
+          *isNot = true;
           break;
       }
     }
 
     ast::WhenOperand::IsNull* value;
+    bool* isNot;
   };
 
   IsNull EnterNullPredicatePart2() {
-    return {&value->option.emplace<ast::WhenOperand::IsNull>()};
+    return {&value->option.emplace<ast::WhenOperand::IsNull>(), &value->isNot};
   }
 
   struct IsTyped {
     void OnToken(antlr4::Token* token) {
       switch (token->getType()) {
         case GQLParser::NOT:
-          value->isNot = true;
+          *isNot = true;
           break;
       }
     }
@@ -518,17 +519,18 @@ struct WhenOperand : NodeBaseBuilder {
     SkipTokens EnterTyped() { return {}; }
 
     ast::WhenOperand::IsTyped* value;
+    bool* isNot;
   };
 
   IsTyped EnterValueTypePredicatePart2() {
-    return {&value->option.emplace<ast::WhenOperand::IsTyped>()};
+    return {&value->option.emplace<ast::WhenOperand::IsTyped>(), &value->isNot};
   }
 
   struct IsNormalized {
     void OnToken(antlr4::Token* token) {
       switch (token->getType()) {
         case GQLParser::NOT:
-          value->isNot = true;
+          *isNot = true;
           break;
       }
     }
@@ -536,26 +538,30 @@ struct WhenOperand : NodeBaseBuilder {
     NormalForm EnterNormalForm() { return {&value->form}; }
 
     ast::WhenOperand::IsNormalized* value;
+    bool* isNot;
   };
 
   IsNormalized EnterNormalizedPredicatePart2() {
-    return {&value->option.emplace<ast::WhenOperand::IsNormalized>()};
+    return {&value->option.emplace<ast::WhenOperand::IsNormalized>(),
+            &value->isNot};
   }
 
   struct IsDirected {
     void OnToken(antlr4::Token* token) {
       switch (token->getType()) {
         case GQLParser::NOT:
-          value->isNot = true;
+          *isNot = true;
           break;
       }
     }
 
     ast::WhenOperand::IsDirected* value;
+    bool* isNot;
   };
 
   IsDirected EnterDirectedPredicatePart2() {
-    return {&value->option.emplace<ast::WhenOperand::IsDirected>()};
+    return {&value->option.emplace<ast::WhenOperand::IsDirected>(),
+            &value->isNot};
   }
 
   struct IsLabeled {
@@ -564,7 +570,7 @@ struct WhenOperand : NodeBaseBuilder {
     void OnToken(antlr4::Token* token) {
       switch (token->getType()) {
         case GQLParser::NOT:
-          value->isNot = true;
+          *isNot = true;
           break;
       }
     }
@@ -572,17 +578,19 @@ struct WhenOperand : NodeBaseBuilder {
     LabelExpression EnterLabelExpression() { return {&value->label}; }
 
     ast::WhenOperand::IsLabeled* value;
+    bool* isNot;
   };
 
   IsLabeled EnterLabeledPredicatePart2() {
-    return {&value->option.emplace<ast::WhenOperand::IsLabeled>()};
+    return {&value->option.emplace<ast::WhenOperand::IsLabeled>(),
+            &value->isNot};
   }
 
   struct IsSourceOrDestinationOf {
     void OnToken(antlr4::Token* token) {
       switch (token->getType()) {
         case GQLParser::NOT:
-          value->isNot = true;
+          *isNot = true;
           break;
       }
     }
@@ -590,6 +598,7 @@ struct WhenOperand : NodeBaseBuilder {
     BindingVariable EnterEdgeReference() { return {&value->edge}; }
 
     ast::WhenOperand::IsSourceOrDestinationOf* value;
+    bool* isNot;
   };
 
   IsSourceOrDestinationOf EnterSourcePredicatePart2() {
@@ -597,7 +606,7 @@ struct WhenOperand : NodeBaseBuilder {
         value->option.emplace<ast::WhenOperand::IsSourceOrDestinationOf>();
     val.direction =
         ast::WhenOperand::IsSourceOrDestinationOf::Direction::Source;
-    return {&val};
+    return {&val, &value->isNot};
   }
 
   IsSourceOrDestinationOf EnterDestinationPredicatePart2() {
@@ -605,7 +614,7 @@ struct WhenOperand : NodeBaseBuilder {
         value->option.emplace<ast::WhenOperand::IsSourceOrDestinationOf>();
     val.direction =
         ast::WhenOperand::IsSourceOrDestinationOf::Direction::Destination;
-    return {&val};
+    return {&val, &value->isNot};
   }
 
  private:

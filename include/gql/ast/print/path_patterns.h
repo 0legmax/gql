@@ -21,16 +21,6 @@
 namespace gql::ast::print {
 
 template <>
-struct Printer<ElementVariableDeclaration> {
-  template <typename OutputStream>
-  static void Print(OutputStream& os, const ElementVariableDeclaration& v) {
-    if (v.isTemp)
-      os << "TEMP";
-    os << v.name;
-  }
-};
-
-template <>
 struct Printer<ElementPatternWhereClause> {
   template <typename OutputStream>
   static void Print(OutputStream& os, const ElementPatternWhereClause& v) {
@@ -151,12 +141,12 @@ template <>
 struct Printer<GeneralQuantifier> {
   template <typename OutputStream>
   static void Print(OutputStream& os, const GeneralQuantifier& v) {
-    if (!v.upper && v.lower && *v.lower == 1)
+    if (!v.upper && v.lower == 1)
       os << "+";
-    else if (!v.upper && !v.lower)
+    else if (!v.upper && v.lower == 0)
       os << "*";
-    else if (v.upper && v.lower && v.lower == v.upper)
-      os << "{" << *v.lower << "}";
+    else if (v.upper && v.lower == *v.upper)
+      os << "{" << v.lower << "}";
     else
       os << "{" << v.lower << "," << v.upper << "}";
   }

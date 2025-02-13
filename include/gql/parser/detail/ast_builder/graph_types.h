@@ -76,38 +76,50 @@ struct PropertyTypesSpecification : NodeBaseBuilder {
   ast::PropertyTypesSpecification* value;
 };
 
-struct NodeTypeImpliedContent : NodeBaseBuilder {
-  NodeTypeImpliedContent(ast::NodeTypeImpliedContent* node)
+struct ElementTypeImpliedContent : NodeBaseBuilder {
+  ElementTypeImpliedContent(ast::ElementTypeImpliedContent* node)
       : NodeBaseBuilder(node), value(node) {}
 
   LabelSetSpecification EnterNodeTypeLabelSet() { return {&value->labels}; }
+  LabelSetSpecification EnterEdgeTypeLabelSet() { return {&value->labels}; }
 
   PropertyTypesSpecification EnterNodeTypePropertyTypes() {
     return {&value->properties};
   }
+  PropertyTypesSpecification EnterEdgeTypePropertyTypes() {
+    return {&value->properties};
+  }
 
  private:
-  ast::NodeTypeImpliedContent* value;
+  ast::ElementTypeImpliedContent* value;
 };
 
-struct NodeTypeFiller : NodeBaseBuilder {
-  NodeTypeFiller(ast::NodeTypeFiller* node)
+struct ElementTypeFiller : NodeBaseBuilder {
+  ElementTypeFiller(ast::ElementTypeFiller* node)
       : NodeBaseBuilder(node), value(node) {}
 
   LabelSetSpecification EnterNodeTypeKeyLabelSet() {
     return {&value->keyLabels};
   }
 
-  NodeTypeImpliedContent EnterNodeTypeImpliedContent() {
-    return {&value->implied.emplace()};
+  LabelSetSpecification EnterEdgeTypeKeyLabelSet() {
+    return {&value->keyLabels};
+  }
+
+  ElementTypeImpliedContent EnterNodeTypeImpliedContent() {
+    return {&value->implied};
+  }
+
+  ElementTypeImpliedContent EnterEdgeTypeImpliedContent() {
+    return {&value->implied};
   }
 
  private:
-  ast::NodeTypeFiller* value;
+  ast::ElementTypeFiller* value;
 };
 
 struct NodeTypePattern : NodeBaseBuilder {
-  NodeTypePattern(ast::NodeTypePattern* node)
+  NodeTypePattern(ast::NodeTypeSpecification* node)
       : NodeBaseBuilder(node), value(node) {}
 
   Identifier EnterNodeTypeName() { return {&value->typeName.emplace()}; }
@@ -116,23 +128,23 @@ struct NodeTypePattern : NodeBaseBuilder {
     return {&value->localAlias.emplace()};
   }
 
-  NodeTypeFiller EnterNodeTypeFiller() { return {&value->filler.emplace()}; }
+  ElementTypeFiller EnterNodeTypeFiller() { return {&value->filler}; }
 
   SkipTokens EnterNodeSynonym() { return {}; }
 
  private:
-  ast::NodeTypePattern* value;
+  ast::NodeTypeSpecification* value;
 };
 
 struct NodeTypePhraseFiller {
   Identifier EnterNodeTypeName() { return {&value->typeName.emplace()}; }
-  NodeTypeFiller EnterNodeTypeFiller() { return {&value->filler.emplace()}; }
+  ElementTypeFiller EnterNodeTypeFiller() { return {&value->filler}; }
 
-  ast::NodeTypePattern* value;
+  ast::NodeTypeSpecification* value;
 };
 
 struct NodeTypePhrase : NodeBaseBuilder {
-  NodeTypePhrase(ast::NodeTypePattern* node)
+  NodeTypePhrase(ast::NodeTypeSpecification* node)
       : NodeBaseBuilder(node), value(node) {}
 
   SkipTokens EnterNodeSynonym() { return {}; }
@@ -144,11 +156,11 @@ struct NodeTypePhrase : NodeBaseBuilder {
   }
 
  private:
-  ast::NodeTypePattern* value;
+  ast::NodeTypeSpecification* value;
 };
 
 struct NodeTypeSpecification {
-  NodeTypePattern EnterNodeTypePattern() { return NodeTypePattern{value}; }
+  NodeTypePattern EnterNodeTypePattern() { return {value}; }
 
   NodeTypePhrase EnterNodeTypePhrase() { return {value}; }
 
@@ -162,43 +174,15 @@ struct NodeTypeReference {
   RegularIdentifier EnterDestinationNodeTypeAlias() {
     return {&value->emplace().emplace<ast::NodeTypeAlias>()};
   }
-  NodeTypeFiller EnterNodeTypeFiller() {
-    return {&value->emplace().emplace<ast::NodeTypeFiller>()};
+  ElementTypeFiller EnterNodeTypeFiller() {
+    return {&value->emplace().emplace<ast::ElementTypeFiller>()};
   }
 
   std::optional<ast::NodeTypeReference>* value;
 };
 
-struct EdgeTypeImpliedContent : NodeBaseBuilder {
-  EdgeTypeImpliedContent(ast::EdgeTypeImpliedContent* node)
-      : NodeBaseBuilder(node), value(node) {}
-
-  LabelSetSpecification EnterEdgeTypeLabelSet() { return {&value->labels}; }
-  PropertyTypesSpecification EnterEdgeTypePropertyTypes() {
-    return {&value->properties};
-  }
-
- private:
-  ast::EdgeTypeImpliedContent* value;
-};
-
-struct EdgeTypeFiller : NodeBaseBuilder {
-  EdgeTypeFiller(ast::EdgeTypeFiller* node)
-      : NodeBaseBuilder(node), value(node) {}
-
-  LabelSetSpecification EnterEdgeTypeKeyLabelSet() {
-    return {&value->keyLabels};
-  }
-  EdgeTypeImpliedContent EnterEdgeTypeImpliedContent() {
-    return {&value->implied.emplace()};
-  }
-
- private:
-  ast::EdgeTypeFiller* value;
-};
-
 struct EdgeTypePattern : NodeBaseBuilder {
-  EdgeTypePattern(ast::EdgeTypePattern* node)
+  EdgeTypePattern(ast::EdgeTypeSpecification* node)
       : NodeBaseBuilder(node), value(node) {}
 
   SkipTokens EnterEdgeSynonym() { return {}; }
@@ -222,29 +206,29 @@ struct EdgeTypePattern : NodeBaseBuilder {
   auto EnterArcTypePointingLeft() { return this; }
 
   NodeTypeReference EnterSourceNodeTypeReference() { return {&value->source}; }
-  EdgeTypeFiller EnterFiller() { return {&value->filler.emplace()}; }
-  EdgeTypeFiller EnterEdgeTypeFiller() { return {&value->filler.emplace()}; }
+  ElementTypeFiller EnterFiller() { return {&value->filler}; }
+  ElementTypeFiller EnterEdgeTypeFiller() { return {&value->filler}; }
   NodeTypeReference EnterDestinationNodeTypeReference() {
     return {&value->destination};
   }
 
  private:
-  ast::EdgeTypePattern* value;
+  ast::EdgeTypeSpecification* value;
 };
 
 struct EdgeTypePhraseFiller : NodeBaseBuilder {
-  EdgeTypePhraseFiller(ast::EdgeTypePattern* node)
+  EdgeTypePhraseFiller(ast::EdgeTypeSpecification* node)
       : NodeBaseBuilder(node), value(node) {}
 
   Identifier EnterEdgeTypeName() { return {&value->typeName.emplace()}; }
-  EdgeTypeFiller EnterEdgeTypeFiller() { return {&value->filler.emplace()}; }
+  ElementTypeFiller EnterEdgeTypeFiller() { return {&value->filler}; }
 
  private:
-  ast::EdgeTypePattern* value;
+  ast::EdgeTypeSpecification* value;
 };
 
 struct EndpointPair : NodeBaseBuilder {
-  EndpointPair(ast::EdgeTypePattern* node)
+  EndpointPair(ast::EdgeTypeSpecification* node)
       : NodeBaseBuilder(node), value(node) {}
 
   auto EnterEndpointPair() { return this; }
@@ -277,11 +261,11 @@ struct EndpointPair : NodeBaseBuilder {
   void OnToken(antlr4::Token*) {}
 
  private:
-  ast::EdgeTypePattern* value;
+  ast::EdgeTypeSpecification* value;
 };
 
 struct EdgeTypePhrase : NodeBaseBuilder {
-  EdgeTypePhrase(ast::EdgeTypePattern* node)
+  EdgeTypePhrase(ast::EdgeTypeSpecification* node)
       : NodeBaseBuilder(node), value(node) {}
 
   SkipTokens EnterEdgeSynonym() { return {}; }
@@ -290,7 +274,7 @@ struct EdgeTypePhrase : NodeBaseBuilder {
   EndpointPair EnterEndpointPairPhrase() { return {value}; }
 
  private:
-  ast::EdgeTypePattern* value;
+  ast::EdgeTypeSpecification* value;
 };
 
 struct EdgeTypeSpecification {

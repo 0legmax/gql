@@ -64,4 +64,7 @@ INSTANTIATE_TEST_SUITE_P(
             "MATCH () (~[:(LABEL1&!(LABEL2|LABEL3)&!LABEL5)]~>) ()"},
         RewriteTestParam{
             "MATCH () ~/ <(LABEL1 & !(LABEL2|LABEL3) & !LABEL5) /~> ()",
-            "MATCH () (<-[:(LABEL1&!(LABEL2|LABEL3)&!LABEL5)]-) ()"}));
+            "MATCH () (<-[:(LABEL1&!(LABEL2|LABEL3)&!LABEL5)]-) ()"},
+        RewriteTestParam{
+            R"(MATCH () ~/ LABEL1 | ((!LABEL2|LABEL3)? |+| (!LABEL5>){1,3}) /~> ())",
+            R"(MATCH () (~[:LABEL1]~> | ((~[:!LABEL2]~> | ~[:LABEL3]~>) ? |+| (-[:!LABEL5]->) {1, 3})) ())"}));

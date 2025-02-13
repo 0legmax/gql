@@ -27,11 +27,12 @@ using ParenthesizedPathPatternExpressionPtr =
 
 // elementVariableDeclaration
 //    : TEMP? elementVariable
+// NOTE249 — An <element variable declaration> containing TEMP is a
+// specification device and is not syntax available to the user.
 struct ElementVariableDeclaration : NodeBase<ElementVariableDeclaration> {
-  bool isTemp = false;
   ElementVariable name;
 };
-GQL_AST_STRUCT(ElementVariableDeclaration, isTemp, name)
+GQL_AST_STRUCT(ElementVariableDeclaration, name)
 
 // isLabelExpression
 //    : isOrColon labelExpression
@@ -182,7 +183,7 @@ using UpperBound = UnsignedInteger;
 // generalQuantifier
 //    : LEFT_BRACE lowerBound? COMMA upperBound? RIGHT_BRACE
 struct GeneralQuantifier {
-  std::optional<LowerBound> lower;
+  LowerBound lower = 0u;  // 0 is implicit value.
   std::optional<UpperBound> upper;
 };
 GQL_AST_STRUCT(GeneralQuantifier, lower, upper)

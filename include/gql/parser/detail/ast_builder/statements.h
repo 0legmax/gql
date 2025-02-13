@@ -50,7 +50,7 @@ struct PathPatternPrefix : NodeBaseBuilder {
   auto EnterPathSearchPrefix() { return this; }
   auto EnterPathPatternPrefix() { return this; }
 
-  PathMode EnterPathModePrefix() { return {&value->mode.emplace()}; }
+  PathMode EnterPathModePrefix() { return {&value->mode}; }
 
   auto EnterAllPathSearch() {
     value->search = ast::PathPatternPrefix::Search::All;
@@ -65,12 +65,14 @@ struct PathPatternPrefix : NodeBaseBuilder {
   auto EnterShortestPathSearch() { return this; }
 
   auto EnterAllShortestPathSearch() {
-    value->search = ast::PathPatternPrefix::Search::AllShortest;
+    value->search = ast::PathPatternPrefix::Search::CountedShortestGroup;
+    value->number = 1u;
     return this;
   }
 
   auto EnterAnyShortestPathSearch() {
-    value->search = ast::PathPatternPrefix::Search::AnyShortest;
+    value->search = ast::PathPatternPrefix::Search::CountedShortestPath;
+    value->number = 1u;
     return this;
   }
 
@@ -85,14 +87,14 @@ struct PathPatternPrefix : NodeBaseBuilder {
   }
 
   NonNegativeIntegerSpecification EnterNumberOfPaths() {
-    return {&value->number.emplace()};
+    return {&value->number};
   }
 
   NonNegativeIntegerSpecification EnterNumberOfGroups() {
-    return {&value->number.emplace()};
+    return {&value->number};
   }
 
-  PathMode EnterPathMode() { return {&value->mode.emplace()}; }
+  PathMode EnterPathMode() { return {&value->mode}; }
 
   SkipTokens EnterPathOrPaths() { return {}; }
 
@@ -749,7 +751,7 @@ struct SortSpecification : NodeBaseBuilder {
   ValueExpression EnterSortKey() { return {&value->sortKey}; }
 
   OrderingSpecification EnterOrderingSpecification() {
-    return {&value->ordering.emplace()};
+    return {&value->ordering};
   }
 
   NullOrdering EnterNullOrdering() { return {&value->nullOrder.emplace()}; }

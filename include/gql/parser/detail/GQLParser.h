@@ -12430,25 +12430,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2321);
-      _errHandler->sync(this);
-
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 200, _ctx)) {
-      case 1: {
-        setState(2320);
-        if constexpr (has_OnToken<decltype(ctx)>::value) {
-          if (_input->LA(1) == GQLParser::TEMP) {
-            ctx->OnToken(_input->LT(1));
-          }
-        }
-        match(GQLParser::TEMP);
-        break;
-      }
-
-      default:
-        break;
-      }
-      setState(2323);
+      setState(2320);
       {
         auto childCtxHolder = ctx->EnterElementVariable();
         elementVariable(get_raw_pointer(childCtxHolder));
@@ -12481,12 +12463,12 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2325);
+      setState(2322);
       {
         auto childCtxHolder = ctx->EnterIsOrColon();
         isOrColon(get_raw_pointer(childCtxHolder));
       }
-      setState(2326);
+      setState(2323);
       {
         auto childCtxHolder = ctx->EnterLabelExpression();
         labelExpression(0, get_raw_pointer(childCtxHolder));
@@ -12520,7 +12502,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2328);
+      setState(2325);
       _la = _input->LA(1);
       if (!(_la == GQLParser::IS || _la == GQLParser::COLON)) {
         _errHandler->recoverInline(this);
@@ -12557,12 +12539,12 @@ public:
     }
     });
     try {
-      setState(2332);
+      setState(2329);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::WHERE: {
           enterOuterAlt(_localctx, 1);
-          setState(2330);
+          setState(2327);
           {
             auto childCtxHolder = ctx->EnterElementPatternWhereClause();
             elementPatternWhereClause(get_raw_pointer(childCtxHolder));
@@ -12572,7 +12554,7 @@ public:
 
         case GQLParser::LEFT_BRACE: {
           enterOuterAlt(_localctx, 2);
-          setState(2331);
+          setState(2328);
           {
             auto childCtxHolder = ctx->EnterElementPropertySpecification();
             elementPropertySpecification(get_raw_pointer(childCtxHolder));
@@ -12611,14 +12593,14 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2334);
+      setState(2331);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::WHERE) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::WHERE);
-      setState(2335);
+      setState(2332);
       {
         auto childCtxHolder = ctx->EnterSearchCondition();
         searchCondition(get_raw_pointer(childCtxHolder));
@@ -12651,19 +12633,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2337);
+      setState(2334);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_BRACE) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_BRACE);
-      setState(2338);
+      setState(2335);
       {
         auto childCtxHolder = ctx->EnterPropertyKeyValuePairList();
         propertyKeyValuePairList(get_raw_pointer(childCtxHolder));
       }
-      setState(2339);
+      setState(2336);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_BRACE) {
           ctx->OnToken(_input->LT(1));
@@ -12699,28 +12681,28 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2341);
+      setState(2338);
       {
         auto childCtxHolder = ctx->EnterPropertyKeyValuePair();
         propertyKeyValuePair(get_raw_pointer(childCtxHolder));
       }
-      setState(2346);
+      setState(2343);
       _errHandler->sync(this);
       _la = _input->LA(1);
       while (_la == GQLParser::COMMA) {
-        setState(2342);
+        setState(2339);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::COMMA) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::COMMA);
-        setState(2343);
+        setState(2340);
         {
           auto childCtxHolder = ctx->EnterPropertyKeyValuePair();
           propertyKeyValuePair(get_raw_pointer(childCtxHolder));
         }
-        setState(2348);
+        setState(2345);
         _errHandler->sync(this);
         _la = _input->LA(1);
       }
@@ -12752,19 +12734,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2349);
+      setState(2346);
       {
         auto childCtxHolder = ctx->EnterPropertyName();
         propertyName(get_raw_pointer(childCtxHolder));
       }
-      setState(2350);
+      setState(2347);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::COLON) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::COLON);
-      setState(2351);
+      setState(2348);
       {
         auto childCtxHolder = ctx->EnterValueExpression();
         valueExpression(0, get_raw_pointer(childCtxHolder));
@@ -12796,7 +12778,7 @@ public:
     }
     });
     try {
-      setState(2355);
+      setState(2352);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::LEFT_ARROW_BRACKET:
@@ -12804,7 +12786,7 @@ public:
         case GQLParser::MINUS_LEFT_BRACKET:
         case GQLParser::TILDE_LEFT_BRACKET: {
           enterOuterAlt(_localctx, 1);
-          setState(2353);
+          setState(2350);
           {
             auto childCtxHolder = ctx->EnterFullEdgePattern();
             fullEdgePattern(get_raw_pointer(childCtxHolder));
@@ -12820,7 +12802,7 @@ public:
         case GQLParser::MINUS_SIGN:
         case GQLParser::TILDE: {
           enterOuterAlt(_localctx, 2);
-          setState(2354);
+          setState(2351);
           {
             auto childCtxHolder = ctx->EnterAbbreviatedEdgePattern();
             abbreviatedEdgePattern(get_raw_pointer(childCtxHolder));
@@ -12858,12 +12840,12 @@ public:
     }
     });
     try {
-      setState(2364);
+      setState(2361);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 204, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 203, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2357);
+        setState(2354);
         {
           auto childCtxHolder = ctx->EnterFullEdgePointingLeft();
           fullEdgePointingLeft(get_raw_pointer(childCtxHolder));
@@ -12873,7 +12855,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2358);
+        setState(2355);
         {
           auto childCtxHolder = ctx->EnterFullEdgeUndirected();
           fullEdgeUndirected(get_raw_pointer(childCtxHolder));
@@ -12883,7 +12865,7 @@ public:
 
       case 3: {
         enterOuterAlt(_localctx, 3);
-        setState(2359);
+        setState(2356);
         {
           auto childCtxHolder = ctx->EnterFullEdgePointingRight();
           fullEdgePointingRight(get_raw_pointer(childCtxHolder));
@@ -12893,7 +12875,7 @@ public:
 
       case 4: {
         enterOuterAlt(_localctx, 4);
-        setState(2360);
+        setState(2357);
         {
           auto childCtxHolder = ctx->EnterFullEdgeLeftOrUndirected();
           fullEdgeLeftOrUndirected(get_raw_pointer(childCtxHolder));
@@ -12903,7 +12885,7 @@ public:
 
       case 5: {
         enterOuterAlt(_localctx, 5);
-        setState(2361);
+        setState(2358);
         {
           auto childCtxHolder = ctx->EnterFullEdgeUndirectedOrRight();
           fullEdgeUndirectedOrRight(get_raw_pointer(childCtxHolder));
@@ -12913,7 +12895,7 @@ public:
 
       case 6: {
         enterOuterAlt(_localctx, 6);
-        setState(2362);
+        setState(2359);
         {
           auto childCtxHolder = ctx->EnterFullEdgeLeftOrRight();
           fullEdgeLeftOrRight(get_raw_pointer(childCtxHolder));
@@ -12923,7 +12905,7 @@ public:
 
       case 7: {
         enterOuterAlt(_localctx, 7);
-        setState(2363);
+        setState(2360);
         {
           auto childCtxHolder = ctx->EnterFullEdgeAnyDirection();
           fullEdgeAnyDirection(get_raw_pointer(childCtxHolder));
@@ -12962,19 +12944,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2366);
+      setState(2363);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_ARROW_BRACKET) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_ARROW_BRACKET);
-      setState(2367);
+      setState(2364);
       {
         auto childCtxHolder = ctx->EnterElementPatternFiller();
         elementPatternFiller(get_raw_pointer(childCtxHolder));
       }
-      setState(2368);
+      setState(2365);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_BRACKET_MINUS) {
           ctx->OnToken(_input->LT(1));
@@ -13009,19 +12991,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2370);
+      setState(2367);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::TILDE_LEFT_BRACKET) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::TILDE_LEFT_BRACKET);
-      setState(2371);
+      setState(2368);
       {
         auto childCtxHolder = ctx->EnterElementPatternFiller();
         elementPatternFiller(get_raw_pointer(childCtxHolder));
       }
-      setState(2372);
+      setState(2369);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_BRACKET_TILDE) {
           ctx->OnToken(_input->LT(1));
@@ -13056,19 +13038,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2374);
+      setState(2371);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::MINUS_LEFT_BRACKET) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::MINUS_LEFT_BRACKET);
-      setState(2375);
+      setState(2372);
       {
         auto childCtxHolder = ctx->EnterElementPatternFiller();
         elementPatternFiller(get_raw_pointer(childCtxHolder));
       }
-      setState(2376);
+      setState(2373);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::BRACKET_RIGHT_ARROW) {
           ctx->OnToken(_input->LT(1));
@@ -13103,19 +13085,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2378);
+      setState(2375);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_ARROW_TILDE_BRACKET) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_ARROW_TILDE_BRACKET);
-      setState(2379);
+      setState(2376);
       {
         auto childCtxHolder = ctx->EnterElementPatternFiller();
         elementPatternFiller(get_raw_pointer(childCtxHolder));
       }
-      setState(2380);
+      setState(2377);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_BRACKET_TILDE) {
           ctx->OnToken(_input->LT(1));
@@ -13150,19 +13132,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2382);
+      setState(2379);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::TILDE_LEFT_BRACKET) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::TILDE_LEFT_BRACKET);
-      setState(2383);
+      setState(2380);
       {
         auto childCtxHolder = ctx->EnterElementPatternFiller();
         elementPatternFiller(get_raw_pointer(childCtxHolder));
       }
-      setState(2384);
+      setState(2381);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::BRACKET_TILDE_RIGHT_ARROW) {
           ctx->OnToken(_input->LT(1));
@@ -13197,19 +13179,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2386);
+      setState(2383);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_ARROW_BRACKET) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_ARROW_BRACKET);
-      setState(2387);
+      setState(2384);
       {
         auto childCtxHolder = ctx->EnterElementPatternFiller();
         elementPatternFiller(get_raw_pointer(childCtxHolder));
       }
-      setState(2388);
+      setState(2385);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::BRACKET_RIGHT_ARROW) {
           ctx->OnToken(_input->LT(1));
@@ -13244,19 +13226,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2390);
+      setState(2387);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::MINUS_LEFT_BRACKET) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::MINUS_LEFT_BRACKET);
-      setState(2391);
+      setState(2388);
       {
         auto childCtxHolder = ctx->EnterElementPatternFiller();
         elementPatternFiller(get_raw_pointer(childCtxHolder));
       }
-      setState(2392);
+      setState(2389);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_BRACKET_MINUS) {
           ctx->OnToken(_input->LT(1));
@@ -13292,7 +13274,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2394);
+      setState(2391);
       _la = _input->LA(1);
       if (!(((((_la - 336) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 336)) & 281612416714771) != 0))) {
@@ -13332,19 +13314,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2396);
+      setState(2393);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(2398);
+      setState(2395);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 205, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 204, _ctx)) {
       case 1: {
-        setState(2397);
+        setState(2394);
         {
           auto childCtxHolder = ctx->EnterSubpathVariableDeclaration();
           subpathVariableDeclaration(get_raw_pointer(childCtxHolder));
@@ -13355,35 +13337,35 @@ public:
       default:
         break;
       }
-      setState(2401);
+      setState(2398);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (((((_la - 277) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 277)) & 18159121727489) != 0)) {
-        setState(2400);
+        setState(2397);
         {
           auto childCtxHolder = ctx->EnterPathModePrefix();
           pathModePrefix(get_raw_pointer(childCtxHolder));
         }
       }
-      setState(2403);
+      setState(2400);
       {
         auto childCtxHolder = ctx->EnterPathPatternExpression();
         pathPatternExpression(get_raw_pointer(childCtxHolder));
       }
-      setState(2405);
+      setState(2402);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::WHERE) {
-        setState(2404);
+        setState(2401);
         {
           auto childCtxHolder = ctx->EnterParenthesizedPathPatternWhereClause();
           parenthesizedPathPatternWhereClause(get_raw_pointer(childCtxHolder));
         }
       }
-      setState(2407);
+      setState(2404);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -13418,12 +13400,12 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2409);
+      setState(2406);
       {
         auto childCtxHolder = ctx->EnterSubpathVariable();
         subpathVariable(get_raw_pointer(childCtxHolder));
       }
-      setState(2410);
+      setState(2407);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::EQUALS_OPERATOR) {
           ctx->OnToken(_input->LT(1));
@@ -13458,14 +13440,14 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2412);
+      setState(2409);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::WHERE) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::WHERE);
-      setState(2413);
+      setState(2410);
       {
         auto childCtxHolder = ctx->EnterSearchCondition();
         searchCondition(get_raw_pointer(childCtxHolder));
@@ -13512,7 +13494,7 @@ public:
     try {
       size_t alt;
       enterOuterAlt(_localctx, 1);
-      setState(2424);
+      setState(2421);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::EXCLAMATION_MARK: {
@@ -13533,14 +13515,14 @@ public:
               (void)ctx;
           });
 
-          setState(2416);
+          setState(2413);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::EXCLAMATION_MARK) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::EXCLAMATION_MARK);
-          setState(2417);
+          setState(2414);
           {
             auto childCtxHolder = ctx->EnterLabelExpression();
             labelExpression(6, get_raw_pointer(childCtxHolder));
@@ -13614,7 +13596,7 @@ public:
             else
               (void)ctx;
           });
-          setState(2418);
+          setState(2415);
           {
             auto childCtxHolder = ctx->EnterLabelName();
             labelName(get_raw_pointer(childCtxHolder));
@@ -13639,7 +13621,7 @@ public:
             else
               (void)ctx;
           });
-          setState(2419);
+          setState(2416);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::PERCENT) {
               ctx->OnToken(_input->LT(1));
@@ -13666,19 +13648,19 @@ public:
             else
               (void)ctx;
           });
-          setState(2420);
+          setState(2417);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::LEFT_PAREN) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::LEFT_PAREN);
-          setState(2421);
+          setState(2418);
           {
             auto childCtxHolder = ctx->EnterLabelExpression();
             labelExpression(0, get_raw_pointer(childCtxHolder));
           }
-          setState(2422);
+          setState(2419);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
               ctx->OnToken(_input->LT(1));
@@ -13692,9 +13674,9 @@ public:
         throw antlr4::NoViableAltException(this);
       }
       _ctx->stop = _input->LT(-1);
-      setState(2434);
+      setState(2431);
       _errHandler->sync(this);
-      alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 210, _ctx);
+      alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 209, _ctx);
       while (alt != 2 && alt != antlr4::atn::ATN::INVALID_ALT_NUMBER) {
         if (alt == 1) {
           if (!_parseListeners.empty())
@@ -13703,9 +13685,9 @@ public:
             ctx->ExitRule(_ctx);
           }
           previousContext = _localctx;
-          setState(2432);
+          setState(2429);
           _errHandler->sync(this);
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 209, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 208, _ctx)) {
           case 1: {
             auto newParentContext = _tracker.createInstance<antlr4::ParserRuleContext>(parentContext, parentState);
             auto newContext = _tracker.createInstance<antlr4::ParserRuleContext>();
@@ -13721,17 +13703,17 @@ public:
               else
                 (void)ctx;
             });
-            setState(2426);
+            setState(2423);
 
             if (!(precpred(_ctx, 5))) throw antlr4::FailedPredicateException(this, "precpred(_ctx, 5)");
-            setState(2427);
+            setState(2424);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::AMPERSAND) {
                 ctx->OnToken(_input->LT(1));
               }
             }
             match(GQLParser::AMPERSAND);
-            setState(2428);
+            setState(2425);
             {
               auto childCtxHolder = ctx->EnterLabelExpression();
               labelExpression(6, get_raw_pointer(childCtxHolder));
@@ -13754,17 +13736,17 @@ public:
               else
                 (void)ctx;
             });
-            setState(2429);
+            setState(2426);
 
             if (!(precpred(_ctx, 4))) throw antlr4::FailedPredicateException(this, "precpred(_ctx, 4)");
-            setState(2430);
+            setState(2427);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::VERTICAL_BAR) {
                 ctx->OnToken(_input->LT(1));
               }
             }
             match(GQLParser::VERTICAL_BAR);
-            setState(2431);
+            setState(2428);
             {
               auto childCtxHolder = ctx->EnterLabelExpression();
               labelExpression(5, get_raw_pointer(childCtxHolder));
@@ -13776,9 +13758,9 @@ public:
             break;
           } 
         }
-        setState(2436);
+        setState(2433);
         _errHandler->sync(this);
-        alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 210, _ctx);
+        alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 209, _ctx);
       }
     }
     catch (antlr4::RecognitionException &e) {
@@ -13806,7 +13788,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2437);
+      setState(2434);
       {
         auto childCtxHolder = ctx->EnterBindingVariableReference();
         bindingVariableReference(get_raw_pointer(childCtxHolder));
@@ -13839,7 +13821,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2439);
+      setState(2436);
       {
         auto childCtxHolder = ctx->EnterBindingVariableReference();
         bindingVariableReference(get_raw_pointer(childCtxHolder));
@@ -13871,12 +13853,12 @@ public:
     }
     });
     try {
-      setState(2445);
+      setState(2442);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 211, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 210, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2441);
+        setState(2438);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::ASTERISK) {
             ctx->OnToken(_input->LT(1));
@@ -13888,7 +13870,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2442);
+        setState(2439);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::PLUS_SIGN) {
             ctx->OnToken(_input->LT(1));
@@ -13900,7 +13882,7 @@ public:
 
       case 3: {
         enterOuterAlt(_localctx, 3);
-        setState(2443);
+        setState(2440);
         {
           auto childCtxHolder = ctx->EnterFixedQuantifier();
           fixedQuantifier(get_raw_pointer(childCtxHolder));
@@ -13910,7 +13892,7 @@ public:
 
       case 4: {
         enterOuterAlt(_localctx, 4);
-        setState(2444);
+        setState(2441);
         {
           auto childCtxHolder = ctx->EnterGeneralQuantifier();
           generalQuantifier(get_raw_pointer(childCtxHolder));
@@ -13949,19 +13931,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2447);
+      setState(2444);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_BRACE) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_BRACE);
-      setState(2448);
+      setState(2445);
       {
         auto childCtxHolder = ctx->EnterUnsignedInteger();
         unsignedInteger(get_raw_pointer(childCtxHolder));
       }
-      setState(2449);
+      setState(2446);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_BRACE) {
           ctx->OnToken(_input->LT(1));
@@ -13997,45 +13979,45 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2451);
+      setState(2448);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_BRACE) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_BRACE);
-      setState(2453);
+      setState(2450);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if ((((_la & ~ 0x3fULL) == 0) &&
         ((1ULL << _la) & 983040) != 0)) {
-        setState(2452);
+        setState(2449);
         {
           auto childCtxHolder = ctx->EnterLowerBound();
           lowerBound(get_raw_pointer(childCtxHolder));
         }
       }
-      setState(2455);
+      setState(2452);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::COMMA) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::COMMA);
-      setState(2457);
+      setState(2454);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if ((((_la & ~ 0x3fULL) == 0) &&
         ((1ULL << _la) & 983040) != 0)) {
-        setState(2456);
+        setState(2453);
         {
           auto childCtxHolder = ctx->EnterUpperBound();
           upperBound(get_raw_pointer(childCtxHolder));
         }
       }
-      setState(2459);
+      setState(2456);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_BRACE) {
           ctx->OnToken(_input->LT(1));
@@ -14070,7 +14052,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2461);
+      setState(2458);
       {
         auto childCtxHolder = ctx->EnterUnsignedInteger();
         unsignedInteger(get_raw_pointer(childCtxHolder));
@@ -14103,7 +14085,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2463);
+      setState(2460);
       {
         auto childCtxHolder = ctx->EnterUnsignedInteger();
         unsignedInteger(get_raw_pointer(childCtxHolder));
@@ -14135,12 +14117,12 @@ public:
     }
     });
     try {
-      setState(2472);
+      setState(2469);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 214, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 213, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2465);
+        setState(2462);
         {
           auto childCtxHolder = ctx->EnterSimplifiedDefaultingLeft();
           simplifiedDefaultingLeft(get_raw_pointer(childCtxHolder));
@@ -14150,7 +14132,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2466);
+        setState(2463);
         {
           auto childCtxHolder = ctx->EnterSimplifiedDefaultingUndirected();
           simplifiedDefaultingUndirected(get_raw_pointer(childCtxHolder));
@@ -14160,7 +14142,7 @@ public:
 
       case 3: {
         enterOuterAlt(_localctx, 3);
-        setState(2467);
+        setState(2464);
         {
           auto childCtxHolder = ctx->EnterSimplifiedDefaultingRight();
           simplifiedDefaultingRight(get_raw_pointer(childCtxHolder));
@@ -14170,7 +14152,7 @@ public:
 
       case 4: {
         enterOuterAlt(_localctx, 4);
-        setState(2468);
+        setState(2465);
         {
           auto childCtxHolder = ctx->EnterSimplifiedDefaultingLeftOrUndirected();
           simplifiedDefaultingLeftOrUndirected(get_raw_pointer(childCtxHolder));
@@ -14180,7 +14162,7 @@ public:
 
       case 5: {
         enterOuterAlt(_localctx, 5);
-        setState(2469);
+        setState(2466);
         {
           auto childCtxHolder = ctx->EnterSimplifiedDefaultingUndirectedOrRight();
           simplifiedDefaultingUndirectedOrRight(get_raw_pointer(childCtxHolder));
@@ -14190,7 +14172,7 @@ public:
 
       case 6: {
         enterOuterAlt(_localctx, 6);
-        setState(2470);
+        setState(2467);
         {
           auto childCtxHolder = ctx->EnterSimplifiedDefaultingLeftOrRight();
           simplifiedDefaultingLeftOrRight(get_raw_pointer(childCtxHolder));
@@ -14200,7 +14182,7 @@ public:
 
       case 7: {
         enterOuterAlt(_localctx, 7);
-        setState(2471);
+        setState(2468);
         {
           auto childCtxHolder = ctx->EnterSimplifiedDefaultingAnyDirection();
           simplifiedDefaultingAnyDirection(get_raw_pointer(childCtxHolder));
@@ -14239,19 +14221,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2474);
+      setState(2471);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_MINUS_SLASH) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_MINUS_SLASH);
-      setState(2475);
+      setState(2472);
       {
         auto childCtxHolder = ctx->EnterSimplifiedContents();
         simplifiedContents(get_raw_pointer(childCtxHolder));
       }
-      setState(2476);
+      setState(2473);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::SLASH_MINUS) {
           ctx->OnToken(_input->LT(1));
@@ -14286,19 +14268,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2478);
+      setState(2475);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::TILDE_SLASH) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::TILDE_SLASH);
-      setState(2479);
+      setState(2476);
       {
         auto childCtxHolder = ctx->EnterSimplifiedContents();
         simplifiedContents(get_raw_pointer(childCtxHolder));
       }
-      setState(2480);
+      setState(2477);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::SLASH_TILDE) {
           ctx->OnToken(_input->LT(1));
@@ -14333,19 +14315,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2482);
+      setState(2479);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::MINUS_SLASH) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::MINUS_SLASH);
-      setState(2483);
+      setState(2480);
       {
         auto childCtxHolder = ctx->EnterSimplifiedContents();
         simplifiedContents(get_raw_pointer(childCtxHolder));
       }
-      setState(2484);
+      setState(2481);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::SLASH_MINUS_RIGHT) {
           ctx->OnToken(_input->LT(1));
@@ -14380,19 +14362,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2486);
+      setState(2483);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_TILDE_SLASH) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_TILDE_SLASH);
-      setState(2487);
+      setState(2484);
       {
         auto childCtxHolder = ctx->EnterSimplifiedContents();
         simplifiedContents(get_raw_pointer(childCtxHolder));
       }
-      setState(2488);
+      setState(2485);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::SLASH_TILDE) {
           ctx->OnToken(_input->LT(1));
@@ -14427,19 +14409,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2490);
+      setState(2487);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::TILDE_SLASH) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::TILDE_SLASH);
-      setState(2491);
+      setState(2488);
       {
         auto childCtxHolder = ctx->EnterSimplifiedContents();
         simplifiedContents(get_raw_pointer(childCtxHolder));
       }
-      setState(2492);
+      setState(2489);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::SLASH_TILDE_RIGHT) {
           ctx->OnToken(_input->LT(1));
@@ -14474,19 +14456,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2494);
+      setState(2491);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_MINUS_SLASH) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_MINUS_SLASH);
-      setState(2495);
+      setState(2492);
       {
         auto childCtxHolder = ctx->EnterSimplifiedContents();
         simplifiedContents(get_raw_pointer(childCtxHolder));
       }
-      setState(2496);
+      setState(2493);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::SLASH_MINUS_RIGHT) {
           ctx->OnToken(_input->LT(1));
@@ -14521,19 +14503,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2498);
+      setState(2495);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::MINUS_SLASH) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::MINUS_SLASH);
-      setState(2499);
+      setState(2496);
       {
         auto childCtxHolder = ctx->EnterSimplifiedContents();
         simplifiedContents(get_raw_pointer(childCtxHolder));
       }
-      setState(2500);
+      setState(2497);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::SLASH_MINUS) {
           ctx->OnToken(_input->LT(1));
@@ -14567,12 +14549,12 @@ public:
     }
     });
     try {
-      setState(2505);
+      setState(2502);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 215, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 214, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2502);
+        setState(2499);
         {
           auto childCtxHolder = ctx->EnterSimplifiedTerm();
           simplifiedTerm(0, get_raw_pointer(childCtxHolder));
@@ -14582,7 +14564,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2503);
+        setState(2500);
         {
           auto childCtxHolder = ctx->EnterSimplifiedPathUnion();
           simplifiedPathUnion(get_raw_pointer(childCtxHolder));
@@ -14592,7 +14574,7 @@ public:
 
       case 3: {
         enterOuterAlt(_localctx, 3);
-        setState(2504);
+        setState(2501);
         {
           auto childCtxHolder = ctx->EnterSimplifiedMultisetAlternation();
           simplifiedMultisetAlternation(get_raw_pointer(childCtxHolder));
@@ -14632,40 +14614,40 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2507);
+      setState(2504);
       {
         auto childCtxHolder = ctx->EnterSimplifiedTerm();
         simplifiedTerm(0, get_raw_pointer(childCtxHolder));
       }
-      setState(2508);
+      setState(2505);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::VERTICAL_BAR) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::VERTICAL_BAR);
-      setState(2509);
+      setState(2506);
       {
         auto childCtxHolder = ctx->EnterSimplifiedTerm();
         simplifiedTerm(0, get_raw_pointer(childCtxHolder));
       }
-      setState(2514);
+      setState(2511);
       _errHandler->sync(this);
       _la = _input->LA(1);
       while (_la == GQLParser::VERTICAL_BAR) {
-        setState(2510);
+        setState(2507);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::VERTICAL_BAR) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::VERTICAL_BAR);
-        setState(2511);
+        setState(2508);
         {
           auto childCtxHolder = ctx->EnterSimplifiedTerm();
           simplifiedTerm(0, get_raw_pointer(childCtxHolder));
         }
-        setState(2516);
+        setState(2513);
         _errHandler->sync(this);
         _la = _input->LA(1);
       }
@@ -14698,40 +14680,40 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2517);
+      setState(2514);
       {
         auto childCtxHolder = ctx->EnterSimplifiedTerm();
         simplifiedTerm(0, get_raw_pointer(childCtxHolder));
       }
-      setState(2518);
+      setState(2515);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::MULTISET_ALTERNATION_OPERATOR) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::MULTISET_ALTERNATION_OPERATOR);
-      setState(2519);
+      setState(2516);
       {
         auto childCtxHolder = ctx->EnterSimplifiedTerm();
         simplifiedTerm(0, get_raw_pointer(childCtxHolder));
       }
-      setState(2524);
+      setState(2521);
       _errHandler->sync(this);
       _la = _input->LA(1);
       while (_la == GQLParser::MULTISET_ALTERNATION_OPERATOR) {
-        setState(2520);
+        setState(2517);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::MULTISET_ALTERNATION_OPERATOR) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::MULTISET_ALTERNATION_OPERATOR);
-        setState(2521);
+        setState(2518);
         {
           auto childCtxHolder = ctx->EnterSimplifiedTerm();
           simplifiedTerm(0, get_raw_pointer(childCtxHolder));
         }
-        setState(2526);
+        setState(2523);
         _errHandler->sync(this);
         _la = _input->LA(1);
       }
@@ -14794,15 +14776,15 @@ public:
           (void)ctx;
       });
 
-      setState(2528);
+      setState(2525);
       {
         auto childCtxHolder = ctx->EnterSimplifiedFactorLow();
         simplifiedFactorLow(0, get_raw_pointer(childCtxHolder));
       }
       _ctx->stop = _input->LT(-1);
-      setState(2534);
+      setState(2531);
       _errHandler->sync(this);
-      alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 218, _ctx);
+      alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 217, _ctx);
       while (alt != 2 && alt != antlr4::atn::ATN::INVALID_ALT_NUMBER) {
         if (alt == 1) {
           if (!_parseListeners.empty())
@@ -14825,18 +14807,18 @@ public:
             else
               (void)ctx;
           });
-          setState(2530);
+          setState(2527);
 
           if (!(precpred(_ctx, 1))) throw antlr4::FailedPredicateException(this, "precpred(_ctx, 1)");
-          setState(2531);
+          setState(2528);
           {
             auto childCtxHolder = ctx->EnterSimplifiedFactorLow();
             simplifiedFactorLow(0, get_raw_pointer(childCtxHolder));
           } 
         }
-        setState(2536);
+        setState(2533);
         _errHandler->sync(this);
-        alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 218, _ctx);
+        alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 217, _ctx);
       }
     }
     catch (antlr4::RecognitionException &e) {
@@ -14895,15 +14877,15 @@ public:
           (void)ctx;
       });
 
-      setState(2538);
+      setState(2535);
       {
         auto childCtxHolder = ctx->EnterSimplifiedFactorHigh();
         simplifiedFactorHigh(get_raw_pointer(childCtxHolder));
       }
       _ctx->stop = _input->LT(-1);
-      setState(2545);
+      setState(2542);
       _errHandler->sync(this);
-      alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 219, _ctx);
+      alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 218, _ctx);
       while (alt != 2 && alt != antlr4::atn::ATN::INVALID_ALT_NUMBER) {
         if (alt == 1) {
           if (!_parseListeners.empty())
@@ -14926,25 +14908,25 @@ public:
             else
               (void)ctx;
           });
-          setState(2540);
+          setState(2537);
 
           if (!(precpred(_ctx, 1))) throw antlr4::FailedPredicateException(this, "precpred(_ctx, 1)");
-          setState(2541);
+          setState(2538);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::AMPERSAND) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::AMPERSAND);
-          setState(2542);
+          setState(2539);
           {
             auto childCtxHolder = ctx->EnterSimplifiedFactorHigh();
             simplifiedFactorHigh(get_raw_pointer(childCtxHolder));
           } 
         }
-        setState(2547);
+        setState(2544);
         _errHandler->sync(this);
-        alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 219, _ctx);
+        alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 218, _ctx);
       }
     }
     catch (antlr4::RecognitionException &e) {
@@ -14971,12 +14953,12 @@ public:
     }
     });
     try {
-      setState(2551);
+      setState(2548);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 220, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 219, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2548);
+        setState(2545);
         {
           auto childCtxHolder = ctx->EnterSimplifiedTertiary();
           simplifiedTertiary(get_raw_pointer(childCtxHolder));
@@ -14986,7 +14968,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2549);
+        setState(2546);
         {
           auto childCtxHolder = ctx->EnterSimplifiedQuantified();
           simplifiedQuantified(get_raw_pointer(childCtxHolder));
@@ -14996,7 +14978,7 @@ public:
 
       case 3: {
         enterOuterAlt(_localctx, 3);
-        setState(2550);
+        setState(2547);
         {
           auto childCtxHolder = ctx->EnterSimplifiedQuestioned();
           simplifiedQuestioned(get_raw_pointer(childCtxHolder));
@@ -15035,12 +15017,12 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2553);
+      setState(2550);
       {
         auto childCtxHolder = ctx->EnterSimplifiedTertiary();
         simplifiedTertiary(get_raw_pointer(childCtxHolder));
       }
-      setState(2554);
+      setState(2551);
       {
         auto childCtxHolder = ctx->EnterGraphPatternQuantifier();
         graphPatternQuantifier(get_raw_pointer(childCtxHolder));
@@ -15073,12 +15055,12 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2556);
+      setState(2553);
       {
         auto childCtxHolder = ctx->EnterSimplifiedTertiary();
         simplifiedTertiary(get_raw_pointer(childCtxHolder));
       }
-      setState(2557);
+      setState(2554);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::QUESTION_MARK) {
           ctx->OnToken(_input->LT(1));
@@ -15112,12 +15094,12 @@ public:
     }
     });
     try {
-      setState(2561);
+      setState(2558);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 221, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 220, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2559);
+        setState(2556);
         {
           auto childCtxHolder = ctx->EnterSimplifiedDirectionOverride();
           simplifiedDirectionOverride(get_raw_pointer(childCtxHolder));
@@ -15127,7 +15109,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2560);
+        setState(2557);
         {
           auto childCtxHolder = ctx->EnterSimplifiedSecondary();
           simplifiedSecondary(get_raw_pointer(childCtxHolder));
@@ -15165,12 +15147,12 @@ public:
     }
     });
     try {
-      setState(2570);
+      setState(2567);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 222, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 221, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2563);
+        setState(2560);
         {
           auto childCtxHolder = ctx->EnterSimplifiedOverrideLeft();
           simplifiedOverrideLeft(get_raw_pointer(childCtxHolder));
@@ -15180,7 +15162,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2564);
+        setState(2561);
         {
           auto childCtxHolder = ctx->EnterSimplifiedOverrideUndirected();
           simplifiedOverrideUndirected(get_raw_pointer(childCtxHolder));
@@ -15190,7 +15172,7 @@ public:
 
       case 3: {
         enterOuterAlt(_localctx, 3);
-        setState(2565);
+        setState(2562);
         {
           auto childCtxHolder = ctx->EnterSimplifiedOverrideRight();
           simplifiedOverrideRight(get_raw_pointer(childCtxHolder));
@@ -15200,7 +15182,7 @@ public:
 
       case 4: {
         enterOuterAlt(_localctx, 4);
-        setState(2566);
+        setState(2563);
         {
           auto childCtxHolder = ctx->EnterSimplifiedOverrideLeftOrUndirected();
           simplifiedOverrideLeftOrUndirected(get_raw_pointer(childCtxHolder));
@@ -15210,7 +15192,7 @@ public:
 
       case 5: {
         enterOuterAlt(_localctx, 5);
-        setState(2567);
+        setState(2564);
         {
           auto childCtxHolder = ctx->EnterSimplifiedOverrideUndirectedOrRight();
           simplifiedOverrideUndirectedOrRight(get_raw_pointer(childCtxHolder));
@@ -15220,7 +15202,7 @@ public:
 
       case 6: {
         enterOuterAlt(_localctx, 6);
-        setState(2568);
+        setState(2565);
         {
           auto childCtxHolder = ctx->EnterSimplifiedOverrideLeftOrRight();
           simplifiedOverrideLeftOrRight(get_raw_pointer(childCtxHolder));
@@ -15230,7 +15212,7 @@ public:
 
       case 7: {
         enterOuterAlt(_localctx, 7);
-        setState(2569);
+        setState(2566);
         {
           auto childCtxHolder = ctx->EnterSimplifiedOverrideAnyDirection();
           simplifiedOverrideAnyDirection(get_raw_pointer(childCtxHolder));
@@ -15269,14 +15251,14 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2572);
+      setState(2569);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_ANGLE_BRACKET) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_ANGLE_BRACKET);
-      setState(2573);
+      setState(2570);
       {
         auto childCtxHolder = ctx->EnterSimplifiedSecondary();
         simplifiedSecondary(get_raw_pointer(childCtxHolder));
@@ -15309,14 +15291,14 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2575);
+      setState(2572);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::TILDE) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::TILDE);
-      setState(2576);
+      setState(2573);
       {
         auto childCtxHolder = ctx->EnterSimplifiedSecondary();
         simplifiedSecondary(get_raw_pointer(childCtxHolder));
@@ -15349,12 +15331,12 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2578);
+      setState(2575);
       {
         auto childCtxHolder = ctx->EnterSimplifiedSecondary();
         simplifiedSecondary(get_raw_pointer(childCtxHolder));
       }
-      setState(2579);
+      setState(2576);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_ANGLE_BRACKET) {
           ctx->OnToken(_input->LT(1));
@@ -15389,14 +15371,14 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2581);
+      setState(2578);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_ARROW_TILDE) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_ARROW_TILDE);
-      setState(2582);
+      setState(2579);
       {
         auto childCtxHolder = ctx->EnterSimplifiedSecondary();
         simplifiedSecondary(get_raw_pointer(childCtxHolder));
@@ -15429,19 +15411,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2584);
+      setState(2581);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::TILDE) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::TILDE);
-      setState(2585);
+      setState(2582);
       {
         auto childCtxHolder = ctx->EnterSimplifiedSecondary();
         simplifiedSecondary(get_raw_pointer(childCtxHolder));
       }
-      setState(2586);
+      setState(2583);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_ANGLE_BRACKET) {
           ctx->OnToken(_input->LT(1));
@@ -15476,19 +15458,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2588);
+      setState(2585);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_ANGLE_BRACKET) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_ANGLE_BRACKET);
-      setState(2589);
+      setState(2586);
       {
         auto childCtxHolder = ctx->EnterSimplifiedSecondary();
         simplifiedSecondary(get_raw_pointer(childCtxHolder));
       }
-      setState(2590);
+      setState(2587);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_ANGLE_BRACKET) {
           ctx->OnToken(_input->LT(1));
@@ -15523,14 +15505,14 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2592);
+      setState(2589);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::MINUS_SIGN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::MINUS_SIGN);
-      setState(2593);
+      setState(2590);
       {
         auto childCtxHolder = ctx->EnterSimplifiedSecondary();
         simplifiedSecondary(get_raw_pointer(childCtxHolder));
@@ -15562,7 +15544,7 @@ public:
     }
     });
     try {
-      setState(2597);
+      setState(2594);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::DOUBLE_QUOTED_CHARACTER_SEQUENCE:
@@ -15617,7 +15599,7 @@ public:
         case GQLParser::REGULAR_IDENTIFIER:
         case GQLParser::LEFT_PAREN: {
           enterOuterAlt(_localctx, 1);
-          setState(2595);
+          setState(2592);
           {
             auto childCtxHolder = ctx->EnterSimplifiedPrimary();
             simplifiedPrimary(get_raw_pointer(childCtxHolder));
@@ -15627,7 +15609,7 @@ public:
 
         case GQLParser::EXCLAMATION_MARK: {
           enterOuterAlt(_localctx, 2);
-          setState(2596);
+          setState(2593);
           {
             auto childCtxHolder = ctx->EnterSimplifiedNegation();
             simplifiedNegation(get_raw_pointer(childCtxHolder));
@@ -15666,14 +15648,14 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2599);
+      setState(2596);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::EXCLAMATION_MARK) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::EXCLAMATION_MARK);
-      setState(2600);
+      setState(2597);
       {
         auto childCtxHolder = ctx->EnterSimplifiedPrimary();
         simplifiedPrimary(get_raw_pointer(childCtxHolder));
@@ -15705,7 +15687,7 @@ public:
     }
     });
     try {
-      setState(2607);
+      setState(2604);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::DOUBLE_QUOTED_CHARACTER_SEQUENCE:
@@ -15759,7 +15741,7 @@ public:
         case GQLParser::ZONE:
         case GQLParser::REGULAR_IDENTIFIER: {
           enterOuterAlt(_localctx, 1);
-          setState(2602);
+          setState(2599);
           {
             auto childCtxHolder = ctx->EnterLabelName();
             labelName(get_raw_pointer(childCtxHolder));
@@ -15769,19 +15751,19 @@ public:
 
         case GQLParser::LEFT_PAREN: {
           enterOuterAlt(_localctx, 2);
-          setState(2603);
+          setState(2600);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::LEFT_PAREN) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::LEFT_PAREN);
-          setState(2604);
+          setState(2601);
           {
             auto childCtxHolder = ctx->EnterSimplifiedContents();
             simplifiedContents(get_raw_pointer(childCtxHolder));
           }
-          setState(2605);
+          setState(2602);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
               ctx->OnToken(_input->LT(1));
@@ -15822,14 +15804,14 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2609);
+      setState(2606);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::WHERE) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::WHERE);
-      setState(2610);
+      setState(2607);
       {
         auto childCtxHolder = ctx->EnterSearchCondition();
         searchCondition(get_raw_pointer(childCtxHolder));
@@ -15862,14 +15844,14 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2612);
+      setState(2609);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::YIELD) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::YIELD);
-      setState(2613);
+      setState(2610);
       {
         auto childCtxHolder = ctx->EnterYieldItemList();
         yieldItemList(get_raw_pointer(childCtxHolder));
@@ -15903,28 +15885,28 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2615);
+      setState(2612);
       {
         auto childCtxHolder = ctx->EnterYieldItem();
         yieldItem(get_raw_pointer(childCtxHolder));
       }
-      setState(2620);
+      setState(2617);
       _errHandler->sync(this);
       _la = _input->LA(1);
       while (_la == GQLParser::COMMA) {
-        setState(2616);
+        setState(2613);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::COMMA) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::COMMA);
-        setState(2617);
+        setState(2614);
         {
           auto childCtxHolder = ctx->EnterYieldItem();
           yieldItem(get_raw_pointer(childCtxHolder));
         }
-        setState(2622);
+        setState(2619);
         _errHandler->sync(this);
         _la = _input->LA(1);
       }
@@ -15957,17 +15939,17 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2623);
+      setState(2620);
       {
         auto childCtxHolder = ctx->EnterYieldItemName();
         yieldItemName(get_raw_pointer(childCtxHolder));
       }
-      setState(2625);
+      setState(2622);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::AS) {
-        setState(2624);
+        setState(2621);
         {
           auto childCtxHolder = ctx->EnterYieldItemAlias();
           yieldItemAlias(get_raw_pointer(childCtxHolder));
@@ -16001,7 +15983,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2627);
+      setState(2624);
       {
         auto childCtxHolder = ctx->EnterFieldName();
         fieldName(get_raw_pointer(childCtxHolder));
@@ -16034,14 +16016,14 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2629);
+      setState(2626);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::AS) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::AS);
-      setState(2630);
+      setState(2627);
       {
         auto childCtxHolder = ctx->EnterBindingVariable();
         bindingVariable(get_raw_pointer(childCtxHolder));
@@ -16074,21 +16056,21 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2632);
+      setState(2629);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::GROUP) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::GROUP);
-      setState(2633);
+      setState(2630);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::BY) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::BY);
-      setState(2634);
+      setState(2631);
       {
         auto childCtxHolder = ctx->EnterGroupingElementList();
         groupingElementList(get_raw_pointer(childCtxHolder));
@@ -16121,7 +16103,7 @@ public:
     });
     try {
       size_t alt;
-      setState(2645);
+      setState(2642);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::ACYCLIC:
@@ -16173,39 +16155,39 @@ public:
         case GQLParser::ZONE:
         case GQLParser::REGULAR_IDENTIFIER: {
           enterOuterAlt(_localctx, 1);
-          setState(2636);
+          setState(2633);
           {
             auto childCtxHolder = ctx->EnterGroupingElement();
             groupingElement(get_raw_pointer(childCtxHolder));
           }
-          setState(2641);
+          setState(2638);
           _errHandler->sync(this);
-          alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 227, _ctx);
+          alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 226, _ctx);
           while (alt != 2 && alt != antlr4::atn::ATN::INVALID_ALT_NUMBER) {
             if (alt == 1) {
-              setState(2637);
+              setState(2634);
               if constexpr (has_OnToken<decltype(ctx)>::value) {
                 if (_input->LA(1) == GQLParser::COMMA) {
                   ctx->OnToken(_input->LT(1));
                 }
               }
               match(GQLParser::COMMA);
-              setState(2638);
+              setState(2635);
               {
                 auto childCtxHolder = ctx->EnterGroupingElement();
                 groupingElement(get_raw_pointer(childCtxHolder));
               } 
             }
-            setState(2643);
+            setState(2640);
             _errHandler->sync(this);
-            alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 227, _ctx);
+            alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 226, _ctx);
           }
           break;
         }
 
         case GQLParser::LEFT_PAREN: {
           enterOuterAlt(_localctx, 2);
-          setState(2644);
+          setState(2641);
           {
             auto childCtxHolder = ctx->EnterEmptyGroupingSet();
             emptyGroupingSet(get_raw_pointer(childCtxHolder));
@@ -16244,7 +16226,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2647);
+      setState(2644);
       {
         auto childCtxHolder = ctx->EnterBindingVariableReference();
         bindingVariableReference(get_raw_pointer(childCtxHolder));
@@ -16277,14 +16259,14 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2649);
+      setState(2646);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(2650);
+      setState(2647);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -16319,21 +16301,21 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2652);
+      setState(2649);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::ORDER) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::ORDER);
-      setState(2653);
+      setState(2650);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::BY) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::BY);
-      setState(2654);
+      setState(2651);
       {
         auto childCtxHolder = ctx->EnterSortSpecificationList();
         sortSpecificationList(get_raw_pointer(childCtxHolder));
@@ -16367,32 +16349,32 @@ public:
     try {
       size_t alt;
       enterOuterAlt(_localctx, 1);
-      setState(2656);
+      setState(2653);
       {
         auto childCtxHolder = ctx->EnterSortSpecification();
         sortSpecification(get_raw_pointer(childCtxHolder));
       }
-      setState(2661);
+      setState(2658);
       _errHandler->sync(this);
-      alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 229, _ctx);
+      alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 228, _ctx);
       while (alt != 2 && alt != antlr4::atn::ATN::INVALID_ALT_NUMBER) {
         if (alt == 1) {
-          setState(2657);
+          setState(2654);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::COMMA) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::COMMA);
-          setState(2658);
+          setState(2655);
           {
             auto childCtxHolder = ctx->EnterSortSpecification();
             sortSpecification(get_raw_pointer(childCtxHolder));
           } 
         }
-        setState(2663);
+        setState(2660);
         _errHandler->sync(this);
-        alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 229, _ctx);
+        alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 228, _ctx);
       }
      
     }
@@ -16422,17 +16404,17 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2664);
+      setState(2661);
       {
         auto childCtxHolder = ctx->EnterSortKey();
         sortKey(get_raw_pointer(childCtxHolder));
       }
-      setState(2666);
+      setState(2663);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 230, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 229, _ctx)) {
       case 1: {
-        setState(2665);
+        setState(2662);
         {
           auto childCtxHolder = ctx->EnterOrderingSpecification();
           orderingSpecification(get_raw_pointer(childCtxHolder));
@@ -16443,12 +16425,12 @@ public:
       default:
         break;
       }
-      setState(2669);
+      setState(2666);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 231, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 230, _ctx)) {
       case 1: {
-        setState(2668);
+        setState(2665);
         {
           auto childCtxHolder = ctx->EnterNullOrdering();
           nullOrdering(get_raw_pointer(childCtxHolder));
@@ -16487,7 +16469,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2671);
+      setState(2668);
       {
         auto childCtxHolder = ctx->EnterAggregatingValueExpression();
         aggregatingValueExpression(get_raw_pointer(childCtxHolder));
@@ -16521,7 +16503,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2673);
+      setState(2670);
       _la = _input->LA(1);
       if (!(((((_la - 28) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 28)) & 1688849860263939) != 0))) {
@@ -16559,19 +16541,19 @@ public:
     }
     });
     try {
-      setState(2679);
+      setState(2676);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 232, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 231, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2675);
+        setState(2672);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::NULLS) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::NULLS);
-        setState(2676);
+        setState(2673);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::FIRST) {
             ctx->OnToken(_input->LT(1));
@@ -16583,14 +16565,14 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2677);
+        setState(2674);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::NULLS) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::NULLS);
-        setState(2678);
+        setState(2675);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::LAST) {
             ctx->OnToken(_input->LT(1));
@@ -16631,14 +16613,14 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2681);
+      setState(2678);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LIMIT) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LIMIT);
-      setState(2682);
+      setState(2679);
       {
         auto childCtxHolder = ctx->EnterNonNegativeIntegerSpecification();
         nonNegativeIntegerSpecification(get_raw_pointer(childCtxHolder));
@@ -16671,12 +16653,12 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2684);
+      setState(2681);
       {
         auto childCtxHolder = ctx->EnterOffsetSynonym();
         offsetSynonym(get_raw_pointer(childCtxHolder));
       }
-      setState(2685);
+      setState(2682);
       {
         auto childCtxHolder = ctx->EnterNonNegativeIntegerSpecification();
         nonNegativeIntegerSpecification(get_raw_pointer(childCtxHolder));
@@ -16710,7 +16692,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2687);
+      setState(2684);
       _la = _input->LA(1);
       if (!(_la == GQLParser::OFFSET
 
@@ -16749,12 +16731,12 @@ public:
     }
     });
     try {
-      setState(2692);
+      setState(2689);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::SOLIDUS: {
           enterOuterAlt(_localctx, 1);
-          setState(2689);
+          setState(2686);
           {
             auto childCtxHolder = ctx->EnterAbsoluteCatalogSchemaReference();
             absoluteCatalogSchemaReference(get_raw_pointer(childCtxHolder));
@@ -16767,7 +16749,7 @@ public:
         case GQLParser::DOUBLE_PERIOD:
         case GQLParser::PERIOD: {
           enterOuterAlt(_localctx, 2);
-          setState(2690);
+          setState(2687);
           {
             auto childCtxHolder = ctx->EnterRelativeCatalogSchemaReference();
             relativeCatalogSchemaReference(get_raw_pointer(childCtxHolder));
@@ -16777,7 +16759,7 @@ public:
 
         case GQLParser::SUBSTITUTED_PARAMETER_REFERENCE: {
           enterOuterAlt(_localctx, 3);
-          setState(2691);
+          setState(2688);
           {
             auto childCtxHolder = ctx->EnterReferenceParameterSpecification();
             referenceParameterSpecification(get_raw_pointer(childCtxHolder));
@@ -16815,12 +16797,12 @@ public:
     }
     });
     try {
-      setState(2698);
+      setState(2695);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 234, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 233, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2694);
+        setState(2691);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::SOLIDUS) {
             ctx->OnToken(_input->LT(1));
@@ -16832,12 +16814,12 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2695);
+        setState(2692);
         {
           auto childCtxHolder = ctx->EnterAbsoluteDirectoryPath();
           absoluteDirectoryPath(get_raw_pointer(childCtxHolder));
         }
-        setState(2696);
+        setState(2693);
         {
           auto childCtxHolder = ctx->EnterSchemaName();
           schemaName(get_raw_pointer(childCtxHolder));
@@ -16876,12 +16858,12 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2700);
+      setState(2697);
       {
         auto childCtxHolder = ctx->EnterAbsoluteDirectoryPath();
         absoluteDirectoryPath(get_raw_pointer(childCtxHolder));
       }
-      setState(2701);
+      setState(2698);
       {
         auto childCtxHolder = ctx->EnterSchemaName();
         schemaName(get_raw_pointer(childCtxHolder));
@@ -16913,14 +16895,14 @@ public:
     }
     });
     try {
-      setState(2707);
+      setState(2704);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::CURRENT_SCHEMA:
         case GQLParser::HOME_SCHEMA:
         case GQLParser::PERIOD: {
           enterOuterAlt(_localctx, 1);
-          setState(2703);
+          setState(2700);
           {
             auto childCtxHolder = ctx->EnterPredefinedSchemaReference();
             predefinedSchemaReference(get_raw_pointer(childCtxHolder));
@@ -16930,12 +16912,12 @@ public:
 
         case GQLParser::DOUBLE_PERIOD: {
           enterOuterAlt(_localctx, 2);
-          setState(2704);
+          setState(2701);
           {
             auto childCtxHolder = ctx->EnterRelativeDirectoryPath();
             relativeDirectoryPath(get_raw_pointer(childCtxHolder));
           }
-          setState(2705);
+          setState(2702);
           {
             auto childCtxHolder = ctx->EnterSchemaName();
             schemaName(get_raw_pointer(childCtxHolder));
@@ -16975,7 +16957,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2709);
+      setState(2706);
       _la = _input->LA(1);
       if (!(_la == GQLParser::CURRENT_SCHEMA
 
@@ -17015,19 +16997,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2711);
+      setState(2708);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::SOLIDUS) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::SOLIDUS);
-      setState(2713);
+      setState(2710);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 236, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 235, _ctx)) {
       case 1: {
-        setState(2712);
+        setState(2709);
         {
           auto childCtxHolder = ctx->EnterSimpleDirectoryPath();
           simpleDirectoryPath(get_raw_pointer(childCtxHolder));
@@ -17067,26 +17049,26 @@ public:
     try {
       size_t alt;
       enterOuterAlt(_localctx, 1);
-      setState(2715);
+      setState(2712);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::DOUBLE_PERIOD) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::DOUBLE_PERIOD);
-      setState(2720);
+      setState(2717);
       _errHandler->sync(this);
-      alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 237, _ctx);
+      alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 236, _ctx);
       while (alt != 2 && alt != antlr4::atn::ATN::INVALID_ALT_NUMBER) {
         if (alt == 1) {
-          setState(2716);
+          setState(2713);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::SOLIDUS) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::SOLIDUS);
-          setState(2717);
+          setState(2714);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::DOUBLE_PERIOD) {
               ctx->OnToken(_input->LT(1));
@@ -17094,23 +17076,23 @@ public:
           }
           match(GQLParser::DOUBLE_PERIOD); 
         }
-        setState(2722);
+        setState(2719);
         _errHandler->sync(this);
-        alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 237, _ctx);
+        alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 236, _ctx);
       }
-      setState(2723);
+      setState(2720);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::SOLIDUS) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::SOLIDUS);
-      setState(2725);
+      setState(2722);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 238, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 237, _ctx)) {
       case 1: {
-        setState(2724);
+        setState(2721);
         {
           auto childCtxHolder = ctx->EnterSimpleDirectoryPath();
           simpleDirectoryPath(get_raw_pointer(childCtxHolder));
@@ -17150,18 +17132,18 @@ public:
     try {
       size_t alt;
       enterOuterAlt(_localctx, 1);
-      setState(2730); 
+      setState(2727); 
       _errHandler->sync(this);
       alt = 1;
       do {
         switch (alt) {
           case 1: {
-                setState(2727);
+                setState(2724);
                 {
                   auto childCtxHolder = ctx->EnterDirectoryName();
                   directoryName(get_raw_pointer(childCtxHolder));
                 }
-                setState(2728);
+                setState(2725);
                 if constexpr (has_OnToken<decltype(ctx)>::value) {
                   if (_input->LA(1) == GQLParser::SOLIDUS) {
                     ctx->OnToken(_input->LT(1));
@@ -17174,9 +17156,9 @@ public:
         default:
           throw antlr4::NoViableAltException(this);
         }
-        setState(2732); 
+        setState(2729); 
         _errHandler->sync(this);
-        alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 239, _ctx);
+        alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 238, _ctx);
       } while (alt != 2 && alt != antlr4::atn::ATN::INVALID_ALT_NUMBER);
      
     }
@@ -17205,17 +17187,17 @@ public:
     }
     });
     try {
-      setState(2740);
+      setState(2737);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 240, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 239, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2734);
+        setState(2731);
         {
           auto childCtxHolder = ctx->EnterCatalogObjectParentReference();
           catalogObjectParentReference(get_raw_pointer(childCtxHolder));
         }
-        setState(2735);
+        setState(2732);
         {
           auto childCtxHolder = ctx->EnterGraphName();
           graphName(get_raw_pointer(childCtxHolder));
@@ -17225,7 +17207,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2737);
+        setState(2734);
         {
           auto childCtxHolder = ctx->EnterDelimitedGraphName();
           delimitedGraphName(get_raw_pointer(childCtxHolder));
@@ -17235,7 +17217,7 @@ public:
 
       case 3: {
         enterOuterAlt(_localctx, 3);
-        setState(2738);
+        setState(2735);
         {
           auto childCtxHolder = ctx->EnterHomeGraph();
           homeGraph(get_raw_pointer(childCtxHolder));
@@ -17245,7 +17227,7 @@ public:
 
       case 4: {
         enterOuterAlt(_localctx, 4);
-        setState(2739);
+        setState(2736);
         {
           auto childCtxHolder = ctx->EnterReferenceParameterSpecification();
           referenceParameterSpecification(get_raw_pointer(childCtxHolder));
@@ -17284,12 +17266,12 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2743);
+      setState(2740);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 241, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 240, _ctx)) {
       case 1: {
-        setState(2742);
+        setState(2739);
         {
           auto childCtxHolder = ctx->EnterCatalogObjectParentReference();
           catalogObjectParentReference(get_raw_pointer(childCtxHolder));
@@ -17300,7 +17282,7 @@ public:
       default:
         break;
       }
-      setState(2745);
+      setState(2742);
       {
         auto childCtxHolder = ctx->EnterGraphName();
         graphName(get_raw_pointer(childCtxHolder));
@@ -17334,7 +17316,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2747);
+      setState(2744);
       _la = _input->LA(1);
       if (!(_la == GQLParser::HOME_GRAPH
 
@@ -17373,12 +17355,12 @@ public:
     }
     });
     try {
-      setState(2751);
+      setState(2748);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 242, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 241, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2749);
+        setState(2746);
         {
           auto childCtxHolder = ctx->EnterCatalogGraphTypeParentAndName();
           catalogGraphTypeParentAndName(get_raw_pointer(childCtxHolder));
@@ -17388,7 +17370,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2750);
+        setState(2747);
         {
           auto childCtxHolder = ctx->EnterReferenceParameterSpecification();
           referenceParameterSpecification(get_raw_pointer(childCtxHolder));
@@ -17427,12 +17409,12 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2754);
+      setState(2751);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 243, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 242, _ctx)) {
       case 1: {
-        setState(2753);
+        setState(2750);
         {
           auto childCtxHolder = ctx->EnterCatalogObjectParentReference();
           catalogObjectParentReference(get_raw_pointer(childCtxHolder));
@@ -17443,7 +17425,7 @@ public:
       default:
         break;
       }
-      setState(2756);
+      setState(2753);
       {
         auto childCtxHolder = ctx->EnterGraphTypeName();
         graphTypeName(get_raw_pointer(childCtxHolder));
@@ -17475,17 +17457,17 @@ public:
     }
     });
     try {
-      setState(2763);
+      setState(2760);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 244, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 243, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2758);
+        setState(2755);
         {
           auto childCtxHolder = ctx->EnterCatalogObjectParentReference();
           catalogObjectParentReference(get_raw_pointer(childCtxHolder));
         }
-        setState(2759);
+        setState(2756);
         {
           auto childCtxHolder = ctx->EnterBindingTableName();
           bindingTableName(get_raw_pointer(childCtxHolder));
@@ -17495,7 +17477,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2761);
+        setState(2758);
         {
           auto childCtxHolder = ctx->EnterDelimitedBindingTableName();
           delimitedBindingTableName(get_raw_pointer(childCtxHolder));
@@ -17505,7 +17487,7 @@ public:
 
       case 3: {
         enterOuterAlt(_localctx, 3);
-        setState(2762);
+        setState(2759);
         {
           auto childCtxHolder = ctx->EnterReferenceParameterSpecification();
           referenceParameterSpecification(get_raw_pointer(childCtxHolder));
@@ -17543,12 +17525,12 @@ public:
     }
     });
     try {
-      setState(2767);
+      setState(2764);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 245, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 244, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2765);
+        setState(2762);
         {
           auto childCtxHolder = ctx->EnterCatalogProcedureParentAndName();
           catalogProcedureParentAndName(get_raw_pointer(childCtxHolder));
@@ -17558,7 +17540,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2766);
+        setState(2763);
         {
           auto childCtxHolder = ctx->EnterReferenceParameterSpecification();
           referenceParameterSpecification(get_raw_pointer(childCtxHolder));
@@ -17597,12 +17579,12 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2770);
+      setState(2767);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 246, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 245, _ctx)) {
       case 1: {
-        setState(2769);
+        setState(2766);
         {
           auto childCtxHolder = ctx->EnterCatalogObjectParentReference();
           catalogObjectParentReference(get_raw_pointer(childCtxHolder));
@@ -17613,7 +17595,7 @@ public:
       default:
         break;
       }
-      setState(2772);
+      setState(2769);
       {
         auto childCtxHolder = ctx->EnterProcedureName();
         procedureName(get_raw_pointer(childCtxHolder));
@@ -17647,7 +17629,7 @@ public:
     });
     try {
       size_t alt;
-      setState(2793);
+      setState(2790);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::CURRENT_SCHEMA:
@@ -17657,17 +17639,17 @@ public:
         case GQLParser::PERIOD:
         case GQLParser::SOLIDUS: {
           enterOuterAlt(_localctx, 1);
-          setState(2774);
+          setState(2771);
           {
             auto childCtxHolder = ctx->EnterSchemaReference();
             schemaReference(get_raw_pointer(childCtxHolder));
           }
-          setState(2776);
+          setState(2773);
           _errHandler->sync(this);
 
           _la = _input->LA(1);
           if (_la == GQLParser::SOLIDUS) {
-            setState(2775);
+            setState(2772);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::SOLIDUS) {
                 ctx->OnToken(_input->LT(1));
@@ -17675,17 +17657,17 @@ public:
             }
             match(GQLParser::SOLIDUS);
           }
-          setState(2783);
+          setState(2780);
           _errHandler->sync(this);
-          alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 248, _ctx);
+          alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 247, _ctx);
           while (alt != 2 && alt != antlr4::atn::ATN::INVALID_ALT_NUMBER) {
             if (alt == 1) {
-              setState(2778);
+              setState(2775);
               {
                 auto childCtxHolder = ctx->EnterObjectName();
                 objectName(get_raw_pointer(childCtxHolder));
               }
-              setState(2779);
+              setState(2776);
               if constexpr (has_OnToken<decltype(ctx)>::value) {
                 if (_input->LA(1) == GQLParser::PERIOD) {
                   ctx->OnToken(_input->LT(1));
@@ -17693,9 +17675,9 @@ public:
               }
               match(GQLParser::PERIOD); 
             }
-            setState(2785);
+            setState(2782);
             _errHandler->sync(this);
-            alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 248, _ctx);
+            alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 247, _ctx);
           }
           break;
         }
@@ -17751,18 +17733,18 @@ public:
         case GQLParser::ZONE:
         case GQLParser::REGULAR_IDENTIFIER: {
           enterOuterAlt(_localctx, 2);
-          setState(2789); 
+          setState(2786); 
           _errHandler->sync(this);
           alt = 1;
           do {
             switch (alt) {
               case 1: {
-                    setState(2786);
+                    setState(2783);
                     {
                       auto childCtxHolder = ctx->EnterObjectName();
                       objectName(get_raw_pointer(childCtxHolder));
                     }
-                    setState(2787);
+                    setState(2784);
                     if constexpr (has_OnToken<decltype(ctx)>::value) {
                       if (_input->LA(1) == GQLParser::PERIOD) {
                         ctx->OnToken(_input->LT(1));
@@ -17775,9 +17757,9 @@ public:
             default:
               throw antlr4::NoViableAltException(this);
             }
-            setState(2791); 
+            setState(2788); 
             _errHandler->sync(this);
-            alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 249, _ctx);
+            alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 248, _ctx);
           } while (alt != 2 && alt != antlr4::atn::ATN::INVALID_ALT_NUMBER);
           break;
         }
@@ -17813,7 +17795,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2795);
+      setState(2792);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::SUBSTITUTED_PARAMETER_REFERENCE) {
           ctx->OnToken(_input->LT(1));
@@ -17848,19 +17830,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2797);
+      setState(2794);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_BRACE) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_BRACE);
-      setState(2798);
+      setState(2795);
       {
         auto childCtxHolder = ctx->EnterGraphTypeSpecificationBody();
         graphTypeSpecificationBody(get_raw_pointer(childCtxHolder));
       }
-      setState(2799);
+      setState(2796);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_BRACE) {
           ctx->OnToken(_input->LT(1));
@@ -17895,7 +17877,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2801);
+      setState(2798);
       {
         auto childCtxHolder = ctx->EnterElementTypeList();
         elementTypeList(get_raw_pointer(childCtxHolder));
@@ -17929,28 +17911,28 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2803);
+      setState(2800);
       {
         auto childCtxHolder = ctx->EnterElementTypeSpecification();
         elementTypeSpecification(get_raw_pointer(childCtxHolder));
       }
-      setState(2808);
+      setState(2805);
       _errHandler->sync(this);
       _la = _input->LA(1);
       while (_la == GQLParser::COMMA) {
-        setState(2804);
+        setState(2801);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::COMMA) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::COMMA);
-        setState(2805);
+        setState(2802);
         {
           auto childCtxHolder = ctx->EnterElementTypeSpecification();
           elementTypeSpecification(get_raw_pointer(childCtxHolder));
         }
-        setState(2810);
+        setState(2807);
         _errHandler->sync(this);
         _la = _input->LA(1);
       }
@@ -17981,12 +17963,12 @@ public:
     }
     });
     try {
-      setState(2813);
+      setState(2810);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 252, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 251, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2811);
+        setState(2808);
         {
           auto childCtxHolder = ctx->EnterNodeTypeSpecification();
           nodeTypeSpecification(get_raw_pointer(childCtxHolder));
@@ -17996,7 +17978,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2812);
+        setState(2809);
         {
           auto childCtxHolder = ctx->EnterEdgeTypeSpecification();
           edgeTypeSpecification(get_raw_pointer(childCtxHolder));
@@ -18034,12 +18016,12 @@ public:
     }
     });
     try {
-      setState(2817);
+      setState(2814);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 253, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 252, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2815);
+        setState(2812);
         {
           auto childCtxHolder = ctx->EnterNodeTypePattern();
           nodeTypePattern(get_raw_pointer(childCtxHolder));
@@ -18049,7 +18031,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2816);
+        setState(2813);
         {
           auto childCtxHolder = ctx->EnterNodeTypePhrase();
           nodeTypePhrase(get_raw_pointer(childCtxHolder));
@@ -18089,24 +18071,24 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2825);
+      setState(2822);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::NODE
 
       || _la == GQLParser::VERTEX) {
-        setState(2819);
+        setState(2816);
         {
           auto childCtxHolder = ctx->EnterNodeSynonym();
           nodeSynonym(get_raw_pointer(childCtxHolder));
         }
-        setState(2821);
+        setState(2818);
         _errHandler->sync(this);
 
         _la = _input->LA(1);
         if (_la == GQLParser::TYPE) {
-          setState(2820);
+          setState(2817);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::TYPE) {
               ctx->OnToken(_input->LT(1));
@@ -18114,25 +18096,25 @@ public:
           }
           match(GQLParser::TYPE);
         }
-        setState(2823);
+        setState(2820);
         {
           auto childCtxHolder = ctx->EnterNodeTypeName();
           nodeTypeName(get_raw_pointer(childCtxHolder));
         }
       }
-      setState(2827);
+      setState(2824);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(2829);
+      setState(2826);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 256, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 255, _ctx)) {
       case 1: {
-        setState(2828);
+        setState(2825);
         {
           auto childCtxHolder = ctx->EnterLocalNodeTypeAlias();
           localNodeTypeAlias(get_raw_pointer(childCtxHolder));
@@ -18143,7 +18125,7 @@ public:
       default:
         break;
       }
-      setState(2832);
+      setState(2829);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
@@ -18152,13 +18134,13 @@ public:
       || _la == GQLParser::LABELS || _la == GQLParser::COLON
 
       || _la == GQLParser::LEFT_BRACE) {
-        setState(2831);
+        setState(2828);
         {
           auto childCtxHolder = ctx->EnterNodeTypeFiller();
           nodeTypeFiller(get_raw_pointer(childCtxHolder));
         }
       }
-      setState(2834);
+      setState(2831);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -18194,17 +18176,17 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2836);
+      setState(2833);
       {
         auto childCtxHolder = ctx->EnterNodeSynonym();
         nodeSynonym(get_raw_pointer(childCtxHolder));
       }
-      setState(2838);
+      setState(2835);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::TYPE) {
-        setState(2837);
+        setState(2834);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::TYPE) {
             ctx->OnToken(_input->LT(1));
@@ -18212,24 +18194,24 @@ public:
         }
         match(GQLParser::TYPE);
       }
-      setState(2840);
+      setState(2837);
       {
         auto childCtxHolder = ctx->EnterNodeTypePhraseFiller();
         nodeTypePhraseFiller(get_raw_pointer(childCtxHolder));
       }
-      setState(2843);
+      setState(2840);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 259, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 258, _ctx)) {
       case 1: {
-        setState(2841);
+        setState(2838);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::AS) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::AS);
-        setState(2842);
+        setState(2839);
         {
           auto childCtxHolder = ctx->EnterLocalNodeTypeAlias();
           localNodeTypeAlias(get_raw_pointer(childCtxHolder));
@@ -18267,22 +18249,22 @@ public:
     }
     });
     try {
-      setState(2850);
+      setState(2847);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 261, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 260, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2845);
+        setState(2842);
         {
           auto childCtxHolder = ctx->EnterNodeTypeName();
           nodeTypeName(get_raw_pointer(childCtxHolder));
         }
-        setState(2847);
+        setState(2844);
         _errHandler->sync(this);
 
-        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 260, _ctx)) {
+        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 259, _ctx)) {
         case 1: {
-          setState(2846);
+          setState(2843);
           {
             auto childCtxHolder = ctx->EnterNodeTypeFiller();
             nodeTypeFiller(get_raw_pointer(childCtxHolder));
@@ -18298,7 +18280,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2849);
+        setState(2846);
         {
           auto childCtxHolder = ctx->EnterNodeTypeFiller();
           nodeTypeFiller(get_raw_pointer(childCtxHolder));
@@ -18336,22 +18318,22 @@ public:
     }
     });
     try {
-      setState(2857);
+      setState(2854);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 263, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 262, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2852);
+        setState(2849);
         {
           auto childCtxHolder = ctx->EnterNodeTypeKeyLabelSet();
           nodeTypeKeyLabelSet(get_raw_pointer(childCtxHolder));
         }
-        setState(2854);
+        setState(2851);
         _errHandler->sync(this);
 
-        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 262, _ctx)) {
+        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 261, _ctx)) {
         case 1: {
-          setState(2853);
+          setState(2850);
           {
             auto childCtxHolder = ctx->EnterNodeTypeImpliedContent();
             nodeTypeImpliedContent(get_raw_pointer(childCtxHolder));
@@ -18367,7 +18349,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2856);
+        setState(2853);
         {
           auto childCtxHolder = ctx->EnterNodeTypeImpliedContent();
           nodeTypeImpliedContent(get_raw_pointer(childCtxHolder));
@@ -18406,7 +18388,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2859);
+      setState(2856);
       {
         auto childCtxHolder = ctx->EnterRegularIdentifier();
         regularIdentifier(get_raw_pointer(childCtxHolder));
@@ -18438,12 +18420,12 @@ public:
     }
     });
     try {
-      setState(2866);
+      setState(2863);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 264, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 263, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2861);
+        setState(2858);
         {
           auto childCtxHolder = ctx->EnterNodeTypeLabelSet();
           nodeTypeLabelSet(get_raw_pointer(childCtxHolder));
@@ -18453,7 +18435,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2862);
+        setState(2859);
         {
           auto childCtxHolder = ctx->EnterNodeTypePropertyTypes();
           nodeTypePropertyTypes(get_raw_pointer(childCtxHolder));
@@ -18463,12 +18445,12 @@ public:
 
       case 3: {
         enterOuterAlt(_localctx, 3);
-        setState(2863);
+        setState(2860);
         {
           auto childCtxHolder = ctx->EnterNodeTypeLabelSet();
           nodeTypeLabelSet(get_raw_pointer(childCtxHolder));
         }
-        setState(2864);
+        setState(2861);
         {
           auto childCtxHolder = ctx->EnterNodeTypePropertyTypes();
           nodeTypePropertyTypes(get_raw_pointer(childCtxHolder));
@@ -18508,20 +18490,20 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2869);
+      setState(2866);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::IS || _la == GQLParser::LABEL
 
       || _la == GQLParser::LABELS || _la == GQLParser::COLON) {
-        setState(2868);
+        setState(2865);
         {
           auto childCtxHolder = ctx->EnterLabelSetPhrase();
           labelSetPhrase(get_raw_pointer(childCtxHolder));
         }
       }
-      setState(2871);
+      setState(2868);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::IMPLIES) {
           ctx->OnToken(_input->LT(1));
@@ -18556,7 +18538,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2873);
+      setState(2870);
       {
         auto childCtxHolder = ctx->EnterLabelSetPhrase();
         labelSetPhrase(get_raw_pointer(childCtxHolder));
@@ -18589,7 +18571,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2875);
+      setState(2872);
       {
         auto childCtxHolder = ctx->EnterPropertyTypesSpecification();
         propertyTypesSpecification(get_raw_pointer(childCtxHolder));
@@ -18621,12 +18603,12 @@ public:
     }
     });
     try {
-      setState(2879);
+      setState(2876);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 266, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 265, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2877);
+        setState(2874);
         {
           auto childCtxHolder = ctx->EnterEdgeTypePattern();
           edgeTypePattern(get_raw_pointer(childCtxHolder));
@@ -18636,7 +18618,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2878);
+        setState(2875);
         {
           auto childCtxHolder = ctx->EnterEdgeTypePhrase();
           edgeTypePhrase(get_raw_pointer(childCtxHolder));
@@ -18676,36 +18658,36 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2890);
+      setState(2887);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (((((_la - 283) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 283)) & 68736253955) != 0)) {
-        setState(2882);
+        setState(2879);
         _errHandler->sync(this);
 
         _la = _input->LA(1);
         if (_la == GQLParser::DIRECTED
 
         || _la == GQLParser::UNDIRECTED) {
-          setState(2881);
+          setState(2878);
           {
             auto childCtxHolder = ctx->EnterEdgeKind();
             edgeKind(get_raw_pointer(childCtxHolder));
           }
         }
-        setState(2884);
+        setState(2881);
         {
           auto childCtxHolder = ctx->EnterEdgeSynonym();
           edgeSynonym(get_raw_pointer(childCtxHolder));
         }
-        setState(2886);
+        setState(2883);
         _errHandler->sync(this);
 
         _la = _input->LA(1);
         if (_la == GQLParser::TYPE) {
-          setState(2885);
+          setState(2882);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::TYPE) {
               ctx->OnToken(_input->LT(1));
@@ -18713,17 +18695,17 @@ public:
           }
           match(GQLParser::TYPE);
         }
-        setState(2888);
+        setState(2885);
         {
           auto childCtxHolder = ctx->EnterEdgeTypeName();
           edgeTypeName(get_raw_pointer(childCtxHolder));
         }
       }
-      setState(2894);
+      setState(2891);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 270, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 269, _ctx)) {
       case 1: {
-        setState(2892);
+        setState(2889);
         {
           auto childCtxHolder = ctx->EnterEdgeTypePatternDirected();
           edgeTypePatternDirected(get_raw_pointer(childCtxHolder));
@@ -18732,7 +18714,7 @@ public:
       }
 
       case 2: {
-        setState(2893);
+        setState(2890);
         {
           auto childCtxHolder = ctx->EnterEdgeTypePatternUndirected();
           edgeTypePatternUndirected(get_raw_pointer(childCtxHolder));
@@ -18772,22 +18754,22 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2896);
+      setState(2893);
       {
         auto childCtxHolder = ctx->EnterEdgeKind();
         edgeKind(get_raw_pointer(childCtxHolder));
       }
-      setState(2897);
+      setState(2894);
       {
         auto childCtxHolder = ctx->EnterEdgeSynonym();
         edgeSynonym(get_raw_pointer(childCtxHolder));
       }
-      setState(2899);
+      setState(2896);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::TYPE) {
-        setState(2898);
+        setState(2895);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::TYPE) {
             ctx->OnToken(_input->LT(1));
@@ -18795,12 +18777,12 @@ public:
         }
         match(GQLParser::TYPE);
       }
-      setState(2901);
+      setState(2898);
       {
         auto childCtxHolder = ctx->EnterEdgeTypePhraseFiller();
         edgeTypePhraseFiller(get_raw_pointer(childCtxHolder));
       }
-      setState(2902);
+      setState(2899);
       {
         auto childCtxHolder = ctx->EnterEndpointPairPhrase();
         endpointPairPhrase(get_raw_pointer(childCtxHolder));
@@ -18833,17 +18815,17 @@ public:
     }
     });
     try {
-      setState(2909);
+      setState(2906);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 273, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 272, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2904);
+        setState(2901);
         {
           auto childCtxHolder = ctx->EnterEdgeTypeName();
           edgeTypeName(get_raw_pointer(childCtxHolder));
         }
-        setState(2906);
+        setState(2903);
         _errHandler->sync(this);
 
         _la = _input->LA(1);
@@ -18852,7 +18834,7 @@ public:
         || _la == GQLParser::LABELS || _la == GQLParser::COLON
 
         || _la == GQLParser::LEFT_BRACE) {
-          setState(2905);
+          setState(2902);
           {
             auto childCtxHolder = ctx->EnterEdgeTypeFiller();
             edgeTypeFiller(get_raw_pointer(childCtxHolder));
@@ -18863,7 +18845,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2908);
+        setState(2905);
         {
           auto childCtxHolder = ctx->EnterEdgeTypeFiller();
           edgeTypeFiller(get_raw_pointer(childCtxHolder));
@@ -18902,17 +18884,17 @@ public:
     }
     });
     try {
-      setState(2916);
+      setState(2913);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 275, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 274, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2911);
+        setState(2908);
         {
           auto childCtxHolder = ctx->EnterEdgeTypeKeyLabelSet();
           edgeTypeKeyLabelSet(get_raw_pointer(childCtxHolder));
         }
-        setState(2913);
+        setState(2910);
         _errHandler->sync(this);
 
         _la = _input->LA(1);
@@ -18921,7 +18903,7 @@ public:
         || _la == GQLParser::LABELS || _la == GQLParser::COLON
 
         || _la == GQLParser::LEFT_BRACE) {
-          setState(2912);
+          setState(2909);
           {
             auto childCtxHolder = ctx->EnterEdgeTypeImpliedContent();
             edgeTypeImpliedContent(get_raw_pointer(childCtxHolder));
@@ -18932,7 +18914,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2915);
+        setState(2912);
         {
           auto childCtxHolder = ctx->EnterEdgeTypeImpliedContent();
           edgeTypeImpliedContent(get_raw_pointer(childCtxHolder));
@@ -18970,12 +18952,12 @@ public:
     }
     });
     try {
-      setState(2923);
+      setState(2920);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 276, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 275, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2918);
+        setState(2915);
         {
           auto childCtxHolder = ctx->EnterEdgeTypeLabelSet();
           edgeTypeLabelSet(get_raw_pointer(childCtxHolder));
@@ -18985,7 +18967,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2919);
+        setState(2916);
         {
           auto childCtxHolder = ctx->EnterEdgeTypePropertyTypes();
           edgeTypePropertyTypes(get_raw_pointer(childCtxHolder));
@@ -18995,12 +18977,12 @@ public:
 
       case 3: {
         enterOuterAlt(_localctx, 3);
-        setState(2920);
+        setState(2917);
         {
           auto childCtxHolder = ctx->EnterEdgeTypeLabelSet();
           edgeTypeLabelSet(get_raw_pointer(childCtxHolder));
         }
-        setState(2921);
+        setState(2918);
         {
           auto childCtxHolder = ctx->EnterEdgeTypePropertyTypes();
           edgeTypePropertyTypes(get_raw_pointer(childCtxHolder));
@@ -19040,20 +19022,20 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2926);
+      setState(2923);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::IS || _la == GQLParser::LABEL
 
       || _la == GQLParser::LABELS || _la == GQLParser::COLON) {
-        setState(2925);
+        setState(2922);
         {
           auto childCtxHolder = ctx->EnterLabelSetPhrase();
           labelSetPhrase(get_raw_pointer(childCtxHolder));
         }
       }
-      setState(2928);
+      setState(2925);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::IMPLIES) {
           ctx->OnToken(_input->LT(1));
@@ -19088,7 +19070,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2930);
+      setState(2927);
       {
         auto childCtxHolder = ctx->EnterLabelSetPhrase();
         labelSetPhrase(get_raw_pointer(childCtxHolder));
@@ -19121,7 +19103,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2932);
+      setState(2929);
       {
         auto childCtxHolder = ctx->EnterPropertyTypesSpecification();
         propertyTypesSpecification(get_raw_pointer(childCtxHolder));
@@ -19153,12 +19135,12 @@ public:
     }
     });
     try {
-      setState(2936);
+      setState(2933);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 278, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 277, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2934);
+        setState(2931);
         {
           auto childCtxHolder = ctx->EnterEdgeTypePatternPointingRight();
           edgeTypePatternPointingRight(get_raw_pointer(childCtxHolder));
@@ -19168,7 +19150,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2935);
+        setState(2932);
         {
           auto childCtxHolder = ctx->EnterEdgeTypePatternPointingLeft();
           edgeTypePatternPointingLeft(get_raw_pointer(childCtxHolder));
@@ -19207,17 +19189,17 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2938);
+      setState(2935);
       {
         auto childCtxHolder = ctx->EnterSourceNodeTypeReference();
         sourceNodeTypeReference(get_raw_pointer(childCtxHolder));
       }
-      setState(2939);
+      setState(2936);
       {
         auto childCtxHolder = ctx->EnterArcTypePointingRight();
         arcTypePointingRight(get_raw_pointer(childCtxHolder));
       }
-      setState(2940);
+      setState(2937);
       {
         auto childCtxHolder = ctx->EnterDestinationNodeTypeReference();
         destinationNodeTypeReference(get_raw_pointer(childCtxHolder));
@@ -19250,17 +19232,17 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2942);
+      setState(2939);
       {
         auto childCtxHolder = ctx->EnterDestinationNodeTypeReference();
         destinationNodeTypeReference(get_raw_pointer(childCtxHolder));
       }
-      setState(2943);
+      setState(2940);
       {
         auto childCtxHolder = ctx->EnterArcTypePointingLeft();
         arcTypePointingLeft(get_raw_pointer(childCtxHolder));
       }
-      setState(2944);
+      setState(2941);
       {
         auto childCtxHolder = ctx->EnterSourceNodeTypeReference();
         sourceNodeTypeReference(get_raw_pointer(childCtxHolder));
@@ -19293,17 +19275,17 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2946);
+      setState(2943);
       {
         auto childCtxHolder = ctx->EnterSourceNodeTypeReference();
         sourceNodeTypeReference(get_raw_pointer(childCtxHolder));
       }
-      setState(2947);
+      setState(2944);
       {
         auto childCtxHolder = ctx->EnterArcTypeUndirected();
         arcTypeUndirected(get_raw_pointer(childCtxHolder));
       }
-      setState(2948);
+      setState(2945);
       {
         auto childCtxHolder = ctx->EnterDestinationNodeTypeReference();
         destinationNodeTypeReference(get_raw_pointer(childCtxHolder));
@@ -19336,19 +19318,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2950);
+      setState(2947);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::MINUS_LEFT_BRACKET) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::MINUS_LEFT_BRACKET);
-      setState(2951);
+      setState(2948);
       {
         auto childCtxHolder = ctx->EnterEdgeTypeFiller();
         edgeTypeFiller(get_raw_pointer(childCtxHolder));
       }
-      setState(2952);
+      setState(2949);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::BRACKET_RIGHT_ARROW) {
           ctx->OnToken(_input->LT(1));
@@ -19383,19 +19365,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2954);
+      setState(2951);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_ARROW_BRACKET) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_ARROW_BRACKET);
-      setState(2955);
+      setState(2952);
       {
         auto childCtxHolder = ctx->EnterEdgeTypeFiller();
         edgeTypeFiller(get_raw_pointer(childCtxHolder));
       }
-      setState(2956);
+      setState(2953);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_BRACKET_MINUS) {
           ctx->OnToken(_input->LT(1));
@@ -19430,19 +19412,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2958);
+      setState(2955);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::TILDE_LEFT_BRACKET) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::TILDE_LEFT_BRACKET);
-      setState(2959);
+      setState(2956);
       {
         auto childCtxHolder = ctx->EnterEdgeTypeFiller();
         edgeTypeFiller(get_raw_pointer(childCtxHolder));
       }
-      setState(2960);
+      setState(2957);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_BRACKET_TILDE) {
           ctx->OnToken(_input->LT(1));
@@ -19477,24 +19459,24 @@ public:
     }
     });
     try {
-      setState(2971);
+      setState(2968);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 280, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 279, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2962);
+        setState(2959);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::LEFT_PAREN) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::LEFT_PAREN);
-        setState(2963);
+        setState(2960);
         {
           auto childCtxHolder = ctx->EnterSourceNodeTypeAlias();
           sourceNodeTypeAlias(get_raw_pointer(childCtxHolder));
         }
-        setState(2964);
+        setState(2961);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
             ctx->OnToken(_input->LT(1));
@@ -19506,14 +19488,14 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2966);
+        setState(2963);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::LEFT_PAREN) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::LEFT_PAREN);
-        setState(2968);
+        setState(2965);
         _errHandler->sync(this);
 
         _la = _input->LA(1);
@@ -19522,13 +19504,13 @@ public:
         || _la == GQLParser::LABELS || _la == GQLParser::COLON
 
         || _la == GQLParser::LEFT_BRACE) {
-          setState(2967);
+          setState(2964);
           {
             auto childCtxHolder = ctx->EnterNodeTypeFiller();
             nodeTypeFiller(get_raw_pointer(childCtxHolder));
           }
         }
-        setState(2970);
+        setState(2967);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
             ctx->OnToken(_input->LT(1));
@@ -19569,24 +19551,24 @@ public:
     }
     });
     try {
-      setState(2982);
+      setState(2979);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 282, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 281, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2973);
+        setState(2970);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::LEFT_PAREN) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::LEFT_PAREN);
-        setState(2974);
+        setState(2971);
         {
           auto childCtxHolder = ctx->EnterDestinationNodeTypeAlias();
           destinationNodeTypeAlias(get_raw_pointer(childCtxHolder));
         }
-        setState(2975);
+        setState(2972);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
             ctx->OnToken(_input->LT(1));
@@ -19598,14 +19580,14 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2977);
+        setState(2974);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::LEFT_PAREN) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::LEFT_PAREN);
-        setState(2979);
+        setState(2976);
         _errHandler->sync(this);
 
         _la = _input->LA(1);
@@ -19614,13 +19596,13 @@ public:
         || _la == GQLParser::LABELS || _la == GQLParser::COLON
 
         || _la == GQLParser::LEFT_BRACE) {
-          setState(2978);
+          setState(2975);
           {
             auto childCtxHolder = ctx->EnterNodeTypeFiller();
             nodeTypeFiller(get_raw_pointer(childCtxHolder));
           }
         }
-        setState(2981);
+        setState(2978);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
             ctx->OnToken(_input->LT(1));
@@ -19662,7 +19644,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2984);
+      setState(2981);
       _la = _input->LA(1);
       if (!(_la == GQLParser::DIRECTED
 
@@ -19702,14 +19684,14 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2986);
+      setState(2983);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::CONNECTING) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::CONNECTING);
-      setState(2987);
+      setState(2984);
       {
         auto childCtxHolder = ctx->EnterEndpointPair();
         endpointPair(get_raw_pointer(childCtxHolder));
@@ -19741,12 +19723,12 @@ public:
     }
     });
     try {
-      setState(2991);
+      setState(2988);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 283, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 282, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2989);
+        setState(2986);
         {
           auto childCtxHolder = ctx->EnterEndpointPairDirected();
           endpointPairDirected(get_raw_pointer(childCtxHolder));
@@ -19756,7 +19738,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2990);
+        setState(2987);
         {
           auto childCtxHolder = ctx->EnterEndpointPairUndirected();
           endpointPairUndirected(get_raw_pointer(childCtxHolder));
@@ -19794,12 +19776,12 @@ public:
     }
     });
     try {
-      setState(2995);
+      setState(2992);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 284, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 283, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(2993);
+        setState(2990);
         {
           auto childCtxHolder = ctx->EnterEndpointPairPointingRight();
           endpointPairPointingRight(get_raw_pointer(childCtxHolder));
@@ -19809,7 +19791,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(2994);
+        setState(2991);
         {
           auto childCtxHolder = ctx->EnterEndpointPairPointingLeft();
           endpointPairPointingLeft(get_raw_pointer(childCtxHolder));
@@ -19848,29 +19830,29 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(2997);
+      setState(2994);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(2998);
+      setState(2995);
       {
         auto childCtxHolder = ctx->EnterSourceNodeTypeAlias();
         sourceNodeTypeAlias(get_raw_pointer(childCtxHolder));
       }
-      setState(2999);
+      setState(2996);
       {
         auto childCtxHolder = ctx->EnterConnectorPointingRight();
         connectorPointingRight(get_raw_pointer(childCtxHolder));
       }
-      setState(3000);
+      setState(2997);
       {
         auto childCtxHolder = ctx->EnterDestinationNodeTypeAlias();
         destinationNodeTypeAlias(get_raw_pointer(childCtxHolder));
       }
-      setState(3001);
+      setState(2998);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -19905,31 +19887,31 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3003);
+      setState(3000);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(3004);
+      setState(3001);
       {
         auto childCtxHolder = ctx->EnterDestinationNodeTypeAlias();
         destinationNodeTypeAlias(get_raw_pointer(childCtxHolder));
       }
-      setState(3005);
+      setState(3002);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_ARROW) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_ARROW);
-      setState(3006);
+      setState(3003);
       {
         auto childCtxHolder = ctx->EnterSourceNodeTypeAlias();
         sourceNodeTypeAlias(get_raw_pointer(childCtxHolder));
       }
-      setState(3007);
+      setState(3004);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -19964,29 +19946,29 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3009);
+      setState(3006);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(3010);
+      setState(3007);
       {
         auto childCtxHolder = ctx->EnterSourceNodeTypeAlias();
         sourceNodeTypeAlias(get_raw_pointer(childCtxHolder));
       }
-      setState(3011);
+      setState(3008);
       {
         auto childCtxHolder = ctx->EnterConnectorUndirected();
         connectorUndirected(get_raw_pointer(childCtxHolder));
       }
-      setState(3012);
+      setState(3009);
       {
         auto childCtxHolder = ctx->EnterDestinationNodeTypeAlias();
         destinationNodeTypeAlias(get_raw_pointer(childCtxHolder));
       }
-      setState(3013);
+      setState(3010);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -20022,7 +20004,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3015);
+      setState(3012);
       _la = _input->LA(1);
       if (!(_la == GQLParser::TO
 
@@ -20063,7 +20045,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3017);
+      setState(3014);
       _la = _input->LA(1);
       if (!(_la == GQLParser::TO || _la == GQLParser::TILDE)) {
         _errHandler->recoverInline(this);
@@ -20101,7 +20083,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3019);
+      setState(3016);
       {
         auto childCtxHolder = ctx->EnterRegularIdentifier();
         regularIdentifier(get_raw_pointer(childCtxHolder));
@@ -20134,7 +20116,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3021);
+      setState(3018);
       {
         auto childCtxHolder = ctx->EnterRegularIdentifier();
         regularIdentifier(get_raw_pointer(childCtxHolder));
@@ -20166,19 +20148,19 @@ public:
     }
     });
     try {
-      setState(3030);
+      setState(3027);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::LABEL: {
           enterOuterAlt(_localctx, 1);
-          setState(3023);
+          setState(3020);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::LABEL) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::LABEL);
-          setState(3024);
+          setState(3021);
           {
             auto childCtxHolder = ctx->EnterLabelName();
             labelName(get_raw_pointer(childCtxHolder));
@@ -20188,14 +20170,14 @@ public:
 
         case GQLParser::LABELS: {
           enterOuterAlt(_localctx, 2);
-          setState(3025);
+          setState(3022);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::LABELS) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::LABELS);
-          setState(3026);
+          setState(3023);
           {
             auto childCtxHolder = ctx->EnterLabelSetSpecification();
             labelSetSpecification(get_raw_pointer(childCtxHolder));
@@ -20206,12 +20188,12 @@ public:
         case GQLParser::IS:
         case GQLParser::COLON: {
           enterOuterAlt(_localctx, 3);
-          setState(3027);
+          setState(3024);
           {
             auto childCtxHolder = ctx->EnterIsOrColon();
             isOrColon(get_raw_pointer(childCtxHolder));
           }
-          setState(3028);
+          setState(3025);
           {
             auto childCtxHolder = ctx->EnterLabelSetSpecification();
             labelSetSpecification(get_raw_pointer(childCtxHolder));
@@ -20251,32 +20233,32 @@ public:
     try {
       size_t alt;
       enterOuterAlt(_localctx, 1);
-      setState(3032);
+      setState(3029);
       {
         auto childCtxHolder = ctx->EnterLabelName();
         labelName(get_raw_pointer(childCtxHolder));
       }
-      setState(3037);
+      setState(3034);
       _errHandler->sync(this);
-      alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 286, _ctx);
+      alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 285, _ctx);
       while (alt != 2 && alt != antlr4::atn::ATN::INVALID_ALT_NUMBER) {
         if (alt == 1) {
-          setState(3033);
+          setState(3030);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::AMPERSAND) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::AMPERSAND);
-          setState(3034);
+          setState(3031);
           {
             auto childCtxHolder = ctx->EnterLabelName();
             labelName(get_raw_pointer(childCtxHolder));
           } 
         }
-        setState(3039);
+        setState(3036);
         _errHandler->sync(this);
-        alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 286, _ctx);
+        alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 285, _ctx);
       }
      
     }
@@ -20307,14 +20289,14 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3040);
+      setState(3037);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_BRACE) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_BRACE);
-      setState(3042);
+      setState(3039);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
@@ -20322,13 +20304,13 @@ public:
 
       || _la == GQLParser::ACCENT_QUOTED_CHARACTER_SEQUENCE || ((((_la - 277) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 277)) & 560750930165759) != 0)) {
-        setState(3041);
+        setState(3038);
         {
           auto childCtxHolder = ctx->EnterPropertyTypeList();
           propertyTypeList(get_raw_pointer(childCtxHolder));
         }
       }
-      setState(3044);
+      setState(3041);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_BRACE) {
           ctx->OnToken(_input->LT(1));
@@ -20364,28 +20346,28 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3046);
+      setState(3043);
       {
         auto childCtxHolder = ctx->EnterPropertyType();
         propertyType(get_raw_pointer(childCtxHolder));
       }
-      setState(3051);
+      setState(3048);
       _errHandler->sync(this);
       _la = _input->LA(1);
       while (_la == GQLParser::COMMA) {
-        setState(3047);
+        setState(3044);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::COMMA) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::COMMA);
-        setState(3048);
+        setState(3045);
         {
           auto childCtxHolder = ctx->EnterPropertyType();
           propertyType(get_raw_pointer(childCtxHolder));
         }
-        setState(3053);
+        setState(3050);
         _errHandler->sync(this);
         _la = _input->LA(1);
       }
@@ -20418,23 +20400,23 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3054);
+      setState(3051);
       {
         auto childCtxHolder = ctx->EnterPropertyName();
         propertyName(get_raw_pointer(childCtxHolder));
       }
-      setState(3056);
+      setState(3053);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::TYPED || _la == GQLParser::DOUBLE_COLON) {
-        setState(3055);
+        setState(3052);
         {
           auto childCtxHolder = ctx->EnterTyped();
           typed(get_raw_pointer(childCtxHolder));
         }
       }
-      setState(3058);
+      setState(3055);
       {
         auto childCtxHolder = ctx->EnterPropertyValueType();
         propertyValueType(get_raw_pointer(childCtxHolder));
@@ -20467,7 +20449,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3060);
+      setState(3057);
       {
         auto childCtxHolder = ctx->EnterValueType();
         valueType(0, get_raw_pointer(childCtxHolder));
@@ -20501,12 +20483,12 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3063);
+      setState(3060);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::BINDING) {
-        setState(3062);
+        setState(3059);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::BINDING) {
             ctx->OnToken(_input->LT(1));
@@ -20514,14 +20496,14 @@ public:
         }
         match(GQLParser::BINDING);
       }
-      setState(3065);
+      setState(3062);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::TABLE) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::TABLE);
-      setState(3066);
+      setState(3063);
       {
         auto childCtxHolder = ctx->EnterFieldTypesSpecification();
         fieldTypesSpecification(get_raw_pointer(childCtxHolder));
@@ -20568,9 +20550,9 @@ public:
     try {
       size_t alt;
       enterOuterAlt(_localctx, 1);
-      setState(3125);
+      setState(3122);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 301, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 300, _ctx)) {
       case 1: {
         {
           auto savedLocalCtx = _localctx;
@@ -20589,7 +20571,7 @@ public:
             (void)ctx;
         });
 
-        setState(3069);
+        setState(3066);
         {
           auto childCtxHolder = ctx->EnterPredefinedType();
           predefinedType(get_raw_pointer(childCtxHolder));
@@ -20614,7 +20596,7 @@ public:
           else
             (void)ctx;
         });
-        setState(3070);
+        setState(3067);
         {
           auto childCtxHolder = ctx->EnterPathValueType();
           pathValueType(get_raw_pointer(childCtxHolder));
@@ -20639,48 +20621,48 @@ public:
           else
             (void)ctx;
         });
-        setState(3071);
+        setState(3068);
         {
           auto childCtxHolder = ctx->EnterListValueTypeName();
           listValueTypeName(get_raw_pointer(childCtxHolder));
         }
-        setState(3072);
+        setState(3069);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::LEFT_ANGLE_BRACKET) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::LEFT_ANGLE_BRACKET);
-        setState(3073);
+        setState(3070);
         {
           auto childCtxHolder = ctx->EnterValueType();
           valueType(0, get_raw_pointer(childCtxHolder));
         }
-        setState(3074);
+        setState(3071);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::RIGHT_ANGLE_BRACKET) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::RIGHT_ANGLE_BRACKET);
-        setState(3079);
+        setState(3076);
         _errHandler->sync(this);
 
-        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 291, _ctx)) {
+        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 290, _ctx)) {
         case 1: {
-          setState(3075);
+          setState(3072);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::LEFT_BRACKET) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::LEFT_BRACKET);
-          setState(3076);
+          setState(3073);
           {
             auto childCtxHolder = ctx->EnterMaxLength();
             maxLength(get_raw_pointer(childCtxHolder));
           }
-          setState(3077);
+          setState(3074);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::RIGHT_BRACKET) {
               ctx->OnToken(_input->LT(1));
@@ -20693,12 +20675,12 @@ public:
         default:
           break;
         }
-        setState(3082);
+        setState(3079);
         _errHandler->sync(this);
 
-        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 292, _ctx)) {
+        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 291, _ctx)) {
         case 1: {
-          setState(3081);
+          setState(3078);
           {
             auto childCtxHolder = ctx->EnterNotNull();
             notNull(get_raw_pointer(childCtxHolder));
@@ -20729,29 +20711,29 @@ public:
           else
             (void)ctx;
         });
-        setState(3084);
+        setState(3081);
         {
           auto childCtxHolder = ctx->EnterListValueTypeName();
           listValueTypeName(get_raw_pointer(childCtxHolder));
         }
-        setState(3089);
+        setState(3086);
         _errHandler->sync(this);
 
-        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 293, _ctx)) {
+        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 292, _ctx)) {
         case 1: {
-          setState(3085);
+          setState(3082);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::LEFT_BRACKET) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::LEFT_BRACKET);
-          setState(3086);
+          setState(3083);
           {
             auto childCtxHolder = ctx->EnterMaxLength();
             maxLength(get_raw_pointer(childCtxHolder));
           }
-          setState(3087);
+          setState(3084);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::RIGHT_BRACKET) {
               ctx->OnToken(_input->LT(1));
@@ -20764,12 +20746,12 @@ public:
         default:
           break;
         }
-        setState(3092);
+        setState(3089);
         _errHandler->sync(this);
 
-        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 294, _ctx)) {
+        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 293, _ctx)) {
         case 1: {
-          setState(3091);
+          setState(3088);
           {
             auto childCtxHolder = ctx->EnterNotNull();
             notNull(get_raw_pointer(childCtxHolder));
@@ -20800,7 +20782,7 @@ public:
           else
             (void)ctx;
         });
-        setState(3094);
+        setState(3091);
         {
           auto childCtxHolder = ctx->EnterRecordType();
           recordType(get_raw_pointer(childCtxHolder));
@@ -20825,19 +20807,19 @@ public:
           else
             (void)ctx;
         });
-        setState(3095);
+        setState(3092);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::ANY) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::ANY);
-        setState(3097);
+        setState(3094);
         _errHandler->sync(this);
 
-        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 295, _ctx)) {
+        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 294, _ctx)) {
         case 1: {
-          setState(3096);
+          setState(3093);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::VALUE) {
               ctx->OnToken(_input->LT(1));
@@ -20850,12 +20832,12 @@ public:
         default:
           break;
         }
-        setState(3100);
+        setState(3097);
         _errHandler->sync(this);
 
-        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 296, _ctx)) {
+        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 295, _ctx)) {
         case 1: {
-          setState(3099);
+          setState(3096);
           {
             auto childCtxHolder = ctx->EnterNotNull();
             notNull(get_raw_pointer(childCtxHolder));
@@ -20886,12 +20868,12 @@ public:
           else
             (void)ctx;
         });
-        setState(3103);
+        setState(3100);
         _errHandler->sync(this);
 
         _la = _input->LA(1);
         if (_la == GQLParser::ANY) {
-          setState(3102);
+          setState(3099);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::ANY) {
               ctx->OnToken(_input->LT(1));
@@ -20899,26 +20881,26 @@ public:
           }
           match(GQLParser::ANY);
         }
-        setState(3105);
+        setState(3102);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::PROPERTY) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::PROPERTY);
-        setState(3106);
+        setState(3103);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::VALUE) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::VALUE);
-        setState(3108);
+        setState(3105);
         _errHandler->sync(this);
 
-        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 298, _ctx)) {
+        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 297, _ctx)) {
         case 1: {
-          setState(3107);
+          setState(3104);
           {
             auto childCtxHolder = ctx->EnterNotNull();
             notNull(get_raw_pointer(childCtxHolder));
@@ -20949,19 +20931,19 @@ public:
           else
             (void)ctx;
         });
-        setState(3110);
+        setState(3107);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::ANY) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::ANY);
-        setState(3112);
+        setState(3109);
         _errHandler->sync(this);
 
         _la = _input->LA(1);
         if (_la == GQLParser::VALUE) {
-          setState(3111);
+          setState(3108);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::VALUE) {
               ctx->OnToken(_input->LT(1));
@@ -20969,39 +20951,39 @@ public:
           }
           match(GQLParser::VALUE);
         }
-        setState(3114);
+        setState(3111);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::LEFT_ANGLE_BRACKET) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::LEFT_ANGLE_BRACKET);
-        setState(3115);
+        setState(3112);
         {
           auto childCtxHolder = ctx->EnterValueType();
           valueType(0, get_raw_pointer(childCtxHolder));
         }
-        setState(3120);
+        setState(3117);
         _errHandler->sync(this);
         _la = _input->LA(1);
         while (_la == GQLParser::VERTICAL_BAR) {
-          setState(3116);
+          setState(3113);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::VERTICAL_BAR) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::VERTICAL_BAR);
-          setState(3117);
+          setState(3114);
           {
             auto childCtxHolder = ctx->EnterValueType();
             valueType(0, get_raw_pointer(childCtxHolder));
           }
-          setState(3122);
+          setState(3119);
           _errHandler->sync(this);
           _la = _input->LA(1);
         }
-        setState(3123);
+        setState(3120);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::RIGHT_ANGLE_BRACKET) {
             ctx->OnToken(_input->LT(1));
@@ -21015,9 +20997,9 @@ public:
         break;
       }
       _ctx->stop = _input->LT(-1);
-      setState(3143);
+      setState(3140);
       _errHandler->sync(this);
-      alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 305, _ctx);
+      alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 304, _ctx);
       while (alt != 2 && alt != antlr4::atn::ATN::INVALID_ALT_NUMBER) {
         if (alt == 1) {
           if (!_parseListeners.empty())
@@ -21026,9 +21008,9 @@ public:
             ctx->ExitRule(_ctx);
           }
           previousContext = _localctx;
-          setState(3141);
+          setState(3138);
           _errHandler->sync(this);
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 304, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 303, _ctx)) {
           case 1: {
             auto newParentContext = _tracker.createInstance<antlr4::ParserRuleContext>(parentContext, parentState);
             auto newContext = _tracker.createInstance<antlr4::ParserRuleContext>();
@@ -21044,17 +21026,17 @@ public:
               else
                 (void)ctx;
             });
-            setState(3127);
+            setState(3124);
 
             if (!(precpred(_ctx, 1))) throw antlr4::FailedPredicateException(this, "precpred(_ctx, 1)");
-            setState(3128);
+            setState(3125);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::VERTICAL_BAR) {
                 ctx->OnToken(_input->LT(1));
               }
             }
             match(GQLParser::VERTICAL_BAR);
-            setState(3129);
+            setState(3126);
             {
               auto childCtxHolder = ctx->EnterValueType();
               valueType(2, get_raw_pointer(childCtxHolder));
@@ -21077,32 +21059,32 @@ public:
               else
                 (void)ctx;
             });
-            setState(3130);
+            setState(3127);
 
             if (!(precpred(_ctx, 7))) throw antlr4::FailedPredicateException(this, "precpred(_ctx, 7)");
-            setState(3131);
+            setState(3128);
             {
               auto childCtxHolder = ctx->EnterListValueTypeName();
               listValueTypeName(get_raw_pointer(childCtxHolder));
             }
-            setState(3136);
+            setState(3133);
             _errHandler->sync(this);
 
-            switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 302, _ctx)) {
+            switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 301, _ctx)) {
             case 1: {
-              setState(3132);
+              setState(3129);
               if constexpr (has_OnToken<decltype(ctx)>::value) {
                 if (_input->LA(1) == GQLParser::LEFT_BRACKET) {
                   ctx->OnToken(_input->LT(1));
                 }
               }
               match(GQLParser::LEFT_BRACKET);
-              setState(3133);
+              setState(3130);
               {
                 auto childCtxHolder = ctx->EnterMaxLength();
                 maxLength(get_raw_pointer(childCtxHolder));
               }
-              setState(3134);
+              setState(3131);
               if constexpr (has_OnToken<decltype(ctx)>::value) {
                 if (_input->LA(1) == GQLParser::RIGHT_BRACKET) {
                   ctx->OnToken(_input->LT(1));
@@ -21115,12 +21097,12 @@ public:
             default:
               break;
             }
-            setState(3139);
+            setState(3136);
             _errHandler->sync(this);
 
-            switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 303, _ctx)) {
+            switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 302, _ctx)) {
             case 1: {
-              setState(3138);
+              setState(3135);
               {
                 auto childCtxHolder = ctx->EnterNotNull();
                 notNull(get_raw_pointer(childCtxHolder));
@@ -21138,9 +21120,9 @@ public:
             break;
           } 
         }
-        setState(3145);
+        setState(3142);
         _errHandler->sync(this);
-        alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 305, _ctx);
+        alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 304, _ctx);
       }
     }
     catch (antlr4::RecognitionException &e) {
@@ -21169,7 +21151,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3146);
+      setState(3143);
       _la = _input->LA(1);
       if (!(_la == GQLParser::TYPED || _la == GQLParser::DOUBLE_COLON)) {
         _errHandler->recoverInline(this);
@@ -21206,13 +21188,13 @@ public:
     }
     });
     try {
-      setState(3155);
+      setState(3152);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::BOOL:
         case GQLParser::BOOLEAN: {
           enterOuterAlt(_localctx, 1);
-          setState(3148);
+          setState(3145);
           {
             auto childCtxHolder = ctx->EnterBooleanType();
             booleanType(get_raw_pointer(childCtxHolder));
@@ -21224,7 +21206,7 @@ public:
         case GQLParser::STRING:
         case GQLParser::VARCHAR: {
           enterOuterAlt(_localctx, 2);
-          setState(3149);
+          setState(3146);
           {
             auto childCtxHolder = ctx->EnterCharacterStringType();
             characterStringType(get_raw_pointer(childCtxHolder));
@@ -21236,7 +21218,7 @@ public:
         case GQLParser::BYTES:
         case GQLParser::VARBINARY: {
           enterOuterAlt(_localctx, 3);
-          setState(3150);
+          setState(3147);
           {
             auto childCtxHolder = ctx->EnterByteStringType();
             byteStringType(get_raw_pointer(childCtxHolder));
@@ -21284,7 +21266,7 @@ public:
         case GQLParser::UNSIGNED:
         case GQLParser::USMALLINT: {
           enterOuterAlt(_localctx, 4);
-          setState(3151);
+          setState(3148);
           {
             auto childCtxHolder = ctx->EnterNumericType();
             numericType(get_raw_pointer(childCtxHolder));
@@ -21299,7 +21281,7 @@ public:
         case GQLParser::TIMESTAMP:
         case GQLParser::ZONED: {
           enterOuterAlt(_localctx, 5);
-          setState(3152);
+          setState(3149);
           {
             auto childCtxHolder = ctx->EnterTemporalType();
             temporalType(get_raw_pointer(childCtxHolder));
@@ -21320,7 +21302,7 @@ public:
         case GQLParser::VERTEX:
         case GQLParser::LEFT_PAREN: {
           enterOuterAlt(_localctx, 6);
-          setState(3153);
+          setState(3150);
           {
             auto childCtxHolder = ctx->EnterReferenceValueType();
             referenceValueType(get_raw_pointer(childCtxHolder));
@@ -21331,7 +21313,7 @@ public:
         case GQLParser::NOTHING:
         case GQLParser::NULL_KW: {
           enterOuterAlt(_localctx, 7);
-          setState(3154);
+          setState(3151);
           {
             auto childCtxHolder = ctx->EnterImmaterialValueType();
             immaterialValueType(get_raw_pointer(childCtxHolder));
@@ -21371,7 +21353,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3157);
+      setState(3154);
       _la = _input->LA(1);
       if (!(_la == GQLParser::BOOL
 
@@ -21383,12 +21365,12 @@ public:
         antlr4::Token * token = consume();
         ctx->OnToken(token);
       }
-      setState(3159);
+      setState(3156);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 307, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 306, _ctx)) {
       case 1: {
-        setState(3158);
+        setState(3155);
         {
           auto childCtxHolder = ctx->EnterNotNull();
           notNull(get_raw_pointer(childCtxHolder));
@@ -21426,41 +21408,41 @@ public:
     }
     });
     try {
-      setState(3196);
+      setState(3193);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::STRING: {
           enterOuterAlt(_localctx, 1);
-          setState(3161);
+          setState(3158);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::STRING) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::STRING);
-          setState(3171);
+          setState(3168);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 309, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 308, _ctx)) {
           case 1: {
-            setState(3162);
+            setState(3159);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::LEFT_PAREN) {
                 ctx->OnToken(_input->LT(1));
               }
             }
             match(GQLParser::LEFT_PAREN);
-            setState(3166);
+            setState(3163);
             _errHandler->sync(this);
 
-            switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 308, _ctx)) {
+            switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 307, _ctx)) {
             case 1: {
-              setState(3163);
+              setState(3160);
               {
                 auto childCtxHolder = ctx->EnterMinLength();
                 minLength(get_raw_pointer(childCtxHolder));
               }
-              setState(3164);
+              setState(3161);
               if constexpr (has_OnToken<decltype(ctx)>::value) {
                 if (_input->LA(1) == GQLParser::COMMA) {
                   ctx->OnToken(_input->LT(1));
@@ -21473,12 +21455,12 @@ public:
             default:
               break;
             }
-            setState(3168);
+            setState(3165);
             {
               auto childCtxHolder = ctx->EnterMaxLength();
               maxLength(get_raw_pointer(childCtxHolder));
             }
-            setState(3169);
+            setState(3166);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
                 ctx->OnToken(_input->LT(1));
@@ -21491,12 +21473,12 @@ public:
           default:
             break;
           }
-          setState(3174);
+          setState(3171);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 310, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 309, _ctx)) {
           case 1: {
-            setState(3173);
+            setState(3170);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -21512,31 +21494,31 @@ public:
 
         case GQLParser::CHAR: {
           enterOuterAlt(_localctx, 2);
-          setState(3176);
+          setState(3173);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::CHAR) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::CHAR);
-          setState(3181);
+          setState(3178);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 311, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 310, _ctx)) {
           case 1: {
-            setState(3177);
+            setState(3174);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::LEFT_PAREN) {
                 ctx->OnToken(_input->LT(1));
               }
             }
             match(GQLParser::LEFT_PAREN);
-            setState(3178);
+            setState(3175);
             {
               auto childCtxHolder = ctx->EnterFixedLength();
               fixedLength(get_raw_pointer(childCtxHolder));
             }
-            setState(3179);
+            setState(3176);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
                 ctx->OnToken(_input->LT(1));
@@ -21549,12 +21531,12 @@ public:
           default:
             break;
           }
-          setState(3184);
+          setState(3181);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 312, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 311, _ctx)) {
           case 1: {
-            setState(3183);
+            setState(3180);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -21570,31 +21552,31 @@ public:
 
         case GQLParser::VARCHAR: {
           enterOuterAlt(_localctx, 3);
-          setState(3186);
+          setState(3183);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::VARCHAR) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::VARCHAR);
-          setState(3191);
+          setState(3188);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 313, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 312, _ctx)) {
           case 1: {
-            setState(3187);
+            setState(3184);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::LEFT_PAREN) {
                 ctx->OnToken(_input->LT(1));
               }
             }
             match(GQLParser::LEFT_PAREN);
-            setState(3188);
+            setState(3185);
             {
               auto childCtxHolder = ctx->EnterMaxLength();
               maxLength(get_raw_pointer(childCtxHolder));
             }
-            setState(3189);
+            setState(3186);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
                 ctx->OnToken(_input->LT(1));
@@ -21607,12 +21589,12 @@ public:
           default:
             break;
           }
-          setState(3194);
+          setState(3191);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 314, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 313, _ctx)) {
           case 1: {
-            setState(3193);
+            setState(3190);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -21656,41 +21638,41 @@ public:
     }
     });
     try {
-      setState(3233);
+      setState(3230);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::BYTES: {
           enterOuterAlt(_localctx, 1);
-          setState(3198);
+          setState(3195);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::BYTES) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::BYTES);
-          setState(3208);
+          setState(3205);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 317, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 316, _ctx)) {
           case 1: {
-            setState(3199);
+            setState(3196);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::LEFT_PAREN) {
                 ctx->OnToken(_input->LT(1));
               }
             }
             match(GQLParser::LEFT_PAREN);
-            setState(3203);
+            setState(3200);
             _errHandler->sync(this);
 
-            switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 316, _ctx)) {
+            switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 315, _ctx)) {
             case 1: {
-              setState(3200);
+              setState(3197);
               {
                 auto childCtxHolder = ctx->EnterMinLength();
                 minLength(get_raw_pointer(childCtxHolder));
               }
-              setState(3201);
+              setState(3198);
               if constexpr (has_OnToken<decltype(ctx)>::value) {
                 if (_input->LA(1) == GQLParser::COMMA) {
                   ctx->OnToken(_input->LT(1));
@@ -21703,12 +21685,12 @@ public:
             default:
               break;
             }
-            setState(3205);
+            setState(3202);
             {
               auto childCtxHolder = ctx->EnterMaxLength();
               maxLength(get_raw_pointer(childCtxHolder));
             }
-            setState(3206);
+            setState(3203);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
                 ctx->OnToken(_input->LT(1));
@@ -21721,12 +21703,12 @@ public:
           default:
             break;
           }
-          setState(3211);
+          setState(3208);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 318, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 317, _ctx)) {
           case 1: {
-            setState(3210);
+            setState(3207);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -21742,31 +21724,31 @@ public:
 
         case GQLParser::BINARY: {
           enterOuterAlt(_localctx, 2);
-          setState(3213);
+          setState(3210);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::BINARY) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::BINARY);
-          setState(3218);
+          setState(3215);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 319, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 318, _ctx)) {
           case 1: {
-            setState(3214);
+            setState(3211);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::LEFT_PAREN) {
                 ctx->OnToken(_input->LT(1));
               }
             }
             match(GQLParser::LEFT_PAREN);
-            setState(3215);
+            setState(3212);
             {
               auto childCtxHolder = ctx->EnterFixedLength();
               fixedLength(get_raw_pointer(childCtxHolder));
             }
-            setState(3216);
+            setState(3213);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
                 ctx->OnToken(_input->LT(1));
@@ -21779,12 +21761,12 @@ public:
           default:
             break;
           }
-          setState(3221);
+          setState(3218);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 320, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 319, _ctx)) {
           case 1: {
-            setState(3220);
+            setState(3217);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -21800,31 +21782,31 @@ public:
 
         case GQLParser::VARBINARY: {
           enterOuterAlt(_localctx, 3);
-          setState(3223);
+          setState(3220);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::VARBINARY) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::VARBINARY);
-          setState(3228);
+          setState(3225);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 321, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 320, _ctx)) {
           case 1: {
-            setState(3224);
+            setState(3221);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::LEFT_PAREN) {
                 ctx->OnToken(_input->LT(1));
               }
             }
             match(GQLParser::LEFT_PAREN);
-            setState(3225);
+            setState(3222);
             {
               auto childCtxHolder = ctx->EnterMaxLength();
               maxLength(get_raw_pointer(childCtxHolder));
             }
-            setState(3226);
+            setState(3223);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
                 ctx->OnToken(_input->LT(1));
@@ -21837,12 +21819,12 @@ public:
           default:
             break;
           }
-          setState(3231);
+          setState(3228);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 322, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 321, _ctx)) {
           case 1: {
-            setState(3230);
+            setState(3227);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -21887,7 +21869,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3235);
+      setState(3232);
       {
         auto childCtxHolder = ctx->EnterUnsignedInteger();
         unsignedInteger(get_raw_pointer(childCtxHolder));
@@ -21920,7 +21902,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3237);
+      setState(3234);
       {
         auto childCtxHolder = ctx->EnterUnsignedInteger();
         unsignedInteger(get_raw_pointer(childCtxHolder));
@@ -21953,7 +21935,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3239);
+      setState(3236);
       {
         auto childCtxHolder = ctx->EnterUnsignedInteger();
         unsignedInteger(get_raw_pointer(childCtxHolder));
@@ -21985,7 +21967,7 @@ public:
     }
     });
     try {
-      setState(3243);
+      setState(3240);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::BIG:
@@ -22020,7 +22002,7 @@ public:
         case GQLParser::UNSIGNED:
         case GQLParser::USMALLINT: {
           enterOuterAlt(_localctx, 1);
-          setState(3241);
+          setState(3238);
           {
             auto childCtxHolder = ctx->EnterExactNumericType();
             exactNumericType(get_raw_pointer(childCtxHolder));
@@ -22037,7 +22019,7 @@ public:
         case GQLParser::FLOAT256:
         case GQLParser::REAL: {
           enterOuterAlt(_localctx, 2);
-          setState(3242);
+          setState(3239);
           {
             auto childCtxHolder = ctx->EnterApproximateNumericType();
             approximateNumericType(get_raw_pointer(childCtxHolder));
@@ -22075,7 +22057,7 @@ public:
     }
     });
     try {
-      setState(3247);
+      setState(3244);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::BIG:
@@ -22108,7 +22090,7 @@ public:
         case GQLParser::UNSIGNED:
         case GQLParser::USMALLINT: {
           enterOuterAlt(_localctx, 1);
-          setState(3245);
+          setState(3242);
           {
             auto childCtxHolder = ctx->EnterBinaryExactNumericType();
             binaryExactNumericType(get_raw_pointer(childCtxHolder));
@@ -22119,7 +22101,7 @@ public:
         case GQLParser::DEC:
         case GQLParser::DECIMAL: {
           enterOuterAlt(_localctx, 2);
-          setState(3246);
+          setState(3243);
           {
             auto childCtxHolder = ctx->EnterDecimalExactNumericType();
             decimalExactNumericType(get_raw_pointer(childCtxHolder));
@@ -22157,7 +22139,7 @@ public:
     }
     });
     try {
-      setState(3251);
+      setState(3248);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::BIG:
@@ -22180,7 +22162,7 @@ public:
         case GQLParser::SMALL:
         case GQLParser::SMALLINT: {
           enterOuterAlt(_localctx, 1);
-          setState(3249);
+          setState(3246);
           {
             auto childCtxHolder = ctx->EnterSignedBinaryExactNumericType();
             signedBinaryExactNumericType(get_raw_pointer(childCtxHolder));
@@ -22199,7 +22181,7 @@ public:
         case GQLParser::UNSIGNED:
         case GQLParser::USMALLINT: {
           enterOuterAlt(_localctx, 2);
-          setState(3250);
+          setState(3247);
           {
             auto childCtxHolder = ctx->EnterUnsignedBinaryExactNumericType();
             unsignedBinaryExactNumericType(get_raw_pointer(childCtxHolder));
@@ -22238,24 +22220,24 @@ public:
     }
     });
     try {
-      setState(3299);
+      setState(3296);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::INT8: {
           enterOuterAlt(_localctx, 1);
-          setState(3253);
+          setState(3250);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::INT8) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::INT8);
-          setState(3255);
+          setState(3252);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 327, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 326, _ctx)) {
           case 1: {
-            setState(3254);
+            setState(3251);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -22271,19 +22253,19 @@ public:
 
         case GQLParser::INT16: {
           enterOuterAlt(_localctx, 2);
-          setState(3257);
+          setState(3254);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::INT16) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::INT16);
-          setState(3259);
+          setState(3256);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 328, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 327, _ctx)) {
           case 1: {
-            setState(3258);
+            setState(3255);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -22299,19 +22281,19 @@ public:
 
         case GQLParser::INT32: {
           enterOuterAlt(_localctx, 3);
-          setState(3261);
+          setState(3258);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::INT32) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::INT32);
-          setState(3263);
+          setState(3260);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 329, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 328, _ctx)) {
           case 1: {
-            setState(3262);
+            setState(3259);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -22327,19 +22309,19 @@ public:
 
         case GQLParser::INT64: {
           enterOuterAlt(_localctx, 4);
-          setState(3265);
+          setState(3262);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::INT64) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::INT64);
-          setState(3267);
+          setState(3264);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 330, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 329, _ctx)) {
           case 1: {
-            setState(3266);
+            setState(3263);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -22355,19 +22337,19 @@ public:
 
         case GQLParser::INT128: {
           enterOuterAlt(_localctx, 5);
-          setState(3269);
+          setState(3266);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::INT128) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::INT128);
-          setState(3271);
+          setState(3268);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 331, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 330, _ctx)) {
           case 1: {
-            setState(3270);
+            setState(3267);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -22383,19 +22365,19 @@ public:
 
         case GQLParser::INT256: {
           enterOuterAlt(_localctx, 6);
-          setState(3273);
+          setState(3270);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::INT256) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::INT256);
-          setState(3275);
+          setState(3272);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 332, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 331, _ctx)) {
           case 1: {
-            setState(3274);
+            setState(3271);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -22411,19 +22393,19 @@ public:
 
         case GQLParser::SMALLINT: {
           enterOuterAlt(_localctx, 7);
-          setState(3277);
+          setState(3274);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::SMALLINT) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::SMALLINT);
-          setState(3279);
+          setState(3276);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 333, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 332, _ctx)) {
           case 1: {
-            setState(3278);
+            setState(3275);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -22439,31 +22421,31 @@ public:
 
         case GQLParser::INT: {
           enterOuterAlt(_localctx, 8);
-          setState(3281);
+          setState(3278);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::INT) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::INT);
-          setState(3286);
+          setState(3283);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 334, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 333, _ctx)) {
           case 1: {
-            setState(3282);
+            setState(3279);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::LEFT_PAREN) {
                 ctx->OnToken(_input->LT(1));
               }
             }
             match(GQLParser::LEFT_PAREN);
-            setState(3283);
+            setState(3280);
             {
               auto childCtxHolder = ctx->EnterPrecision();
               precision(get_raw_pointer(childCtxHolder));
             }
-            setState(3284);
+            setState(3281);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
                 ctx->OnToken(_input->LT(1));
@@ -22476,12 +22458,12 @@ public:
           default:
             break;
           }
-          setState(3289);
+          setState(3286);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 335, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 334, _ctx)) {
           case 1: {
-            setState(3288);
+            setState(3285);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -22497,19 +22479,19 @@ public:
 
         case GQLParser::BIGINT: {
           enterOuterAlt(_localctx, 9);
-          setState(3291);
+          setState(3288);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::BIGINT) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::BIGINT);
-          setState(3293);
+          setState(3290);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 336, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 335, _ctx)) {
           case 1: {
-            setState(3292);
+            setState(3289);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -22534,12 +22516,12 @@ public:
         case GQLParser::SIGNED:
         case GQLParser::SMALL: {
           enterOuterAlt(_localctx, 10);
-          setState(3296);
+          setState(3293);
           _errHandler->sync(this);
 
           _la = _input->LA(1);
           if (_la == GQLParser::SIGNED) {
-            setState(3295);
+            setState(3292);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::SIGNED) {
                 ctx->OnToken(_input->LT(1));
@@ -22547,7 +22529,7 @@ public:
             }
             match(GQLParser::SIGNED);
           }
-          setState(3298);
+          setState(3295);
           {
             auto childCtxHolder = ctx->EnterVerboseBinaryExactNumericType();
             verboseBinaryExactNumericType(get_raw_pointer(childCtxHolder));
@@ -22585,24 +22567,24 @@ public:
     }
     });
     try {
-      setState(3345);
+      setState(3342);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::UINT8: {
           enterOuterAlt(_localctx, 1);
-          setState(3301);
+          setState(3298);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::UINT8) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::UINT8);
-          setState(3303);
+          setState(3300);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 339, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 338, _ctx)) {
           case 1: {
-            setState(3302);
+            setState(3299);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -22618,19 +22600,19 @@ public:
 
         case GQLParser::UINT16: {
           enterOuterAlt(_localctx, 2);
-          setState(3305);
+          setState(3302);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::UINT16) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::UINT16);
-          setState(3307);
+          setState(3304);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 340, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 339, _ctx)) {
           case 1: {
-            setState(3306);
+            setState(3303);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -22646,19 +22628,19 @@ public:
 
         case GQLParser::UINT32: {
           enterOuterAlt(_localctx, 3);
-          setState(3309);
+          setState(3306);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::UINT32) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::UINT32);
-          setState(3311);
+          setState(3308);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 341, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 340, _ctx)) {
           case 1: {
-            setState(3310);
+            setState(3307);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -22674,19 +22656,19 @@ public:
 
         case GQLParser::UINT64: {
           enterOuterAlt(_localctx, 4);
-          setState(3313);
+          setState(3310);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::UINT64) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::UINT64);
-          setState(3315);
+          setState(3312);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 342, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 341, _ctx)) {
           case 1: {
-            setState(3314);
+            setState(3311);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -22702,19 +22684,19 @@ public:
 
         case GQLParser::UINT128: {
           enterOuterAlt(_localctx, 5);
-          setState(3317);
+          setState(3314);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::UINT128) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::UINT128);
-          setState(3319);
+          setState(3316);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 343, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 342, _ctx)) {
           case 1: {
-            setState(3318);
+            setState(3315);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -22730,19 +22712,19 @@ public:
 
         case GQLParser::UINT256: {
           enterOuterAlt(_localctx, 6);
-          setState(3321);
+          setState(3318);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::UINT256) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::UINT256);
-          setState(3323);
+          setState(3320);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 344, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 343, _ctx)) {
           case 1: {
-            setState(3322);
+            setState(3319);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -22758,19 +22740,19 @@ public:
 
         case GQLParser::USMALLINT: {
           enterOuterAlt(_localctx, 7);
-          setState(3325);
+          setState(3322);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::USMALLINT) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::USMALLINT);
-          setState(3327);
+          setState(3324);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 345, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 344, _ctx)) {
           case 1: {
-            setState(3326);
+            setState(3323);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -22786,31 +22768,31 @@ public:
 
         case GQLParser::UINT: {
           enterOuterAlt(_localctx, 8);
-          setState(3329);
+          setState(3326);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::UINT) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::UINT);
-          setState(3334);
+          setState(3331);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 346, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 345, _ctx)) {
           case 1: {
-            setState(3330);
+            setState(3327);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::LEFT_PAREN) {
                 ctx->OnToken(_input->LT(1));
               }
             }
             match(GQLParser::LEFT_PAREN);
-            setState(3331);
+            setState(3328);
             {
               auto childCtxHolder = ctx->EnterPrecision();
               precision(get_raw_pointer(childCtxHolder));
             }
-            setState(3332);
+            setState(3329);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
                 ctx->OnToken(_input->LT(1));
@@ -22823,12 +22805,12 @@ public:
           default:
             break;
           }
-          setState(3337);
+          setState(3334);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 347, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 346, _ctx)) {
           case 1: {
-            setState(3336);
+            setState(3333);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -22844,19 +22826,19 @@ public:
 
         case GQLParser::UBIGINT: {
           enterOuterAlt(_localctx, 9);
-          setState(3339);
+          setState(3336);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::UBIGINT) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::UBIGINT);
-          setState(3341);
+          setState(3338);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 348, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 347, _ctx)) {
           case 1: {
-            setState(3340);
+            setState(3337);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -22872,14 +22854,14 @@ public:
 
         case GQLParser::UNSIGNED: {
           enterOuterAlt(_localctx, 10);
-          setState(3343);
+          setState(3340);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::UNSIGNED) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::UNSIGNED);
-          setState(3344);
+          setState(3341);
           {
             auto childCtxHolder = ctx->EnterVerboseBinaryExactNumericType();
             verboseBinaryExactNumericType(get_raw_pointer(childCtxHolder));
@@ -22917,24 +22899,24 @@ public:
     }
     });
     try {
-      setState(3391);
+      setState(3388);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::INTEGER8: {
           enterOuterAlt(_localctx, 1);
-          setState(3347);
+          setState(3344);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::INTEGER8) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::INTEGER8);
-          setState(3349);
+          setState(3346);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 350, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 349, _ctx)) {
           case 1: {
-            setState(3348);
+            setState(3345);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -22950,19 +22932,19 @@ public:
 
         case GQLParser::INTEGER16: {
           enterOuterAlt(_localctx, 2);
-          setState(3351);
+          setState(3348);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::INTEGER16) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::INTEGER16);
-          setState(3353);
+          setState(3350);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 351, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 350, _ctx)) {
           case 1: {
-            setState(3352);
+            setState(3349);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -22978,19 +22960,19 @@ public:
 
         case GQLParser::INTEGER32: {
           enterOuterAlt(_localctx, 3);
-          setState(3355);
+          setState(3352);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::INTEGER32) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::INTEGER32);
-          setState(3357);
+          setState(3354);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 352, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 351, _ctx)) {
           case 1: {
-            setState(3356);
+            setState(3353);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -23006,19 +22988,19 @@ public:
 
         case GQLParser::INTEGER64: {
           enterOuterAlt(_localctx, 4);
-          setState(3359);
+          setState(3356);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::INTEGER64) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::INTEGER64);
-          setState(3361);
+          setState(3358);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 353, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 352, _ctx)) {
           case 1: {
-            setState(3360);
+            setState(3357);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -23034,19 +23016,19 @@ public:
 
         case GQLParser::INTEGER128: {
           enterOuterAlt(_localctx, 5);
-          setState(3363);
+          setState(3360);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::INTEGER128) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::INTEGER128);
-          setState(3365);
+          setState(3362);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 354, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 353, _ctx)) {
           case 1: {
-            setState(3364);
+            setState(3361);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -23062,19 +23044,19 @@ public:
 
         case GQLParser::INTEGER256: {
           enterOuterAlt(_localctx, 6);
-          setState(3367);
+          setState(3364);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::INTEGER256) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::INTEGER256);
-          setState(3369);
+          setState(3366);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 355, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 354, _ctx)) {
           case 1: {
-            setState(3368);
+            setState(3365);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -23090,26 +23072,26 @@ public:
 
         case GQLParser::SMALL: {
           enterOuterAlt(_localctx, 7);
-          setState(3371);
+          setState(3368);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::SMALL) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::SMALL);
-          setState(3372);
+          setState(3369);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::INTEGER) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::INTEGER);
-          setState(3374);
+          setState(3371);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 356, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 355, _ctx)) {
           case 1: {
-            setState(3373);
+            setState(3370);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -23125,31 +23107,31 @@ public:
 
         case GQLParser::INTEGER: {
           enterOuterAlt(_localctx, 8);
-          setState(3376);
+          setState(3373);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::INTEGER) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::INTEGER);
-          setState(3381);
+          setState(3378);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 357, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 356, _ctx)) {
           case 1: {
-            setState(3377);
+            setState(3374);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::LEFT_PAREN) {
                 ctx->OnToken(_input->LT(1));
               }
             }
             match(GQLParser::LEFT_PAREN);
-            setState(3378);
+            setState(3375);
             {
               auto childCtxHolder = ctx->EnterPrecision();
               precision(get_raw_pointer(childCtxHolder));
             }
-            setState(3379);
+            setState(3376);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
                 ctx->OnToken(_input->LT(1));
@@ -23162,12 +23144,12 @@ public:
           default:
             break;
           }
-          setState(3384);
+          setState(3381);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 358, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 357, _ctx)) {
           case 1: {
-            setState(3383);
+            setState(3380);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -23183,26 +23165,26 @@ public:
 
         case GQLParser::BIG: {
           enterOuterAlt(_localctx, 9);
-          setState(3386);
+          setState(3383);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::BIG) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::BIG);
-          setState(3387);
+          setState(3384);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::INTEGER) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::INTEGER);
-          setState(3389);
+          setState(3386);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 359, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 358, _ctx)) {
           case 1: {
-            setState(3388);
+            setState(3385);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -23248,7 +23230,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3393);
+      setState(3390);
       _la = _input->LA(1);
       if (!(_la == GQLParser::DEC
 
@@ -23260,54 +23242,54 @@ public:
         antlr4::Token * token = consume();
         ctx->OnToken(token);
       }
-      setState(3404);
+      setState(3401);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 363, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 362, _ctx)) {
       case 1: {
-        setState(3394);
+        setState(3391);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::LEFT_PAREN) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::LEFT_PAREN);
-        setState(3395);
+        setState(3392);
         {
           auto childCtxHolder = ctx->EnterPrecision();
           precision(get_raw_pointer(childCtxHolder));
         }
-        setState(3398);
+        setState(3395);
         _errHandler->sync(this);
 
         _la = _input->LA(1);
         if (_la == GQLParser::COMMA) {
-          setState(3396);
+          setState(3393);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::COMMA) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::COMMA);
-          setState(3397);
+          setState(3394);
           {
             auto childCtxHolder = ctx->EnterScale();
             scale(get_raw_pointer(childCtxHolder));
           }
         }
-        setState(3400);
+        setState(3397);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::RIGHT_PAREN);
-        setState(3402);
+        setState(3399);
         _errHandler->sync(this);
 
-        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 362, _ctx)) {
+        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 361, _ctx)) {
         case 1: {
-          setState(3401);
+          setState(3398);
           {
             auto childCtxHolder = ctx->EnterNotNull();
             notNull(get_raw_pointer(childCtxHolder));
@@ -23352,7 +23334,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3406);
+      setState(3403);
       {
         auto childCtxHolder = ctx->EnterUnsignedDecimalInteger();
         unsignedDecimalInteger(get_raw_pointer(childCtxHolder));
@@ -23385,7 +23367,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3408);
+      setState(3405);
       {
         auto childCtxHolder = ctx->EnterUnsignedDecimalInteger();
         unsignedDecimalInteger(get_raw_pointer(childCtxHolder));
@@ -23418,24 +23400,24 @@ public:
     }
     });
     try {
-      setState(3455);
+      setState(3452);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::FLOAT16: {
           enterOuterAlt(_localctx, 1);
-          setState(3410);
+          setState(3407);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::FLOAT16) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::FLOAT16);
-          setState(3412);
+          setState(3409);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 364, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 363, _ctx)) {
           case 1: {
-            setState(3411);
+            setState(3408);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -23451,19 +23433,19 @@ public:
 
         case GQLParser::FLOAT32: {
           enterOuterAlt(_localctx, 2);
-          setState(3414);
+          setState(3411);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::FLOAT32) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::FLOAT32);
-          setState(3416);
+          setState(3413);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 365, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 364, _ctx)) {
           case 1: {
-            setState(3415);
+            setState(3412);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -23479,19 +23461,19 @@ public:
 
         case GQLParser::FLOAT64: {
           enterOuterAlt(_localctx, 3);
-          setState(3418);
+          setState(3415);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::FLOAT64) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::FLOAT64);
-          setState(3420);
+          setState(3417);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 366, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 365, _ctx)) {
           case 1: {
-            setState(3419);
+            setState(3416);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -23507,19 +23489,19 @@ public:
 
         case GQLParser::FLOAT128: {
           enterOuterAlt(_localctx, 4);
-          setState(3422);
+          setState(3419);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::FLOAT128) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::FLOAT128);
-          setState(3424);
+          setState(3421);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 367, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 366, _ctx)) {
           case 1: {
-            setState(3423);
+            setState(3420);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -23535,19 +23517,19 @@ public:
 
         case GQLParser::FLOAT256: {
           enterOuterAlt(_localctx, 5);
-          setState(3426);
+          setState(3423);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::FLOAT256) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::FLOAT256);
-          setState(3428);
+          setState(3425);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 368, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 367, _ctx)) {
           case 1: {
-            setState(3427);
+            setState(3424);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -23563,49 +23545,49 @@ public:
 
         case GQLParser::FLOAT: {
           enterOuterAlt(_localctx, 6);
-          setState(3430);
+          setState(3427);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::FLOAT) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::FLOAT);
-          setState(3439);
+          setState(3436);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 370, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 369, _ctx)) {
           case 1: {
-            setState(3431);
+            setState(3428);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::LEFT_PAREN) {
                 ctx->OnToken(_input->LT(1));
               }
             }
             match(GQLParser::LEFT_PAREN);
-            setState(3432);
+            setState(3429);
             {
               auto childCtxHolder = ctx->EnterPrecision();
               precision(get_raw_pointer(childCtxHolder));
             }
-            setState(3435);
+            setState(3432);
             _errHandler->sync(this);
 
             _la = _input->LA(1);
             if (_la == GQLParser::COMMA) {
-              setState(3433);
+              setState(3430);
               if constexpr (has_OnToken<decltype(ctx)>::value) {
                 if (_input->LA(1) == GQLParser::COMMA) {
                   ctx->OnToken(_input->LT(1));
                 }
               }
               match(GQLParser::COMMA);
-              setState(3434);
+              setState(3431);
               {
                 auto childCtxHolder = ctx->EnterScale();
                 scale(get_raw_pointer(childCtxHolder));
               }
             }
-            setState(3437);
+            setState(3434);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
                 ctx->OnToken(_input->LT(1));
@@ -23618,12 +23600,12 @@ public:
           default:
             break;
           }
-          setState(3442);
+          setState(3439);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 371, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 370, _ctx)) {
           case 1: {
-            setState(3441);
+            setState(3438);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -23639,19 +23621,19 @@ public:
 
         case GQLParser::REAL: {
           enterOuterAlt(_localctx, 7);
-          setState(3444);
+          setState(3441);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::REAL) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::REAL);
-          setState(3446);
+          setState(3443);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 372, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 371, _ctx)) {
           case 1: {
-            setState(3445);
+            setState(3442);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -23667,19 +23649,19 @@ public:
 
         case GQLParser::DOUBLE: {
           enterOuterAlt(_localctx, 8);
-          setState(3448);
+          setState(3445);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::DOUBLE) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::DOUBLE);
-          setState(3450);
+          setState(3447);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 373, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 372, _ctx)) {
           case 1: {
-            setState(3449);
+            setState(3446);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::PRECISION) {
                 ctx->OnToken(_input->LT(1));
@@ -23692,12 +23674,12 @@ public:
           default:
             break;
           }
-          setState(3453);
+          setState(3450);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 374, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 373, _ctx)) {
           case 1: {
-            setState(3452);
+            setState(3449);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -23741,7 +23723,7 @@ public:
     }
     });
     try {
-      setState(3459);
+      setState(3456);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::DATE:
@@ -23750,7 +23732,7 @@ public:
         case GQLParser::TIMESTAMP:
         case GQLParser::ZONED: {
           enterOuterAlt(_localctx, 1);
-          setState(3457);
+          setState(3454);
           {
             auto childCtxHolder = ctx->EnterTemporalInstantType();
             temporalInstantType(get_raw_pointer(childCtxHolder));
@@ -23760,7 +23742,7 @@ public:
 
         case GQLParser::DURATION: {
           enterOuterAlt(_localctx, 2);
-          setState(3458);
+          setState(3455);
           {
             auto childCtxHolder = ctx->EnterTemporalDurationType();
             temporalDurationType(get_raw_pointer(childCtxHolder));
@@ -23798,12 +23780,12 @@ public:
     }
     });
     try {
-      setState(3466);
+      setState(3463);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 377, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 376, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(3461);
+        setState(3458);
         {
           auto childCtxHolder = ctx->EnterDatetimeType();
           datetimeType(get_raw_pointer(childCtxHolder));
@@ -23813,7 +23795,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(3462);
+        setState(3459);
         {
           auto childCtxHolder = ctx->EnterLocaldatetimeType();
           localdatetimeType(get_raw_pointer(childCtxHolder));
@@ -23823,7 +23805,7 @@ public:
 
       case 3: {
         enterOuterAlt(_localctx, 3);
-        setState(3463);
+        setState(3460);
         {
           auto childCtxHolder = ctx->EnterDateType();
           dateType(get_raw_pointer(childCtxHolder));
@@ -23833,7 +23815,7 @@ public:
 
       case 4: {
         enterOuterAlt(_localctx, 4);
-        setState(3464);
+        setState(3461);
         {
           auto childCtxHolder = ctx->EnterTimeType();
           timeType(get_raw_pointer(childCtxHolder));
@@ -23843,7 +23825,7 @@ public:
 
       case 5: {
         enterOuterAlt(_localctx, 5);
-        setState(3465);
+        setState(3462);
         {
           auto childCtxHolder = ctx->EnterLocaltimeType();
           localtimeType(get_raw_pointer(childCtxHolder));
@@ -23881,31 +23863,31 @@ public:
     }
     });
     try {
-      setState(3480);
+      setState(3477);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::ZONED: {
           enterOuterAlt(_localctx, 1);
-          setState(3468);
+          setState(3465);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::ZONED) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::ZONED);
-          setState(3469);
+          setState(3466);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::DATETIME) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::DATETIME);
-          setState(3471);
+          setState(3468);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 378, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 377, _ctx)) {
           case 1: {
-            setState(3470);
+            setState(3467);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -23921,40 +23903,40 @@ public:
 
         case GQLParser::TIMESTAMP: {
           enterOuterAlt(_localctx, 2);
-          setState(3473);
+          setState(3470);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::TIMESTAMP) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::TIMESTAMP);
-          setState(3474);
+          setState(3471);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::WITH) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::WITH);
-          setState(3475);
+          setState(3472);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::TIME) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::TIME);
-          setState(3476);
+          setState(3473);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::ZONE) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::ZONE);
-          setState(3478);
+          setState(3475);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 379, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 378, _ctx)) {
           case 1: {
-            setState(3477);
+            setState(3474);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -23998,31 +23980,31 @@ public:
     }
     });
     try {
-      setState(3496);
+      setState(3493);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::LOCAL: {
           enterOuterAlt(_localctx, 1);
-          setState(3482);
+          setState(3479);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::LOCAL) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::LOCAL);
-          setState(3483);
+          setState(3480);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::DATETIME) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::DATETIME);
-          setState(3485);
+          setState(3482);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 381, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 380, _ctx)) {
           case 1: {
-            setState(3484);
+            setState(3481);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -24038,33 +24020,33 @@ public:
 
         case GQLParser::TIMESTAMP: {
           enterOuterAlt(_localctx, 2);
-          setState(3487);
+          setState(3484);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::TIMESTAMP) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::TIMESTAMP);
-          setState(3491);
+          setState(3488);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 382, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 381, _ctx)) {
           case 1: {
-            setState(3488);
+            setState(3485);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::WITHOUT) {
                 ctx->OnToken(_input->LT(1));
               }
             }
             match(GQLParser::WITHOUT);
-            setState(3489);
+            setState(3486);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::TIME) {
                 ctx->OnToken(_input->LT(1));
               }
             }
             match(GQLParser::TIME);
-            setState(3490);
+            setState(3487);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::ZONE) {
                 ctx->OnToken(_input->LT(1));
@@ -24077,12 +24059,12 @@ public:
           default:
             break;
           }
-          setState(3494);
+          setState(3491);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 383, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 382, _ctx)) {
           case 1: {
-            setState(3493);
+            setState(3490);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -24127,19 +24109,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3498);
+      setState(3495);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::DATE) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::DATE);
-      setState(3500);
+      setState(3497);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 385, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 384, _ctx)) {
       case 1: {
-        setState(3499);
+        setState(3496);
         {
           auto childCtxHolder = ctx->EnterNotNull();
           notNull(get_raw_pointer(childCtxHolder));
@@ -24177,31 +24159,31 @@ public:
     }
     });
     try {
-      setState(3514);
+      setState(3511);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::ZONED: {
           enterOuterAlt(_localctx, 1);
-          setState(3502);
+          setState(3499);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::ZONED) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::ZONED);
-          setState(3503);
+          setState(3500);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::TIME) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::TIME);
-          setState(3505);
+          setState(3502);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 386, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 385, _ctx)) {
           case 1: {
-            setState(3504);
+            setState(3501);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -24217,40 +24199,40 @@ public:
 
         case GQLParser::TIME: {
           enterOuterAlt(_localctx, 2);
-          setState(3507);
+          setState(3504);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::TIME) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::TIME);
-          setState(3508);
+          setState(3505);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::WITH) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::WITH);
-          setState(3509);
+          setState(3506);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::TIME) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::TIME);
-          setState(3510);
+          setState(3507);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::ZONE) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::ZONE);
-          setState(3512);
+          setState(3509);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 387, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 386, _ctx)) {
           case 1: {
-            setState(3511);
+            setState(3508);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -24294,31 +24276,31 @@ public:
     }
     });
     try {
-      setState(3528);
+      setState(3525);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::LOCAL: {
           enterOuterAlt(_localctx, 1);
-          setState(3516);
+          setState(3513);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::LOCAL) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::LOCAL);
-          setState(3517);
+          setState(3514);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::TIME) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::TIME);
-          setState(3519);
+          setState(3516);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 389, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 388, _ctx)) {
           case 1: {
-            setState(3518);
+            setState(3515);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -24334,40 +24316,40 @@ public:
 
         case GQLParser::TIME: {
           enterOuterAlt(_localctx, 2);
-          setState(3521);
+          setState(3518);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::TIME) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::TIME);
-          setState(3522);
+          setState(3519);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::WITHOUT) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::WITHOUT);
-          setState(3523);
+          setState(3520);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::TIME) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::TIME);
-          setState(3524);
+          setState(3521);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::ZONE) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::ZONE);
-          setState(3526);
+          setState(3523);
           _errHandler->sync(this);
 
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 390, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 389, _ctx)) {
           case 1: {
-            setState(3525);
+            setState(3522);
             {
               auto childCtxHolder = ctx->EnterNotNull();
               notNull(get_raw_pointer(childCtxHolder));
@@ -24412,38 +24394,38 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3530);
+      setState(3527);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::DURATION) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::DURATION);
-      setState(3531);
+      setState(3528);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(3532);
+      setState(3529);
       {
         auto childCtxHolder = ctx->EnterTemporalDurationQualifier();
         temporalDurationQualifier(get_raw_pointer(childCtxHolder));
       }
-      setState(3533);
+      setState(3530);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::RIGHT_PAREN);
-      setState(3535);
+      setState(3532);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 392, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 391, _ctx)) {
       case 1: {
-        setState(3534);
+        setState(3531);
         {
           auto childCtxHolder = ctx->EnterNotNull();
           notNull(get_raw_pointer(childCtxHolder));
@@ -24481,26 +24463,26 @@ public:
     }
     });
     try {
-      setState(3543);
+      setState(3540);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::YEAR: {
           enterOuterAlt(_localctx, 1);
-          setState(3537);
+          setState(3534);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::YEAR) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::YEAR);
-          setState(3538);
+          setState(3535);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::TO) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::TO);
-          setState(3539);
+          setState(3536);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::MONTH) {
               ctx->OnToken(_input->LT(1));
@@ -24512,21 +24494,21 @@ public:
 
         case GQLParser::DAY: {
           enterOuterAlt(_localctx, 2);
-          setState(3540);
+          setState(3537);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::DAY) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::DAY);
-          setState(3541);
+          setState(3538);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::TO) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::TO);
-          setState(3542);
+          setState(3539);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::SECOND) {
               ctx->OnToken(_input->LT(1));
@@ -24566,12 +24548,12 @@ public:
     }
     });
     try {
-      setState(3549);
+      setState(3546);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 394, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 393, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(3545);
+        setState(3542);
         {
           auto childCtxHolder = ctx->EnterGraphReferenceValueType();
           graphReferenceValueType(get_raw_pointer(childCtxHolder));
@@ -24581,7 +24563,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(3546);
+        setState(3543);
         {
           auto childCtxHolder = ctx->EnterBindingTableReferenceValueType();
           bindingTableReferenceValueType(get_raw_pointer(childCtxHolder));
@@ -24591,7 +24573,7 @@ public:
 
       case 3: {
         enterOuterAlt(_localctx, 3);
-        setState(3547);
+        setState(3544);
         {
           auto childCtxHolder = ctx->EnterNodeReferenceValueType();
           nodeReferenceValueType(get_raw_pointer(childCtxHolder));
@@ -24601,7 +24583,7 @@ public:
 
       case 4: {
         enterOuterAlt(_localctx, 4);
-        setState(3548);
+        setState(3545);
         {
           auto childCtxHolder = ctx->EnterEdgeReferenceValueType();
           edgeReferenceValueType(get_raw_pointer(childCtxHolder));
@@ -24639,12 +24621,12 @@ public:
     }
     });
     try {
-      setState(3553);
+      setState(3550);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 395, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 394, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(3551);
+        setState(3548);
         {
           auto childCtxHolder = ctx->EnterNullType();
           nullType(get_raw_pointer(childCtxHolder));
@@ -24654,7 +24636,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(3552);
+        setState(3549);
         {
           auto childCtxHolder = ctx->EnterEmptyType();
           emptyType(get_raw_pointer(childCtxHolder));
@@ -24693,7 +24675,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3555);
+      setState(3552);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::NULL_KW) {
           ctx->OnToken(_input->LT(1));
@@ -24727,19 +24709,19 @@ public:
     }
     });
     try {
-      setState(3560);
+      setState(3557);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::NULL_KW: {
           enterOuterAlt(_localctx, 1);
-          setState(3557);
+          setState(3554);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::NULL_KW) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::NULL_KW);
-          setState(3558);
+          setState(3555);
           {
             auto childCtxHolder = ctx->EnterNotNull();
             notNull(get_raw_pointer(childCtxHolder));
@@ -24749,7 +24731,7 @@ public:
 
         case GQLParser::NOTHING: {
           enterOuterAlt(_localctx, 2);
-          setState(3559);
+          setState(3556);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::NOTHING) {
               ctx->OnToken(_input->LT(1));
@@ -24789,12 +24771,12 @@ public:
     }
     });
     try {
-      setState(3564);
+      setState(3561);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::ANY: {
           enterOuterAlt(_localctx, 1);
-          setState(3562);
+          setState(3559);
           {
             auto childCtxHolder = ctx->EnterOpenGraphReferenceValueType();
             openGraphReferenceValueType(get_raw_pointer(childCtxHolder));
@@ -24805,7 +24787,7 @@ public:
         case GQLParser::GRAPH:
         case GQLParser::PROPERTY: {
           enterOuterAlt(_localctx, 2);
-          setState(3563);
+          setState(3560);
           {
             auto childCtxHolder = ctx->EnterClosedGraphReferenceValueType();
             closedGraphReferenceValueType(get_raw_pointer(childCtxHolder));
@@ -24845,12 +24827,12 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3567);
+      setState(3564);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::PROPERTY) {
-        setState(3566);
+        setState(3563);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::PROPERTY) {
             ctx->OnToken(_input->LT(1));
@@ -24858,24 +24840,24 @@ public:
         }
         match(GQLParser::PROPERTY);
       }
-      setState(3569);
+      setState(3566);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::GRAPH) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::GRAPH);
-      setState(3570);
+      setState(3567);
       {
         auto childCtxHolder = ctx->EnterNestedGraphTypeSpecification();
         nestedGraphTypeSpecification(get_raw_pointer(childCtxHolder));
       }
-      setState(3572);
+      setState(3569);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 399, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 398, _ctx)) {
       case 1: {
-        setState(3571);
+        setState(3568);
         {
           auto childCtxHolder = ctx->EnterNotNull();
           notNull(get_raw_pointer(childCtxHolder));
@@ -24915,19 +24897,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3574);
+      setState(3571);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::ANY) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::ANY);
-      setState(3576);
+      setState(3573);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::PROPERTY) {
-        setState(3575);
+        setState(3572);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::PROPERTY) {
             ctx->OnToken(_input->LT(1));
@@ -24935,19 +24917,19 @@ public:
         }
         match(GQLParser::PROPERTY);
       }
-      setState(3578);
+      setState(3575);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::GRAPH) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::GRAPH);
-      setState(3580);
+      setState(3577);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 401, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 400, _ctx)) {
       case 1: {
-        setState(3579);
+        setState(3576);
         {
           auto childCtxHolder = ctx->EnterNotNull();
           notNull(get_raw_pointer(childCtxHolder));
@@ -24986,17 +24968,17 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3582);
+      setState(3579);
       {
         auto childCtxHolder = ctx->EnterBindingTableType();
         bindingTableType(get_raw_pointer(childCtxHolder));
       }
-      setState(3584);
+      setState(3581);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 402, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 401, _ctx)) {
       case 1: {
-        setState(3583);
+        setState(3580);
         {
           auto childCtxHolder = ctx->EnterNotNull();
           notNull(get_raw_pointer(childCtxHolder));
@@ -25034,12 +25016,12 @@ public:
     }
     });
     try {
-      setState(3588);
+      setState(3585);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 403, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 402, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(3586);
+        setState(3583);
         {
           auto childCtxHolder = ctx->EnterOpenNodeReferenceValueType();
           openNodeReferenceValueType(get_raw_pointer(childCtxHolder));
@@ -25049,7 +25031,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(3587);
+        setState(3584);
         {
           auto childCtxHolder = ctx->EnterClosedNodeReferenceValueType();
           closedNodeReferenceValueType(get_raw_pointer(childCtxHolder));
@@ -25088,17 +25070,17 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3590);
+      setState(3587);
       {
         auto childCtxHolder = ctx->EnterNodeTypeSpecification();
         nodeTypeSpecification(get_raw_pointer(childCtxHolder));
       }
-      setState(3592);
+      setState(3589);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 404, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 403, _ctx)) {
       case 1: {
-        setState(3591);
+        setState(3588);
         {
           auto childCtxHolder = ctx->EnterNotNull();
           notNull(get_raw_pointer(childCtxHolder));
@@ -25138,12 +25120,12 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3595);
+      setState(3592);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::ANY) {
-        setState(3594);
+        setState(3591);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::ANY) {
             ctx->OnToken(_input->LT(1));
@@ -25151,17 +25133,17 @@ public:
         }
         match(GQLParser::ANY);
       }
-      setState(3597);
+      setState(3594);
       {
         auto childCtxHolder = ctx->EnterNodeSynonym();
         nodeSynonym(get_raw_pointer(childCtxHolder));
       }
-      setState(3599);
+      setState(3596);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 406, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 405, _ctx)) {
       case 1: {
-        setState(3598);
+        setState(3595);
         {
           auto childCtxHolder = ctx->EnterNotNull();
           notNull(get_raw_pointer(childCtxHolder));
@@ -25199,12 +25181,12 @@ public:
     }
     });
     try {
-      setState(3603);
+      setState(3600);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 407, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 406, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(3601);
+        setState(3598);
         {
           auto childCtxHolder = ctx->EnterOpenEdgeReferenceValueType();
           openEdgeReferenceValueType(get_raw_pointer(childCtxHolder));
@@ -25214,7 +25196,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(3602);
+        setState(3599);
         {
           auto childCtxHolder = ctx->EnterClosedEdgeReferenceValueType();
           closedEdgeReferenceValueType(get_raw_pointer(childCtxHolder));
@@ -25253,17 +25235,17 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3605);
+      setState(3602);
       {
         auto childCtxHolder = ctx->EnterEdgeTypeSpecification();
         edgeTypeSpecification(get_raw_pointer(childCtxHolder));
       }
-      setState(3607);
+      setState(3604);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 408, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 407, _ctx)) {
       case 1: {
-        setState(3606);
+        setState(3603);
         {
           auto childCtxHolder = ctx->EnterNotNull();
           notNull(get_raw_pointer(childCtxHolder));
@@ -25303,12 +25285,12 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3610);
+      setState(3607);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::ANY) {
-        setState(3609);
+        setState(3606);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::ANY) {
             ctx->OnToken(_input->LT(1));
@@ -25316,17 +25298,17 @@ public:
         }
         match(GQLParser::ANY);
       }
-      setState(3612);
+      setState(3609);
       {
         auto childCtxHolder = ctx->EnterEdgeSynonym();
         edgeSynonym(get_raw_pointer(childCtxHolder));
       }
-      setState(3614);
+      setState(3611);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 410, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 409, _ctx)) {
       case 1: {
-        setState(3613);
+        setState(3610);
         {
           auto childCtxHolder = ctx->EnterNotNull();
           notNull(get_raw_pointer(childCtxHolder));
@@ -25365,19 +25347,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3616);
+      setState(3613);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::PATH) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::PATH);
-      setState(3618);
+      setState(3615);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 411, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 410, _ctx)) {
       case 1: {
-        setState(3617);
+        setState(3614);
         {
           auto childCtxHolder = ctx->EnterNotNull();
           notNull(get_raw_pointer(childCtxHolder));
@@ -25417,12 +25399,12 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3621);
+      setState(3618);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::GROUP) {
-        setState(3620);
+        setState(3617);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::GROUP) {
             ctx->OnToken(_input->LT(1));
@@ -25430,7 +25412,7 @@ public:
         }
         match(GQLParser::GROUP);
       }
-      setState(3623);
+      setState(3620);
       {
         auto childCtxHolder = ctx->EnterListValueTypeNameSynonym();
         listValueTypeNameSynonym(get_raw_pointer(childCtxHolder));
@@ -25464,7 +25446,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3625);
+      setState(3622);
       _la = _input->LA(1);
       if (!(_la == GQLParser::ARRAY || _la == GQLParser::LIST)) {
         _errHandler->recoverInline(this);
@@ -25502,17 +25484,17 @@ public:
     }
     });
     try {
-      setState(3641);
+      setState(3638);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 417, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 416, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(3628);
+        setState(3625);
         _errHandler->sync(this);
 
         _la = _input->LA(1);
         if (_la == GQLParser::ANY) {
-          setState(3627);
+          setState(3624);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::ANY) {
               ctx->OnToken(_input->LT(1));
@@ -25520,19 +25502,19 @@ public:
           }
           match(GQLParser::ANY);
         }
-        setState(3630);
+        setState(3627);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::RECORD) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::RECORD);
-        setState(3632);
+        setState(3629);
         _errHandler->sync(this);
 
-        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 414, _ctx)) {
+        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 413, _ctx)) {
         case 1: {
-          setState(3631);
+          setState(3628);
           {
             auto childCtxHolder = ctx->EnterNotNull();
             notNull(get_raw_pointer(childCtxHolder));
@@ -25548,12 +25530,12 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(3635);
+        setState(3632);
         _errHandler->sync(this);
 
         _la = _input->LA(1);
         if (_la == GQLParser::RECORD) {
-          setState(3634);
+          setState(3631);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::RECORD) {
               ctx->OnToken(_input->LT(1));
@@ -25561,17 +25543,17 @@ public:
           }
           match(GQLParser::RECORD);
         }
-        setState(3637);
+        setState(3634);
         {
           auto childCtxHolder = ctx->EnterFieldTypesSpecification();
           fieldTypesSpecification(get_raw_pointer(childCtxHolder));
         }
-        setState(3639);
+        setState(3636);
         _errHandler->sync(this);
 
-        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 416, _ctx)) {
+        switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 415, _ctx)) {
         case 1: {
-          setState(3638);
+          setState(3635);
           {
             auto childCtxHolder = ctx->EnterNotNull();
             notNull(get_raw_pointer(childCtxHolder));
@@ -25617,14 +25599,14 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3643);
+      setState(3640);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_BRACE) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_BRACE);
-      setState(3645);
+      setState(3642);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
@@ -25632,13 +25614,13 @@ public:
 
       || _la == GQLParser::ACCENT_QUOTED_CHARACTER_SEQUENCE || ((((_la - 277) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 277)) & 560750930165759) != 0)) {
-        setState(3644);
+        setState(3641);
         {
           auto childCtxHolder = ctx->EnterFieldTypeList();
           fieldTypeList(get_raw_pointer(childCtxHolder));
         }
       }
-      setState(3647);
+      setState(3644);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_BRACE) {
           ctx->OnToken(_input->LT(1));
@@ -25674,28 +25656,28 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3649);
+      setState(3646);
       {
         auto childCtxHolder = ctx->EnterFieldType();
         fieldType(get_raw_pointer(childCtxHolder));
       }
-      setState(3654);
+      setState(3651);
       _errHandler->sync(this);
       _la = _input->LA(1);
       while (_la == GQLParser::COMMA) {
-        setState(3650);
+        setState(3647);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::COMMA) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::COMMA);
-        setState(3651);
+        setState(3648);
         {
           auto childCtxHolder = ctx->EnterFieldType();
           fieldType(get_raw_pointer(childCtxHolder));
         }
-        setState(3656);
+        setState(3653);
         _errHandler->sync(this);
         _la = _input->LA(1);
       }
@@ -25727,14 +25709,14 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3657);
+      setState(3654);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::NOT) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::NOT);
-      setState(3658);
+      setState(3655);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::NULL_KW) {
           ctx->OnToken(_input->LT(1));
@@ -25770,23 +25752,23 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3660);
+      setState(3657);
       {
         auto childCtxHolder = ctx->EnterFieldName();
         fieldName(get_raw_pointer(childCtxHolder));
       }
-      setState(3662);
+      setState(3659);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::TYPED || _la == GQLParser::DOUBLE_COLON) {
-        setState(3661);
+        setState(3658);
         {
           auto childCtxHolder = ctx->EnterTyped();
           typed(get_raw_pointer(childCtxHolder));
         }
       }
-      setState(3664);
+      setState(3661);
       {
         auto childCtxHolder = ctx->EnterValueType();
         valueType(0, get_raw_pointer(childCtxHolder));
@@ -25819,7 +25801,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3666);
+      setState(3663);
       {
         auto childCtxHolder = ctx->EnterBooleanValueExpression();
         booleanValueExpression(get_raw_pointer(childCtxHolder));
@@ -25851,12 +25833,12 @@ public:
     }
     });
     try {
-      setState(3677);
+      setState(3674);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 421, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 420, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(3668);
+        setState(3665);
         {
           auto childCtxHolder = ctx->EnterExistsPredicate();
           existsPredicate(get_raw_pointer(childCtxHolder));
@@ -25866,7 +25848,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(3669);
+        setState(3666);
         {
           auto childCtxHolder = ctx->EnterNullPredicate();
           nullPredicate(get_raw_pointer(childCtxHolder));
@@ -25876,7 +25858,7 @@ public:
 
       case 3: {
         enterOuterAlt(_localctx, 3);
-        setState(3670);
+        setState(3667);
         {
           auto childCtxHolder = ctx->EnterValueTypePredicate();
           valueTypePredicate(get_raw_pointer(childCtxHolder));
@@ -25886,7 +25868,7 @@ public:
 
       case 4: {
         enterOuterAlt(_localctx, 4);
-        setState(3671);
+        setState(3668);
         {
           auto childCtxHolder = ctx->EnterDirectedPredicate();
           directedPredicate(get_raw_pointer(childCtxHolder));
@@ -25896,7 +25878,7 @@ public:
 
       case 5: {
         enterOuterAlt(_localctx, 5);
-        setState(3672);
+        setState(3669);
         {
           auto childCtxHolder = ctx->EnterLabeledPredicate();
           labeledPredicate(get_raw_pointer(childCtxHolder));
@@ -25906,7 +25888,7 @@ public:
 
       case 6: {
         enterOuterAlt(_localctx, 6);
-        setState(3673);
+        setState(3670);
         {
           auto childCtxHolder = ctx->EnterSourceDestinationPredicate();
           sourceDestinationPredicate(get_raw_pointer(childCtxHolder));
@@ -25916,7 +25898,7 @@ public:
 
       case 7: {
         enterOuterAlt(_localctx, 7);
-        setState(3674);
+        setState(3671);
         {
           auto childCtxHolder = ctx->EnterAll_differentPredicate();
           all_differentPredicate(get_raw_pointer(childCtxHolder));
@@ -25926,7 +25908,7 @@ public:
 
       case 8: {
         enterOuterAlt(_localctx, 8);
-        setState(3675);
+        setState(3672);
         {
           auto childCtxHolder = ctx->EnterSamePredicate();
           samePredicate(get_raw_pointer(childCtxHolder));
@@ -25936,7 +25918,7 @@ public:
 
       case 9: {
         enterOuterAlt(_localctx, 9);
-        setState(3676);
+        setState(3673);
         {
           auto childCtxHolder = ctx->EnterProperty_existsPredicate();
           property_existsPredicate(get_raw_pointer(childCtxHolder));
@@ -25976,7 +25958,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3679);
+      setState(3676);
       _la = _input->LA(1);
       if (!(((((_la - 335) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 335)) & 142807664897) != 0))) {
@@ -26015,30 +25997,30 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3681);
+      setState(3678);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::EXISTS) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::EXISTS);
-      setState(3699);
+      setState(3696);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 422, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 421, _ctx)) {
       case 1: {
-        setState(3682);
+        setState(3679);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::LEFT_BRACE) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::LEFT_BRACE);
-        setState(3683);
+        setState(3680);
         {
           auto childCtxHolder = ctx->EnterGraphPattern();
           graphPattern(get_raw_pointer(childCtxHolder));
         }
-        setState(3684);
+        setState(3681);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::RIGHT_BRACE) {
             ctx->OnToken(_input->LT(1));
@@ -26049,19 +26031,19 @@ public:
       }
 
       case 2: {
-        setState(3686);
+        setState(3683);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::LEFT_PAREN) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::LEFT_PAREN);
-        setState(3687);
+        setState(3684);
         {
           auto childCtxHolder = ctx->EnterGraphPattern();
           graphPattern(get_raw_pointer(childCtxHolder));
         }
-        setState(3688);
+        setState(3685);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
             ctx->OnToken(_input->LT(1));
@@ -26072,19 +26054,19 @@ public:
       }
 
       case 3: {
-        setState(3690);
+        setState(3687);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::LEFT_BRACE) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::LEFT_BRACE);
-        setState(3691);
+        setState(3688);
         {
           auto childCtxHolder = ctx->EnterMatchStatementBlock();
           matchStatementBlock(get_raw_pointer(childCtxHolder));
         }
-        setState(3692);
+        setState(3689);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::RIGHT_BRACE) {
             ctx->OnToken(_input->LT(1));
@@ -26095,19 +26077,19 @@ public:
       }
 
       case 4: {
-        setState(3694);
+        setState(3691);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::LEFT_PAREN) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::LEFT_PAREN);
-        setState(3695);
+        setState(3692);
         {
           auto childCtxHolder = ctx->EnterMatchStatementBlock();
           matchStatementBlock(get_raw_pointer(childCtxHolder));
         }
-        setState(3696);
+        setState(3693);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
             ctx->OnToken(_input->LT(1));
@@ -26118,7 +26100,7 @@ public:
       }
 
       case 5: {
-        setState(3698);
+        setState(3695);
         {
           auto childCtxHolder = ctx->EnterNestedQuerySpecification();
           nestedQuerySpecification(get_raw_pointer(childCtxHolder));
@@ -26157,12 +26139,12 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3701);
+      setState(3698);
       {
         auto childCtxHolder = ctx->EnterValueExpressionPrimary();
         valueExpressionPrimary(0, get_raw_pointer(childCtxHolder));
       }
-      setState(3702);
+      setState(3699);
       {
         auto childCtxHolder = ctx->EnterNullPredicatePart2();
         nullPredicatePart2(get_raw_pointer(childCtxHolder));
@@ -26196,19 +26178,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3704);
+      setState(3701);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::IS) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::IS);
-      setState(3706);
+      setState(3703);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::NOT) {
-        setState(3705);
+        setState(3702);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::NOT) {
             ctx->OnToken(_input->LT(1));
@@ -26216,7 +26198,7 @@ public:
         }
         match(GQLParser::NOT);
       }
-      setState(3708);
+      setState(3705);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::NULL_KW) {
           ctx->OnToken(_input->LT(1));
@@ -26251,12 +26233,12 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3710);
+      setState(3707);
       {
         auto childCtxHolder = ctx->EnterValueExpressionPrimary();
         valueExpressionPrimary(0, get_raw_pointer(childCtxHolder));
       }
-      setState(3711);
+      setState(3708);
       {
         auto childCtxHolder = ctx->EnterValueTypePredicatePart2();
         valueTypePredicatePart2(get_raw_pointer(childCtxHolder));
@@ -26290,19 +26272,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3713);
+      setState(3710);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::IS) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::IS);
-      setState(3715);
+      setState(3712);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::NOT) {
-        setState(3714);
+        setState(3711);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::NOT) {
             ctx->OnToken(_input->LT(1));
@@ -26310,12 +26292,12 @@ public:
         }
         match(GQLParser::NOT);
       }
-      setState(3717);
+      setState(3714);
       {
         auto childCtxHolder = ctx->EnterTyped();
         typed(get_raw_pointer(childCtxHolder));
       }
-      setState(3718);
+      setState(3715);
       {
         auto childCtxHolder = ctx->EnterValueType();
         valueType(0, get_raw_pointer(childCtxHolder));
@@ -26349,19 +26331,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3720);
+      setState(3717);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::IS) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::IS);
-      setState(3722);
+      setState(3719);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::NOT) {
-        setState(3721);
+        setState(3718);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::NOT) {
             ctx->OnToken(_input->LT(1));
@@ -26369,19 +26351,19 @@ public:
         }
         match(GQLParser::NOT);
       }
-      setState(3725);
+      setState(3722);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (((((_la - 296) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 296)) & 15) != 0)) {
-        setState(3724);
+        setState(3721);
         {
           auto childCtxHolder = ctx->EnterNormalForm();
           normalForm(get_raw_pointer(childCtxHolder));
         }
       }
-      setState(3727);
+      setState(3724);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::NORMALIZED) {
           ctx->OnToken(_input->LT(1));
@@ -26416,12 +26398,12 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3729);
+      setState(3726);
       {
         auto childCtxHolder = ctx->EnterElementVariableReference();
         elementVariableReference(get_raw_pointer(childCtxHolder));
       }
-      setState(3730);
+      setState(3727);
       {
         auto childCtxHolder = ctx->EnterDirectedPredicatePart2();
         directedPredicatePart2(get_raw_pointer(childCtxHolder));
@@ -26455,19 +26437,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3732);
+      setState(3729);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::IS) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::IS);
-      setState(3734);
+      setState(3731);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::NOT) {
-        setState(3733);
+        setState(3730);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::NOT) {
             ctx->OnToken(_input->LT(1));
@@ -26475,7 +26457,7 @@ public:
         }
         match(GQLParser::NOT);
       }
-      setState(3736);
+      setState(3733);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::DIRECTED) {
           ctx->OnToken(_input->LT(1));
@@ -26510,12 +26492,12 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3738);
+      setState(3735);
       {
         auto childCtxHolder = ctx->EnterElementVariableReference();
         elementVariableReference(get_raw_pointer(childCtxHolder));
       }
-      setState(3739);
+      setState(3736);
       {
         auto childCtxHolder = ctx->EnterLabeledPredicatePart2();
         labeledPredicatePart2(get_raw_pointer(childCtxHolder));
@@ -26548,12 +26530,12 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3741);
+      setState(3738);
       {
         auto childCtxHolder = ctx->EnterIsLabeledOrColon();
         isLabeledOrColon(get_raw_pointer(childCtxHolder));
       }
-      setState(3742);
+      setState(3739);
       {
         auto childCtxHolder = ctx->EnterLabelExpression();
         labelExpression(0, get_raw_pointer(childCtxHolder));
@@ -26586,24 +26568,24 @@ public:
     }
     });
     try {
-      setState(3750);
+      setState(3747);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::IS: {
           enterOuterAlt(_localctx, 1);
-          setState(3744);
+          setState(3741);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::IS) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::IS);
-          setState(3746);
+          setState(3743);
           _errHandler->sync(this);
 
           _la = _input->LA(1);
           if (_la == GQLParser::NOT) {
-            setState(3745);
+            setState(3742);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::NOT) {
                 ctx->OnToken(_input->LT(1));
@@ -26611,7 +26593,7 @@ public:
             }
             match(GQLParser::NOT);
           }
-          setState(3748);
+          setState(3745);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::LABELED) {
               ctx->OnToken(_input->LT(1));
@@ -26623,7 +26605,7 @@ public:
 
         case GQLParser::COLON: {
           enterOuterAlt(_localctx, 2);
-          setState(3749);
+          setState(3746);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::COLON) {
               ctx->OnToken(_input->LT(1));
@@ -26663,17 +26645,17 @@ public:
     }
     });
     try {
-      setState(3758);
+      setState(3755);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 430, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 429, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(3752);
+        setState(3749);
         {
           auto childCtxHolder = ctx->EnterNodeReference();
           nodeReference(get_raw_pointer(childCtxHolder));
         }
-        setState(3753);
+        setState(3750);
         {
           auto childCtxHolder = ctx->EnterSourcePredicatePart2();
           sourcePredicatePart2(get_raw_pointer(childCtxHolder));
@@ -26683,12 +26665,12 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(3755);
+        setState(3752);
         {
           auto childCtxHolder = ctx->EnterNodeReference();
           nodeReference(get_raw_pointer(childCtxHolder));
         }
-        setState(3756);
+        setState(3753);
         {
           auto childCtxHolder = ctx->EnterDestinationPredicatePart2();
           destinationPredicatePart2(get_raw_pointer(childCtxHolder));
@@ -26727,7 +26709,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3760);
+      setState(3757);
       {
         auto childCtxHolder = ctx->EnterElementVariableReference();
         elementVariableReference(get_raw_pointer(childCtxHolder));
@@ -26761,19 +26743,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3762);
+      setState(3759);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::IS) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::IS);
-      setState(3764);
+      setState(3761);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::NOT) {
-        setState(3763);
+        setState(3760);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::NOT) {
             ctx->OnToken(_input->LT(1));
@@ -26781,21 +26763,21 @@ public:
         }
         match(GQLParser::NOT);
       }
-      setState(3766);
+      setState(3763);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::SOURCE) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::SOURCE);
-      setState(3767);
+      setState(3764);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::OF) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::OF);
-      setState(3768);
+      setState(3765);
       {
         auto childCtxHolder = ctx->EnterEdgeReference();
         edgeReference(get_raw_pointer(childCtxHolder));
@@ -26829,19 +26811,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3770);
+      setState(3767);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::IS) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::IS);
-      setState(3772);
+      setState(3769);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::NOT) {
-        setState(3771);
+        setState(3768);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::NOT) {
             ctx->OnToken(_input->LT(1));
@@ -26849,21 +26831,21 @@ public:
         }
         match(GQLParser::NOT);
       }
-      setState(3774);
+      setState(3771);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::DESTINATION) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::DESTINATION);
-      setState(3775);
+      setState(3772);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::OF) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::OF);
-      setState(3776);
+      setState(3773);
       {
         auto childCtxHolder = ctx->EnterEdgeReference();
         edgeReference(get_raw_pointer(childCtxHolder));
@@ -26896,7 +26878,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3778);
+      setState(3775);
       {
         auto childCtxHolder = ctx->EnterElementVariableReference();
         elementVariableReference(get_raw_pointer(childCtxHolder));
@@ -26930,58 +26912,58 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3780);
+      setState(3777);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::ALL_DIFFERENT) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::ALL_DIFFERENT);
-      setState(3781);
+      setState(3778);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(3782);
+      setState(3779);
       {
         auto childCtxHolder = ctx->EnterElementVariableReference();
         elementVariableReference(get_raw_pointer(childCtxHolder));
       }
-      setState(3783);
+      setState(3780);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::COMMA) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::COMMA);
-      setState(3784);
+      setState(3781);
       {
         auto childCtxHolder = ctx->EnterElementVariableReference();
         elementVariableReference(get_raw_pointer(childCtxHolder));
       }
-      setState(3789);
+      setState(3786);
       _errHandler->sync(this);
       _la = _input->LA(1);
       while (_la == GQLParser::COMMA) {
-        setState(3785);
+        setState(3782);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::COMMA) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::COMMA);
-        setState(3786);
+        setState(3783);
         {
           auto childCtxHolder = ctx->EnterElementVariableReference();
           elementVariableReference(get_raw_pointer(childCtxHolder));
         }
-        setState(3791);
+        setState(3788);
         _errHandler->sync(this);
         _la = _input->LA(1);
       }
-      setState(3792);
+      setState(3789);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -27017,58 +26999,58 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3794);
+      setState(3791);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::SAME) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::SAME);
-      setState(3795);
+      setState(3792);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(3796);
+      setState(3793);
       {
         auto childCtxHolder = ctx->EnterElementVariableReference();
         elementVariableReference(get_raw_pointer(childCtxHolder));
       }
-      setState(3797);
+      setState(3794);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::COMMA) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::COMMA);
-      setState(3798);
+      setState(3795);
       {
         auto childCtxHolder = ctx->EnterElementVariableReference();
         elementVariableReference(get_raw_pointer(childCtxHolder));
       }
-      setState(3803);
+      setState(3800);
       _errHandler->sync(this);
       _la = _input->LA(1);
       while (_la == GQLParser::COMMA) {
-        setState(3799);
+        setState(3796);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::COMMA) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::COMMA);
-        setState(3800);
+        setState(3797);
         {
           auto childCtxHolder = ctx->EnterElementVariableReference();
           elementVariableReference(get_raw_pointer(childCtxHolder));
         }
-        setState(3805);
+        setState(3802);
         _errHandler->sync(this);
         _la = _input->LA(1);
       }
-      setState(3806);
+      setState(3803);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -27103,38 +27085,38 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3808);
+      setState(3805);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::PROPERTY_EXISTS) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::PROPERTY_EXISTS);
-      setState(3809);
+      setState(3806);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(3810);
+      setState(3807);
       {
         auto childCtxHolder = ctx->EnterElementVariableReference();
         elementVariableReference(get_raw_pointer(childCtxHolder));
       }
-      setState(3811);
+      setState(3808);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::COMMA) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::COMMA);
-      setState(3812);
+      setState(3809);
       {
         auto childCtxHolder = ctx->EnterPropertyName();
         propertyName(get_raw_pointer(childCtxHolder));
       }
-      setState(3813);
+      setState(3810);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -27183,9 +27165,9 @@ public:
     try {
       size_t alt;
       enterOuterAlt(_localctx, 1);
-      setState(3833);
+      setState(3830);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 437, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 436, _ctx)) {
       case 1: {
         {
           auto savedLocalCtx = _localctx;
@@ -27204,7 +27186,7 @@ public:
             (void)ctx;
         });
 
-        setState(3816);
+        setState(3813);
         _la = _input->LA(1);
         if (!(_la == GQLParser::MINUS_SIGN
 
@@ -27216,7 +27198,7 @@ public:
           antlr4::Token * token = consume();
           ctx->OnToken(token);
         }
-        setState(3817);
+        setState(3814);
         {
           auto childCtxHolder = ctx->EnterValueExpression();
           valueExpression(15, get_raw_pointer(childCtxHolder));
@@ -27241,7 +27223,7 @@ public:
           else
             (void)ctx;
         });
-        setState(3818);
+        setState(3815);
         {
           auto childCtxHolder = ctx->EnterPredicate();
           predicate(get_raw_pointer(childCtxHolder));
@@ -27266,14 +27248,14 @@ public:
           else
             (void)ctx;
         });
-        setState(3819);
+        setState(3816);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::NOT) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::NOT);
-        setState(3820);
+        setState(3817);
         {
           auto childCtxHolder = ctx->EnterValueExpression();
           valueExpression(7, get_raw_pointer(childCtxHolder));
@@ -27298,12 +27280,12 @@ public:
           else
             (void)ctx;
         });
-        setState(3822);
+        setState(3819);
         _errHandler->sync(this);
 
         _la = _input->LA(1);
         if (_la == GQLParser::PROPERTY) {
-          setState(3821);
+          setState(3818);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::PROPERTY) {
               ctx->OnToken(_input->LT(1));
@@ -27311,14 +27293,14 @@ public:
           }
           match(GQLParser::PROPERTY);
         }
-        setState(3824);
+        setState(3821);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::GRAPH) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::GRAPH);
-        setState(3825);
+        setState(3822);
         {
           auto childCtxHolder = ctx->EnterGraphExpression();
           graphExpression(get_raw_pointer(childCtxHolder));
@@ -27343,12 +27325,12 @@ public:
           else
             (void)ctx;
         });
-        setState(3827);
+        setState(3824);
         _errHandler->sync(this);
 
         _la = _input->LA(1);
         if (_la == GQLParser::BINDING) {
-          setState(3826);
+          setState(3823);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::BINDING) {
               ctx->OnToken(_input->LT(1));
@@ -27356,14 +27338,14 @@ public:
           }
           match(GQLParser::BINDING);
         }
-        setState(3829);
+        setState(3826);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::TABLE) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::TABLE);
-        setState(3830);
+        setState(3827);
         {
           auto childCtxHolder = ctx->EnterBindingTableExpression();
           bindingTableExpression(get_raw_pointer(childCtxHolder));
@@ -27388,7 +27370,7 @@ public:
           else
             (void)ctx;
         });
-        setState(3831);
+        setState(3828);
         {
           auto childCtxHolder = ctx->EnterValueFunction();
           valueFunction(get_raw_pointer(childCtxHolder));
@@ -27413,7 +27395,7 @@ public:
           else
             (void)ctx;
         });
-        setState(3832);
+        setState(3829);
         {
           auto childCtxHolder = ctx->EnterValueExpressionPrimary();
           valueExpressionPrimary(0, get_raw_pointer(childCtxHolder));
@@ -27425,9 +27407,9 @@ public:
         break;
       }
       _ctx->stop = _input->LT(-1);
-      setState(3864);
+      setState(3861);
       _errHandler->sync(this);
-      alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 440, _ctx);
+      alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 439, _ctx);
       while (alt != 2 && alt != antlr4::atn::ATN::INVALID_ALT_NUMBER) {
         if (alt == 1) {
           if (!_parseListeners.empty())
@@ -27436,9 +27418,9 @@ public:
             ctx->ExitRule(_ctx);
           }
           previousContext = _localctx;
-          setState(3862);
+          setState(3859);
           _errHandler->sync(this);
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 439, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 438, _ctx)) {
           case 1: {
             auto newParentContext = _tracker.createInstance<antlr4::ParserRuleContext>(parentContext, parentState);
             auto newContext = _tracker.createInstance<antlr4::ParserRuleContext>();
@@ -27454,10 +27436,10 @@ public:
               else
                 (void)ctx;
             });
-            setState(3835);
+            setState(3832);
 
             if (!(precpred(_ctx, 14))) throw antlr4::FailedPredicateException(this, "precpred(_ctx, 14)");
-            setState(3836);
+            setState(3833);
             _la = _input->LA(1);
             if (!(_la == GQLParser::ASTERISK
 
@@ -27469,7 +27451,7 @@ public:
               antlr4::Token * token = consume();
               ctx->OnToken(token);
             }
-            setState(3837);
+            setState(3834);
             {
               auto childCtxHolder = ctx->EnterValueExpression();
               valueExpression(15, get_raw_pointer(childCtxHolder));
@@ -27492,10 +27474,10 @@ public:
               else
                 (void)ctx;
             });
-            setState(3838);
+            setState(3835);
 
             if (!(precpred(_ctx, 13))) throw antlr4::FailedPredicateException(this, "precpred(_ctx, 13)");
-            setState(3839);
+            setState(3836);
             _la = _input->LA(1);
             if (!(_la == GQLParser::MINUS_SIGN
 
@@ -27507,7 +27489,7 @@ public:
               antlr4::Token * token = consume();
               ctx->OnToken(token);
             }
-            setState(3840);
+            setState(3837);
             {
               auto childCtxHolder = ctx->EnterValueExpression();
               valueExpression(14, get_raw_pointer(childCtxHolder));
@@ -27530,17 +27512,17 @@ public:
               else
                 (void)ctx;
             });
-            setState(3841);
+            setState(3838);
 
             if (!(precpred(_ctx, 12))) throw antlr4::FailedPredicateException(this, "precpred(_ctx, 12)");
-            setState(3842);
+            setState(3839);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::CONCATENATION_OPERATOR) {
                 ctx->OnToken(_input->LT(1));
               }
             }
             match(GQLParser::CONCATENATION_OPERATOR);
-            setState(3843);
+            setState(3840);
             {
               auto childCtxHolder = ctx->EnterValueExpression();
               valueExpression(13, get_raw_pointer(childCtxHolder));
@@ -27563,15 +27545,15 @@ public:
               else
                 (void)ctx;
             });
-            setState(3844);
+            setState(3841);
 
             if (!(precpred(_ctx, 11))) throw antlr4::FailedPredicateException(this, "precpred(_ctx, 11)");
-            setState(3845);
+            setState(3842);
             {
               auto childCtxHolder = ctx->EnterCompOp();
               compOp(get_raw_pointer(childCtxHolder));
             }
-            setState(3846);
+            setState(3843);
             {
               auto childCtxHolder = ctx->EnterValueExpression();
               valueExpression(12, get_raw_pointer(childCtxHolder));
@@ -27594,17 +27576,17 @@ public:
               else
                 (void)ctx;
             });
-            setState(3848);
+            setState(3845);
 
             if (!(precpred(_ctx, 6))) throw antlr4::FailedPredicateException(this, "precpred(_ctx, 6)");
-            setState(3849);
+            setState(3846);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::AND) {
                 ctx->OnToken(_input->LT(1));
               }
             }
             match(GQLParser::AND);
-            setState(3850);
+            setState(3847);
             {
               auto childCtxHolder = ctx->EnterValueExpression();
               valueExpression(7, get_raw_pointer(childCtxHolder));
@@ -27627,10 +27609,10 @@ public:
               else
                 (void)ctx;
             });
-            setState(3851);
+            setState(3848);
 
             if (!(precpred(_ctx, 5))) throw antlr4::FailedPredicateException(this, "precpred(_ctx, 5)");
-            setState(3852);
+            setState(3849);
             _la = _input->LA(1);
             if (!(_la == GQLParser::OR || _la == GQLParser::XOR)) {
               _errHandler->recoverInline(this);
@@ -27640,7 +27622,7 @@ public:
               antlr4::Token * token = consume();
               ctx->OnToken(token);
             }
-            setState(3853);
+            setState(3850);
             {
               auto childCtxHolder = ctx->EnterValueExpression();
               valueExpression(6, get_raw_pointer(childCtxHolder));
@@ -27663,10 +27645,10 @@ public:
               else
                 (void)ctx;
             });
-            setState(3854);
+            setState(3851);
 
             if (!(precpred(_ctx, 9))) throw antlr4::FailedPredicateException(this, "precpred(_ctx, 9)");
-            setState(3855);
+            setState(3852);
             {
               auto childCtxHolder = ctx->EnterNormalizedPredicatePart2();
               normalizedPredicatePart2(get_raw_pointer(childCtxHolder));
@@ -27689,22 +27671,22 @@ public:
               else
                 (void)ctx;
             });
-            setState(3856);
+            setState(3853);
 
             if (!(precpred(_ctx, 8))) throw antlr4::FailedPredicateException(this, "precpred(_ctx, 8)");
-            setState(3857);
+            setState(3854);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::IS) {
                 ctx->OnToken(_input->LT(1));
               }
             }
             match(GQLParser::IS);
-            setState(3859);
+            setState(3856);
             _errHandler->sync(this);
 
             _la = _input->LA(1);
             if (_la == GQLParser::NOT) {
-              setState(3858);
+              setState(3855);
               if constexpr (has_OnToken<decltype(ctx)>::value) {
                 if (_input->LA(1) == GQLParser::NOT) {
                   ctx->OnToken(_input->LT(1));
@@ -27712,7 +27694,7 @@ public:
               }
               match(GQLParser::NOT);
             }
-            setState(3861);
+            setState(3858);
             {
               auto childCtxHolder = ctx->EnterTruthValue();
               truthValue(get_raw_pointer(childCtxHolder));
@@ -27724,9 +27706,9 @@ public:
             break;
           } 
         }
-        setState(3866);
+        setState(3863);
         _errHandler->sync(this);
-        alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 440, _ctx);
+        alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 439, _ctx);
       }
     }
     catch (antlr4::RecognitionException &e) {
@@ -27753,12 +27735,12 @@ public:
     }
     });
     try {
-      setState(3873);
+      setState(3870);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 441, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 440, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(3867);
+        setState(3864);
         {
           auto childCtxHolder = ctx->EnterNumericValueFunction();
           numericValueFunction(get_raw_pointer(childCtxHolder));
@@ -27768,7 +27750,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(3868);
+        setState(3865);
         {
           auto childCtxHolder = ctx->EnterDatetimeSubtraction();
           datetimeSubtraction(get_raw_pointer(childCtxHolder));
@@ -27778,7 +27760,7 @@ public:
 
       case 3: {
         enterOuterAlt(_localctx, 3);
-        setState(3869);
+        setState(3866);
         {
           auto childCtxHolder = ctx->EnterDatetimeValueFunction();
           datetimeValueFunction(get_raw_pointer(childCtxHolder));
@@ -27788,7 +27770,7 @@ public:
 
       case 4: {
         enterOuterAlt(_localctx, 4);
-        setState(3870);
+        setState(3867);
         {
           auto childCtxHolder = ctx->EnterDurationValueFunction();
           durationValueFunction(get_raw_pointer(childCtxHolder));
@@ -27798,7 +27780,7 @@ public:
 
       case 5: {
         enterOuterAlt(_localctx, 5);
-        setState(3871);
+        setState(3868);
         {
           auto childCtxHolder = ctx->EnterCharacterOrByteStringFunction();
           characterOrByteStringFunction(get_raw_pointer(childCtxHolder));
@@ -27808,7 +27790,7 @@ public:
 
       case 6: {
         enterOuterAlt(_localctx, 6);
-        setState(3872);
+        setState(3869);
         {
           auto childCtxHolder = ctx->EnterListValueFunction();
           listValueFunction(get_raw_pointer(childCtxHolder));
@@ -27847,7 +27829,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3875);
+      setState(3872);
       {
         auto childCtxHolder = ctx->EnterValueExpression();
         valueExpression(0, get_raw_pointer(childCtxHolder));
@@ -27879,13 +27861,13 @@ public:
     }
     });
     try {
-      setState(3882);
+      setState(3879);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::LEFT:
         case GQLParser::RIGHT: {
           enterOuterAlt(_localctx, 1);
-          setState(3877);
+          setState(3874);
           {
             auto childCtxHolder = ctx->EnterSubCharacterOrByteString();
             subCharacterOrByteString(get_raw_pointer(childCtxHolder));
@@ -27895,7 +27877,7 @@ public:
 
         case GQLParser::TRIM: {
           enterOuterAlt(_localctx, 2);
-          setState(3878);
+          setState(3875);
           {
             auto childCtxHolder = ctx->EnterTrimSingleCharacterOrByteString();
             trimSingleCharacterOrByteString(get_raw_pointer(childCtxHolder));
@@ -27906,7 +27888,7 @@ public:
         case GQLParser::LOWER:
         case GQLParser::UPPER: {
           enterOuterAlt(_localctx, 3);
-          setState(3879);
+          setState(3876);
           {
             auto childCtxHolder = ctx->EnterFoldCharacterString();
             foldCharacterString(get_raw_pointer(childCtxHolder));
@@ -27918,7 +27900,7 @@ public:
         case GQLParser::LTRIM:
         case GQLParser::RTRIM: {
           enterOuterAlt(_localctx, 4);
-          setState(3880);
+          setState(3877);
           {
             auto childCtxHolder = ctx->EnterTrimMultiCharacterCharacterString();
             trimMultiCharacterCharacterString(get_raw_pointer(childCtxHolder));
@@ -27928,7 +27910,7 @@ public:
 
         case GQLParser::NORMALIZE: {
           enterOuterAlt(_localctx, 5);
-          setState(3881);
+          setState(3878);
           {
             auto childCtxHolder = ctx->EnterNormalizeCharacterString();
             normalizeCharacterString(get_raw_pointer(childCtxHolder));
@@ -27968,7 +27950,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3884);
+      setState(3881);
       _la = _input->LA(1);
       if (!(_la == GQLParser::LEFT
 
@@ -27980,31 +27962,31 @@ public:
         antlr4::Token * token = consume();
         ctx->OnToken(token);
       }
-      setState(3885);
+      setState(3882);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(3886);
+      setState(3883);
       {
         auto childCtxHolder = ctx->EnterValueExpression();
         valueExpression(0, get_raw_pointer(childCtxHolder));
       }
-      setState(3887);
+      setState(3884);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::COMMA) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::COMMA);
-      setState(3888);
+      setState(3885);
       {
         auto childCtxHolder = ctx->EnterStringLength();
         stringLength(get_raw_pointer(childCtxHolder));
       }
-      setState(3889);
+      setState(3886);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -28039,26 +28021,26 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3891);
+      setState(3888);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::TRIM) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::TRIM);
-      setState(3892);
+      setState(3889);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(3893);
+      setState(3890);
       {
         auto childCtxHolder = ctx->EnterTrimOperands();
         trimOperands(get_raw_pointer(childCtxHolder));
       }
-      setState(3894);
+      setState(3891);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -28094,7 +28076,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3896);
+      setState(3893);
       _la = _input->LA(1);
       if (!(_la == GQLParser::LOWER || _la == GQLParser::UPPER)) {
         _errHandler->recoverInline(this);
@@ -28104,19 +28086,19 @@ public:
         antlr4::Token * token = consume();
         ctx->OnToken(token);
       }
-      setState(3897);
+      setState(3894);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(3898);
+      setState(3895);
       {
         auto childCtxHolder = ctx->EnterValueExpression();
         valueExpression(0, get_raw_pointer(childCtxHolder));
       }
-      setState(3899);
+      setState(3896);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -28152,7 +28134,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3901);
+      setState(3898);
       _la = _input->LA(1);
       if (!(_la == GQLParser::BTRIM || _la == GQLParser::LTRIM
 
@@ -28164,37 +28146,37 @@ public:
         antlr4::Token * token = consume();
         ctx->OnToken(token);
       }
-      setState(3902);
+      setState(3899);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(3903);
+      setState(3900);
       {
         auto childCtxHolder = ctx->EnterValueExpression();
         valueExpression(0, get_raw_pointer(childCtxHolder));
       }
-      setState(3906);
+      setState(3903);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::COMMA) {
-        setState(3904);
+        setState(3901);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::COMMA) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::COMMA);
-        setState(3905);
+        setState(3902);
         {
           auto childCtxHolder = ctx->EnterValueExpression();
           valueExpression(0, get_raw_pointer(childCtxHolder));
         }
       }
-      setState(3908);
+      setState(3905);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -28230,44 +28212,44 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3910);
+      setState(3907);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::NORMALIZE) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::NORMALIZE);
-      setState(3911);
+      setState(3908);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(3912);
+      setState(3909);
       {
         auto childCtxHolder = ctx->EnterValueExpression();
         valueExpression(0, get_raw_pointer(childCtxHolder));
       }
-      setState(3915);
+      setState(3912);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::COMMA) {
-        setState(3913);
+        setState(3910);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::COMMA) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::COMMA);
-        setState(3914);
+        setState(3911);
         {
           auto childCtxHolder = ctx->EnterNormalForm();
           normalForm(get_raw_pointer(childCtxHolder));
         }
       }
-      setState(3917);
+      setState(3914);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -28302,7 +28284,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3919);
+      setState(3916);
       {
         auto childCtxHolder = ctx->EnterValueExpressionPrimary();
         valueExpressionPrimary(0, get_raw_pointer(childCtxHolder));
@@ -28335,7 +28317,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3921);
+      setState(3918);
       {
         auto childCtxHolder = ctx->EnterValueExpressionPrimary();
         valueExpressionPrimary(0, get_raw_pointer(childCtxHolder));
@@ -28368,7 +28350,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3923);
+      setState(3920);
       {
         auto childCtxHolder = ctx->EnterValueExpression();
         valueExpression(0, get_raw_pointer(childCtxHolder));
@@ -28415,11 +28397,11 @@ public:
     try {
       size_t alt;
       enterOuterAlt(_localctx, 1);
-      setState(3936);
+      setState(3933);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::LEFT_PAREN: {
-          setState(3926);
+          setState(3923);
           {
             auto childCtxHolder = ctx->EnterParenthesizedValueExpression();
             parenthesizedValueExpression(get_raw_pointer(childCtxHolder));
@@ -28437,7 +28419,7 @@ public:
         case GQLParser::STDDEV_POP:
         case GQLParser::STDDEV_SAMP:
         case GQLParser::SUM: {
-          setState(3927);
+          setState(3924);
           {
             auto childCtxHolder = ctx->EnterAggregateFunction();
             aggregateFunction(get_raw_pointer(childCtxHolder));
@@ -28475,7 +28457,7 @@ public:
         case GQLParser::GENERAL_PARAMETER_REFERENCE:
         case GQLParser::LEFT_BRACE:
         case GQLParser::LEFT_BRACKET: {
-          setState(3928);
+          setState(3925);
           {
             auto childCtxHolder = ctx->EnterUnsignedValueSpecification();
             unsignedValueSpecification(get_raw_pointer(childCtxHolder));
@@ -28484,7 +28466,7 @@ public:
         }
 
         case GQLParser::PATH: {
-          setState(3929);
+          setState(3926);
           {
             auto childCtxHolder = ctx->EnterPathValueConstructor();
             pathValueConstructor(get_raw_pointer(childCtxHolder));
@@ -28493,7 +28475,7 @@ public:
         }
 
         case GQLParser::VALUE: {
-          setState(3930);
+          setState(3927);
           {
             auto childCtxHolder = ctx->EnterValueQueryExpression();
             valueQueryExpression(get_raw_pointer(childCtxHolder));
@@ -28504,7 +28486,7 @@ public:
         case GQLParser::CASE:
         case GQLParser::COALESCE:
         case GQLParser::NULLIF: {
-          setState(3931);
+          setState(3928);
           {
             auto childCtxHolder = ctx->EnterCaseExpression();
             caseExpression(get_raw_pointer(childCtxHolder));
@@ -28513,7 +28495,7 @@ public:
         }
 
         case GQLParser::CAST: {
-          setState(3932);
+          setState(3929);
           {
             auto childCtxHolder = ctx->EnterCastSpecification();
             castSpecification(get_raw_pointer(childCtxHolder));
@@ -28522,7 +28504,7 @@ public:
         }
 
         case GQLParser::ELEMENT_ID: {
-          setState(3933);
+          setState(3930);
           {
             auto childCtxHolder = ctx->EnterElement_idFunction();
             element_idFunction(get_raw_pointer(childCtxHolder));
@@ -28531,7 +28513,7 @@ public:
         }
 
         case GQLParser::LET: {
-          setState(3934);
+          setState(3931);
           {
             auto childCtxHolder = ctx->EnterLetValueExpression();
             letValueExpression(get_raw_pointer(childCtxHolder));
@@ -28587,7 +28569,7 @@ public:
         case GQLParser::WRITE:
         case GQLParser::ZONE:
         case GQLParser::REGULAR_IDENTIFIER: {
-          setState(3935);
+          setState(3932);
           {
             auto childCtxHolder = ctx->EnterBindingVariableReference();
             bindingVariableReference(get_raw_pointer(childCtxHolder));
@@ -28599,9 +28581,9 @@ public:
         throw antlr4::NoViableAltException(this);
       }
       _ctx->stop = _input->LT(-1);
-      setState(3943);
+      setState(3940);
       _errHandler->sync(this);
-      alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 446, _ctx);
+      alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 445, _ctx);
       while (alt != 2 && alt != antlr4::atn::ATN::INVALID_ALT_NUMBER) {
         if (alt == 1) {
           if (!_parseListeners.empty())
@@ -28613,25 +28595,25 @@ public:
           _localctx = _tracker.createInstance<antlr4::ParserRuleContext>(parentContext, parentState);
           pushNewRecursionContext(_localctx, startState, RuleValueExpressionPrimary);
           ctx->PushValueExpressionPrimary();
-          setState(3938);
+          setState(3935);
 
           if (!(precpred(_ctx, 7))) throw antlr4::FailedPredicateException(this, "precpred(_ctx, 7)");
-          setState(3939);
+          setState(3936);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::PERIOD) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::PERIOD);
-          setState(3940);
+          setState(3937);
           {
             auto childCtxHolder = ctx->EnterPropertyName();
             propertyName(get_raw_pointer(childCtxHolder));
           } 
         }
-        setState(3945);
+        setState(3942);
         _errHandler->sync(this);
-        alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 446, _ctx);
+        alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 445, _ctx);
       }
     }
     catch (antlr4::RecognitionException &e) {
@@ -28659,19 +28641,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3946);
+      setState(3943);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(3947);
+      setState(3944);
       {
         auto childCtxHolder = ctx->EnterValueExpression();
         valueExpression(0, get_raw_pointer(childCtxHolder));
       }
-      setState(3948);
+      setState(3945);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -28705,12 +28687,12 @@ public:
     }
     });
     try {
-      setState(3952);
+      setState(3949);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 447, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 446, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(3950);
+        setState(3947);
         {
           auto childCtxHolder = ctx->EnterNonParenthesizedValueExpressionPrimarySpecialCase();
           nonParenthesizedValueExpressionPrimarySpecialCase(get_raw_pointer(childCtxHolder));
@@ -28720,7 +28702,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(3951);
+        setState(3948);
         {
           auto childCtxHolder = ctx->EnterBindingVariableReference();
           bindingVariableReference(get_raw_pointer(childCtxHolder));
@@ -28758,12 +28740,12 @@ public:
     }
     });
     try {
-      setState(3966);
+      setState(3963);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 448, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 447, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(3954);
+        setState(3951);
         {
           auto childCtxHolder = ctx->EnterAggregateFunction();
           aggregateFunction(get_raw_pointer(childCtxHolder));
@@ -28773,7 +28755,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(3955);
+        setState(3952);
         {
           auto childCtxHolder = ctx->EnterUnsignedValueSpecification();
           unsignedValueSpecification(get_raw_pointer(childCtxHolder));
@@ -28783,7 +28765,7 @@ public:
 
       case 3: {
         enterOuterAlt(_localctx, 3);
-        setState(3956);
+        setState(3953);
         {
           auto childCtxHolder = ctx->EnterPathValueConstructor();
           pathValueConstructor(get_raw_pointer(childCtxHolder));
@@ -28793,19 +28775,19 @@ public:
 
       case 4: {
         enterOuterAlt(_localctx, 4);
-        setState(3957);
+        setState(3954);
         {
           auto childCtxHolder = ctx->EnterValueExpressionPrimary();
           valueExpressionPrimary(0, get_raw_pointer(childCtxHolder));
         }
-        setState(3958);
+        setState(3955);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::PERIOD) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::PERIOD);
-        setState(3959);
+        setState(3956);
         {
           auto childCtxHolder = ctx->EnterPropertyName();
           propertyName(get_raw_pointer(childCtxHolder));
@@ -28815,7 +28797,7 @@ public:
 
       case 5: {
         enterOuterAlt(_localctx, 5);
-        setState(3961);
+        setState(3958);
         {
           auto childCtxHolder = ctx->EnterValueQueryExpression();
           valueQueryExpression(get_raw_pointer(childCtxHolder));
@@ -28825,7 +28807,7 @@ public:
 
       case 6: {
         enterOuterAlt(_localctx, 6);
-        setState(3962);
+        setState(3959);
         {
           auto childCtxHolder = ctx->EnterCaseExpression();
           caseExpression(get_raw_pointer(childCtxHolder));
@@ -28835,7 +28817,7 @@ public:
 
       case 7: {
         enterOuterAlt(_localctx, 7);
-        setState(3963);
+        setState(3960);
         {
           auto childCtxHolder = ctx->EnterCastSpecification();
           castSpecification(get_raw_pointer(childCtxHolder));
@@ -28845,7 +28827,7 @@ public:
 
       case 8: {
         enterOuterAlt(_localctx, 8);
-        setState(3964);
+        setState(3961);
         {
           auto childCtxHolder = ctx->EnterElement_idFunction();
           element_idFunction(get_raw_pointer(childCtxHolder));
@@ -28855,7 +28837,7 @@ public:
 
       case 9: {
         enterOuterAlt(_localctx, 9);
-        setState(3965);
+        setState(3962);
         {
           auto childCtxHolder = ctx->EnterLetValueExpression();
           letValueExpression(get_raw_pointer(childCtxHolder));
@@ -28893,7 +28875,7 @@ public:
     }
     });
     try {
-      setState(3970);
+      setState(3967);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::BOOLEAN_LITERAL:
@@ -28925,7 +28907,7 @@ public:
         case GQLParser::LEFT_BRACE:
         case GQLParser::LEFT_BRACKET: {
           enterOuterAlt(_localctx, 1);
-          setState(3968);
+          setState(3965);
           {
             auto childCtxHolder = ctx->EnterUnsignedLiteral();
             unsignedLiteral(get_raw_pointer(childCtxHolder));
@@ -28936,7 +28918,7 @@ public:
         case GQLParser::SESSION_USER:
         case GQLParser::GENERAL_PARAMETER_REFERENCE: {
           enterOuterAlt(_localctx, 2);
-          setState(3969);
+          setState(3966);
           {
             auto childCtxHolder = ctx->EnterGeneralValueSpecification();
             generalValueSpecification(get_raw_pointer(childCtxHolder));
@@ -28974,7 +28956,7 @@ public:
     }
     });
     try {
-      setState(3974);
+      setState(3971);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::UNSIGNED_DECIMAL_INTEGER:
@@ -28982,7 +28964,7 @@ public:
         case GQLParser::UNSIGNED_OCTAL_INTEGER:
         case GQLParser::UNSIGNED_BINARY_INTEGER: {
           enterOuterAlt(_localctx, 1);
-          setState(3972);
+          setState(3969);
           {
             auto childCtxHolder = ctx->EnterUnsignedInteger();
             unsignedInteger(get_raw_pointer(childCtxHolder));
@@ -28992,7 +28974,7 @@ public:
 
         case GQLParser::GENERAL_PARAMETER_REFERENCE: {
           enterOuterAlt(_localctx, 2);
-          setState(3973);
+          setState(3970);
           {
             auto childCtxHolder = ctx->EnterDynamicParameterSpecification();
             dynamicParameterSpecification(get_raw_pointer(childCtxHolder));
@@ -29030,12 +29012,12 @@ public:
     }
     });
     try {
-      setState(3978);
+      setState(3975);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::GENERAL_PARAMETER_REFERENCE: {
           enterOuterAlt(_localctx, 1);
-          setState(3976);
+          setState(3973);
           {
             auto childCtxHolder = ctx->EnterDynamicParameterSpecification();
             dynamicParameterSpecification(get_raw_pointer(childCtxHolder));
@@ -29045,7 +29027,7 @@ public:
 
         case GQLParser::SESSION_USER: {
           enterOuterAlt(_localctx, 2);
-          setState(3977);
+          setState(3974);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::SESSION_USER) {
               ctx->OnToken(_input->LT(1));
@@ -29086,7 +29068,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3980);
+      setState(3977);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::GENERAL_PARAMETER_REFERENCE) {
           ctx->OnToken(_input->LT(1));
@@ -29121,31 +29103,31 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3982);
+      setState(3979);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LET) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LET);
-      setState(3983);
+      setState(3980);
       {
         auto childCtxHolder = ctx->EnterLetVariableDefinitionList();
         letVariableDefinitionList(get_raw_pointer(childCtxHolder));
       }
-      setState(3984);
+      setState(3981);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::IN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::IN);
-      setState(3985);
+      setState(3982);
       {
         auto childCtxHolder = ctx->EnterValueExpression();
         valueExpression(0, get_raw_pointer(childCtxHolder));
       }
-      setState(3986);
+      setState(3983);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::END) {
           ctx->OnToken(_input->LT(1));
@@ -29180,14 +29162,14 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(3988);
+      setState(3985);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::VALUE) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::VALUE);
-      setState(3989);
+      setState(3986);
       {
         auto childCtxHolder = ctx->EnterNestedQuerySpecification();
         nestedQuerySpecification(get_raw_pointer(childCtxHolder));
@@ -29219,13 +29201,13 @@ public:
     }
     });
     try {
-      setState(3993);
+      setState(3990);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::COALESCE:
         case GQLParser::NULLIF: {
           enterOuterAlt(_localctx, 1);
-          setState(3991);
+          setState(3988);
           {
             auto childCtxHolder = ctx->EnterCaseAbbreviation();
             caseAbbreviation(get_raw_pointer(childCtxHolder));
@@ -29235,7 +29217,7 @@ public:
 
         case GQLParser::CASE: {
           enterOuterAlt(_localctx, 2);
-          setState(3992);
+          setState(3989);
           {
             auto childCtxHolder = ctx->EnterCaseSpecification();
             caseSpecification(get_raw_pointer(childCtxHolder));
@@ -29274,7 +29256,7 @@ public:
     }
     });
     try {
-      setState(4013);
+      setState(4010);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::NULLIF: {
@@ -29293,38 +29275,38 @@ public:
               (void)ctx;
           });
           enterOuterAlt(_localctx, 1);
-          setState(3995);
+          setState(3992);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::NULLIF) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::NULLIF);
-          setState(3996);
+          setState(3993);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::LEFT_PAREN) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::LEFT_PAREN);
-          setState(3997);
+          setState(3994);
           {
             auto childCtxHolder = ctx->EnterValueExpression();
             valueExpression(0, get_raw_pointer(childCtxHolder));
           }
-          setState(3998);
+          setState(3995);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::COMMA) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::COMMA);
-          setState(3999);
+          setState(3996);
           {
             auto childCtxHolder = ctx->EnterValueExpression();
             valueExpression(0, get_raw_pointer(childCtxHolder));
           }
-          setState(4000);
+          setState(3997);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
               ctx->OnToken(_input->LT(1));
@@ -29350,46 +29332,46 @@ public:
               (void)ctx;
           });
           enterOuterAlt(_localctx, 2);
-          setState(4002);
+          setState(3999);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::COALESCE) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::COALESCE);
-          setState(4003);
+          setState(4000);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::LEFT_PAREN) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::LEFT_PAREN);
-          setState(4004);
+          setState(4001);
           {
             auto childCtxHolder = ctx->EnterValueExpression();
             valueExpression(0, get_raw_pointer(childCtxHolder));
           }
-          setState(4007); 
+          setState(4004); 
           _errHandler->sync(this);
           _la = _input->LA(1);
           do {
-            setState(4005);
+            setState(4002);
             if constexpr (has_OnToken<decltype(ctx)>::value) {
               if (_input->LA(1) == GQLParser::COMMA) {
                 ctx->OnToken(_input->LT(1));
               }
             }
             match(GQLParser::COMMA);
-            setState(4006);
+            setState(4003);
             {
               auto childCtxHolder = ctx->EnterValueExpression();
               valueExpression(0, get_raw_pointer(childCtxHolder));
             }
-            setState(4009); 
+            setState(4006); 
             _errHandler->sync(this);
             _la = _input->LA(1);
           } while (_la == GQLParser::COMMA);
-          setState(4011);
+          setState(4008);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
               ctx->OnToken(_input->LT(1));
@@ -29429,12 +29411,12 @@ public:
     }
     });
     try {
-      setState(4017);
+      setState(4014);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 455, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 454, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(4015);
+        setState(4012);
         {
           auto childCtxHolder = ctx->EnterSimpleCase();
           simpleCase(get_raw_pointer(childCtxHolder));
@@ -29444,7 +29426,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(4016);
+        setState(4013);
         {
           auto childCtxHolder = ctx->EnterSearchedCase();
           searchedCase(get_raw_pointer(childCtxHolder));
@@ -29484,43 +29466,43 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4019);
+      setState(4016);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::CASE) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::CASE);
-      setState(4020);
+      setState(4017);
       {
         auto childCtxHolder = ctx->EnterCaseOperand();
         caseOperand(get_raw_pointer(childCtxHolder));
       }
-      setState(4022); 
+      setState(4019); 
       _errHandler->sync(this);
       _la = _input->LA(1);
       do {
-        setState(4021);
+        setState(4018);
         {
           auto childCtxHolder = ctx->EnterSimpleWhenClause();
           simpleWhenClause(get_raw_pointer(childCtxHolder));
         }
-        setState(4024); 
+        setState(4021); 
         _errHandler->sync(this);
         _la = _input->LA(1);
       } while (_la == GQLParser::WHEN);
-      setState(4027);
+      setState(4024);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::ELSE) {
-        setState(4026);
+        setState(4023);
         {
           auto childCtxHolder = ctx->EnterElseClause();
           elseClause(get_raw_pointer(childCtxHolder));
         }
       }
-      setState(4029);
+      setState(4026);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::END) {
           ctx->OnToken(_input->LT(1));
@@ -29556,38 +29538,38 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4031);
+      setState(4028);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::CASE) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::CASE);
-      setState(4033); 
+      setState(4030); 
       _errHandler->sync(this);
       _la = _input->LA(1);
       do {
-        setState(4032);
+        setState(4029);
         {
           auto childCtxHolder = ctx->EnterSearchedWhenClause();
           searchedWhenClause(get_raw_pointer(childCtxHolder));
         }
-        setState(4035); 
+        setState(4032); 
         _errHandler->sync(this);
         _la = _input->LA(1);
       } while (_la == GQLParser::WHEN);
-      setState(4038);
+      setState(4035);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::ELSE) {
-        setState(4037);
+        setState(4034);
         {
           auto childCtxHolder = ctx->EnterElseClause();
           elseClause(get_raw_pointer(childCtxHolder));
         }
       }
-      setState(4040);
+      setState(4037);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::END) {
           ctx->OnToken(_input->LT(1));
@@ -29622,26 +29604,26 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4042);
+      setState(4039);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::WHEN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::WHEN);
-      setState(4043);
+      setState(4040);
       {
         auto childCtxHolder = ctx->EnterWhenOperandList();
         whenOperandList(get_raw_pointer(childCtxHolder));
       }
-      setState(4044);
+      setState(4041);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::THEN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::THEN);
-      setState(4045);
+      setState(4042);
       {
         auto childCtxHolder = ctx->EnterResult();
         result(get_raw_pointer(childCtxHolder));
@@ -29674,26 +29656,26 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4047);
+      setState(4044);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::WHEN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::WHEN);
-      setState(4048);
+      setState(4045);
       {
         auto childCtxHolder = ctx->EnterSearchCondition();
         searchCondition(get_raw_pointer(childCtxHolder));
       }
-      setState(4049);
+      setState(4046);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::THEN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::THEN);
-      setState(4050);
+      setState(4047);
       {
         auto childCtxHolder = ctx->EnterResult();
         result(get_raw_pointer(childCtxHolder));
@@ -29726,14 +29708,14 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4052);
+      setState(4049);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::ELSE) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::ELSE);
-      setState(4053);
+      setState(4050);
       {
         auto childCtxHolder = ctx->EnterResult();
         result(get_raw_pointer(childCtxHolder));
@@ -29765,12 +29747,12 @@ public:
     }
     });
     try {
-      setState(4057);
+      setState(4054);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 460, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 459, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(4055);
+        setState(4052);
         {
           auto childCtxHolder = ctx->EnterNonParenthesizedValueExpressionPrimary();
           nonParenthesizedValueExpressionPrimary(get_raw_pointer(childCtxHolder));
@@ -29780,7 +29762,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(4056);
+        setState(4053);
         {
           auto childCtxHolder = ctx->EnterElementVariableReference();
           elementVariableReference(get_raw_pointer(childCtxHolder));
@@ -29820,28 +29802,28 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4059);
+      setState(4056);
       {
         auto childCtxHolder = ctx->EnterWhenOperand();
         whenOperand(get_raw_pointer(childCtxHolder));
       }
-      setState(4064);
+      setState(4061);
       _errHandler->sync(this);
       _la = _input->LA(1);
       while (_la == GQLParser::COMMA) {
-        setState(4060);
+        setState(4057);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::COMMA) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::COMMA);
-        setState(4061);
+        setState(4058);
         {
           auto childCtxHolder = ctx->EnterWhenOperand();
           whenOperand(get_raw_pointer(childCtxHolder));
         }
-        setState(4066);
+        setState(4063);
         _errHandler->sync(this);
         _la = _input->LA(1);
       }
@@ -29872,12 +29854,12 @@ public:
     }
     });
     try {
-      setState(4078);
+      setState(4075);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 462, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 461, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(4067);
+        setState(4064);
         {
           auto childCtxHolder = ctx->EnterNonParenthesizedValueExpressionPrimary();
           nonParenthesizedValueExpressionPrimary(get_raw_pointer(childCtxHolder));
@@ -29887,12 +29869,12 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(4068);
+        setState(4065);
         {
           auto childCtxHolder = ctx->EnterCompOp();
           compOp(get_raw_pointer(childCtxHolder));
         }
-        setState(4069);
+        setState(4066);
         {
           auto childCtxHolder = ctx->EnterValueExpression();
           valueExpression(0, get_raw_pointer(childCtxHolder));
@@ -29902,7 +29884,7 @@ public:
 
       case 3: {
         enterOuterAlt(_localctx, 3);
-        setState(4071);
+        setState(4068);
         {
           auto childCtxHolder = ctx->EnterNullPredicatePart2();
           nullPredicatePart2(get_raw_pointer(childCtxHolder));
@@ -29912,7 +29894,7 @@ public:
 
       case 4: {
         enterOuterAlt(_localctx, 4);
-        setState(4072);
+        setState(4069);
         {
           auto childCtxHolder = ctx->EnterValueTypePredicatePart2();
           valueTypePredicatePart2(get_raw_pointer(childCtxHolder));
@@ -29922,7 +29904,7 @@ public:
 
       case 5: {
         enterOuterAlt(_localctx, 5);
-        setState(4073);
+        setState(4070);
         {
           auto childCtxHolder = ctx->EnterNormalizedPredicatePart2();
           normalizedPredicatePart2(get_raw_pointer(childCtxHolder));
@@ -29932,7 +29914,7 @@ public:
 
       case 6: {
         enterOuterAlt(_localctx, 6);
-        setState(4074);
+        setState(4071);
         {
           auto childCtxHolder = ctx->EnterDirectedPredicatePart2();
           directedPredicatePart2(get_raw_pointer(childCtxHolder));
@@ -29942,7 +29924,7 @@ public:
 
       case 7: {
         enterOuterAlt(_localctx, 7);
-        setState(4075);
+        setState(4072);
         {
           auto childCtxHolder = ctx->EnterLabeledPredicatePart2();
           labeledPredicatePart2(get_raw_pointer(childCtxHolder));
@@ -29952,7 +29934,7 @@ public:
 
       case 8: {
         enterOuterAlt(_localctx, 8);
-        setState(4076);
+        setState(4073);
         {
           auto childCtxHolder = ctx->EnterSourcePredicatePart2();
           sourcePredicatePart2(get_raw_pointer(childCtxHolder));
@@ -29962,7 +29944,7 @@ public:
 
       case 9: {
         enterOuterAlt(_localctx, 9);
-        setState(4077);
+        setState(4074);
         {
           auto childCtxHolder = ctx->EnterDestinationPredicatePart2();
           destinationPredicatePart2(get_raw_pointer(childCtxHolder));
@@ -30000,12 +29982,12 @@ public:
     }
     });
     try {
-      setState(4082);
+      setState(4079);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 463, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 462, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(4080);
+        setState(4077);
         {
           auto childCtxHolder = ctx->EnterResultExpression();
           resultExpression(get_raw_pointer(childCtxHolder));
@@ -30015,7 +29997,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(4081);
+        setState(4078);
         {
           auto childCtxHolder = ctx->EnterNullLiteral();
           nullLiteral(get_raw_pointer(childCtxHolder));
@@ -30054,7 +30036,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4084);
+      setState(4081);
       {
         auto childCtxHolder = ctx->EnterValueExpression();
         valueExpression(0, get_raw_pointer(childCtxHolder));
@@ -30087,38 +30069,38 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4086);
+      setState(4083);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::CAST) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::CAST);
-      setState(4087);
+      setState(4084);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(4088);
+      setState(4085);
       {
         auto childCtxHolder = ctx->EnterCastOperand();
         castOperand(get_raw_pointer(childCtxHolder));
       }
-      setState(4089);
+      setState(4086);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::AS) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::AS);
-      setState(4090);
+      setState(4087);
       {
         auto childCtxHolder = ctx->EnterCastTarget();
         castTarget(get_raw_pointer(childCtxHolder));
       }
-      setState(4091);
+      setState(4088);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -30152,12 +30134,12 @@ public:
     }
     });
     try {
-      setState(4095);
+      setState(4092);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 464, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 463, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(4093);
+        setState(4090);
         {
           auto childCtxHolder = ctx->EnterValueExpression();
           valueExpression(0, get_raw_pointer(childCtxHolder));
@@ -30167,7 +30149,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(4094);
+        setState(4091);
         {
           auto childCtxHolder = ctx->EnterNullLiteral();
           nullLiteral(get_raw_pointer(childCtxHolder));
@@ -30206,7 +30188,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4097);
+      setState(4094);
       {
         auto childCtxHolder = ctx->EnterValueType();
         valueType(0, get_raw_pointer(childCtxHolder));
@@ -30238,33 +30220,33 @@ public:
     }
     });
     try {
-      setState(4105);
+      setState(4102);
       _errHandler->sync(this);
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 465, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 464, _ctx)) {
       case 1: {
         enterOuterAlt(_localctx, 1);
-        setState(4099);
+        setState(4096);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::COUNT) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::COUNT);
-        setState(4100);
+        setState(4097);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::LEFT_PAREN) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::LEFT_PAREN);
-        setState(4101);
+        setState(4098);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::ASTERISK) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::ASTERISK);
-        setState(4102);
+        setState(4099);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
             ctx->OnToken(_input->LT(1));
@@ -30276,7 +30258,7 @@ public:
 
       case 2: {
         enterOuterAlt(_localctx, 2);
-        setState(4103);
+        setState(4100);
         {
           auto childCtxHolder = ctx->EnterGeneralSetFunction();
           generalSetFunction(get_raw_pointer(childCtxHolder));
@@ -30286,7 +30268,7 @@ public:
 
       case 3: {
         enterOuterAlt(_localctx, 3);
-        setState(4104);
+        setState(4101);
         {
           auto childCtxHolder = ctx->EnterBinarySetFunction();
           binarySetFunction(get_raw_pointer(childCtxHolder));
@@ -30326,37 +30308,37 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4107);
+      setState(4104);
       {
         auto childCtxHolder = ctx->EnterGeneralSetFunctionType();
         generalSetFunctionType(get_raw_pointer(childCtxHolder));
       }
-      setState(4108);
+      setState(4105);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(4110);
+      setState(4107);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::ALL
 
       || _la == GQLParser::DISTINCT) {
-        setState(4109);
+        setState(4106);
         {
           auto childCtxHolder = ctx->EnterSetQuantifier();
           setQuantifier(get_raw_pointer(childCtxHolder));
         }
       }
-      setState(4112);
+      setState(4109);
       {
         auto childCtxHolder = ctx->EnterValueExpression();
         valueExpression(0, get_raw_pointer(childCtxHolder));
       }
-      setState(4113);
+      setState(4110);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -30391,36 +30373,36 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4115);
+      setState(4112);
       {
         auto childCtxHolder = ctx->EnterBinarySetFunctionType();
         binarySetFunctionType(get_raw_pointer(childCtxHolder));
       }
-      setState(4116);
+      setState(4113);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(4117);
+      setState(4114);
       {
         auto childCtxHolder = ctx->EnterDependentValueExpression();
         dependentValueExpression(get_raw_pointer(childCtxHolder));
       }
-      setState(4118);
+      setState(4115);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::COMMA) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::COMMA);
-      setState(4119);
+      setState(4116);
       {
         auto childCtxHolder = ctx->EnterIndependentValueExpression();
         independentValueExpression(get_raw_pointer(childCtxHolder));
       }
-      setState(4120);
+      setState(4117);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -30456,7 +30438,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4122);
+      setState(4119);
       _la = _input->LA(1);
       if (!((((_la & ~ 0x3fULL) == 0) &&
         ((1ULL << _la) & 4683743621055250432) != 0) || ((((_la - 144) & ~ 0x3fULL) == 0) &&
@@ -30497,7 +30479,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4124);
+      setState(4121);
       _la = _input->LA(1);
       if (!(_la == GQLParser::ALL
 
@@ -30538,7 +30520,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4126);
+      setState(4123);
       _la = _input->LA(1);
       if (!(_la == GQLParser::PERCENTILE_CONT
 
@@ -30579,20 +30561,20 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4129);
+      setState(4126);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::ALL
 
       || _la == GQLParser::DISTINCT) {
-        setState(4128);
+        setState(4125);
         {
           auto childCtxHolder = ctx->EnterSetQuantifier();
           setQuantifier(get_raw_pointer(childCtxHolder));
         }
       }
-      setState(4131);
+      setState(4128);
       {
         auto childCtxHolder = ctx->EnterNumericValueExpression();
         numericValueExpression(0, get_raw_pointer(childCtxHolder));
@@ -30625,7 +30607,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4133);
+      setState(4130);
       {
         auto childCtxHolder = ctx->EnterNumericValueExpression();
         numericValueExpression(0, get_raw_pointer(childCtxHolder));
@@ -30658,26 +30640,26 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4135);
+      setState(4132);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::ELEMENT_ID) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::ELEMENT_ID);
-      setState(4136);
+      setState(4133);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(4137);
+      setState(4134);
       {
         auto childCtxHolder = ctx->EnterElementVariableReference();
         elementVariableReference(get_raw_pointer(childCtxHolder));
       }
-      setState(4138);
+      setState(4135);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -30712,7 +30694,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4140);
+      setState(4137);
       {
         auto childCtxHolder = ctx->EnterBindingVariable();
         bindingVariable(get_raw_pointer(childCtxHolder));
@@ -30745,7 +30727,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4142);
+      setState(4139);
       {
         auto childCtxHolder = ctx->EnterValueExpression();
         valueExpression(0, get_raw_pointer(childCtxHolder));
@@ -30778,7 +30760,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4144);
+      setState(4141);
       {
         auto childCtxHolder = ctx->EnterPathValueConstructorByEnumeration();
         pathValueConstructorByEnumeration(get_raw_pointer(childCtxHolder));
@@ -30811,26 +30793,26 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4146);
+      setState(4143);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::PATH) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::PATH);
-      setState(4147);
+      setState(4144);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_BRACKET) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_BRACKET);
-      setState(4148);
+      setState(4145);
       {
         auto childCtxHolder = ctx->EnterPathElementList();
         pathElementList(get_raw_pointer(childCtxHolder));
       }
-      setState(4149);
+      setState(4146);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_BRACKET) {
           ctx->OnToken(_input->LT(1));
@@ -30866,21 +30848,21 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4151);
+      setState(4148);
       {
         auto childCtxHolder = ctx->EnterPathElementListStart();
         pathElementListStart(get_raw_pointer(childCtxHolder));
       }
-      setState(4155);
+      setState(4152);
       _errHandler->sync(this);
       _la = _input->LA(1);
       while (_la == GQLParser::COMMA) {
-        setState(4152);
+        setState(4149);
         {
           auto childCtxHolder = ctx->EnterPathElementListStep();
           pathElementListStep(get_raw_pointer(childCtxHolder));
         }
-        setState(4157);
+        setState(4154);
         _errHandler->sync(this);
         _la = _input->LA(1);
       }
@@ -30912,7 +30894,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4158);
+      setState(4155);
       {
         auto childCtxHolder = ctx->EnterNodeReferenceValueExpression();
         nodeReferenceValueExpression(get_raw_pointer(childCtxHolder));
@@ -30945,26 +30927,26 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4160);
+      setState(4157);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::COMMA) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::COMMA);
-      setState(4161);
+      setState(4158);
       {
         auto childCtxHolder = ctx->EnterEdgeReferenceValueExpression();
         edgeReferenceValueExpression(get_raw_pointer(childCtxHolder));
       }
-      setState(4162);
+      setState(4159);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::COMMA) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::COMMA);
-      setState(4163);
+      setState(4160);
       {
         auto childCtxHolder = ctx->EnterNodeReferenceValueExpression();
         nodeReferenceValueExpression(get_raw_pointer(childCtxHolder));
@@ -30997,7 +30979,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4165);
+      setState(4162);
       {
         auto childCtxHolder = ctx->EnterValueExpression();
         valueExpression(0, get_raw_pointer(childCtxHolder));
@@ -31029,12 +31011,12 @@ public:
     }
     });
     try {
-      setState(4169);
+      setState(4166);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::TRIM: {
           enterOuterAlt(_localctx, 1);
-          setState(4167);
+          setState(4164);
           {
             auto childCtxHolder = ctx->EnterTrimListFunction();
             trimListFunction(get_raw_pointer(childCtxHolder));
@@ -31044,7 +31026,7 @@ public:
 
         case GQLParser::ELEMENTS: {
           enterOuterAlt(_localctx, 2);
-          setState(4168);
+          setState(4165);
           {
             auto childCtxHolder = ctx->EnterElementsFunction();
             elementsFunction(get_raw_pointer(childCtxHolder));
@@ -31083,38 +31065,38 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4171);
+      setState(4168);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::TRIM) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::TRIM);
-      setState(4172);
+      setState(4169);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(4173);
+      setState(4170);
       {
         auto childCtxHolder = ctx->EnterListValueExpression();
         listValueExpression(get_raw_pointer(childCtxHolder));
       }
-      setState(4174);
+      setState(4171);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::COMMA) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::COMMA);
-      setState(4175);
+      setState(4172);
       {
         auto childCtxHolder = ctx->EnterNumericValueExpression();
         numericValueExpression(0, get_raw_pointer(childCtxHolder));
       }
-      setState(4176);
+      setState(4173);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -31149,26 +31131,26 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4178);
+      setState(4175);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::ELEMENTS) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::ELEMENTS);
-      setState(4179);
+      setState(4176);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(4180);
+      setState(4177);
       {
         auto childCtxHolder = ctx->EnterPathValueExpression();
         pathValueExpression(get_raw_pointer(childCtxHolder));
       }
-      setState(4181);
+      setState(4178);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -31203,7 +31185,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4183);
+      setState(4180);
       {
         auto childCtxHolder = ctx->EnterListValueConstructorByEnumeration();
         listValueConstructorByEnumeration(get_raw_pointer(childCtxHolder));
@@ -31237,27 +31219,27 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4186);
+      setState(4183);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::ARRAY || _la == GQLParser::GROUP
 
       || _la == GQLParser::LIST) {
-        setState(4185);
+        setState(4182);
         {
           auto childCtxHolder = ctx->EnterListValueTypeName();
           listValueTypeName(get_raw_pointer(childCtxHolder));
         }
       }
-      setState(4188);
+      setState(4185);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_BRACKET) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_BRACKET);
-      setState(4190);
+      setState(4187);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
@@ -31268,13 +31250,13 @@ public:
         ((1ULL << (_la - 193)) & 26393111092643) != 0) || ((((_la - 277) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 277)) & 1686650837008383) != 0) || ((((_la - 369) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 369)) & 151) != 0)) {
-        setState(4189);
+        setState(4186);
         {
           auto childCtxHolder = ctx->EnterListElementList();
           listElementList(get_raw_pointer(childCtxHolder));
         }
       }
-      setState(4192);
+      setState(4189);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_BRACKET) {
           ctx->OnToken(_input->LT(1));
@@ -31310,28 +31292,28 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4194);
+      setState(4191);
       {
         auto childCtxHolder = ctx->EnterListElement();
         listElement(get_raw_pointer(childCtxHolder));
       }
-      setState(4199);
+      setState(4196);
       _errHandler->sync(this);
       _la = _input->LA(1);
       while (_la == GQLParser::COMMA) {
-        setState(4195);
+        setState(4192);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::COMMA) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::COMMA);
-        setState(4196);
+        setState(4193);
         {
           auto childCtxHolder = ctx->EnterListElement();
           listElement(get_raw_pointer(childCtxHolder));
         }
-        setState(4201);
+        setState(4198);
         _errHandler->sync(this);
         _la = _input->LA(1);
       }
@@ -31363,7 +31345,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4202);
+      setState(4199);
       {
         auto childCtxHolder = ctx->EnterValueExpression();
         valueExpression(0, get_raw_pointer(childCtxHolder));
@@ -31397,12 +31379,12 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4205);
+      setState(4202);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
       if (_la == GQLParser::RECORD) {
-        setState(4204);
+        setState(4201);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::RECORD) {
             ctx->OnToken(_input->LT(1));
@@ -31410,7 +31392,7 @@ public:
         }
         match(GQLParser::RECORD);
       }
-      setState(4207);
+      setState(4204);
       {
         auto childCtxHolder = ctx->EnterFieldsSpecification();
         fieldsSpecification(get_raw_pointer(childCtxHolder));
@@ -31444,14 +31426,14 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4209);
+      setState(4206);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_BRACE) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_BRACE);
-      setState(4211);
+      setState(4208);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
@@ -31459,13 +31441,13 @@ public:
 
       || _la == GQLParser::ACCENT_QUOTED_CHARACTER_SEQUENCE || ((((_la - 277) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 277)) & 560750930165759) != 0)) {
-        setState(4210);
+        setState(4207);
         {
           auto childCtxHolder = ctx->EnterFieldList();
           fieldList(get_raw_pointer(childCtxHolder));
         }
       }
-      setState(4213);
+      setState(4210);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_BRACE) {
           ctx->OnToken(_input->LT(1));
@@ -31501,28 +31483,28 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4215);
+      setState(4212);
       {
         auto childCtxHolder = ctx->EnterField();
         field(get_raw_pointer(childCtxHolder));
       }
-      setState(4220);
+      setState(4217);
       _errHandler->sync(this);
       _la = _input->LA(1);
       while (_la == GQLParser::COMMA) {
-        setState(4216);
+        setState(4213);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::COMMA) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::COMMA);
-        setState(4217);
+        setState(4214);
         {
           auto childCtxHolder = ctx->EnterField();
           field(get_raw_pointer(childCtxHolder));
         }
-        setState(4222);
+        setState(4219);
         _errHandler->sync(this);
         _la = _input->LA(1);
       }
@@ -31554,19 +31536,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4223);
+      setState(4220);
       {
         auto childCtxHolder = ctx->EnterFieldName();
         fieldName(get_raw_pointer(childCtxHolder));
       }
-      setState(4224);
+      setState(4221);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::COLON) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::COLON);
-      setState(4225);
+      setState(4222);
       {
         auto childCtxHolder = ctx->EnterValueExpression();
         valueExpression(0, get_raw_pointer(childCtxHolder));
@@ -31599,7 +31581,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4227);
+      setState(4224);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::BOOLEAN_LITERAL) {
           ctx->OnToken(_input->LT(1));
@@ -31648,7 +31630,7 @@ public:
     try {
       size_t alt;
       enterOuterAlt(_localctx, 1);
-      setState(4234);
+      setState(4231);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::MINUS_SIGN:
@@ -31670,7 +31652,7 @@ public:
               (void)ctx;
           });
 
-          setState(4230);
+          setState(4227);
           _la = _input->LA(1);
           if (!(_la == GQLParser::MINUS_SIGN
 
@@ -31682,7 +31664,7 @@ public:
             antlr4::Token * token = consume();
             ctx->OnToken(token);
           }
-          setState(4231);
+          setState(4228);
           {
             auto childCtxHolder = ctx->EnterNumericValueExpression();
             numericValueExpression(5, get_raw_pointer(childCtxHolder));
@@ -31803,7 +31785,7 @@ public:
             else
               (void)ctx;
           });
-          setState(4232);
+          setState(4229);
           {
             auto childCtxHolder = ctx->EnterValueExpressionPrimary();
             valueExpressionPrimary(0, get_raw_pointer(childCtxHolder));
@@ -31857,7 +31839,7 @@ public:
             else
               (void)ctx;
           });
-          setState(4233);
+          setState(4230);
           {
             auto childCtxHolder = ctx->EnterNumericValueFunction();
             numericValueFunction(get_raw_pointer(childCtxHolder));
@@ -31869,9 +31851,9 @@ public:
         throw antlr4::NoViableAltException(this);
       }
       _ctx->stop = _input->LT(-1);
-      setState(4244);
+      setState(4241);
       _errHandler->sync(this);
-      alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 478, _ctx);
+      alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 477, _ctx);
       while (alt != 2 && alt != antlr4::atn::ATN::INVALID_ALT_NUMBER) {
         if (alt == 1) {
           if (!_parseListeners.empty())
@@ -31880,9 +31862,9 @@ public:
             ctx->ExitRule(_ctx);
           }
           previousContext = _localctx;
-          setState(4242);
+          setState(4239);
           _errHandler->sync(this);
-          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 477, _ctx)) {
+          switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 476, _ctx)) {
           case 1: {
             auto newParentContext = _tracker.createInstance<antlr4::ParserRuleContext>(parentContext, parentState);
             auto newContext = _tracker.createInstance<antlr4::ParserRuleContext>();
@@ -31898,10 +31880,10 @@ public:
               else
                 (void)ctx;
             });
-            setState(4236);
+            setState(4233);
 
             if (!(precpred(_ctx, 4))) throw antlr4::FailedPredicateException(this, "precpred(_ctx, 4)");
-            setState(4237);
+            setState(4234);
             _la = _input->LA(1);
             if (!(_la == GQLParser::ASTERISK
 
@@ -31913,7 +31895,7 @@ public:
               antlr4::Token * token = consume();
               ctx->OnToken(token);
             }
-            setState(4238);
+            setState(4235);
             {
               auto childCtxHolder = ctx->EnterNumericValueExpression();
               numericValueExpression(5, get_raw_pointer(childCtxHolder));
@@ -31936,10 +31918,10 @@ public:
               else
                 (void)ctx;
             });
-            setState(4239);
+            setState(4236);
 
             if (!(precpred(_ctx, 3))) throw antlr4::FailedPredicateException(this, "precpred(_ctx, 3)");
-            setState(4240);
+            setState(4237);
             _la = _input->LA(1);
             if (!(_la == GQLParser::MINUS_SIGN
 
@@ -31951,7 +31933,7 @@ public:
               antlr4::Token * token = consume();
               ctx->OnToken(token);
             }
-            setState(4241);
+            setState(4238);
             {
               auto childCtxHolder = ctx->EnterNumericValueExpression();
               numericValueExpression(4, get_raw_pointer(childCtxHolder));
@@ -31963,9 +31945,9 @@ public:
             break;
           } 
         }
-        setState(4246);
+        setState(4243);
         _errHandler->sync(this);
-        alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 478, _ctx);
+        alt = getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 477, _ctx);
       }
     }
     catch (antlr4::RecognitionException &e) {
@@ -31992,7 +31974,7 @@ public:
     }
     });
     try {
-      setState(4260);
+      setState(4257);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::BYTE_LENGTH:
@@ -32001,7 +31983,7 @@ public:
         case GQLParser::OCTET_LENGTH:
         case GQLParser::PATH_LENGTH: {
           enterOuterAlt(_localctx, 1);
-          setState(4247);
+          setState(4244);
           {
             auto childCtxHolder = ctx->EnterLengthExpression();
             lengthExpression(get_raw_pointer(childCtxHolder));
@@ -32012,7 +31994,7 @@ public:
         case GQLParser::CARDINALITY:
         case GQLParser::SIZE: {
           enterOuterAlt(_localctx, 2);
-          setState(4248);
+          setState(4245);
           {
             auto childCtxHolder = ctx->EnterCardinalityExpression();
             cardinalityExpression(get_raw_pointer(childCtxHolder));
@@ -32022,7 +32004,7 @@ public:
 
         case GQLParser::ABS: {
           enterOuterAlt(_localctx, 3);
-          setState(4249);
+          setState(4246);
           {
             auto childCtxHolder = ctx->EnterAbsoluteValueExpression();
             absoluteValueExpression(get_raw_pointer(childCtxHolder));
@@ -32032,7 +32014,7 @@ public:
 
         case GQLParser::MOD: {
           enterOuterAlt(_localctx, 4);
-          setState(4250);
+          setState(4247);
           {
             auto childCtxHolder = ctx->EnterModulusExpression();
             modulusExpression(get_raw_pointer(childCtxHolder));
@@ -32053,7 +32035,7 @@ public:
         case GQLParser::TAN:
         case GQLParser::TANH: {
           enterOuterAlt(_localctx, 5);
-          setState(4251);
+          setState(4248);
           {
             auto childCtxHolder = ctx->EnterTrigonometricFunction();
             trigonometricFunction(get_raw_pointer(childCtxHolder));
@@ -32063,7 +32045,7 @@ public:
 
         case GQLParser::LOG_KW: {
           enterOuterAlt(_localctx, 6);
-          setState(4252);
+          setState(4249);
           {
             auto childCtxHolder = ctx->EnterGeneralLogarithmFunction();
             generalLogarithmFunction(get_raw_pointer(childCtxHolder));
@@ -32073,7 +32055,7 @@ public:
 
         case GQLParser::LOG10: {
           enterOuterAlt(_localctx, 7);
-          setState(4253);
+          setState(4250);
           {
             auto childCtxHolder = ctx->EnterCommonLogarithm();
             commonLogarithm(get_raw_pointer(childCtxHolder));
@@ -32083,7 +32065,7 @@ public:
 
         case GQLParser::LN: {
           enterOuterAlt(_localctx, 8);
-          setState(4254);
+          setState(4251);
           {
             auto childCtxHolder = ctx->EnterNaturalLogarithm();
             naturalLogarithm(get_raw_pointer(childCtxHolder));
@@ -32093,7 +32075,7 @@ public:
 
         case GQLParser::EXP: {
           enterOuterAlt(_localctx, 9);
-          setState(4255);
+          setState(4252);
           {
             auto childCtxHolder = ctx->EnterExponentialFunction();
             exponentialFunction(get_raw_pointer(childCtxHolder));
@@ -32103,7 +32085,7 @@ public:
 
         case GQLParser::POWER: {
           enterOuterAlt(_localctx, 10);
-          setState(4256);
+          setState(4253);
           {
             auto childCtxHolder = ctx->EnterPowerFunction();
             powerFunction(get_raw_pointer(childCtxHolder));
@@ -32113,7 +32095,7 @@ public:
 
         case GQLParser::SQRT: {
           enterOuterAlt(_localctx, 11);
-          setState(4257);
+          setState(4254);
           {
             auto childCtxHolder = ctx->EnterSquareRoot();
             squareRoot(get_raw_pointer(childCtxHolder));
@@ -32123,7 +32105,7 @@ public:
 
         case GQLParser::FLOOR: {
           enterOuterAlt(_localctx, 12);
-          setState(4258);
+          setState(4255);
           {
             auto childCtxHolder = ctx->EnterFloorFunction();
             floorFunction(get_raw_pointer(childCtxHolder));
@@ -32134,7 +32116,7 @@ public:
         case GQLParser::CEIL:
         case GQLParser::CEILING: {
           enterOuterAlt(_localctx, 13);
-          setState(4259);
+          setState(4256);
           {
             auto childCtxHolder = ctx->EnterCeilingFunction();
             ceilingFunction(get_raw_pointer(childCtxHolder));
@@ -32172,13 +32154,13 @@ public:
     }
     });
     try {
-      setState(4265);
+      setState(4262);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::CHAR_LENGTH:
         case GQLParser::CHARACTER_LENGTH: {
           enterOuterAlt(_localctx, 1);
-          setState(4262);
+          setState(4259);
           {
             auto childCtxHolder = ctx->EnterCharLengthExpression();
             charLengthExpression(get_raw_pointer(childCtxHolder));
@@ -32189,7 +32171,7 @@ public:
         case GQLParser::BYTE_LENGTH:
         case GQLParser::OCTET_LENGTH: {
           enterOuterAlt(_localctx, 2);
-          setState(4263);
+          setState(4260);
           {
             auto childCtxHolder = ctx->EnterByteLengthExpression();
             byteLengthExpression(get_raw_pointer(childCtxHolder));
@@ -32199,7 +32181,7 @@ public:
 
         case GQLParser::PATH_LENGTH: {
           enterOuterAlt(_localctx, 3);
-          setState(4264);
+          setState(4261);
           {
             auto childCtxHolder = ctx->EnterPathLengthExpression();
             pathLengthExpression(get_raw_pointer(childCtxHolder));
@@ -32237,31 +32219,31 @@ public:
     }
     });
     try {
-      setState(4277);
+      setState(4274);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::CARDINALITY: {
           enterOuterAlt(_localctx, 1);
-          setState(4267);
+          setState(4264);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::CARDINALITY) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::CARDINALITY);
-          setState(4268);
+          setState(4265);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::LEFT_PAREN) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::LEFT_PAREN);
-          setState(4269);
+          setState(4266);
           {
             auto childCtxHolder = ctx->EnterCardinalityExpressionArgument();
             cardinalityExpressionArgument(get_raw_pointer(childCtxHolder));
           }
-          setState(4270);
+          setState(4267);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
               ctx->OnToken(_input->LT(1));
@@ -32273,26 +32255,26 @@ public:
 
         case GQLParser::SIZE: {
           enterOuterAlt(_localctx, 2);
-          setState(4272);
+          setState(4269);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::SIZE) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::SIZE);
-          setState(4273);
+          setState(4270);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::LEFT_PAREN) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::LEFT_PAREN);
-          setState(4274);
+          setState(4271);
           {
             auto childCtxHolder = ctx->EnterListValueExpression();
             listValueExpression(get_raw_pointer(childCtxHolder));
           }
-          setState(4275);
+          setState(4272);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
               ctx->OnToken(_input->LT(1));
@@ -32333,7 +32315,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4279);
+      setState(4276);
       {
         auto childCtxHolder = ctx->EnterValueExpression();
         valueExpression(0, get_raw_pointer(childCtxHolder));
@@ -32367,7 +32349,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4281);
+      setState(4278);
       _la = _input->LA(1);
       if (!(_la == GQLParser::CHAR_LENGTH
 
@@ -32379,19 +32361,19 @@ public:
         antlr4::Token * token = consume();
         ctx->OnToken(token);
       }
-      setState(4282);
+      setState(4279);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(4283);
+      setState(4280);
       {
         auto childCtxHolder = ctx->EnterCharacterStringValueExpression();
         characterStringValueExpression(get_raw_pointer(childCtxHolder));
       }
-      setState(4284);
+      setState(4281);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -32427,7 +32409,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4286);
+      setState(4283);
       _la = _input->LA(1);
       if (!(_la == GQLParser::BYTE_LENGTH || _la == GQLParser::OCTET_LENGTH)) {
         _errHandler->recoverInline(this);
@@ -32437,19 +32419,19 @@ public:
         antlr4::Token * token = consume();
         ctx->OnToken(token);
       }
-      setState(4287);
+      setState(4284);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(4288);
+      setState(4285);
       {
         auto childCtxHolder = ctx->EnterByteStringValueExpression();
         byteStringValueExpression(get_raw_pointer(childCtxHolder));
       }
-      setState(4289);
+      setState(4286);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -32484,26 +32466,26 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4291);
+      setState(4288);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::PATH_LENGTH) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::PATH_LENGTH);
-      setState(4292);
+      setState(4289);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(4293);
+      setState(4290);
       {
         auto childCtxHolder = ctx->EnterPathValueExpression();
         pathValueExpression(get_raw_pointer(childCtxHolder));
       }
-      setState(4294);
+      setState(4291);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -32538,26 +32520,26 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4296);
+      setState(4293);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::ABS) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::ABS);
-      setState(4297);
+      setState(4294);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(4298);
+      setState(4295);
       {
         auto childCtxHolder = ctx->EnterValueExpression();
         valueExpression(0, get_raw_pointer(childCtxHolder));
       }
-      setState(4299);
+      setState(4296);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -32592,38 +32574,38 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4301);
+      setState(4298);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::MOD) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::MOD);
-      setState(4302);
+      setState(4299);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(4303);
+      setState(4300);
       {
         auto childCtxHolder = ctx->EnterNumericValueExpressionDividend();
         numericValueExpressionDividend(get_raw_pointer(childCtxHolder));
       }
-      setState(4304);
+      setState(4301);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::COMMA) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::COMMA);
-      setState(4305);
+      setState(4302);
       {
         auto childCtxHolder = ctx->EnterNumericValueExpressionDivisor();
         numericValueExpressionDivisor(get_raw_pointer(childCtxHolder));
       }
-      setState(4306);
+      setState(4303);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -32658,7 +32640,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4308);
+      setState(4305);
       {
         auto childCtxHolder = ctx->EnterNumericValueExpression();
         numericValueExpression(0, get_raw_pointer(childCtxHolder));
@@ -32691,7 +32673,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4310);
+      setState(4307);
       {
         auto childCtxHolder = ctx->EnterNumericValueExpression();
         numericValueExpression(0, get_raw_pointer(childCtxHolder));
@@ -32724,24 +32706,24 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4312);
+      setState(4309);
       {
         auto childCtxHolder = ctx->EnterTrigonometricFunctionName();
         trigonometricFunctionName(get_raw_pointer(childCtxHolder));
       }
-      setState(4313);
+      setState(4310);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(4314);
+      setState(4311);
       {
         auto childCtxHolder = ctx->EnterNumericValueExpression();
         numericValueExpression(0, get_raw_pointer(childCtxHolder));
       }
-      setState(4315);
+      setState(4312);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -32777,7 +32759,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4317);
+      setState(4314);
       _la = _input->LA(1);
       if (!(((((_la - 21) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 21)) & 18016322654833153) != 0) || ((((_la - 174) & ~ 0x3fULL) == 0) &&
@@ -32817,38 +32799,38 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4319);
+      setState(4316);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LOG_KW) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LOG_KW);
-      setState(4320);
+      setState(4317);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(4321);
+      setState(4318);
       {
         auto childCtxHolder = ctx->EnterGeneralLogarithmBase();
         generalLogarithmBase(get_raw_pointer(childCtxHolder));
       }
-      setState(4322);
+      setState(4319);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::COMMA) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::COMMA);
-      setState(4323);
+      setState(4320);
       {
         auto childCtxHolder = ctx->EnterGeneralLogarithmArgument();
         generalLogarithmArgument(get_raw_pointer(childCtxHolder));
       }
-      setState(4324);
+      setState(4321);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -32883,7 +32865,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4326);
+      setState(4323);
       {
         auto childCtxHolder = ctx->EnterNumericValueExpression();
         numericValueExpression(0, get_raw_pointer(childCtxHolder));
@@ -32916,7 +32898,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4328);
+      setState(4325);
       {
         auto childCtxHolder = ctx->EnterNumericValueExpression();
         numericValueExpression(0, get_raw_pointer(childCtxHolder));
@@ -32949,26 +32931,26 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4330);
+      setState(4327);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LOG10) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LOG10);
-      setState(4331);
+      setState(4328);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(4332);
+      setState(4329);
       {
         auto childCtxHolder = ctx->EnterNumericValueExpression();
         numericValueExpression(0, get_raw_pointer(childCtxHolder));
       }
-      setState(4333);
+      setState(4330);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -33003,26 +32985,26 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4335);
+      setState(4332);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LN);
-      setState(4336);
+      setState(4333);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(4337);
+      setState(4334);
       {
         auto childCtxHolder = ctx->EnterNumericValueExpression();
         numericValueExpression(0, get_raw_pointer(childCtxHolder));
       }
-      setState(4338);
+      setState(4335);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -33057,26 +33039,26 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4340);
+      setState(4337);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::EXP) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::EXP);
-      setState(4341);
+      setState(4338);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(4342);
+      setState(4339);
       {
         auto childCtxHolder = ctx->EnterNumericValueExpression();
         numericValueExpression(0, get_raw_pointer(childCtxHolder));
       }
-      setState(4343);
+      setState(4340);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -33111,38 +33093,38 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4345);
+      setState(4342);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::POWER) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::POWER);
-      setState(4346);
+      setState(4343);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(4347);
+      setState(4344);
       {
         auto childCtxHolder = ctx->EnterNumericValueExpressionBase();
         numericValueExpressionBase(get_raw_pointer(childCtxHolder));
       }
-      setState(4348);
+      setState(4345);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::COMMA) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::COMMA);
-      setState(4349);
+      setState(4346);
       {
         auto childCtxHolder = ctx->EnterNumericValueExpressionExponent();
         numericValueExpressionExponent(get_raw_pointer(childCtxHolder));
       }
-      setState(4350);
+      setState(4347);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -33177,7 +33159,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4352);
+      setState(4349);
       {
         auto childCtxHolder = ctx->EnterNumericValueExpression();
         numericValueExpression(0, get_raw_pointer(childCtxHolder));
@@ -33210,7 +33192,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4354);
+      setState(4351);
       {
         auto childCtxHolder = ctx->EnterNumericValueExpression();
         numericValueExpression(0, get_raw_pointer(childCtxHolder));
@@ -33243,26 +33225,26 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4356);
+      setState(4353);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::SQRT) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::SQRT);
-      setState(4357);
+      setState(4354);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(4358);
+      setState(4355);
       {
         auto childCtxHolder = ctx->EnterNumericValueExpression();
         numericValueExpression(0, get_raw_pointer(childCtxHolder));
       }
-      setState(4359);
+      setState(4356);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -33297,26 +33279,26 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4361);
+      setState(4358);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::FLOOR) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::FLOOR);
-      setState(4362);
+      setState(4359);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(4363);
+      setState(4360);
       {
         auto childCtxHolder = ctx->EnterNumericValueExpression();
         numericValueExpression(0, get_raw_pointer(childCtxHolder));
       }
-      setState(4364);
+      setState(4361);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -33352,7 +33334,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4366);
+      setState(4363);
       _la = _input->LA(1);
       if (!(_la == GQLParser::CEIL
 
@@ -33364,19 +33346,19 @@ public:
         antlr4::Token * token = consume();
         ctx->OnToken(token);
       }
-      setState(4367);
+      setState(4364);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(4368);
+      setState(4365);
       {
         auto childCtxHolder = ctx->EnterNumericValueExpression();
         numericValueExpression(0, get_raw_pointer(childCtxHolder));
       }
-      setState(4369);
+      setState(4366);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -33411,7 +33393,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4371);
+      setState(4368);
       {
         auto childCtxHolder = ctx->EnterValueExpression();
         valueExpression(0, get_raw_pointer(childCtxHolder));
@@ -33444,7 +33426,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4373);
+      setState(4370);
       {
         auto childCtxHolder = ctx->EnterValueExpression();
         valueExpression(0, get_raw_pointer(childCtxHolder));
@@ -33478,23 +33460,23 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4382);
+      setState(4379);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 484, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 483, _ctx)) {
       case 1: {
-        setState(4376);
+        setState(4373);
         _errHandler->sync(this);
 
         _la = _input->LA(1);
         if (_la == GQLParser::BOTH || _la == GQLParser::LEADING || _la == GQLParser::TRAILING) {
-          setState(4375);
+          setState(4372);
           {
             auto childCtxHolder = ctx->EnterTrimSpecification();
             trimSpecification(get_raw_pointer(childCtxHolder));
           }
         }
-        setState(4379);
+        setState(4376);
         _errHandler->sync(this);
 
         _la = _input->LA(1);
@@ -33505,13 +33487,13 @@ public:
           ((1ULL << (_la - 193)) & 26393111092643) != 0) || ((((_la - 277) & ~ 0x3fULL) == 0) &&
           ((1ULL << (_la - 277)) & 1686650837008383) != 0) || ((((_la - 369) & ~ 0x3fULL) == 0) &&
           ((1ULL << (_la - 369)) & 151) != 0)) {
-          setState(4378);
+          setState(4375);
           {
             auto childCtxHolder = ctx->EnterTrimCharacterOrByteString();
             trimCharacterOrByteString(get_raw_pointer(childCtxHolder));
           }
         }
-        setState(4381);
+        setState(4378);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::FROM) {
             ctx->OnToken(_input->LT(1));
@@ -33524,7 +33506,7 @@ public:
       default:
         break;
       }
-      setState(4384);
+      setState(4381);
       {
         auto childCtxHolder = ctx->EnterTrimCharacterOrByteStringSource();
         trimCharacterOrByteStringSource(get_raw_pointer(childCtxHolder));
@@ -33557,7 +33539,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4386);
+      setState(4383);
       {
         auto childCtxHolder = ctx->EnterValueExpression();
         valueExpression(0, get_raw_pointer(childCtxHolder));
@@ -33591,7 +33573,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4388);
+      setState(4385);
       _la = _input->LA(1);
       if (!(_la == GQLParser::BOTH || _la == GQLParser::LEADING || _la == GQLParser::TRAILING)) {
         _errHandler->recoverInline(this);
@@ -33629,7 +33611,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4390);
+      setState(4387);
       {
         auto childCtxHolder = ctx->EnterValueExpression();
         valueExpression(0, get_raw_pointer(childCtxHolder));
@@ -33663,7 +33645,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4392);
+      setState(4389);
       _la = _input->LA(1);
       if (!(((((_la - 296) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 296)) & 15) != 0))) {
@@ -33702,7 +33684,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4394);
+      setState(4391);
       {
         auto childCtxHolder = ctx->EnterNumericValueExpression();
         numericValueExpression(0, get_raw_pointer(childCtxHolder));
@@ -33735,7 +33717,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4396);
+      setState(4393);
       {
         auto childCtxHolder = ctx->EnterValueExpression();
         valueExpression(0, get_raw_pointer(childCtxHolder));
@@ -33767,13 +33749,13 @@ public:
     }
     });
     try {
-      setState(4403);
+      setState(4400);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::CURRENT_DATE:
         case GQLParser::DATE: {
           enterOuterAlt(_localctx, 1);
-          setState(4398);
+          setState(4395);
           {
             auto childCtxHolder = ctx->EnterDateFunction();
             dateFunction(get_raw_pointer(childCtxHolder));
@@ -33784,7 +33766,7 @@ public:
         case GQLParser::CURRENT_TIME:
         case GQLParser::ZONED_TIME: {
           enterOuterAlt(_localctx, 2);
-          setState(4399);
+          setState(4396);
           {
             auto childCtxHolder = ctx->EnterTimeFunction();
             timeFunction(get_raw_pointer(childCtxHolder));
@@ -33795,7 +33777,7 @@ public:
         case GQLParser::CURRENT_TIMESTAMP:
         case GQLParser::ZONED_DATETIME: {
           enterOuterAlt(_localctx, 3);
-          setState(4400);
+          setState(4397);
           {
             auto childCtxHolder = ctx->EnterDatetimeFunction();
             datetimeFunction(get_raw_pointer(childCtxHolder));
@@ -33805,7 +33787,7 @@ public:
 
         case GQLParser::LOCAL_TIME: {
           enterOuterAlt(_localctx, 4);
-          setState(4401);
+          setState(4398);
           {
             auto childCtxHolder = ctx->EnterLocaltimeFunction();
             localtimeFunction(get_raw_pointer(childCtxHolder));
@@ -33816,7 +33798,7 @@ public:
         case GQLParser::LOCAL_DATETIME:
         case GQLParser::LOCAL_TIMESTAMP: {
           enterOuterAlt(_localctx, 5);
-          setState(4402);
+          setState(4399);
           {
             auto childCtxHolder = ctx->EnterLocaldatetimeFunction();
             localdatetimeFunction(get_raw_pointer(childCtxHolder));
@@ -33855,12 +33837,12 @@ public:
     }
     });
     try {
-      setState(4412);
+      setState(4409);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::CURRENT_DATE: {
           enterOuterAlt(_localctx, 1);
-          setState(4405);
+          setState(4402);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::CURRENT_DATE) {
               ctx->OnToken(_input->LT(1));
@@ -33872,34 +33854,34 @@ public:
 
         case GQLParser::DATE: {
           enterOuterAlt(_localctx, 2);
-          setState(4406);
+          setState(4403);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::DATE) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::DATE);
-          setState(4407);
+          setState(4404);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::LEFT_PAREN) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::LEFT_PAREN);
-          setState(4409);
+          setState(4406);
           _errHandler->sync(this);
 
           _la = _input->LA(1);
           if (_la == GQLParser::SINGLE_QUOTED_CHARACTER_SEQUENCE
 
           || _la == GQLParser::DOUBLE_QUOTED_CHARACTER_SEQUENCE || _la == GQLParser::RECORD || _la == GQLParser::LEFT_BRACE) {
-            setState(4408);
+            setState(4405);
             {
               auto childCtxHolder = ctx->EnterDateFunctionParameters();
               dateFunctionParameters(get_raw_pointer(childCtxHolder));
             }
           }
-          setState(4411);
+          setState(4408);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
               ctx->OnToken(_input->LT(1));
@@ -33940,12 +33922,12 @@ public:
     }
     });
     try {
-      setState(4421);
+      setState(4418);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::CURRENT_TIME: {
           enterOuterAlt(_localctx, 1);
-          setState(4414);
+          setState(4411);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::CURRENT_TIME) {
               ctx->OnToken(_input->LT(1));
@@ -33957,34 +33939,34 @@ public:
 
         case GQLParser::ZONED_TIME: {
           enterOuterAlt(_localctx, 2);
-          setState(4415);
+          setState(4412);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::ZONED_TIME) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::ZONED_TIME);
-          setState(4416);
+          setState(4413);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::LEFT_PAREN) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::LEFT_PAREN);
-          setState(4418);
+          setState(4415);
           _errHandler->sync(this);
 
           _la = _input->LA(1);
           if (_la == GQLParser::SINGLE_QUOTED_CHARACTER_SEQUENCE
 
           || _la == GQLParser::DOUBLE_QUOTED_CHARACTER_SEQUENCE || _la == GQLParser::RECORD || _la == GQLParser::LEFT_BRACE) {
-            setState(4417);
+            setState(4414);
             {
               auto childCtxHolder = ctx->EnterTimeFunctionParameters();
               timeFunctionParameters(get_raw_pointer(childCtxHolder));
             }
           }
-          setState(4420);
+          setState(4417);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
               ctx->OnToken(_input->LT(1));
@@ -34026,39 +34008,39 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4423);
+      setState(4420);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LOCAL_TIME) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LOCAL_TIME);
-      setState(4429);
+      setState(4426);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 491, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 490, _ctx)) {
       case 1: {
-        setState(4424);
+        setState(4421);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::LEFT_PAREN) {
             ctx->OnToken(_input->LT(1));
           }
         }
         match(GQLParser::LEFT_PAREN);
-        setState(4426);
+        setState(4423);
         _errHandler->sync(this);
 
         _la = _input->LA(1);
         if (_la == GQLParser::SINGLE_QUOTED_CHARACTER_SEQUENCE
 
         || _la == GQLParser::DOUBLE_QUOTED_CHARACTER_SEQUENCE || _la == GQLParser::RECORD || _la == GQLParser::LEFT_BRACE) {
-          setState(4425);
+          setState(4422);
           {
             auto childCtxHolder = ctx->EnterTimeFunctionParameters();
             timeFunctionParameters(get_raw_pointer(childCtxHolder));
           }
         }
-        setState(4428);
+        setState(4425);
         if constexpr (has_OnToken<decltype(ctx)>::value) {
           if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
             ctx->OnToken(_input->LT(1));
@@ -34099,12 +34081,12 @@ public:
     }
     });
     try {
-      setState(4438);
+      setState(4435);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::CURRENT_TIMESTAMP: {
           enterOuterAlt(_localctx, 1);
-          setState(4431);
+          setState(4428);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::CURRENT_TIMESTAMP) {
               ctx->OnToken(_input->LT(1));
@@ -34116,34 +34098,34 @@ public:
 
         case GQLParser::ZONED_DATETIME: {
           enterOuterAlt(_localctx, 2);
-          setState(4432);
+          setState(4429);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::ZONED_DATETIME) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::ZONED_DATETIME);
-          setState(4433);
+          setState(4430);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::LEFT_PAREN) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::LEFT_PAREN);
-          setState(4435);
+          setState(4432);
           _errHandler->sync(this);
 
           _la = _input->LA(1);
           if (_la == GQLParser::SINGLE_QUOTED_CHARACTER_SEQUENCE
 
           || _la == GQLParser::DOUBLE_QUOTED_CHARACTER_SEQUENCE || _la == GQLParser::RECORD || _la == GQLParser::LEFT_BRACE) {
-            setState(4434);
+            setState(4431);
             {
               auto childCtxHolder = ctx->EnterDatetimeFunctionParameters();
               datetimeFunctionParameters(get_raw_pointer(childCtxHolder));
             }
           }
-          setState(4437);
+          setState(4434);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
               ctx->OnToken(_input->LT(1));
@@ -34184,12 +34166,12 @@ public:
     }
     });
     try {
-      setState(4447);
+      setState(4444);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::LOCAL_TIMESTAMP: {
           enterOuterAlt(_localctx, 1);
-          setState(4440);
+          setState(4437);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::LOCAL_TIMESTAMP) {
               ctx->OnToken(_input->LT(1));
@@ -34201,34 +34183,34 @@ public:
 
         case GQLParser::LOCAL_DATETIME: {
           enterOuterAlt(_localctx, 2);
-          setState(4441);
+          setState(4438);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::LOCAL_DATETIME) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::LOCAL_DATETIME);
-          setState(4442);
+          setState(4439);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::LEFT_PAREN) {
               ctx->OnToken(_input->LT(1));
             }
           }
           match(GQLParser::LEFT_PAREN);
-          setState(4444);
+          setState(4441);
           _errHandler->sync(this);
 
           _la = _input->LA(1);
           if (_la == GQLParser::SINGLE_QUOTED_CHARACTER_SEQUENCE
 
           || _la == GQLParser::DOUBLE_QUOTED_CHARACTER_SEQUENCE || _la == GQLParser::RECORD || _la == GQLParser::LEFT_BRACE) {
-            setState(4443);
+            setState(4440);
             {
               auto childCtxHolder = ctx->EnterDatetimeFunctionParameters();
               datetimeFunctionParameters(get_raw_pointer(childCtxHolder));
             }
           }
-          setState(4446);
+          setState(4443);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
               ctx->OnToken(_input->LT(1));
@@ -34268,13 +34250,13 @@ public:
     }
     });
     try {
-      setState(4451);
+      setState(4448);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::SINGLE_QUOTED_CHARACTER_SEQUENCE:
         case GQLParser::DOUBLE_QUOTED_CHARACTER_SEQUENCE: {
           enterOuterAlt(_localctx, 1);
-          setState(4449);
+          setState(4446);
           {
             auto childCtxHolder = ctx->EnterDateString();
             dateString(get_raw_pointer(childCtxHolder));
@@ -34285,7 +34267,7 @@ public:
         case GQLParser::RECORD:
         case GQLParser::LEFT_BRACE: {
           enterOuterAlt(_localctx, 2);
-          setState(4450);
+          setState(4447);
           {
             auto childCtxHolder = ctx->EnterRecordConstructor();
             recordConstructor(get_raw_pointer(childCtxHolder));
@@ -34323,13 +34305,13 @@ public:
     }
     });
     try {
-      setState(4455);
+      setState(4452);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::SINGLE_QUOTED_CHARACTER_SEQUENCE:
         case GQLParser::DOUBLE_QUOTED_CHARACTER_SEQUENCE: {
           enterOuterAlt(_localctx, 1);
-          setState(4453);
+          setState(4450);
           {
             auto childCtxHolder = ctx->EnterTimeString();
             timeString(get_raw_pointer(childCtxHolder));
@@ -34340,7 +34322,7 @@ public:
         case GQLParser::RECORD:
         case GQLParser::LEFT_BRACE: {
           enterOuterAlt(_localctx, 2);
-          setState(4454);
+          setState(4451);
           {
             auto childCtxHolder = ctx->EnterRecordConstructor();
             recordConstructor(get_raw_pointer(childCtxHolder));
@@ -34378,13 +34360,13 @@ public:
     }
     });
     try {
-      setState(4459);
+      setState(4456);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::SINGLE_QUOTED_CHARACTER_SEQUENCE:
         case GQLParser::DOUBLE_QUOTED_CHARACTER_SEQUENCE: {
           enterOuterAlt(_localctx, 1);
-          setState(4457);
+          setState(4454);
           {
             auto childCtxHolder = ctx->EnterDatetimeString();
             datetimeString(get_raw_pointer(childCtxHolder));
@@ -34395,7 +34377,7 @@ public:
         case GQLParser::RECORD:
         case GQLParser::LEFT_BRACE: {
           enterOuterAlt(_localctx, 2);
-          setState(4458);
+          setState(4455);
           {
             auto childCtxHolder = ctx->EnterRecordConstructor();
             recordConstructor(get_raw_pointer(childCtxHolder));
@@ -34434,7 +34416,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4461);
+      setState(4458);
       {
         auto childCtxHolder = ctx->EnterValueExpression();
         valueExpression(0, get_raw_pointer(childCtxHolder));
@@ -34467,38 +34449,38 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4463);
+      setState(4460);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::DURATION_BETWEEN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::DURATION_BETWEEN);
-      setState(4464);
+      setState(4461);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(4465);
+      setState(4462);
       {
         auto childCtxHolder = ctx->EnterDatetimeSubtractionParameters();
         datetimeSubtractionParameters(get_raw_pointer(childCtxHolder));
       }
-      setState(4466);
+      setState(4463);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::RIGHT_PAREN);
-      setState(4468);
+      setState(4465);
       _errHandler->sync(this);
 
-      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 499, _ctx)) {
+      switch (getInterpreter<antlr4::atn::ParserATNSimulator>()->adaptivePredict(_input, 498, _ctx)) {
       case 1: {
-        setState(4467);
+        setState(4464);
         {
           auto childCtxHolder = ctx->EnterTemporalDurationQualifier();
           temporalDurationQualifier(get_raw_pointer(childCtxHolder));
@@ -34537,19 +34519,19 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4470);
+      setState(4467);
       {
         auto childCtxHolder = ctx->EnterDatetimeValueExpression1();
         datetimeValueExpression1(get_raw_pointer(childCtxHolder));
       }
-      setState(4471);
+      setState(4468);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::COMMA) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::COMMA);
-      setState(4472);
+      setState(4469);
       {
         auto childCtxHolder = ctx->EnterDatetimeValueExpression2();
         datetimeValueExpression2(get_raw_pointer(childCtxHolder));
@@ -34582,7 +34564,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4474);
+      setState(4471);
       {
         auto childCtxHolder = ctx->EnterDatetimeValueExpression();
         datetimeValueExpression(get_raw_pointer(childCtxHolder));
@@ -34615,7 +34597,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4476);
+      setState(4473);
       {
         auto childCtxHolder = ctx->EnterDatetimeValueExpression();
         datetimeValueExpression(get_raw_pointer(childCtxHolder));
@@ -34647,12 +34629,12 @@ public:
     }
     });
     try {
-      setState(4480);
+      setState(4477);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::DURATION: {
           enterOuterAlt(_localctx, 1);
-          setState(4478);
+          setState(4475);
           {
             auto childCtxHolder = ctx->EnterDurationFunction();
             durationFunction(get_raw_pointer(childCtxHolder));
@@ -34662,7 +34644,7 @@ public:
 
         case GQLParser::ABS: {
           enterOuterAlt(_localctx, 2);
-          setState(4479);
+          setState(4476);
           {
             auto childCtxHolder = ctx->EnterAbsoluteValueExpression();
             absoluteValueExpression(get_raw_pointer(childCtxHolder));
@@ -34701,26 +34683,26 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4482);
+      setState(4479);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::DURATION) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::DURATION);
-      setState(4483);
+      setState(4480);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::LEFT_PAREN) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::LEFT_PAREN);
-      setState(4484);
+      setState(4481);
       {
         auto childCtxHolder = ctx->EnterDurationFunctionParameters();
         durationFunctionParameters(get_raw_pointer(childCtxHolder));
       }
-      setState(4485);
+      setState(4482);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::RIGHT_PAREN) {
           ctx->OnToken(_input->LT(1));
@@ -34754,13 +34736,13 @@ public:
     }
     });
     try {
-      setState(4489);
+      setState(4486);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::SINGLE_QUOTED_CHARACTER_SEQUENCE:
         case GQLParser::DOUBLE_QUOTED_CHARACTER_SEQUENCE: {
           enterOuterAlt(_localctx, 1);
-          setState(4487);
+          setState(4484);
           {
             auto childCtxHolder = ctx->EnterDurationString();
             durationString(get_raw_pointer(childCtxHolder));
@@ -34771,7 +34753,7 @@ public:
         case GQLParser::RECORD:
         case GQLParser::LEFT_BRACE: {
           enterOuterAlt(_localctx, 2);
-          setState(4488);
+          setState(4485);
           {
             auto childCtxHolder = ctx->EnterRecordConstructor();
             recordConstructor(get_raw_pointer(childCtxHolder));
@@ -34810,7 +34792,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4491);
+      setState(4488);
       {
         auto childCtxHolder = ctx->EnterIdentifier();
         identifier(get_raw_pointer(childCtxHolder));
@@ -34843,7 +34825,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4493);
+      setState(4490);
       {
         auto childCtxHolder = ctx->EnterRegularIdentifier();
         regularIdentifier(get_raw_pointer(childCtxHolder));
@@ -34876,7 +34858,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4495);
+      setState(4492);
       {
         auto childCtxHolder = ctx->EnterIdentifier();
         identifier(get_raw_pointer(childCtxHolder));
@@ -34909,7 +34891,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4497);
+      setState(4494);
       {
         auto childCtxHolder = ctx->EnterIdentifier();
         identifier(get_raw_pointer(childCtxHolder));
@@ -34941,7 +34923,7 @@ public:
     }
     });
     try {
-      setState(4501);
+      setState(4498);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::ACYCLIC:
@@ -34993,7 +34975,7 @@ public:
         case GQLParser::ZONE:
         case GQLParser::REGULAR_IDENTIFIER: {
           enterOuterAlt(_localctx, 1);
-          setState(4499);
+          setState(4496);
           {
             auto childCtxHolder = ctx->EnterRegularIdentifier();
             regularIdentifier(get_raw_pointer(childCtxHolder));
@@ -35004,7 +34986,7 @@ public:
         case GQLParser::DOUBLE_QUOTED_CHARACTER_SEQUENCE:
         case GQLParser::ACCENT_QUOTED_CHARACTER_SEQUENCE: {
           enterOuterAlt(_localctx, 2);
-          setState(4500);
+          setState(4497);
           {
             auto childCtxHolder = ctx->EnterDelimitedGraphName();
             delimitedGraphName(get_raw_pointer(childCtxHolder));
@@ -35044,7 +35026,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4503);
+      setState(4500);
       _la = _input->LA(1);
       if (!(_la == GQLParser::DOUBLE_QUOTED_CHARACTER_SEQUENCE
 
@@ -35084,7 +35066,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4505);
+      setState(4502);
       {
         auto childCtxHolder = ctx->EnterIdentifier();
         identifier(get_raw_pointer(childCtxHolder));
@@ -35117,7 +35099,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4507);
+      setState(4504);
       {
         auto childCtxHolder = ctx->EnterIdentifier();
         identifier(get_raw_pointer(childCtxHolder));
@@ -35150,7 +35132,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4509);
+      setState(4506);
       {
         auto childCtxHolder = ctx->EnterIdentifier();
         identifier(get_raw_pointer(childCtxHolder));
@@ -35182,7 +35164,7 @@ public:
     }
     });
     try {
-      setState(4513);
+      setState(4510);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::ACYCLIC:
@@ -35234,7 +35216,7 @@ public:
         case GQLParser::ZONE:
         case GQLParser::REGULAR_IDENTIFIER: {
           enterOuterAlt(_localctx, 1);
-          setState(4511);
+          setState(4508);
           {
             auto childCtxHolder = ctx->EnterRegularIdentifier();
             regularIdentifier(get_raw_pointer(childCtxHolder));
@@ -35245,7 +35227,7 @@ public:
         case GQLParser::DOUBLE_QUOTED_CHARACTER_SEQUENCE:
         case GQLParser::ACCENT_QUOTED_CHARACTER_SEQUENCE: {
           enterOuterAlt(_localctx, 2);
-          setState(4512);
+          setState(4509);
           {
             auto childCtxHolder = ctx->EnterDelimitedBindingTableName();
             delimitedBindingTableName(get_raw_pointer(childCtxHolder));
@@ -35285,7 +35267,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4515);
+      setState(4512);
       _la = _input->LA(1);
       if (!(_la == GQLParser::DOUBLE_QUOTED_CHARACTER_SEQUENCE
 
@@ -35325,7 +35307,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4517);
+      setState(4514);
       {
         auto childCtxHolder = ctx->EnterIdentifier();
         identifier(get_raw_pointer(childCtxHolder));
@@ -35358,7 +35340,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4519);
+      setState(4516);
       {
         auto childCtxHolder = ctx->EnterIdentifier();
         identifier(get_raw_pointer(childCtxHolder));
@@ -35391,7 +35373,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4521);
+      setState(4518);
       {
         auto childCtxHolder = ctx->EnterIdentifier();
         identifier(get_raw_pointer(childCtxHolder));
@@ -35424,7 +35406,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4523);
+      setState(4520);
       {
         auto childCtxHolder = ctx->EnterIdentifier();
         identifier(get_raw_pointer(childCtxHolder));
@@ -35457,7 +35439,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4525);
+      setState(4522);
       {
         auto childCtxHolder = ctx->EnterBindingVariable();
         bindingVariable(get_raw_pointer(childCtxHolder));
@@ -35490,7 +35472,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4527);
+      setState(4524);
       {
         auto childCtxHolder = ctx->EnterBindingVariable();
         bindingVariable(get_raw_pointer(childCtxHolder));
@@ -35523,7 +35505,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4529);
+      setState(4526);
       {
         auto childCtxHolder = ctx->EnterRegularIdentifier();
         regularIdentifier(get_raw_pointer(childCtxHolder));
@@ -35556,7 +35538,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4531);
+      setState(4528);
       {
         auto childCtxHolder = ctx->EnterRegularIdentifier();
         regularIdentifier(get_raw_pointer(childCtxHolder));
@@ -35588,7 +35570,7 @@ public:
     }
     });
     try {
-      setState(4535);
+      setState(4532);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::UNSIGNED_DECIMAL_IN_SCIENTIFIC_NOTATION_WITH_EXACT_NUMBER_SUFFIX:
@@ -35604,7 +35586,7 @@ public:
         case GQLParser::UNSIGNED_OCTAL_INTEGER:
         case GQLParser::UNSIGNED_BINARY_INTEGER: {
           enterOuterAlt(_localctx, 1);
-          setState(4533);
+          setState(4530);
           {
             auto childCtxHolder = ctx->EnterUnsignedNumericLiteral();
             unsignedNumericLiteral(get_raw_pointer(childCtxHolder));
@@ -35629,7 +35611,7 @@ public:
         case GQLParser::LEFT_BRACE:
         case GQLParser::LEFT_BRACKET: {
           enterOuterAlt(_localctx, 2);
-          setState(4534);
+          setState(4531);
           {
             auto childCtxHolder = ctx->EnterGeneralLiteral();
             generalLiteral(get_raw_pointer(childCtxHolder));
@@ -35667,12 +35649,12 @@ public:
     }
     });
     try {
-      setState(4545);
+      setState(4542);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::BOOLEAN_LITERAL: {
           enterOuterAlt(_localctx, 1);
-          setState(4537);
+          setState(4534);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::BOOLEAN_LITERAL) {
               ctx->OnToken(_input->LT(1));
@@ -35685,7 +35667,7 @@ public:
         case GQLParser::SINGLE_QUOTED_CHARACTER_SEQUENCE:
         case GQLParser::DOUBLE_QUOTED_CHARACTER_SEQUENCE: {
           enterOuterAlt(_localctx, 2);
-          setState(4538);
+          setState(4535);
           {
             auto childCtxHolder = ctx->EnterCharacterStringLiteral();
             characterStringLiteral(get_raw_pointer(childCtxHolder));
@@ -35695,7 +35677,7 @@ public:
 
         case GQLParser::BYTE_STRING_LITERAL: {
           enterOuterAlt(_localctx, 3);
-          setState(4539);
+          setState(4536);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::BYTE_STRING_LITERAL) {
               ctx->OnToken(_input->LT(1));
@@ -35710,7 +35692,7 @@ public:
         case GQLParser::TIME:
         case GQLParser::TIMESTAMP: {
           enterOuterAlt(_localctx, 4);
-          setState(4540);
+          setState(4537);
           {
             auto childCtxHolder = ctx->EnterTemporalLiteral();
             temporalLiteral(get_raw_pointer(childCtxHolder));
@@ -35720,7 +35702,7 @@ public:
 
         case GQLParser::DURATION: {
           enterOuterAlt(_localctx, 5);
-          setState(4541);
+          setState(4538);
           {
             auto childCtxHolder = ctx->EnterDurationLiteral();
             durationLiteral(get_raw_pointer(childCtxHolder));
@@ -35730,7 +35712,7 @@ public:
 
         case GQLParser::NULL_KW: {
           enterOuterAlt(_localctx, 6);
-          setState(4542);
+          setState(4539);
           {
             auto childCtxHolder = ctx->EnterNullLiteral();
             nullLiteral(get_raw_pointer(childCtxHolder));
@@ -35743,7 +35725,7 @@ public:
         case GQLParser::LIST:
         case GQLParser::LEFT_BRACKET: {
           enterOuterAlt(_localctx, 7);
-          setState(4543);
+          setState(4540);
           {
             auto childCtxHolder = ctx->EnterListLiteral();
             listLiteral(get_raw_pointer(childCtxHolder));
@@ -35754,7 +35736,7 @@ public:
         case GQLParser::RECORD:
         case GQLParser::LEFT_BRACE: {
           enterOuterAlt(_localctx, 8);
-          setState(4544);
+          setState(4541);
           {
             auto childCtxHolder = ctx->EnterRecordLiteral();
             recordLiteral(get_raw_pointer(childCtxHolder));
@@ -35792,12 +35774,12 @@ public:
     }
     });
     try {
-      setState(4550);
+      setState(4547);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::DATE: {
           enterOuterAlt(_localctx, 1);
-          setState(4547);
+          setState(4544);
           {
             auto childCtxHolder = ctx->EnterDateLiteral();
             dateLiteral(get_raw_pointer(childCtxHolder));
@@ -35807,7 +35789,7 @@ public:
 
         case GQLParser::TIME: {
           enterOuterAlt(_localctx, 2);
-          setState(4548);
+          setState(4545);
           {
             auto childCtxHolder = ctx->EnterTimeLiteral();
             timeLiteral(get_raw_pointer(childCtxHolder));
@@ -35818,7 +35800,7 @@ public:
         case GQLParser::DATETIME:
         case GQLParser::TIMESTAMP: {
           enterOuterAlt(_localctx, 3);
-          setState(4549);
+          setState(4546);
           {
             auto childCtxHolder = ctx->EnterDatetimeLiteral();
             datetimeLiteral(get_raw_pointer(childCtxHolder));
@@ -35857,14 +35839,14 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4552);
+      setState(4549);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::DATE) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::DATE);
-      setState(4553);
+      setState(4550);
       {
         auto childCtxHolder = ctx->EnterDateString();
         dateString(get_raw_pointer(childCtxHolder));
@@ -35897,14 +35879,14 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4555);
+      setState(4552);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::TIME) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::TIME);
-      setState(4556);
+      setState(4553);
       {
         auto childCtxHolder = ctx->EnterTimeString();
         timeString(get_raw_pointer(childCtxHolder));
@@ -35938,7 +35920,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4558);
+      setState(4555);
       _la = _input->LA(1);
       if (!(_la == GQLParser::DATETIME || _la == GQLParser::TIMESTAMP)) {
         _errHandler->recoverInline(this);
@@ -35948,7 +35930,7 @@ public:
         antlr4::Token * token = consume();
         ctx->OnToken(token);
       }
-      setState(4559);
+      setState(4556);
       {
         auto childCtxHolder = ctx->EnterDatetimeString();
         datetimeString(get_raw_pointer(childCtxHolder));
@@ -35981,7 +35963,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4561);
+      setState(4558);
       {
         auto childCtxHolder = ctx->EnterListValueConstructorByEnumeration();
         listValueConstructorByEnumeration(get_raw_pointer(childCtxHolder));
@@ -36014,7 +35996,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4563);
+      setState(4560);
       {
         auto childCtxHolder = ctx->EnterRecordConstructor();
         recordConstructor(get_raw_pointer(childCtxHolder));
@@ -36046,7 +36028,7 @@ public:
     }
     });
     try {
-      setState(4568);
+      setState(4565);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::ACYCLIC:
@@ -36098,7 +36080,7 @@ public:
         case GQLParser::ZONE:
         case GQLParser::REGULAR_IDENTIFIER: {
           enterOuterAlt(_localctx, 1);
-          setState(4565);
+          setState(4562);
           {
             auto childCtxHolder = ctx->EnterRegularIdentifier();
             regularIdentifier(get_raw_pointer(childCtxHolder));
@@ -36108,7 +36090,7 @@ public:
 
         case GQLParser::DOUBLE_QUOTED_CHARACTER_SEQUENCE: {
           enterOuterAlt(_localctx, 2);
-          setState(4566);
+          setState(4563);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::DOUBLE_QUOTED_CHARACTER_SEQUENCE) {
               ctx->OnToken(_input->LT(1));
@@ -36120,7 +36102,7 @@ public:
 
         case GQLParser::ACCENT_QUOTED_CHARACTER_SEQUENCE: {
           enterOuterAlt(_localctx, 3);
-          setState(4567);
+          setState(4564);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::ACCENT_QUOTED_CHARACTER_SEQUENCE) {
               ctx->OnToken(_input->LT(1));
@@ -36160,12 +36142,12 @@ public:
     }
     });
     try {
-      setState(4572);
+      setState(4569);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::REGULAR_IDENTIFIER: {
           enterOuterAlt(_localctx, 1);
-          setState(4570);
+          setState(4567);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::REGULAR_IDENTIFIER) {
               ctx->OnToken(_input->LT(1));
@@ -36223,7 +36205,7 @@ public:
         case GQLParser::WRITE:
         case GQLParser::ZONE: {
           enterOuterAlt(_localctx, 2);
-          setState(4571);
+          setState(4568);
           {
             auto childCtxHolder = ctx->EnterNonReservedWords();
             nonReservedWords(get_raw_pointer(childCtxHolder));
@@ -36262,7 +36244,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4574);
+      setState(4571);
       {
         auto childCtxHolder = ctx->EnterCharacterStringLiteral();
         characterStringLiteral(get_raw_pointer(childCtxHolder));
@@ -36296,7 +36278,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4576);
+      setState(4573);
       _la = _input->LA(1);
       if (!(_la == GQLParser::SINGLE_QUOTED_CHARACTER_SEQUENCE
 
@@ -36335,7 +36317,7 @@ public:
     }
     });
     try {
-      setState(4580);
+      setState(4577);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::UNSIGNED_DECIMAL_IN_SCIENTIFIC_NOTATION_WITH_EXACT_NUMBER_SUFFIX:
@@ -36347,7 +36329,7 @@ public:
         case GQLParser::UNSIGNED_OCTAL_INTEGER:
         case GQLParser::UNSIGNED_BINARY_INTEGER: {
           enterOuterAlt(_localctx, 1);
-          setState(4578);
+          setState(4575);
           {
             auto childCtxHolder = ctx->EnterExactNumericLiteral();
             exactNumericLiteral(get_raw_pointer(childCtxHolder));
@@ -36360,7 +36342,7 @@ public:
         case GQLParser::UNSIGNED_DECIMAL_IN_COMMON_NOTATION_WITH_APPROXIMATE_NUMBER_SUFFIX:
         case GQLParser::UNSIGNED_DECIMAL_INTEGER_WITH_APPROXIMATE_NUMBER_SUFFIX: {
           enterOuterAlt(_localctx, 2);
-          setState(4579);
+          setState(4576);
           {
             auto childCtxHolder = ctx->EnterApproximateNumericLiteral();
             approximateNumericLiteral(get_raw_pointer(childCtxHolder));
@@ -36398,12 +36380,12 @@ public:
     }
     });
     try {
-      setState(4587);
+      setState(4584);
       _errHandler->sync(this);
       switch (_input->LA(1)) {
         case GQLParser::UNSIGNED_DECIMAL_IN_SCIENTIFIC_NOTATION_WITH_EXACT_NUMBER_SUFFIX: {
           enterOuterAlt(_localctx, 1);
-          setState(4582);
+          setState(4579);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::UNSIGNED_DECIMAL_IN_SCIENTIFIC_NOTATION_WITH_EXACT_NUMBER_SUFFIX) {
               ctx->OnToken(_input->LT(1));
@@ -36415,7 +36397,7 @@ public:
 
         case GQLParser::UNSIGNED_DECIMAL_IN_COMMON_NOTATION_WITH_EXACT_NUMBER_SUFFIX: {
           enterOuterAlt(_localctx, 2);
-          setState(4583);
+          setState(4580);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::UNSIGNED_DECIMAL_IN_COMMON_NOTATION_WITH_EXACT_NUMBER_SUFFIX) {
               ctx->OnToken(_input->LT(1));
@@ -36427,7 +36409,7 @@ public:
 
         case GQLParser::UNSIGNED_DECIMAL_IN_COMMON_NOTATION_WITHOUT_SUFFIX: {
           enterOuterAlt(_localctx, 3);
-          setState(4584);
+          setState(4581);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::UNSIGNED_DECIMAL_IN_COMMON_NOTATION_WITHOUT_SUFFIX) {
               ctx->OnToken(_input->LT(1));
@@ -36439,7 +36421,7 @@ public:
 
         case GQLParser::UNSIGNED_DECIMAL_INTEGER_WITH_EXACT_NUMBER_SUFFIX: {
           enterOuterAlt(_localctx, 4);
-          setState(4585);
+          setState(4582);
           if constexpr (has_OnToken<decltype(ctx)>::value) {
             if (_input->LA(1) == GQLParser::UNSIGNED_DECIMAL_INTEGER_WITH_EXACT_NUMBER_SUFFIX) {
               ctx->OnToken(_input->LT(1));
@@ -36454,7 +36436,7 @@ public:
         case GQLParser::UNSIGNED_OCTAL_INTEGER:
         case GQLParser::UNSIGNED_BINARY_INTEGER: {
           enterOuterAlt(_localctx, 5);
-          setState(4586);
+          setState(4583);
           {
             auto childCtxHolder = ctx->EnterUnsignedInteger();
             unsignedInteger(get_raw_pointer(childCtxHolder));
@@ -36494,7 +36476,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4589);
+      setState(4586);
       _la = _input->LA(1);
       if (!((((_la & ~ 0x3fULL) == 0) &&
         ((1ULL << _la) & 42496) != 0))) {
@@ -36534,7 +36516,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4591);
+      setState(4588);
       _la = _input->LA(1);
       if (!((((_la & ~ 0x3fULL) == 0) &&
         ((1ULL << _la) & 983040) != 0))) {
@@ -36573,7 +36555,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4593);
+      setState(4590);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::UNSIGNED_DECIMAL_INTEGER) {
           ctx->OnToken(_input->LT(1));
@@ -36608,7 +36590,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4595);
+      setState(4592);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::NULL_KW) {
           ctx->OnToken(_input->LT(1));
@@ -36643,7 +36625,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4597);
+      setState(4594);
       {
         auto childCtxHolder = ctx->EnterCharacterStringLiteral();
         characterStringLiteral(get_raw_pointer(childCtxHolder));
@@ -36676,7 +36658,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4599);
+      setState(4596);
       {
         auto childCtxHolder = ctx->EnterCharacterStringLiteral();
         characterStringLiteral(get_raw_pointer(childCtxHolder));
@@ -36709,7 +36691,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4601);
+      setState(4598);
       {
         auto childCtxHolder = ctx->EnterCharacterStringLiteral();
         characterStringLiteral(get_raw_pointer(childCtxHolder));
@@ -36742,14 +36724,14 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4603);
+      setState(4600);
       if constexpr (has_OnToken<decltype(ctx)>::value) {
         if (_input->LA(1) == GQLParser::DURATION) {
           ctx->OnToken(_input->LT(1));
         }
       }
       match(GQLParser::DURATION);
-      setState(4604);
+      setState(4601);
       {
         auto childCtxHolder = ctx->EnterDurationString();
         durationString(get_raw_pointer(childCtxHolder));
@@ -36782,7 +36764,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4606);
+      setState(4603);
       {
         auto childCtxHolder = ctx->EnterCharacterStringLiteral();
         characterStringLiteral(get_raw_pointer(childCtxHolder));
@@ -36816,7 +36798,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4608);
+      setState(4605);
       _la = _input->LA(1);
       if (!(_la == GQLParser::NODE
 
@@ -36857,7 +36839,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4610);
+      setState(4607);
       _la = _input->LA(1);
       if (!(_la == GQLParser::EDGES
 
@@ -36898,7 +36880,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4612);
+      setState(4609);
       _la = _input->LA(1);
       if (!(_la == GQLParser::EDGE
 
@@ -36939,7 +36921,7 @@ public:
     });
     try {
       enterOuterAlt(_localctx, 1);
-      setState(4614);
+      setState(4611);
       _la = _input->LA(1);
       if (!(((((_la - 277) & ~ 0x3fULL) == 0) &&
         ((1ULL << (_la - 277)) & 279275953455103) != 0))) {

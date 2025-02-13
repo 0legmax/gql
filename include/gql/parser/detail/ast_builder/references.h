@@ -132,16 +132,17 @@ struct BindingTableReference : NodeBaseBuilder {
 
   CatalogObjectParentReference EnterCatalogObjectParentReference() {
     return {&value->option.emplace<ast::BindingTableReference::ParentAndName>()
-                 .parent};
+                 .parent.emplace()};
   }
 
   Identifier EnterBindingTableName() {
     return {&std::get<ast::BindingTableReference::ParentAndName>(value->option)
-                 .bindingTableName};
+                 .name};
   }
 
   CharacterStringLiteral EnterDelimitedBindingTableName() {
-    return {&value->option.emplace<ast::DelimitedBindingTableName>()};
+    return {&value->option.emplace<ast::BindingTableReference::ParentAndName>()
+                 .name};
   }
 
   SubstitutedParameterReference EnterReferenceParameterSpecification() {
@@ -157,17 +158,16 @@ struct GraphReference : NodeBaseBuilder {
       : NodeBaseBuilder(node), value(node) {}
 
   CatalogObjectParentReference EnterCatalogObjectParentReference() {
-    return {
-        &value->option.emplace<ast::GraphReference::ParentAndName>().parent};
+    return {&value->option.emplace<ast::GraphReference::ParentAndName>()
+                 .parent.emplace()};
   }
 
   Identifier EnterGraphName() {
-    return {
-        &std::get<ast::GraphReference::ParentAndName>(value->option).graphName};
+    return {&std::get<ast::GraphReference::ParentAndName>(value->option).name};
   }
 
   CharacterStringLiteral EnterDelimitedGraphName() {
-    return {&value->option.emplace<ast::DelimitedGraphName>()};
+    return {&value->option.emplace<ast::GraphReference::ParentAndName>().name};
   }
 
   SkipTokens EnterHomeGraph() {

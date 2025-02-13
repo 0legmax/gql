@@ -194,84 +194,64 @@ struct Printer<LabelExpression::Logical> {
 GQL_AST_VALUE_PRINTER(LabelExpression::Wildcard, "%")
 
 template <>
-struct Printer<WhenOperand::IsNull> {
+struct Printer<WhenOperand> {
   template <typename OutputStream>
-  static void Print(OutputStream& os, const WhenOperand::IsNull& v) {
-    os << "IS";
-    if (v.notNull) {
-      os << "NOT";
-    }
-    os << "NULL";
-  }
-};
-
-template <>
-struct Printer<WhenOperand::IsTyped> {
-  template <typename OutputStream>
-  static void Print(OutputStream& os, const WhenOperand::IsTyped& v) {
-    os << "IS";
-    if (v.isNot) {
-      os << "NOT";
-    }
-    os << "TYPED" << v.type;
-  }
-};
-
-template <>
-struct Printer<WhenOperand::IsNormalized> {
-  template <typename OutputStream>
-  static void Print(OutputStream& os, const WhenOperand::IsNormalized& v) {
-    os << "IS";
-    if (v.isNot) {
-      os << "NOT";
-    }
-    os << v.form << "NORMALIZED";
-  }
-};
-
-template <>
-struct Printer<WhenOperand::IsDirected> {
-  template <typename OutputStream>
-  static void Print(OutputStream& os, const WhenOperand::IsDirected& v) {
-    os << "IS";
-    if (v.isNot) {
-      os << "NOT";
-    }
-    os << "DIRECTED";
-  }
-};
-
-template <>
-struct Printer<WhenOperand::IsLabeled> {
-  template <typename OutputStream>
-  static void Print(OutputStream& os, const WhenOperand::IsLabeled& v) {
-    if (v.isNot) {
-      os << "IS NOT LABELED";
-    } else {
-      os << ":" << NoBreak();
-    }
-    os << v.label;
-  }
-};
-
-template <>
-struct Printer<WhenOperand::IsSourceOrDestinationOf> {
-  template <typename OutputStream>
-  static void Print(OutputStream& os,
-                    const WhenOperand::IsSourceOrDestinationOf& v) {
-    os << "IS";
-    if (v.isNot) {
-      os << "NOT";
-    }
-    switch (v.direction) {
-      case WhenOperand::IsSourceOrDestinationOf::Direction::Source:
-        os << "SOURCE";
-        break;
-      case WhenOperand::IsSourceOrDestinationOf::Direction::Destination:
-        os << "DESTINATION";
-        break;
-    }
-    os << "OF" << v.edge;
+  static void Print(OutputStream& os, const WhenOperand& w) {
+    variant_switch(
+        w.option,
+        [&os](const ValueExpressionPtr& v) { os << ValueExpressionPrimary(v); },
+        [&os](const WhenOperand::Comparison& v) { os << v.op << v.value; },
+        [&](const WhenOperand::IsNull&) {
+          os << "IS";
+          if (w.isNot) {
+            os << "NOT";
+          }
+          os << "NULL";
+        },
+        [&](const WhenOperand::IsTyped& v) {
+          os << "IS";
+          if (w.isNot) {
+            os << "NOT";
+          }
+          os << "TYPED" << v.type;
+        },
+        [&](const WhenOperand::IsNormalized& v) {
+          os << "IS";
+          if (w.isNot) {
+            os << "NOT";
+          }
+          os << v.form << "NORMALIZED";
+        },
+        [&](const WhenOperand::IsDirected&) {
+          os << "IS";
+          if (w.isNot) {
+            os << "NOT";
+          }
+          os << "DIRECTED";
+        },
+        [&](const WhenOperand::IsLabeled& v) {
+          if (w.isNot) {
+            os << "IS NOT LABELED";
+          } else {
+            os << ":" << NoBreak();
+          }
+          os << v.label;
+        },
+        [&](const WhenOperand::IsSourceOrDestinationOf& v) {
+          os << "IS";
+          if (w.isNot) {
+            os << "NOT";
+          }
+          switch (v.direction) {
+            case WhenOperand::IsSourceOrDestinationOf::Direction::Source:
+              os << "SOURCE";
+              break;
+            case WhenOperand::IsSourceOrDestinationOf::Direction::Destination:
+              os << "DESTINATION";
+              break;
+          }
+          os << "OF" << v.edge;
+        });
   }
 };
 

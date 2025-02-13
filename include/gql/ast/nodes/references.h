@@ -92,18 +92,15 @@ GQL_AST_STRUCT(CatalogObjectParentReference, schema, path)
 //     ;
 struct GraphReference : NodeBase<GraphReference> {
   struct ParentAndName {
-    CatalogObjectParentReference parent;
-    GraphName graphName;
+    std::optional<CatalogObjectParentReference> parent;
+    GraphName name;
   };
 
-  std::variant<ParentAndName,
-               DelimitedGraphName,
-               HomeGraph,
-               ReferenceParameterSpecification>
+  std::variant<ParentAndName, HomeGraph, ReferenceParameterSpecification>
       option;
 };
 GQL_AST_STRUCT(GraphReference, option)
-GQL_AST_STRUCT(GraphReference::ParentAndName, parent, graphName)
+GQL_AST_STRUCT(GraphReference::ParentAndName, parent, name)
 
 // catalogGraphParentAndName
 //     : catalogObjectParentReference? graphName
@@ -137,16 +134,13 @@ using GraphTypeReference = std::variant<CatalogGraphTypeParentAndName,
 //     ;
 struct BindingTableReference : NodeBase<BindingTableReference> {
   struct ParentAndName {
-    CatalogObjectParentReference parent;
-    BindingTableName bindingTableName;
+    std::optional<CatalogObjectParentReference> parent;
+    BindingTableName name;
   };
-  std::variant<ParentAndName,
-               DelimitedBindingTableName,
-               ReferenceParameterSpecification>
-      option;
+  std::variant<ParentAndName, ReferenceParameterSpecification> option;
 };
 GQL_AST_STRUCT(BindingTableReference, option)
-GQL_AST_STRUCT(BindingTableReference::ParentAndName, parent, bindingTableName)
+GQL_AST_STRUCT(BindingTableReference::ParentAndName, parent, name)
 
 // catalogProcedureParentAndName
 //     : catalogObjectParentReference? procedureName

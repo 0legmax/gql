@@ -51,12 +51,12 @@ struct ChildrenEnumeratedInOrder<gql::ast::LinearDataModifyingStatement> {
 };
 
 template <>
-struct ChildrenEnumeratedInOrder<gql::ast::EdgeTypePattern> {
+struct ChildrenEnumeratedInOrder<gql::ast::EdgeTypeSpecification> {
   static constexpr bool value = false;
 };
 
 template <>
-struct ChildrenEnumeratedInOrder<gql::ast::NodeTypePattern> {
+struct ChildrenEnumeratedInOrder<gql::ast::NodeTypeSpecification> {
   static constexpr bool value = false;
 };
 }  // namespace

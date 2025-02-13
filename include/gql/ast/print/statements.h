@@ -522,25 +522,28 @@ struct Printer<PathPatternPrefix> {
   template <typename OutputStream>
   static void Print(OutputStream& os, const PathPatternPrefix& v) {
     switch (v.search) {
-      case PathPatternPrefix::Search::No:
-        os << v.mode;
-        break;
       case PathPatternPrefix::Search::All:
         os << "ALL" << v.mode << "PATHS";
         break;
       case PathPatternPrefix::Search::Any:
         os << "ANY" << v.number << v.mode << "PATHS";
         break;
-      case PathPatternPrefix::Search::AllShortest:
-        os << "ALL SHORTEST" << v.mode << "PATHS";
-        break;
-      case PathPatternPrefix::Search::AnyShortest:
-        os << "ANY SHORTEST" << v.mode << "PATHS";
-        break;
       case PathPatternPrefix::Search::CountedShortestPath:
-        os << "SHORTEST" << *v.number << v.mode << "PATHS";
+        if (auto* number = std::get_if<ast::UnsignedInteger>(&v.number)) {
+          if (*number == 1) {
+            os << "ANY SHORTEST" << v.mode << "PATH";
+            break;
+          }
+        }
+        os << "SHORTEST" << v.number << v.mode << "PATHS";
         break;
       case PathPatternPrefix::Search::CountedShortestGroup:
+        if (auto* number = std::get_if<ast::UnsignedInteger>(&v.number)) {
+          if (*number == 1) {
+            os << "ALL SHORTEST" << v.mode << "PATHS";
+            break;
+          }
+        }
         os << "SHORTEST" << v.number << v.mode << "PATH GROUPS";
         break;
     }

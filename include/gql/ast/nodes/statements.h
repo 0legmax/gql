@@ -702,18 +702,16 @@ using NumberOfGroups = NonNegativeIntegerSpecification;
 //    | pathSearchPrefix
 struct PathPatternPrefix : NodeBase<PathPatternPrefix> {
   enum class Search {
-    No,
     All,
     Any,
-    AllShortest,
-    AnyShortest,
     CountedShortestPath,
     CountedShortestGroup,
   };
 
-  Search search = Search::No;
-  std::optional<NumberOfGroups> number;  // Paths or Groups
-  std::optional<PathMode> mode;
+  Search search = Search::All;
+  NumberOfGroups number =
+      1u;  // Number of Paths or Groups. 1 is implicit value.
+  PathMode mode = PathMode::WALK;  // WALK is implicit value.
 };
 GQL_AST_STRUCT(PathPatternPrefix, search, number, mode)
 
@@ -863,7 +861,8 @@ enum class NullOrdering { NULLS_FIRST, NULLS_LAST };
 //     ;
 struct SortSpecification : NodeBase<SortSpecification> {
   ValueExpression sortKey;
-  std::optional<OrderingSpecification> ordering;
+  OrderingSpecification ordering =
+      OrderingSpecification::ASCENDING;  // ASCENDING is implicit value.
   std::optional<NullOrdering> nullOrder;
 };
 GQL_AST_STRUCT(SortSpecification, sortKey, ordering, nullOrder)

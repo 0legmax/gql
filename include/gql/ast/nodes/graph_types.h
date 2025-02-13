@@ -63,18 +63,18 @@ struct PropertyTypesSpecification : NodeBase<PropertyTypesSpecification> {
   std::vector<PropertyType> properties;
 
   bool MaybeNotSet() const { return properties.empty(); }
+  auto& operator()() { return properties; }
+  auto& operator()() const { return properties; }
 };
 GQL_AST_STRUCT(PropertyTypesSpecification, properties)
 
 // edgeTypePropertyTypes
 //     : propertyTypesSpecification
 //     ;
-using EdgeTypePropertyTypes = PropertyTypesSpecification;
 
 // nodeTypePropertyTypes
 //     : propertyTypesSpecification
 //     ;
-using NodeTypePropertyTypes = PropertyTypesSpecification;
 
 // labelSetSpecification
 //     : labelName (AMPERSAND labelName)*
@@ -83,6 +83,8 @@ struct LabelSetSpecification : NodeBase<LabelSetSpecification> {
   std::vector<LabelName> labels;
 
   bool MaybeNotSet() const { return labels.empty(); }
+  auto& operator()() { return labels; }
+  auto& operator()() const { return labels; }
 };
 GQL_AST_STRUCT(LabelSetSpecification, labels)
 
@@ -102,51 +104,57 @@ using LabelSetPhrase = LabelSetSpecification;
 //     ;
 using NodeTypeLabelSet = LabelSetPhrase;
 
+// edgeTypeLabelSet
+//     : labelSetPhrase
+//     ;
+using EdgeTypeLabelSet = LabelSetPhrase;
+
 // nodeTypeImpliedContent
 //     : nodeTypeLabelSet
 //     | nodeTypePropertyTypes
 //     | nodeTypeLabelSet nodeTypePropertyTypes
 //     ;
-struct NodeTypeImpliedContent : NodeBase<NodeTypeImpliedContent> {
-  NodeTypeLabelSet labels;
-  NodeTypePropertyTypes properties;
+
+// edgeTypeImpliedContent
+//     : edgeTypeLabelSet
+//     | edgeTypePropertyTypes
+//     | edgeTypeLabelSet edgeTypePropertyTypes
+//     ;
+
+struct ElementTypeImpliedContent : NodeBase<ElementTypeImpliedContent> {
+  LabelSetSpecification labels;
+  PropertyTypesSpecification properties;
+
+  bool MaybeNotSet() const {
+    return labels.MaybeNotSet() && properties.MaybeNotSet();
+  }
 };
-GQL_AST_STRUCT(NodeTypeImpliedContent, labels, properties)
+GQL_AST_STRUCT(ElementTypeImpliedContent, labels, properties)
 
 // nodeTypeFiller
 //     : nodeTypeKeyLabelSet nodeTypeImpliedContent?
 //     | nodeTypeImpliedContent
 //     ;
-struct NodeTypeFiller : NodeBase<NodeTypeFiller> {
+
+// edgeTypeFiller
+//     : edgeTypeKeyLabelSet edgeTypeImpliedContent?
+//     | edgeTypeImpliedContent
+//     ;
+
+struct ElementTypeFiller : NodeBase<ElementTypeFiller> {
   LabelSetPhrase keyLabels;
-  std::optional<NodeTypeImpliedContent> implied;
+  ElementTypeImpliedContent implied;
+
+  bool MaybeNotSet() const {
+    return keyLabels.MaybeNotSet() && implied.MaybeNotSet();
+  }
 };
-GQL_AST_STRUCT(NodeTypeFiller, keyLabels, implied)
-
-// sourceNodeTypeReference
-//     : LEFT_PAREN sourceNodeTypeAlias RIGHT_PAREN
-//     | LEFT_PAREN nodeTypeFiller? RIGHT_PAREN
-//     ;
-
-// destinationNodeTypeReference
-//     : LEFT_PAREN destinationNodeTypeAlias RIGHT_PAREN
-//     | LEFT_PAREN nodeTypeFiller? RIGHT_PAREN
-//     ;
-
-using NodeTypeReference = std::variant<NodeTypeAlias, NodeTypeFiller>;
+GQL_AST_STRUCT(ElementTypeFiller, keyLabels, implied)
 
 // nodeTypePattern
 //     : (nodeSynonym TYPE? nodeTypeName)? LEFT_PAREN localNodeTypeAlias?
 //     nodeTypeFiller? RIGHT_PAREN
 //     ;
-
-// NodeTypePattern is used both for nodeTypePattern and nodeTypePhrase.
-struct NodeTypePattern : NodeBase<NodeTypePattern> {
-  std::optional<NodeTypeName> typeName;
-  std::optional<LocalNodeTypeAlias> localAlias;
-  std::optional<NodeTypeFiller> filler;
-};
-GQL_AST_STRUCT(NodeTypePattern, typeName, localAlias, filler)
 
 // nodeTypePhraseFiller
 //     : nodeTypeName nodeTypeFiller?
@@ -161,38 +169,28 @@ GQL_AST_STRUCT(NodeTypePattern, typeName, localAlias, filler)
 //     : nodeTypePattern
 //     | nodeTypePhrase
 //     ;
-using NodeTypeSpecification = NodeTypePattern;
-
-// edgeTypeLabelSet
-//     : labelSetPhrase
-//     ;
-using EdgeTypeLabelSet = LabelSetPhrase;
-
-// edgeTypeImpliedContent
-//     : edgeTypeLabelSet
-//     | edgeTypePropertyTypes
-//     | edgeTypeLabelSet edgeTypePropertyTypes
-//     ;
-struct EdgeTypeImpliedContent : NodeBase<EdgeTypeImpliedContent> {
-  EdgeTypeLabelSet labels;
-  EdgeTypePropertyTypes properties;
+struct NodeTypeSpecification : NodeBase<NodeTypeSpecification> {
+  std::optional<NodeTypeName> typeName;
+  std::optional<LocalNodeTypeAlias> localAlias;
+  ElementTypeFiller filler;
 };
-GQL_AST_STRUCT(EdgeTypeImpliedContent, labels, properties)
+GQL_AST_STRUCT(NodeTypeSpecification, typeName, localAlias, filler)
+
+// sourceNodeTypeReference
+//     : LEFT_PAREN sourceNodeTypeAlias RIGHT_PAREN
+//     | LEFT_PAREN nodeTypeFiller? RIGHT_PAREN
+//     ;
+
+// destinationNodeTypeReference
+//     : LEFT_PAREN destinationNodeTypeAlias RIGHT_PAREN
+//     | LEFT_PAREN nodeTypeFiller? RIGHT_PAREN
+//     ;
+
+using NodeTypeReference = std::variant<NodeTypeAlias, ElementTypeFiller>;
 
 // edgeTypeKeyLabelSet
 //     : labelSetPhrase? IMPLIES
 //     ;
-using EdgeTypeKeyLabelSet = LabelSetPhrase;
-
-// edgeTypeFiller
-//     : edgeTypeKeyLabelSet edgeTypeImpliedContent?
-//     | edgeTypeImpliedContent
-//     ;
-struct EdgeTypeFiller : NodeBase<EdgeTypeFiller> {
-  EdgeTypeKeyLabelSet keyLabels;
-  std::optional<EdgeTypeImpliedContent> implied;
-};
-GQL_AST_STRUCT(EdgeTypeFiller, keyLabels, implied)
 
 // edgeTypePhraseFiller
 //     : edgeTypeName edgeTypeFiller?
@@ -203,21 +201,6 @@ GQL_AST_STRUCT(EdgeTypeFiller, keyLabels, implied)
 //     : (edgeKind? edgeSynonym TYPE? edgeTypeName)? (edgeTypePatternDirected |
 //     edgeTypePatternUndirected)
 //     ;
-
-// EdgeTypePattern is used both for edgeTypePhrase and edgeTypePattern.
-struct EdgeTypePattern : NodeBase<EdgeTypePattern> {
-  std::optional<EdgeTypeName> typeName;
-  bool isDirected = false;
-  std::optional<NodeTypeReference> source;
-  std::optional<EdgeTypeFiller> filler;
-  std::optional<NodeTypeReference> destination;
-};
-GQL_AST_STRUCT(EdgeTypePattern,
-               typeName,
-               isDirected,
-               source,
-               filler,
-               destination)
 
 // endpointPair
 //     : endpointPairDirected
@@ -236,7 +219,19 @@ GQL_AST_STRUCT(EdgeTypePattern,
 //     : edgeTypePattern
 //     | edgeTypePhrase
 //     ;
-using EdgeTypeSpecification = EdgeTypePattern;
+struct EdgeTypeSpecification : NodeBase<EdgeTypeSpecification> {
+  std::optional<EdgeTypeName> typeName;
+  bool isDirected = false;
+  std::optional<NodeTypeReference> source;
+  ElementTypeFiller filler;
+  std::optional<NodeTypeReference> destination;
+};
+GQL_AST_STRUCT(EdgeTypeSpecification,
+               typeName,
+               isDirected,
+               source,
+               filler,
+               destination)
 
 // elementTypeSpecification
 //     : nodeTypeSpecification

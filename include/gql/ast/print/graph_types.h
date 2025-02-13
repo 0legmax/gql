@@ -47,25 +47,25 @@ struct Printer<LabelSetSpecification> {
 };
 
 template <>
-struct Printer<NodeTypeImpliedContent> {
+struct Printer<ElementTypeImpliedContent> {
   template <typename OutputStream>
-  static void Print(OutputStream& os, const NodeTypeImpliedContent& v) {
+  static void Print(OutputStream& os, const ElementTypeImpliedContent& v) {
     if (!v.labels.labels.empty())
       os << ":" << NoBreak() << v.labels;
-    if (!v.properties.properties.empty())
+    if (!v.properties.properties.empty() || v.labels.labels.empty())
       os << v.properties;
   }
 };
 
 template <>
-struct Printer<NodeTypeFiller> {
+struct Printer<ElementTypeFiller> {
   template <typename OutputStream>
-  static void Print(OutputStream& os, const NodeTypeFiller& v) {
-    if (!v.keyLabels.labels.empty())
+  static void Print(OutputStream& os, const ElementTypeFiller& v) {
+    if (!v.keyLabels.labels.empty()) {
       os << ":" << NoBreak() << v.keyLabels;
-    os << "IMPLIES";
-    if (v.implied)
-      os << *v.implied;
+      os << "IMPLIES";
+    }
+    os << v.implied;
   }
 };
 
@@ -82,9 +82,9 @@ struct Printer<std::optional<NodeTypeReference>> {
 };
 
 template <>
-struct Printer<NodeTypePattern> {
+struct Printer<NodeTypeSpecification> {
   template <typename OutputStream>
-  static void Print(OutputStream& os, const NodeTypePattern& v) {
+  static void Print(OutputStream& os, const NodeTypeSpecification& v) {
     if (v.typeName)
       os << "NODE TYPE" << *v.typeName;
     os << "(" << v.localAlias << v.filler << ")";
@@ -92,34 +92,17 @@ struct Printer<NodeTypePattern> {
 };
 
 template <>
-struct Printer<EdgeTypeImpliedContent> {
+struct Printer<EdgeTypeSpecification> {
   template <typename OutputStream>
-  static void Print(OutputStream& os, const EdgeTypeImpliedContent& v) {
-    if (!v.labels.labels.empty())
-      os << ":" << NoBreak() << v.labels;
-    if (!v.properties.properties.empty())
-      os << v.properties;
-  }
-};
+  static void Print(OutputStream& os, const EdgeTypeSpecification& v) {
+    const ast::NodeTypeAlias *sourceAlias = nullptr, *destAlias = nullptr;
+    if (v.source)
+      sourceAlias = std::get_if<ast::NodeTypeAlias>(&v.source.value());
+    if (v.destination)
+      destAlias = std::get_if<ast::NodeTypeAlias>(&v.destination.value());
 
-template <>
-struct Printer<EdgeTypeFiller> {
-  template <typename OutputStream>
-  static void Print(OutputStream& os, const EdgeTypeFiller& v) {
-    if (!v.keyLabels.labels.empty())
-      os << ":" << NoBreak() << v.keyLabels;
-    os << "IMPLIES";
-    if (v.implied)
-      os << *v.implied;
-  }
-};
-
-template <>
-struct Printer<EdgeTypePattern> {
-  template <typename OutputStream>
-  static void Print(OutputStream& os, const EdgeTypePattern& v) {
-    if (v.filler) {
-      // edgeTypePattern
+    if (!v.typeName || !v.filler.MaybeNotSet() || !sourceAlias || !destAlias) {
+      // Print as edgeTypePattern.
       if (v.typeName)
         os << "EDGE TYPE" << v.typeName;
       if (v.isDirected) {
@@ -128,17 +111,7 @@ struct Printer<EdgeTypePattern> {
         os << v.source << "~[" << v.filler << "]~" << v.destination;
       }
     } else {
-      // edgeTypePhrase
-      const ast::NodeTypeAlias *sourceAlias = nullptr, *destAlias = nullptr;
-      if (v.source)
-        sourceAlias = std::get_if<ast::NodeTypeAlias>(&v.source.value());
-      if (v.destination)
-        destAlias = std::get_if<ast::NodeTypeAlias>(&v.destination.value());
-      if (!sourceAlias || !destAlias) {
-        GQL_ASSERT(false);
-        return;
-      }
-
+      // Print as edgeTypePhrase.
       os << (v.isDirected ? "DIRECTED" : "UNDIRECTED") << "EDGE TYPE"
          << v.typeName << "CONNECTING" << "(" << *sourceAlias
          << (v.isDirected ? "->" : "~") << *destAlias << ")";

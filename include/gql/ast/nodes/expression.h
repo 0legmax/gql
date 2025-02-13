@@ -88,7 +88,8 @@ enum class TrimSpecification { LEADING, TRAILING, BOTH };
 //     ;
 struct TrimSingleCharacterOrByteString
     : NodeBase<TrimSingleCharacterOrByteString> {
-  TrimSpecification specification = TrimSpecification::BOTH;
+  TrimSpecification specification =
+      TrimSpecification::BOTH;  // BOTH is implicit value.
   std::optional<ValueExpressionPtr> trimString;
   ValueExpressionPtr source;
 };
@@ -127,7 +128,7 @@ GQL_AST_STRUCT(TrimMultiCharacterCharacterString, type, source, trimString)
 //     ;
 struct NormalizeCharacterString : NodeBase<NormalizeCharacterString> {
   ValueExpressionPtr expr;
-  NormalForm form = NormalForm::NFC;
+  NormalForm form = NormalForm::NFC;  // NFC is implicit value.
 };
 GQL_AST_STRUCT(NormalizeCharacterString, expr, form)
 
@@ -307,30 +308,24 @@ struct WhenOperand : NodeBase<WhenOperand> {
     CompOp op = CompOp::Equals;
     ValueExpressionPtr value;
   };
-  struct IsNull {
-    bool notNull = false;
-  };
+  struct IsNull {};
+  struct IsDirected {};
   struct IsTyped {
-    bool isNot = false;
     ValueType type;
   };
   struct IsNormalized {
-    bool isNot = false;
     NormalForm form = NormalForm::NFC;
   };
-  struct IsDirected {
-    bool isNot = false;
-  };
   struct IsLabeled {
-    bool isNot = false;
     LabelExpression label;
   };
   struct IsSourceOrDestinationOf {
-    bool isNot = false;
     enum class Direction { Source, Destination };
     Direction direction = Direction::Source;
     EdgeReference edge;
   };
+
+  bool isNot = false;
   std::variant<ValueExpressionPtr,
                Comparison,
                IsNull,
@@ -341,14 +336,14 @@ struct WhenOperand : NodeBase<WhenOperand> {
                IsSourceOrDestinationOf>
       option;
 };
-GQL_AST_STRUCT(WhenOperand, option)
+GQL_AST_STRUCT(WhenOperand, isNot, option)
 GQL_AST_STRUCT(WhenOperand::Comparison, op, value)
-GQL_AST_STRUCT(WhenOperand::IsNull, notNull)
-GQL_AST_STRUCT(WhenOperand::IsTyped, isNot, type)
-GQL_AST_STRUCT(WhenOperand::IsNormalized, isNot, form)
-GQL_AST_STRUCT(WhenOperand::IsDirected, isNot)
-GQL_AST_STRUCT(WhenOperand::IsLabeled, isNot, label)
-GQL_AST_STRUCT(WhenOperand::IsSourceOrDestinationOf, isNot, direction, edge)
+GQL_AST_STRUCT(WhenOperand::IsTyped, type)
+GQL_AST_STRUCT(WhenOperand::IsNormalized, form)
+GQL_AST_STRUCT(WhenOperand::IsLabeled, label)
+GQL_AST_STRUCT(WhenOperand::IsSourceOrDestinationOf, direction, edge)
+GQL_AST_VALUE(WhenOperand::IsNull)
+GQL_AST_VALUE(WhenOperand::IsDirected)
 
 // caseAbbreviation
 //     : NULLIF LEFT_PAREN valueExpression COMMA valueExpression RIGHT_PAREN
@@ -478,7 +473,7 @@ enum class SetQuantifier { DISTINCT, ALL };
 //     ;
 struct GeneralSetFunction : NodeBase<GeneralSetFunction> {
   GeneralSetFunctionType type = GeneralSetFunctionType::AVG;
-  std::optional<SetQuantifier> quantifier;
+  SetQuantifier quantifier = SetQuantifier::ALL;  // ALL is implicit value.
   ValueExpressionPtr value;
 };
 GQL_AST_STRUCT(GeneralSetFunction, type, quantifier, value)
@@ -497,7 +492,7 @@ using IndependentValueExpression = NumericValueExpression;
 //     ;
 struct BinarySetFunction : NodeBase<BinarySetFunction> {
   BinarySetFunctionType type = BinarySetFunctionType::PERCENTILE_CONT;
-  std::optional<SetQuantifier> quantifier;
+  SetQuantifier quantifier = SetQuantifier::ALL;  // ALL is implicit value.
   NumericValueExpression dependentValue;
   IndependentValueExpression independent;
 };
@@ -704,7 +699,9 @@ enum class CurrentDateTimeFunction {
 struct DatetimeSubtraction : NodeBase<DatetimeSubtraction> {
   DatetimeValueExpression param1;
   DatetimeValueExpression param2;
-  std::optional<TemporalDurationQualifier> qualifier;
+  TemporalDurationQualifier qualifier =
+      TemporalDurationQualifier::DayToSecond;  // DAY TO SECOND is implicit
+                                               // value.
 };
 GQL_AST_STRUCT(DatetimeSubtraction, param1, param2, qualifier)
 
@@ -1052,7 +1049,7 @@ struct ValueExpression : NodeBase<ValueExpression> {
       ByteLength,
       PathLength,
       Cardinality,
-      Size,
+      Size,  // Same as Cardinality but applies only to lists.
       Elements,
     };
 
