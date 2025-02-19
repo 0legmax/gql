@@ -394,12 +394,6 @@ struct Printer<DateTimeFunction> {
   }
 };
 
-GQL_AST_ENUM_PRINTER_LITERAL(CurrentDateTimeFunction,
-                             LOCAL_TIMESTAMP,
-                             CURRENT_TIMESTAMP,
-                             CURRENT_TIME,
-                             CURRENT_DATE)
-
 template <>
 struct Printer<DatetimeSubtraction> {
   template <typename OutputStream>

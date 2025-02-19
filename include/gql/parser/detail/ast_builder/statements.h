@@ -717,9 +717,11 @@ struct ForStatement : NodeBaseBuilder {
 struct OrderingSpecification {
   void OnToken(antlr4::Token* token) {
     switch (token->getType()) {
+      case GQLParser::ASC:
       case GQLParser::ASCENDING:
         *value = ast::OrderingSpecification::ASCENDING;
         break;
+      case GQLParser::DESC:
       case GQLParser::DESCENDING:
         *value = ast::OrderingSpecification::DESCENDING;
         break;
@@ -1465,8 +1467,6 @@ struct PrimitiveDataModifyingStatement {
 };
 
 struct SimpleDataAccessingStatement {
-  auto EnterSimpleDataAccessingStatement() { return this; }
-
   SimpleQueryStatement EnterSimpleQueryStatement() {
     return {&value->emplace<ast::SimpleQueryStatement>()};
   }
@@ -1484,6 +1484,14 @@ struct SimpleDataAccessingStatement {
   ast::SimpleDataAccessingStatement* value;
 };
 
+struct SimpleLinearDataAccessingStatement {
+  SimpleDataAccessingStatement EnterSimpleDataAccessingStatement() {
+    return {&value->emplace_back()};
+  }
+
+  std::vector<ast::SimpleDataAccessingStatement>* value;
+};
+
 struct LinearDataModifyingStatementBody : NodeBaseBuilder {
   LinearDataModifyingStatementBody(ast::LinearDataModifyingStatementBody* node,
                                    std::optional<ast::UseGraphClause>* useGraph)
@@ -1491,8 +1499,8 @@ struct LinearDataModifyingStatementBody : NodeBaseBuilder {
 
   GraphExpression EnterUseGraphClause() { return {&useGraph->emplace()}; }
 
-  SimpleDataAccessingStatement EnterSimpleLinearDataAccessingStatement() {
-    return {&value->statements.emplace_back()};
+  SimpleLinearDataAccessingStatement EnterSimpleLinearDataAccessingStatement() {
+    return {&value->statements};
   }
 
   PrimitiveResultStatement EnterPrimitiveResultStatement() {

@@ -39,7 +39,7 @@ struct Printer<CatalogSchemaReference> {
   template <typename OutputStream>
   static void Print(OutputStream& os, const CatalogSchemaReference& v) {
     if (v.levelUpCount > 0) {
-      for (int i = 0; i < v.levelUpCount; i++)
+      for (unsigned i = 0; i < v.levelUpCount; i++)
         os << "../" << NoBreak();
     } else {
       os << "/" << NoBreak();

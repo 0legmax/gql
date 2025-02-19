@@ -317,6 +317,12 @@ struct GeneralSetFunction : NodeBaseBuilder {
       case GQLParser::COLLECT_LIST:
         value->type = ast::GeneralSetFunctionType::COLLECT_LIST;
         break;
+      case GQLParser::STDDEV_SAMP:
+        value->type = ast::GeneralSetFunctionType::STDDEV_SAMP;
+        break;
+      case GQLParser::STDDEV_POP:
+        value->type = ast::GeneralSetFunctionType::STDDEV_POP;
+        break;
     }
   }
 
@@ -871,30 +877,22 @@ struct DatetimeValueFunction : NodeBaseBuilder {
 
   void OnToken(antlr4::Token* token) {
     switch (token->getType()) {
-      case GQLParser::LOCAL_TIMESTAMP:
-        *value = ast::CurrentDateTimeFunction::LOCAL_TIMESTAMP;
-        break;
-      case GQLParser::CURRENT_TIMESTAMP:
-        *value = ast::CurrentDateTimeFunction::CURRENT_TIMESTAMP;
-        break;
-      case GQLParser::CURRENT_TIME:
-        *value = ast::CurrentDateTimeFunction::CURRENT_TIME;
-        break;
-      case GQLParser::CURRENT_DATE:
-        *value = ast::CurrentDateTimeFunction::CURRENT_DATE;
-        break;
       case GQLParser::LOCAL_TIME:
         SetDateTimeFunction(ast::DateTimeFunction::Function::LOCAL_TIME);
         break;
+      case GQLParser::CURRENT_TIME:
       case GQLParser::ZONED_TIME:
         SetDateTimeFunction(ast::DateTimeFunction::Function::ZONED_TIME);
         break;
       case GQLParser::ZONED_DATETIME:
+      case GQLParser::CURRENT_TIMESTAMP:
         SetDateTimeFunction(ast::DateTimeFunction::Function::ZONED_DATETIME);
         break;
+      case GQLParser::LOCAL_TIMESTAMP:
       case GQLParser::LOCAL_DATETIME:
         SetDateTimeFunction(ast::DateTimeFunction::Function::LOCAL_DATETIME);
         break;
+      case GQLParser::CURRENT_DATE:
       case GQLParser::DATE:
         SetDateTimeFunction(ast::DateTimeFunction::Function::DATE);
         break;

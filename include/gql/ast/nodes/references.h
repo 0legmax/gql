@@ -55,7 +55,7 @@ using SimpleDirectoryPath = std::vector<DirectoryName>;
 //     | relativeDirectoryPath schemaName
 //     ;
 struct CatalogSchemaReference : NodeBase<CatalogSchemaReference> {
-  int levelUpCount = 0;  // Zero means absolute path
+  unsigned levelUpCount = 0;  // Zero means absolute path
   SimpleDirectoryPath path;
   std::optional<SchemaName> name;
 };

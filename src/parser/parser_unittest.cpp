@@ -68,9 +68,14 @@ TEST(ParseNode, UnsignedNumericLiteral) {
   EXPECT_EQ(numberOfSyntaxErrors, 0);
   EXPECT_DOUBLE_EQ(value, 123);
 
-  value = ParseUnsignedNumericLiteral("0x1234ABCD", &numberOfSyntaxErrors);
+  value = ParseUnsignedNumericLiteral("0x1234abCD", &numberOfSyntaxErrors);
   EXPECT_EQ(numberOfSyntaxErrors, 0);
   EXPECT_DOUBLE_EQ(value, 0x1234ABCD);
+
+  value = ParseUnsignedNumericLiteral("0X1234", &numberOfSyntaxErrors);
+  EXPECT_EQ(numberOfSyntaxErrors, 0);
+  // Not entire string is parsed, but there is no check for such case yet.
+  EXPECT_DOUBLE_EQ(value, 0);
 
   value = ParseUnsignedNumericLiteral("0b010101010101001010101111",
                                       &numberOfSyntaxErrors);
@@ -143,6 +148,9 @@ TEST(ParseNode, CharacterStringLiteral) {
                                       &numberOfSyntaxErrors);
   EXPECT_EQ(numberOfSyntaxErrors, 0);
   EXPECT_EQ(value, u8"123\U0001f34d321\U0001f34d");
+
+  value = ParseCharacterStringLiteral(R"("\T")", &numberOfSyntaxErrors);
+  EXPECT_GT(numberOfSyntaxErrors, 0);
 }
 
 TEST(ParseNode, ClosedDynamicUnionType1) {

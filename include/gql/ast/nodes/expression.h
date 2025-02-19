@@ -670,13 +670,6 @@ GQL_AST_STRUCT(DateTimeFunction, function, parameters)
 //     | LOCAL_DATETIME LEFT_PAREN datetimeFunctionParameters? RIGHT_PAREN
 //     ;
 
-enum class CurrentDateTimeFunction {
-  LOCAL_TIMESTAMP,
-  CURRENT_TIMESTAMP,
-  CURRENT_TIME,
-  CURRENT_DATE
-};
-
 // datetimeValueFunction
 //     : dateFunction
 //     | timeFunction
@@ -743,7 +736,6 @@ GQL_AST_STRUCT(DatetimeSubtraction, param1, param2, qualifier)
 //    ;
 using ValueFunction = std::variant<DatetimeSubtraction,
                                    DateTimeFunction,
-                                   CurrentDateTimeFunction,
                                    SubCharacterOrByteString,
                                    TrimSingleCharacterOrByteString,
                                    FoldCharacterString,
