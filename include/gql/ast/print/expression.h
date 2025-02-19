@@ -527,90 +527,117 @@ struct Printer<ast::ValueExpression::Unary> {
       case ast::ValueExpression::Unary::Op::BoolNot:
         os << "NOT" << PrintWithParensIf<BooleanTestRequiresParens>(v.expr);
         break;
-      default: {
-        switch (v.op) {
-          case ast::ValueExpression::Unary::Op::Sin:
-            os << "SIN";
-            break;
-          case ast::ValueExpression::Unary::Op::Cos:
-            os << "COS";
-            break;
-          case ast::ValueExpression::Unary::Op::Tan:
-            os << "TAN";
-            break;
-          case ast::ValueExpression::Unary::Op::Cot:
-            os << "COT";
-            break;
-          case ast::ValueExpression::Unary::Op::Sinh:
-            os << "SINH";
-            break;
-          case ast::ValueExpression::Unary::Op::Cosh:
-            os << "COSH";
-            break;
-          case ast::ValueExpression::Unary::Op::Tanh:
-            os << "TANH";
-            break;
-          case ast::ValueExpression::Unary::Op::Asin:
-            os << "ASIN";
-            break;
-          case ast::ValueExpression::Unary::Op::Acos:
-            os << "ACOS";
-            break;
-          case ast::ValueExpression::Unary::Op::Atan:
-            os << "ATAN";
-            break;
-          case ast::ValueExpression::Unary::Op::Degrees:
-            os << "DEGREES";
-            break;
-          case ast::ValueExpression::Unary::Op::Radians:
-            os << "RADIANS";
-            break;
-          case ast::ValueExpression::Unary::Op::Floor:
-            os << "FLOOR";
-            break;
-          case ast::ValueExpression::Unary::Op::Ceiling:
-            os << "CEILING";
-            break;
-          case ast::ValueExpression::Unary::Op::SquareRoot:
-            os << "SQRT";
-            break;
-          case ast::ValueExpression::Unary::Op::Exponential:
-            os << "EXP";
-            break;
-          case ast::ValueExpression::Unary::Op::NaturalLogarithm:
-            os << "LN";
-            break;
-          case ast::ValueExpression::Unary::Op::CommonLogarithm:
-            os << "LOG10";
-            break;
-          case ast::ValueExpression::Unary::Op::AbsoluteValue:
-            os << "ABS";
-            break;
-          case ast::ValueExpression::Unary::Op::CharLength:
-            os << "CHAR_LENGTH";
-            break;
-          case ast::ValueExpression::Unary::Op::ByteLength:
-            os << "BYTE_LENGTH";
-            break;
-          case ast::ValueExpression::Unary::Op::PathLength:
-            os << "PATH_LENGTH";
-            break;
-          case ast::ValueExpression::Unary::Op::Cardinality:
-            os << "CARDINALITY";
-            break;
-          case ast::ValueExpression::Unary::Op::Size:
-            os << "SIZE";
-            break;
-          case ast::ValueExpression::Unary::Op::Elements:
-            os << "ELEMENTS";
-            break;
-          case ast::ValueExpression::Unary::Op::Positive:
-          case ast::ValueExpression::Unary::Op::Negative:
-          case ast::ValueExpression::Unary::Op::BoolNot:
-            break;
-        }
-        os << NoBreak() << "(" << v.expr << ")";
-      }
+      case ast::ValueExpression::Unary::Op::Sin:
+        os << "SIN("
+           << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.expr)
+           << ")";
+        break;
+      case ast::ValueExpression::Unary::Op::Cos:
+        os << "COS("
+           << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.expr)
+           << ")";
+        break;
+      case ast::ValueExpression::Unary::Op::Tan:
+        os << "TAN("
+           << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.expr)
+           << ")";
+        break;
+      case ast::ValueExpression::Unary::Op::Cot:
+        os << "COT("
+           << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.expr)
+           << ")";
+        break;
+      case ast::ValueExpression::Unary::Op::Sinh:
+        os << "SINH("
+           << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.expr)
+           << ")";
+        break;
+      case ast::ValueExpression::Unary::Op::Cosh:
+        os << "COSH("
+           << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.expr)
+           << ")";
+        break;
+      case ast::ValueExpression::Unary::Op::Tanh:
+        os << "TANH("
+           << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.expr)
+           << ")";
+        break;
+      case ast::ValueExpression::Unary::Op::Asin:
+        os << "ASIN("
+           << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.expr)
+           << ")";
+        break;
+      case ast::ValueExpression::Unary::Op::Acos:
+        os << "ACOS("
+           << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.expr)
+           << ")";
+        break;
+      case ast::ValueExpression::Unary::Op::Atan:
+        os << "ATAN("
+           << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.expr)
+           << ")";
+        break;
+      case ast::ValueExpression::Unary::Op::Degrees:
+        os << "DEGREES("
+           << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.expr)
+           << ")";
+        break;
+      case ast::ValueExpression::Unary::Op::Radians:
+        os << "RADIANS("
+           << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.expr)
+           << ")";
+        break;
+      case ast::ValueExpression::Unary::Op::Floor:
+        os << "FLOOR("
+           << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.expr)
+           << ")";
+        break;
+      case ast::ValueExpression::Unary::Op::Ceiling:
+        os << "CEILING("
+           << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.expr)
+           << ")";
+        break;
+      case ast::ValueExpression::Unary::Op::SquareRoot:
+        os << "SQRT("
+           << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.expr)
+           << ")";
+        break;
+      case ast::ValueExpression::Unary::Op::Exponential:
+        os << "EXP("
+           << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.expr)
+           << ")";
+        break;
+      case ast::ValueExpression::Unary::Op::NaturalLogarithm:
+        os << "LN("
+           << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.expr)
+           << ")";
+        break;
+      case ast::ValueExpression::Unary::Op::CommonLogarithm:
+        os << "LOG10("
+           << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.expr)
+           << ")";
+        break;
+      case ast::ValueExpression::Unary::Op::AbsoluteValue:
+        os << "ABS(" << v.expr << ")";
+        break;
+      case ast::ValueExpression::Unary::Op::CharLength:
+        os << "CHAR_LENGTH(" << v.expr << ")";
+        break;
+      case ast::ValueExpression::Unary::Op::ByteLength:
+        os << "BYTE_LENGTH(" << v.expr << ")";
+        break;
+      case ast::ValueExpression::Unary::Op::PathLength:
+        os << "PATH_LENGTH(" << v.expr << ")";
+        break;
+      case ast::ValueExpression::Unary::Op::Cardinality:
+        os << "CARDINALITY(" << v.expr << ")";
+        break;
+      case ast::ValueExpression::Unary::Op::Size:
+        os << "SIZE(" << v.expr << ")";
+        break;
+      case ast::ValueExpression::Unary::Op::Elements:
+        os << "ELEMENTS(" << v.expr << ")";
+        break;
     }
   }
 };
@@ -653,13 +680,25 @@ struct Printer<ast::ValueExpression::Binary> {
            << "XOR" << PrintWithParensIf<BooleanTermRequiresParens>(v.right);
         break;
       case ast::ValueExpression::Binary::Op::Power:
-        os << "POWER(" << v.left << "," << v.right << ")";
+        os << "POWER("
+           << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.left)
+           << ","
+           << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.right)
+           << ")";
         break;
       case ast::ValueExpression::Binary::Op::GeneralLogarithm:
-        os << "LOG(" << v.left << "," << v.right << ")";
+        os << "LOG("
+           << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.left)
+           << ","
+           << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.right)
+           << ")";
         break;
       case ast::ValueExpression::Binary::Op::Modulus:
-        os << "MOD(" << v.left << "," << v.right << ")";
+        os << "MOD("
+           << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.left)
+           << ","
+           << PrintWithParensIf<NumericValueExpressionRequiresParens>(v.right)
+           << ")";
         break;
       case ast::ValueExpression::Binary::Op::TrimList:
         os << "TRIM(" << v.left << "," << v.right << ")";

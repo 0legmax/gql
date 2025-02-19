@@ -15,9 +15,19 @@
 #include <gtest/gtest.h>
 
 #include "generated/GQLLexer.h"
+#include "generated/GQLParser.h"
 #include "gql/ast/print.h"
-#include "gql/parser/detail/GQLParser.h"
-#include "gql/parser/detail/ast_builder/ast.h"
+#include "gql/parser/error.h"
+
+namespace gql::parser::ast_builder {
+void BuildAST(GQLParser::UnsignedNumericLiteralContext* ctx,
+              ast::UnsignedNumericLiteral& value);
+void BuildAST(GQLParser::CharacterStringLiteralContext* ctx,
+              std::string& value);
+void BuildAST(GQLParser::ValueTypeContext* ctx, ast::ValueType& value);
+void BuildAST(GQLParser::ValueExpressionContext* ctx,
+              ast::ValueExpression& value);
+}  // namespace gql::parser::ast_builder
 
 namespace gql {
 
@@ -43,8 +53,7 @@ auto ParseUnsignedNumericLiteral(const char* query,
   ParserWrapper p(query);
 
   ast::UnsignedNumericLiteral value;
-  parser::ast_builder::UnsignedNumericLiteral builder{&value};
-  p.parser.unsignedNumericLiteral(&builder);
+  parser::ast_builder::BuildAST(p.parser.unsignedNumericLiteral(), value);
   *numberOfSyntaxErrors = p.parser.getNumberOfSyntaxErrors();
   return value;
 }
@@ -54,8 +63,7 @@ auto ParseCharacterStringLiteral(const char* query,
   ParserWrapper p(query);
 
   std::string value;
-  parser::ast_builder::CharacterStringLiteral builder{&value};
-  p.parser.characterStringLiteral(&builder);
+  parser::ast_builder::BuildAST(p.parser.characterStringLiteral(), value);
   *numberOfSyntaxErrors = p.parser.getNumberOfSyntaxErrors();
   return value;
 }
@@ -157,8 +165,7 @@ TEST(ParseNode, ClosedDynamicUnionType1) {
   ParserWrapper p(R"(ANY< FLOAT128 >)");
 
   ast::ValueType value;
-  parser::ast_builder::ValueType builder{&value};
-  p.parser.valueType(&builder);
+  parser::ast_builder::BuildAST(p.parser.valueType(), value);
   EXPECT_EQ(p.parser.getNumberOfSyntaxErrors(), 0);
 
   const auto* type = std::get_if<ast::SimpleNumericType>(&value.typeOption);
@@ -170,8 +177,7 @@ TEST(ParseNode, ClosedDynamicUnionType2) {
   ParserWrapper p(R"(ANY< INT16 | INT32 >)");
 
   ast::ValueType value;
-  parser::ast_builder::ValueType builder{&value};
-  p.parser.valueType(&builder);
+  parser::ast_builder::BuildAST(p.parser.valueType(), value);
   EXPECT_EQ(p.parser.getNumberOfSyntaxErrors(), 0);
 
   const auto* unionType = std::get_if<ast::ValueType::Union>(&value.typeOption);
@@ -192,8 +198,7 @@ TEST(ParseNode, ClosedDynamicUnionType3) {
   ParserWrapper p(R"(ANY< INT16 | INT32 | INT64 >)");
 
   ast::ValueType value;
-  parser::ast_builder::ValueType builder{&value};
-  p.parser.valueType(&builder);
+  parser::ast_builder::BuildAST(p.parser.valueType(), value);
   EXPECT_EQ(p.parser.getNumberOfSyntaxErrors(), 0);
 
   const auto* unionType = std::get_if<ast::ValueType::Union>(&value.typeOption);
@@ -218,8 +223,7 @@ TEST(ParseAndPrintNode, BooleanValueExpression1) {
   ParserWrapper p("1 OR 2 AND 3 OR 4");
 
   ast::ValueExpression value;
-  parser::ast_builder::ValueExpression builder{&value};
-  p.parser.valueExpression(&builder);
+  parser::ast_builder::BuildAST(p.parser.valueExpression(), value);
 
   EXPECT_EQ(ast::PrintTree(value), "1 OR 2 AND 3 OR 4");
 }
@@ -228,8 +232,7 @@ TEST(ParseAndPrintNode, BooleanValueExpression2) {
   ParserWrapper p("1 AND 2 OR 3 AND 4");
 
   ast::ValueExpression value;
-  parser::ast_builder::ValueExpression builder{&value};
-  p.parser.valueExpression(&builder);
+  parser::ast_builder::BuildAST(p.parser.valueExpression(), value);
 
   EXPECT_EQ(ast::PrintTree(value), "1 AND 2 OR 3 AND 4");
 }
@@ -238,8 +241,7 @@ TEST(ParseAndPrintNode, BooleanValueExpression3) {
   ParserWrapper p("1 AND (2 OR 3) AND 4");
 
   ast::ValueExpression value;
-  parser::ast_builder::ValueExpression builder{&value};
-  p.parser.valueExpression(&builder);
+  parser::ast_builder::BuildAST(p.parser.valueExpression(), value);
 
   EXPECT_EQ(ast::PrintTree(value), "1 AND (2 OR 3) AND 4");
 }
@@ -248,8 +250,7 @@ TEST(ParseAndPrintNode, NumericValueExpression1) {
   ParserWrapper p("1 + 2 * 3 + 4");
 
   ast::ValueExpression value;
-  parser::ast_builder::ValueExpression builder{&value};
-  p.parser.valueExpression(&builder);
+  parser::ast_builder::BuildAST(p.parser.valueExpression(), value);
 
   EXPECT_EQ(ast::PrintTree(value), "1 + 2 * 3 + 4");
 }
@@ -258,8 +259,7 @@ TEST(ParseAndPrintNode, NumericValueExpression2) {
   ParserWrapper p("1 * 2 + 3 * 4");
 
   ast::ValueExpression value;
-  parser::ast_builder::ValueExpression builder{&value};
-  p.parser.valueExpression(&builder);
+  parser::ast_builder::BuildAST(p.parser.valueExpression(), value);
 
   EXPECT_EQ(ast::PrintTree(value), "1 * 2 + 3 * 4");
 }
@@ -268,8 +268,7 @@ TEST(ParseAndPrintNode, NumericValueExpression3) {
   ParserWrapper p("1 * (2 + 3) * 4");
 
   ast::ValueExpression value;
-  parser::ast_builder::ValueExpression builder{&value};
-  p.parser.valueExpression(&builder);
+  parser::ast_builder::BuildAST(p.parser.valueExpression(), value);
 
   EXPECT_EQ(ast::PrintTree(value), "1 * (2 + 3) * 4");
 }

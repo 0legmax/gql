@@ -14,21 +14,19 @@ foreach(i ${GQL_HEADER_FILES})
   source_group(${_group} FILES ${_name})
 endforeach()
 
-file(GLOB GQL_PARSER_SOURCES
-  "parser.cpp"
-  "generated/*.cpp"
-)
-
 add_library(gql_parser STATIC
-  ${GQL_PARSER_SOURCES}
   ${GQL_HEADERS}
+  "ast_builder.cpp"
+  "generated/GQLLexer.cpp"
+  "generated/GQLParser.cpp"
+  "parser.cpp"
+  "unescape_string.cpp"
 )
 
 target_include_directories(gql_parser
   PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../include
   PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}
-  ${CMAKE_CURRENT_SOURCE_DIR}/../../include/gql/parser/detail
 )
 
 target_link_libraries(gql_parser antlr4_static)

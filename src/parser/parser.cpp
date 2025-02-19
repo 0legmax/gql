@@ -16,10 +16,12 @@
 
 #include <cstdio>
 
+#include "ast_builder.h"
 #include "generated/GQLLexer.h"
+#include "generated/GQLParser.h"
 #include "gql/ast/ast.h"
-#include "gql/parser/detail/GQLParser.h"
-#include "gql/parser/detail/ast_builder/ast.h"
+
+#define GQL_ASSERT(condition) assert(condition)
 
 namespace gql::parser {
 
@@ -75,13 +77,11 @@ ast::GQLProgram ParseProgram(const char* query, ParserCache* cache) {
         cache->impl_->predictionContextCache_));
   }
 
-  parser.setBuildParseTree(false);
   parser.removeErrorListeners();
   parser.addErrorListener(&errorListener);
 
   ast::GQLProgram program;
-  parser::ast_builder::GQLProgram builder{&program};
-  parser.gqlProgram(&builder);
+  ast_builder::BuildAST(parser.gqlProgram(), program);
   GQL_ASSERT(parser.getNumberOfSyntaxErrors() == 0);
   return program;
 }
@@ -117,149 +117,5 @@ OutOfRangeError::OutOfRangeError(size_t line,
                   col,
                   msg,
                   token) {}
-
-namespace {
-
-struct StructWithExitRule {
-  void ExitRule(int, bool) {}
-};
-
-struct StructWithOnToken {
-  void OnToken(antlr4::Token*) {}
-};
-
-static_assert(GQLParser::has_ExitRule<StructWithExitRule>::value);
-static_assert(!GQLParser::has_ExitRule<StructWithOnToken>::value);
-static_assert(GQLParser::has_OnToken<StructWithOnToken>::value);
-static_assert(!GQLParser::has_OnToken<StructWithExitRule>::value);
-
-static_assert(GQLParser::has_ExitRule<StructWithExitRule*>::value);
-static_assert(!GQLParser::has_ExitRule<StructWithOnToken*>::value);
-static_assert(GQLParser::has_OnToken<StructWithOnToken*>::value);
-static_assert(!GQLParser::has_OnToken<StructWithExitRule*>::value);
-
-void Utf32ToUtf8(char* buffer, unsigned ch32) {
-  int i = 0;
-  if (ch32 < 0x80) {
-    buffer[i++] = (char)ch32;
-  } else if (ch32 < 0x800) {
-    buffer[i++] = (char)(0xc0 + (ch32 >> 6));
-    buffer[i++] = (char)(0x80 + (ch32 & 0x3f));
-  } else if (ch32 < 0x10000) {
-    buffer[i++] = (char)(0xe0 + (ch32 >> 12));
-    buffer[i++] = (char)(0x80 + ((ch32 >> 6) & 0x3f));
-    buffer[i++] = (char)(0x80 + ((ch32) & 0x3f));
-  } else if (ch32 <= 0x10FFFF) {
-    buffer[i++] = (char)(0xf0 + (ch32 >> 18));
-    buffer[i++] = (char)(0x80 + ((ch32 >> 12) & 0x3f));
-    buffer[i++] = (char)(0x80 + ((ch32 >> 6) & 0x3f));
-    buffer[i++] = (char)(0x80 + ((ch32) & 0x3f));
-  }
-  buffer[i] = 0;
-}
-
-}  // namespace
-
-namespace ast_builder {
-
-// static
-std::string CharacterStringLiteralBase::UnescapeString(std::string str) {
-  if (str[0] == '@') {
-    return str.substr(2, str.size() - 3);
-  }
-
-  std::string unescaped;
-  unescaped.reserve(str.size());
-  char quote = str.front();
-  for (size_t i = 1; i < str.size() - 1; ++i) {
-    if (str[i] == quote) {
-      GQL_ASSERT(str[i + 1] == quote);
-      unescaped += str[i];
-      i++;
-    } else if (str[i] == '\\') {
-      i++;
-      if (i + 1 >= str.size()) {
-        GQL_ASSERT(false);
-        continue;
-      }
-
-      switch (str[i]) {
-        case 'n':
-          unescaped += '\n';
-          break;
-        case 'r':
-          unescaped += '\r';
-          break;
-        case 't':
-          unescaped += '\t';
-          break;
-        case 'b':
-          unescaped += '\b';
-          break;
-        case 'f':
-          unescaped += '\f';
-          break;
-        case '"':
-          unescaped += '"';
-          break;
-        case '\'':
-          unescaped += '\'';
-          break;
-        case '`':
-          unescaped += '`';
-          break;
-        case '\\':
-          unescaped += '\\';
-          break;
-        case 'u': {
-          if (i + 5 >= str.size()) {
-            GQL_ASSERT(false);
-            continue;
-          }
-          unsigned ch32;
-          if (std::sscanf(&str[i + 1], "%4x", &ch32) == 0) {
-            GQL_ASSERT(false);
-            continue;
-          }
-
-          char buffer[10];
-          Utf32ToUtf8(buffer, ch32);
-          unescaped += buffer;
-
-          i += 4;
-          break;
-        }
-        case 'U': {
-          if (i + 7 >= str.size()) {
-            GQL_ASSERT(false);
-            continue;
-          }
-
-          unsigned ch32;
-          if (std::sscanf(&str[i + 1], "%6x", &ch32) == 0) {
-            GQL_ASSERT(false);
-            continue;
-          }
-
-          char buffer[10];
-          Utf32ToUtf8(buffer, ch32);
-          unescaped += buffer;
-
-          i += 6;
-          break;
-        }
-        default:
-          GQL_ASSERT(false);
-          break;
-      }
-    } else {
-      unescaped += str[i];
-    }
-  }
-
-  return unescaped;
-}
-
-}  // namespace ast_builder
 
 }  // namespace gql::parser
